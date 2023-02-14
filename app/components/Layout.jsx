@@ -3,27 +3,40 @@ import {
   Drawer,
   useDrawer,
   Text,
-  Input,
-  IconAccount,
-  IconBag,
-  IconSearch,
+  Button,
   Heading,
   IconMenu,
   IconCaret,
   Section,
-  CountrySelector,
   Cart,
   CartLoading,
   Link,
 } from '~/components';
-import {useParams, Form, Await, useMatches} from '@remix-run/react';
-import {useWindowScroll} from 'react-use';
+import {useParams, Await, useMatches, useLoaderData} from '@remix-run/react';
 import {Disclosure} from '@headlessui/react';
 import {Suspense, useEffect, useMemo} from 'react';
 import {useIsHydrated} from '~/hooks/useIsHydrated';
 import {useCartFetchers} from '~/hooks/useCartFetchers';
+import logo from '../../public/logo.png';
+import account from '../../public/account.png';
+import cart from '../../public/cart.png';
+import footerImage from '../../public/footer-img.png';
+
+export async function loader({context}) {
+  const data = await context.storefront.query(PAGE_CONTENT_METAFIELDS, {
+    variables: {handle: 'about-us'}
+  });
+
+  return defer({
+    data
+  })
+}
 
 export function Layout({children, layout}) {
+  const {data} = useLoaderData();
+
+  console.log("data: ", data)
+
   return (
     <>
       <div className="flex flex-col min-h-screen">
@@ -33,8 +46,8 @@ export function Layout({children, layout}) {
           </a>
         </div>
         <Header
-          title={layout?.shop.name ?? 'Hydrogen'}
           menu={layout?.headerMenu}
+          logo={logo}
         />
         <main role="main" id="mainContent" className="flex-grow">
           {children}
@@ -45,8 +58,10 @@ export function Layout({children, layout}) {
   );
 }
 
-function Header({title, menu}) {
+function Header({logo, menu}) {
   const isHome = useIsHomePath();
+  const {data} = useLoaderData();
+  console.log({data})
 
   const {
     isOpen: isCartOpen,
@@ -74,15 +89,9 @@ function Header({title, menu}) {
       {menu && (
         <MenuDrawer isOpen={isMenuOpen} onClose={closeMenu} menu={menu} />
       )}
-      <DesktopHeader
-        isHome={isHome}
-        title={title}
-        menu={menu}
-        openCart={openCart}
-      />
       <MobileHeader
         isHome={isHome}
-        title={title}
+        logo={logo}
         openCart={openCart}
         openMenu={openMenu}
       />
@@ -108,7 +117,7 @@ function CartDrawer({isOpen, onClose}) {
 
 export function MenuDrawer({isOpen, onClose, menu}) {
   return (
-    <Drawer open={isOpen} onClose={onClose} openFrom="left" heading="Menu">
+    <Drawer open={isOpen} onClose={onClose} openFrom="right" heading="Menu">
       <div className="grid">
         <MenuMobileNav menu={menu} onClose={onClose} />
       </div>
@@ -140,7 +149,7 @@ function MenuMobileNav({menu, onClose}) {
   );
 }
 
-function MobileHeader({title, isHome, openCart, openMenu}) {
+function MobileHeader({logo, isHome, openCart, openMenu}) {
   // useHeaderStyleFix(containerStyle, setContainerStyle, isHome);
 
   const params = useParams();
@@ -148,132 +157,41 @@ function MobileHeader({title, isHome, openCart, openMenu}) {
   return (
     <header
       role="banner"
-      className={`${
-        isHome
-          ? 'bg-primary/80 dark:bg-contrast/60 text-contrast dark:text-primary shadow-darkHeader'
-          : 'bg-contrast/80 text-primary'
-      } flex lg:hidden items-center h-nav sticky backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-4 px-4 md:px-8`}
+      className={'bg-contrast/80 text-primary flex items-center h-nav sticky bg-white z-40 top-0 justify-between w-full leading-none gap-4 px-4 md:px-8'}
     >
-      <div className="flex items-center justify-start w-full gap-4">
+      <Link
+        className="flex items-center leading-[3rem] md:leading-[4rem]"
+        to="/"
+      >
+        <img src={logo} />
+      </Link>
+
+      <div className="flex items-center justify-end w-full gap-5">
+        <Link
+          to="/products/"
+        >
+          <Button>
+            SHOP NOW
+          </Button>
+        </Link>
+        <Link to="/pages/melissani-club/">
+          <Button variant="secondary">
+            FILTER CLUB
+          </Button>
+        </Link>
+        <CartCount isHome={isHome} openCart={openCart} />
+        <Link
+          to="/account"
+          className="relative flex items-center justify-center w-8 h-8"
+        >
+          <img src={account} />
+        </Link>
         <button
           onClick={openMenu}
           className="relative flex items-center justify-center w-8 h-8"
         >
-          <IconMenu />
+          <IconMenu stroke="#1376BC" className="w-6 h-6" />
         </button>
-        <Form
-          method="get"
-          action={params.lang ? `/${params.lang}/search` : '/search'}
-          className="items-center gap-2 sm:flex"
-        >
-          <button
-            type="submit"
-            className="relative flex items-center justify-center w-8 h-8"
-          >
-            <IconSearch />
-          </button>
-          <Input
-            className={
-              isHome
-                ? 'focus:border-contrast/20 dark:focus:border-primary/20'
-                : 'focus:border-primary/20'
-            }
-            type="search"
-            variant="minisearch"
-            placeholder="Search"
-            name="q"
-          />
-        </Form>
-      </div>
-
-      <Link
-        className="flex items-center self-stretch leading-[3rem] md:leading-[4rem] justify-center flex-grow w-full h-full"
-        to="/"
-      >
-        <Heading className="font-bold text-center" as={isHome ? 'h1' : 'h2'}>
-          {title}
-        </Heading>
-      </Link>
-
-      <div className="flex items-center justify-end w-full gap-4">
-        <Link
-          to="/account"
-          className="relative flex items-center justify-center w-8 h-8"
-        >
-          <IconAccount />
-        </Link>
-        <CartCount isHome={isHome} openCart={openCart} />
-      </div>
-    </header>
-  );
-}
-
-function DesktopHeader({isHome, menu, openCart, title}) {
-  const params = useParams();
-  const {y} = useWindowScroll();
-  return (
-    <header
-      role="banner"
-      className={`${
-        isHome
-          ? 'bg-primary/80 dark:bg-contrast/60 text-contrast dark:text-primary shadow-darkHeader'
-          : 'bg-contrast/80 text-primary'
-      } ${
-        !isHome && y > 50 && ' shadow-lightHeader'
-      } hidden h-nav lg:flex items-center sticky transition duration-300 backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-8 px-12 py-8`}
-    >
-      <div className="flex gap-12">
-        <Link className="font-bold" to="/" prefetch="intent">
-          {title}
-        </Link>
-        <nav className="flex gap-8">
-          {/* Top level menu items */}
-          {(menu?.items || []).map((item) => (
-            <Link
-              key={item.id}
-              to={item.to}
-              target={item.target}
-              prefetch="intent"
-              className={({isActive}) =>
-                isActive ? 'pb-1 border-b -mb-px' : 'pb-1'
-              }
-            >
-              {item.title}
-            </Link>
-          ))}
-        </nav>
-      </div>
-      <div className="flex items-center gap-1">
-        <Form
-          method="get"
-          action={params.lang ? `/${params.lang}/search` : '/search'}
-          className="flex items-center gap-2"
-        >
-          <Input
-            className={
-              isHome
-                ? 'focus:border-contrast/20 dark:focus:border-primary/20'
-                : 'focus:border-primary/20'
-            }
-            type="search"
-            variant="minisearch"
-            placeholder="Search"
-            name="q"
-          />
-          <button
-            type="submit"
-            className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5"
-          >
-            <IconSearch />
-          </button>
-        </Form>
-        <Link
-          to="/account"
-          className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5"
-        >
-          <IconAccount />
-        </Link>
-        <CartCount isHome={isHome} openCart={openCart} />
       </div>
     </header>
   );
@@ -287,7 +205,6 @@ function CartCount({isHome, openCart}) {
       <Await resolve={root.data?.cart}>
         {(cart) => (
           <Badge
-            dark={isHome}
             openCart={openCart}
             count={cart?.totalQuantity || 0}
           />
@@ -303,13 +220,9 @@ function Badge({openCart, dark, count}) {
   const BadgeCounter = useMemo(
     () => (
       <>
-        <IconBag />
+        <img src={cart} />
         <div
-          className={`${
-            dark
-              ? 'text-primary bg-contrast dark:text-contrast dark:bg-primary'
-              : 'text-contrast bg-primary'
-          } absolute bottom-1 right-1 text-[0.625rem] font-medium subpixel-antialiased h-3 min-w-[0.75rem] flex items-center justify-center leading-none text-center rounded-full w-auto px-[0.125rem] pb-px`}
+          className={'text-contrast bg-primary absolute -top-1.5 -right-1 text-[0.625rem] font-medium subpixel-antialiased min-w-[0.75rem] flex items-center justify-center leading-none text-center rounded-full w-4 h-4 px-[0.175rem] pb-px'}
         >
           <span>{count || 0}</span>
         </div>
@@ -321,21 +234,21 @@ function Badge({openCart, dark, count}) {
   return isHydrated ? (
     <button
       onClick={openCart}
-      className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5"
+      className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 ml-4"
     >
       {BadgeCounter}
     </button>
   ) : (
     <Link
       to="/cart"
-      className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5"
+      className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 ml-4"
     >
       {BadgeCounter}
     </Link>
   );
 }
 
-function Footer({menu}) {
+function Footer({menu}, heading) {
   const isHome = useIsHomePath();
   const itemsCount = menu
     ? menu?.items?.length + 1 > 4
@@ -348,11 +261,21 @@ function Footer({menu}) {
       divider={isHome ? 'none' : 'top'}
       as="footer"
       role="contentinfo"
-      className={`grid min-h-[25rem] items-start grid-flow-row w-full gap-6 py-8 px-6 md:px-8 lg:px-12 md:gap-8 lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-${itemsCount}
-        bg-primary dark:bg-contrast dark:text-primary text-contrast overflow-hidden`}
+      className={`footer-wrapper w-full bg-white dark:bg-contrast dark:text-primary text-contrast overflow-hidden`}
     >
-      <FooterMenu menu={menu} />
-      <CountrySelector />
+      <div className="footer-image-section w-full pt-8 px-6 md:px-8 lg:px-12 ">
+        <div className="footer-text">
+          <p>
+            <span>just let us know, we're always happy to help</span>
+          </p>
+        </div>
+        <div className="footer-image">
+          <img src={footerImage} />
+        </div>
+      </div>
+      <div className={`lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-${itemsCount}`}>
+        <FooterMenu menu={menu} />
+      </div>
       <div
         className={`self-end pt-8 opacity-50 md:col-span-2 lg:col-span-${itemsCount}`}
       >
@@ -427,3 +350,16 @@ function FooterMenu({menu}) {
     </>
   );
 }
+
+const PAGE_CONTENT_METAFIELDS = `#graphql
+fragment PageContent on Page {
+  heading: metafield(namespace: "footer", key: "footer_jsonfields") {
+    value
+  }
+}
+query pageContent($handle: String) {
+  metafields: page(handle: $handle) {
+    ...PageContent
+  }
+}
+`

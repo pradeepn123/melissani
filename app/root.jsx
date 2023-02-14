@@ -15,6 +15,7 @@ import {GenericError} from './components/GenericError';
 import {NotFound} from './components/NotFound';
 
 import styles from './styles/app.css';
+import customStyles from './styles/main.css';
 import favicon from '../public/favicon.svg';
 
 import {DEFAULT_LOCALE, parseMenu} from './lib/utils';
@@ -36,6 +37,7 @@ export const handle = {
 export const links = () => {
   return [
     {rel: 'stylesheet', href: styles},
+    {rel: 'stylesheet', href: customStyles},
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',

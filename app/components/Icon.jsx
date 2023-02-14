@@ -19,9 +19,9 @@ export function IconMenu(props) {
   return (
     <Icon {...props} stroke={props.stroke || 'currentColor'}>
       <title>Menu</title>
-      <line x1="3" y1="6.375" x2="17" y2="6.375" strokeWidth="1.25" />
+      <line x1="3" y1="5.375" x2="17" y2="5.375" strokeWidth="1.25" />
       <line x1="3" y1="10.375" x2="17" y2="10.375" strokeWidth="1.25" />
-      <line x1="3" y1="14.375" x2="17" y2="14.375" strokeWidth="1.25" />
+      <line x1="3" y1="15.375" x2="17" y2="15.375" strokeWidth="1.25" />
     </Icon>
   );
 }
