@@ -255,7 +255,7 @@ function Footer({menu, metafields}) {
           </p>
           <div className="footer-contact-wrapper flex mt-7">
             {footerMetafields.contact.map(item => (
-              <div className="footer-contact-icons mr-7">
+              <div key={item.index} className="footer-contact-icons mr-7">
                 <a href={item.link}>
                   <img src={item.icon} />
                 </a>
