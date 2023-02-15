@@ -12,7 +12,7 @@ import {
   CartLoading,
   Link,
 } from '~/components';
-import {useParams, Await, useMatches, useLoaderData} from '@remix-run/react';
+import {useParams, Await, useMatches} from '@remix-run/react';
 import {Disclosure} from '@headlessui/react';
 import {Suspense, useEffect, useMemo} from 'react';
 import {useIsHydrated} from '~/hooks/useIsHydrated';
@@ -20,23 +20,8 @@ import {useCartFetchers} from '~/hooks/useCartFetchers';
 import logo from '../../public/logo.png';
 import account from '../../public/account.png';
 import cart from '../../public/cart.png';
-import footerImage from '../../public/footer-img.png';
-
-export async function loader({context}) {
-  const data = await context.storefront.query(PAGE_CONTENT_METAFIELDS, {
-    variables: {handle: 'about-us'}
-  });
-
-  return defer({
-    data
-  })
-}
 
 export function Layout({children, layout}) {
-  const {data} = useLoaderData();
-
-  console.log("data: ", data)
-
   return (
     <>
       <div className="flex flex-col min-h-screen">
@@ -53,15 +38,13 @@ export function Layout({children, layout}) {
           {children}
         </main>
       </div>
-      <Footer menu={layout?.footerMenu} />
+      <Footer menu={layout?.footerMenu} metafields={layout?.metafields} />
     </>
   );
 }
 
 function Header({logo, menu}) {
   const isHome = useIsHomePath();
-  const {data} = useLoaderData();
-  console.log({data})
 
   const {
     isOpen: isCartOpen,
@@ -248,7 +231,7 @@ function Badge({openCart, dark, count}) {
   );
 }
 
-function Footer({menu}, heading) {
+function Footer({menu, metafields}) {
   const isHome = useIsHomePath();
   const itemsCount = menu
     ? menu?.items?.length + 1 > 4
@@ -256,31 +239,51 @@ function Footer({menu}, heading) {
       : menu?.items?.length + 1
     : [];
 
+  const footerMetafields = JSON.parse(metafields.footer.value)
   return (
     <Section
       divider={isHome ? 'none' : 'top'}
       as="footer"
       role="contentinfo"
-      className={`footer-wrapper w-full bg-white dark:bg-contrast dark:text-primary text-contrast overflow-hidden`}
+      className={`footer-wrapper w-full bg-white overflow-hidden`}
     >
-      <div className="footer-image-section w-full pt-8 px-6 md:px-8 lg:px-12 ">
-        <div className="footer-text">
+      <div className="footer-image-section w-full pt-8 px-6 md:px-8 lg:px-12 flex">
+        <div className="footer-text flex item-center flex-col w-6/12">
           <p>
-            <span>just let us know, we're always happy to help</span>
+            {footerMetafields.heading}
+            <span>{footerMetafields.subHeading}</span>
           </p>
+          <div className="footer-contact-wrapper flex mt-7">
+            {footerMetafields.contact.map(item => (
+              <div key={item.index} className="footer-contact-icons mr-7">
+                <a href={item.link}>
+                  <img src={item.icon} />
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="footer-image">
-          <img src={footerImage} />
+        <div className="footer-image w-6/12">
+          <img src={footerMetafields.image} />
         </div>
       </div>
-      <div className={`lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-${itemsCount}`}>
+      <div className={`bg-white grid lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-${itemsCount} px-9 pt-9 pb-2`}>
         <FooterMenu menu={menu} />
       </div>
+      <div className="bg-white social-section-wrapper flex items-center justify-center pt-7 pb-4">
+        {footerMetafields.social.map(item => (
+          <div key={item.index} className="social-links mr-4">
+            <a href={item.link}>
+              <img src={item.icon} />
+            </a>
+          </div>
+        ))}
+      </div>
       <div
-        className={`self-end pt-8 opacity-50 md:col-span-2 lg:col-span-${itemsCount}`}
+        className={`bg-white pt-3 pb-4 text-center footer-bottom`}
       >
-        &copy; {new Date().getFullYear()} / Shopify, Inc. Hydrogen is an MIT
-        Licensed Open Source project.
+        {footerMetafields.address} 
+        <span className="ml-5">&copy; MELISSANI</span>
       </div>
     </Section>
   );
@@ -304,7 +307,7 @@ const FooterLink = ({item}) => {
 
 function FooterMenu({menu}) {
   const styles = {
-    section: 'grid gap-4',
+    section: 'grid gap-4 justify-center',
     nav: 'grid gap-2 pb-6',
   };
 
@@ -316,7 +319,7 @@ function FooterMenu({menu}) {
             {({open}) => (
               <>
                 <Disclosure.Button className="text-left md:cursor-default">
-                  <Heading className="flex justify-between" size="lead" as="h3">
+                  <Heading className="flex justify-between footer-menu" size="lead" as="h3">
                     {item.title}
                     {item?.items?.length > 0 && (
                       <span className="md:hidden">
@@ -350,16 +353,3 @@ function FooterMenu({menu}) {
     </>
   );
 }
-
-const PAGE_CONTENT_METAFIELDS = `#graphql
-fragment PageContent on Page {
-  heading: metafield(namespace: "footer", key: "footer_jsonfields") {
-    value
-  }
-}
-query pageContent($handle: String) {
-  metafields: page(handle: $handle) {
-    ...PageContent
-  }
-}
-`

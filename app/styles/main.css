@@ -6,27 +6,34 @@
 
 .footer-image-section{
     background-color: #E3F4FF;
-    display: flex;
-}
-
-.footer-wrapper .footer-text, 
-.footer-wrapper .footer-image {
-    width: 50%;
 }
 
 .footer-wrapper .footer-text p {
     font-weight: 700;
-    font-size: 52px;
-    line-height: 62px;
+    font-size: 42px;
+    line-height: 56px;
     color: #000;
 }
 
 .footer-wrapper .footer-text p span {
     font-weight: 400;
-    font-size: 32px;
+    font-size: 28px;
     display: block;
 }
 
 .footer-wrapper .footer-text {
     padding: 60px 0 60px 30px;
+}
+
+.footer-bottom {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.footer-menu {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
 }
