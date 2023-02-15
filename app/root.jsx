@@ -158,6 +158,7 @@ const LAYOUT_QUERY = `#graphql
     $language: LanguageCode
     $headerMenuHandle: String!
     $footerMenuHandle: String!
+    $handle: String!
   ) @inContext(language: $language) {
     shop {
       id
@@ -182,6 +183,9 @@ const LAYOUT_QUERY = `#graphql
         }
       }
     }
+    metafields: page(handle: $handle) {
+      ...PageContent
+    }
   }
   fragment MenuItem on MenuItem {
     id
@@ -190,6 +194,11 @@ const LAYOUT_QUERY = `#graphql
     title
     type
     url
+  }
+  fragment PageContent on Page {
+    footer: metafield(namespace: "footer", key: "footer_jsonfields") {
+      value
+    }
   }
 `;
 
@@ -202,6 +211,7 @@ async function getLayoutData({storefront}) {
       headerMenuHandle: HEADER_MENU_HANDLE,
       footerMenuHandle: FOOTER_MENU_HANDLE,
       language: storefront.i18n.language,
+      handle: "about-us"
     },
   });
 
@@ -225,7 +235,11 @@ async function getLayoutData({storefront}) {
     ? parseMenu(data.footerMenu, customPrefixes)
     : undefined;
 
-  return {shop: data.shop, headerMenu, footerMenu};
+  const metafields = data?.metafields
+  ? data.metafields
+  : undefined;
+
+  return {shop: data.shop, headerMenu, footerMenu, metafields};
 }
 
 const CART_QUERY = `#graphql
