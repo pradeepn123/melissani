@@ -157,30 +157,13 @@ export default function Homepage() {
 }
 
 const COLLECTION_CONTENT_FRAGMENT = `#graphql
-  ${MEDIA_FRAGMENT}
   fragment CollectionContent on Collection {
     id
     handle
     title
     descriptionHtml
-    heading: metafield(namespace: "hero", key: "title") {
+    metafields: metafield(namespace: "hero", key: "metafields") {
       value
-    }
-    byline: metafield(namespace: "hero", key: "byline") {
-      value
-    }
-    cta: metafield(namespace: "hero", key: "cta") {
-      value
-    }
-    spread: metafield(namespace: "hero", key: "spread") {
-      reference {
-        ...Media
-      }
-    }
-    spreadSecondary: metafield(namespace: "hero", key: "spread_secondary") {
-      reference {
-        ...Media
-      }
     }
   }
 `;
