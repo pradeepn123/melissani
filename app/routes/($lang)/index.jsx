@@ -26,10 +26,19 @@ export async function loader({params, context}) {
     variables: {handle: 'home'}
   })
 
+  const features = page.metafields.filter(item => {
+    return item.key == "features"
+  })[0]
+
+  const goodbye = page.metafields.filter(item => {
+    return item.key == "goodbye"
+  })[0]
+
   return defer({
     shop,
     primaryHero: hero,
-    metafields: JSON.parse(page.metafields[0].value),
+    features: JSON.parse(features?.value), 
+    goodbye: JSON.parse(goodbye?.value),
     // These different queries are separated to illustrate how 3rd party content
     // fetching can be optimized for both above and below the fold.
     featuredProducts: context.storefront.query(
@@ -79,7 +88,8 @@ export default function Homepage() {
     tertiaryHero,
     featuredCollections,
     featuredProducts,
-    metafields
+    features,
+    goodbye
   } = useLoaderData();
 
   // TODO: skeletons vs placeholders
@@ -187,10 +197,12 @@ const PAGE_QUERY = `#graphql
     page(handle: $handle) {
       metafields(
         identifiers: [
-          { namespace: "home", key: "home_jsonFields" }
+          { namespace: "home", key: "features" }
+          { namespace: "home", key: "goodbye" }
         ]
       ) {
         value
+        key
       }
     }
   }
