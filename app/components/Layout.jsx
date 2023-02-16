@@ -17,9 +17,9 @@ import {Disclosure} from '@headlessui/react';
 import {Suspense, useEffect, useMemo} from 'react';
 import {useIsHydrated} from '~/hooks/useIsHydrated';
 import {useCartFetchers} from '~/hooks/useCartFetchers';
-import logo from '../../public/logo.png';
-import account from '../../public/account.png';
-import cart from '../../public/cart.png';
+import logo from '../../public/logo.svg';
+import account from '../../public/account.svg';
+import cart from '../../public/cart.svg';
 
 export function Layout({children, layout}) {
   return (
@@ -112,6 +112,20 @@ function MenuMobileNav({menu, onClose}) {
   return (
     <nav className="grid gap-4 p-6 sm:gap-6 sm:px-12 sm:py-8">
       {/* Top level menu items */}
+      <span className="block">
+        <Link
+          to={"/"}
+          onClick={onClose}
+          className={({isActive}) =>
+            isActive ? 'pb-1 border-b -mb-px' : 'pb-1'
+          }
+        >
+          <Link to="/products/" className="">
+            <Button className="inline-block rounded font-medium text-center py-3 px-8 border md:none
+            border-transparent bg-primary hover:bg-white hover:border-primary text-contrast hover:text-primary w-auto"> SHOP NOW </Button>
+          </Link>
+        </Link>
+      </span>
       {(menu?.items || []).map((item) => (
         <span key={item.id} className="block">
           <Link
@@ -128,6 +142,7 @@ function MenuMobileNav({menu, onClose}) {
           </Link>
         </span>
       ))}
+      
     </nav>
   );
 }
@@ -140,7 +155,7 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
   return (
     <header
       role="banner"
-      className={'bg-contrast/80 text-primary flex items-center h-nav sticky bg-white z-40 top-0 justify-between w-full leading-none gap-4 px-4 md:px-8'}
+      className={'bg-contrast/80 text-primary flex items-center h-nav sticky bg-white z-40 top-0 justify-between w-full leading-none gap-4 py-8 md:py-6 px-4 md:px-8'}
     >
       <Link
         className="flex items-center leading-[3rem] md:leading-[4rem]"
@@ -150,25 +165,23 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
       </Link>
 
       <div className="flex items-center justify-end w-full gap-5">
-        <Link
-          to="/products/"
-        >
-          <Button>
-            SHOP NOW
-          </Button>
+
+        <Link to="/products/" className="hidden lg:block">
+          <Button className="inline-block rounded font-medium text-center py-5 px-8 border 
+          border-transparent bg-primary hover:bg-white hover:border-primary text-contrast hover:text-primary w-auto"> SHOP NOW </Button>
         </Link>
-        <Link to="/pages/melissani-club/">
-          <Button variant="secondary">
-            FILTER CLUB
-          </Button>
+
+        <Link to="/pages/melissani-club/" className="hidden lg:block">
+          <Button variant="secondary" className="inline-block rounded font-medium text-center py-5 px-8 border 
+          border-primary bg-contrast text-primary hover:bg-primary hover:border-primary hover:text-contrast w-auto"> FILTER CLUB </Button>
         </Link>
+
         <CartCount isHome={isHome} openCart={openCart} />
-        <Link
-          to="/account"
-          className="relative flex items-center justify-center w-8 h-8"
-        >
+
+        <Link to="/account" className="relative hidden items-center justify-center w-8 h-8 lg:flex">
           <img src={account} />
         </Link>
+
         <button
           onClick={openMenu}
           className="relative flex items-center justify-center w-8 h-8"
@@ -247,11 +260,11 @@ function Footer({menu, metafields}) {
       role="contentinfo"
       className={`footer-wrapper w-full bg-white overflow-hidden`}
     >
-      <div className="footer-image-section w-full pt-8 px-6 md:px-8 lg:px-12 flex">
-        <div className="footer-text flex item-center flex-col w-6/12">
+      <div className="footer-image-section w-full pt-8 px-6 lg:pt-16 md:px-8 lg:px-12 md:flex">
+        <div className="footer-text flex item-center flex-col md:w-6/12">
           <p>
             {footerMetafields.heading}
-            <span>{footerMetafields.subHeading}</span>
+            <span className='leading-tight'>{footerMetafields.subHeading}</span>
           </p>
           <div className="footer-contact-wrapper flex mt-7">
             {footerMetafields.contact.map(item => (
@@ -263,7 +276,7 @@ function Footer({menu, metafields}) {
             ))}
           </div>
         </div>
-        <div className="footer-image w-6/12">
+        <div className="footer-image md:w-6/12">
           <img src={footerMetafields.image} />
         </div>
       </div>
@@ -307,7 +320,7 @@ const FooterLink = ({item}) => {
 
 function FooterMenu({menu}) {
   const styles = {
-    section: 'grid gap-4 justify-center',
+    section: 'grid gap-4 justify-center py-4 lg:py-2 lg:pt-0',
     nav: 'grid gap-2 pb-6',
   };
 

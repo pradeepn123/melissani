@@ -10,14 +10,14 @@
 
 .footer-wrapper .footer-text p {
     font-weight: 700;
-    font-size: 42px;
-    line-height: 56px;
+    font-size: 28px;
+    line-height: 46px;
     color: #000;
 }
 
 .footer-wrapper .footer-text p span {
     font-weight: 400;
-    font-size: 28px;
+    font-size: 24px;
     display: block;
 }
 
@@ -36,4 +36,21 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
+}
+
+@media(min-width:1200px){
+    .footer-wrapper .footer-text p{
+        font-size: 52px;
+        line-height: 56px;        
+    }
+    .footer-wrapper .footer-text p span{        
+        padding-top: 20px;
+        font-size: 32px;
+    }
+}
+@media(min-width:768px) and (max-width:1024px){
+    .footer-image-section .footer-image{
+        display: flex;
+        align-items: flex-end;
+    }
 }
