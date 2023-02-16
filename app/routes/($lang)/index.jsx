@@ -29,7 +29,7 @@ export async function loader({params, context}) {
   return defer({
     shop,
     primaryHero: hero,
-    features: page.metafields[0].value,
+    metafields: JSON.parse(page.metafields[0].value),
     // These different queries are separated to illustrate how 3rd party content
     // fetching can be optimized for both above and below the fold.
     featuredProducts: context.storefront.query(
@@ -79,7 +79,7 @@ export default function Homepage() {
     tertiaryHero,
     featuredCollections,
     featuredProducts,
-    features
+    metafields
   } = useLoaderData();
 
   // TODO: skeletons vs placeholders
