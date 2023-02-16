@@ -7,11 +7,10 @@ import {Heading, Text, Link} from '~/components';
 export function Hero({
   handle,
   height,
-  loading,
   top,
   metafields
 }) {
-  const data = JSON.parse(metafields.value)
+  const data = metafields && JSON.parse(metafields.value)
   return (
     <Link to={`/collections/${handle}`}>
       <section
