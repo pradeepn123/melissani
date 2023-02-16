@@ -34,27 +34,82 @@ export async function loader({params, context}) {
     return item.key == "goodbye"
   })[0]
 
+  const advancedFiltration = page.metafields.filter(item => {
+    return item.key == "advanced_filtration"
+  })[0]
+
+  const filterClub = page.metafields.filter(item => {
+    return item.key == "filter_club"
+  })[0]
+
+  const membership = page.metafields.filter(item => {
+    return item.key == "membership"
+  })[0]
+
+  const videoSection = page.metafields.filter(item => {
+    return item.key == "video_section"
+  })[0]
+
+  const temperature = page.metafields.filter(item => {
+    return item.key == "temperature"
+  })[0]
+
+  const installation = page.metafields.filter(item => {
+    return item.key == "installation"
+  })[0]
+
+  const volume = page.metafields.filter(item => {
+    return item.key == "volume"
+  })[0]
+
+  const reviews = page.metafields.filter(item => {
+    return item.key == "reviews"
+  })[0]
+
+  const learnMore = page.metafields.filter(item => {
+    return item.key == "learn_more"
+  })[0]
+
+  const footerBanner = page.metafields.filter(item => {
+    return item.key == "footer_banner"
+  })[0]
+
+  const featuredProducts = page.metafields.filter(item => {
+    return item.key == "featured_products"
+  })[0]
+
   return defer({
     shop,
     primaryHero: hero,
     features: JSON.parse(features?.value), 
     goodbye: JSON.parse(goodbye?.value),
+    advancedFiltration: JSON.parse(advancedFiltration?.value),
+    filterClub: JSON.parse(filterClub?.value),
+    membership: JSON.parse(membership?.value),
+    videoSection: JSON.parse(videoSection?.value),
+    temperature: JSON.parse(temperature?.value),
+    installation: JSON.parse(installation?.value),
+    volume: JSON.parse(volume?.value),
+    reviews: JSON.parse(reviews?.value),
+    learnMore: JSON.parse(learnMore?.value),
+    footerBanner: JSON.parse(footerBanner?.value),
+    featuredProducts: JSON.parse(featuredProducts?.value),
     // These different queries are separated to illustrate how 3rd party content
     // fetching can be optimized for both above and below the fold.
-    featuredProducts: context.storefront.query(
-      HOMEPAGE_FEATURED_PRODUCTS_QUERY,
-      {
-        variables: {
-          /**
-           * Country and language properties are automatically injected
-           * into all queries. Passing them is unnecessary unless you
-           * want to override them from the following default:
-           */
-          country,
-          language,
-        },
-      },
-    ),
+    // featuredProducts: context.storefront.query(
+    //   HOMEPAGE_FEATURED_PRODUCTS_QUERY,
+    //   {
+    //     variables: {
+    //       /**
+    //        * Country and language properties are automatically injected
+    //        * into all queries. Passing them is unnecessary unless you
+    //        * want to override them from the following default:
+    //        */
+    //       country,
+    //       language,
+    //     },
+    //   },
+    // ),
     secondaryHero: context.storefront.query(COLLECTION_HERO_QUERY, {
       variables: {
         handle: 'backcountry',
@@ -89,7 +144,17 @@ export default function Homepage() {
     featuredCollections,
     featuredProducts,
     features,
-    goodbye
+    goodbye,
+    advancedFiltration,
+    filterClub,
+    membership,
+    videoSection,
+    temperature,
+    installation,
+    volume,
+    reviews,
+    learnMore,
+    footerBanner
   } = useLoaderData();
 
   // TODO: skeletons vs placeholders
@@ -199,6 +264,17 @@ const PAGE_QUERY = `#graphql
         identifiers: [
           { namespace: "home", key: "features" }
           { namespace: "home", key: "goodbye" }
+          { namespace: "home", key: "advanced_filtration" }
+          { namespace: "home", key: "filter_club" }
+          { namespace: "home", key: "membership" }
+          { namespace: "home", key: "video_section" }
+          { namespace: "home", key: "temperature" }
+          { namespace: "home", key: "installation" }
+          { namespace: "home", key: "volume" }
+          { namespace: "home", key: "reviews" }
+          { namespace: "home", key: "learn_more" }
+          { namespace: "home", key: "footer_banner" }
+          { namespace: "home", key: "featured_products" }
         ]
       ) {
         value
