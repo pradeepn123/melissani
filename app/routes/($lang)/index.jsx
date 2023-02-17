@@ -174,12 +174,11 @@ export default function Homepage() {
         <Hero {...primaryHero} height="full" top loading="eager" />
       )}
 
+      {features && (
+        <KeyFeatures features={features} />)}
+
       {goodbye && (
         <ImageWithText goodbye={goodbye} height="full"  />)}
-
-      {features && (
-        <KeyFeatures features={features} />
-      )}
 
       {featuredProducts && (
         <Suspense>
