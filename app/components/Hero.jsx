@@ -1,36 +1,67 @@
 import clsx from 'clsx';
-import {Heading, Text, Link} from '~/components';
+import {Button, Link} from '~/components';
 
 /**
  * Hero component that renders metafields attached to collection resources
  **/
+
 export function Hero({
-  handle,
-  height,
-  top,
   metafields
 }) {
   const data = metafields && JSON.parse(metafields.value)
+  
   return (
-    <Link to={`/collections/${handle}`}>
       <section
         className={clsx(
-          'relative justify-end flex flex-col w-full',
-          top && '-mt-nav',
-          height === 'full'
-            ? 'h-screen'
-            : 'aspect-[4/5] sm:aspect-square md:aspect-[5/4] lg:aspect-[3/2] xl:aspect-[2/1]',
-        )}
-      >
-        <div className="flex flex-col items-baseline justify-between gap-4 px-6 py-8 sm:px-8 md:px-12 bg-gradient-to-t dark:from-contrast/60 dark:text-primary from-primary/60 text-contrast">
-          {data?.heading && (
-            <Heading format as="h2" size="display" className="max-w-md">
-              {data.heading}
-            </Heading>
-          )}
-          {data?.cta && <Text size="lead">{data.cta}</Text>}
-        </div>
+          'w-full hero'
+        )}>
+          <div className="hero-text">
+            {data?.heading && (
+              <h1 className="hero-banner-title">
+                {data.heading}
+                <span className="hero-banner-subtitle">
+                  {data.sub_heading}
+                </span>
+              </h1>
+            )}
+            {data?.cta && <Link
+                to="/products/">
+                <Button className="shop-btn">
+                {data.cta}
+                </Button>
+            </Link>}
+          </div>
+          <div className="hero-image-wrapper">
+            <img src={data?.banner_image} className="hero-image"/>
+          </div>
+          <div className="mobile-heading-wrapper">
+              {data?.heading && (
+              <h1 className="mobile-heading-text">
+                {data.heading}
+                <span className="mobile-heading-subtitle">
+                  {data.sub_heading}
+                </span>
+              </h1>
+            )}
+              <div className="mobile-button-wrapper">
+                {data?.cta && <>
+                    <Link
+                      to="/products/">
+                      <Button className="shop-btn" variant="primary">
+                        {data.cta}
+                      </Button>
+                    </Link>
+                </>}
+                {data?.cta && <>
+                    <Link
+                      to="/pages/melissani-club/">
+                      <Button className="club-btn" variant="secondary">
+                        {data.club_btn_text}
+                      </Button>
+                    </Link>
+                </>}
+              </div>
+          </div>
       </section>
-    </Link>
   );
 }

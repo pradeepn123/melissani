@@ -19,6 +19,7 @@ export {Link} from './Link';
 export {FeaturedCollections} from './FeaturedCollections';
 export {Hero} from './Hero';
 export {ImageWithText} from './ImageWithText';
+export { KeyFeatures } from './KeyFeatures';
 export {SortFilter} from './SortFilter';
 export {Grid} from './Grid';
 export {FeaturedProducts} from './FeaturedProducts';
