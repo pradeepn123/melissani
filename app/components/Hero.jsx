@@ -1,8 +1,10 @@
 import clsx from 'clsx';
 import {Button, Link} from '~/components';
+
 /**
  * Hero component that renders metafields attached to collection resources
  **/
+
 export function Hero({
   metafields
 }) {
