@@ -5,6 +5,7 @@ import {ProductSwimlane, FeaturedCollections, Hero} from '~/components';
 import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 import {getHeroPlaceholder} from '~/lib/placeholders';
 import {AnalyticsPageType} from '@shopify/hydrogen';
+import { ImageWithText } from '~/components/ImageWithText';
 
 export async function loader({params, context}) {
   const {language, country} = context.storefront.i18n;
@@ -171,6 +172,10 @@ export default function Homepage() {
     <>
       {primaryHero && (
         <Hero {...primaryHero} height="full" top loading="eager" />
+      )}
+
+      {goodbye && (
+        <ImageWithText goodbye={goodbye} height="full"  />
       )}
 
       {featuredProducts && (

@@ -18,6 +18,7 @@ export {Modal} from './Modal';
 export {Link} from './Link';
 export {FeaturedCollections} from './FeaturedCollections';
 export {Hero} from './Hero';
+export {ImageWithText} from './ImageWithText';
 export {SortFilter} from './SortFilter';
 export {Grid} from './Grid';
 export {FeaturedProducts} from './FeaturedProducts';
