@@ -267,8 +267,8 @@ function Footer({menu, metafields}) {
             <span className='leading-tight'>{footerMetafields.subHeading}</span>
           </p>
           <div className="footer-contact-wrapper flex mt-7">
-            {footerMetafields.contact.map(item => (
-              <div key={item.index} className="footer-contact-icons mr-7">
+            {footerMetafields.contact.map((item, index) => (
+              <div key={`footer-${index}`} className="footer-contact-icons mr-7">
                 <a href={item.link}>
                   <img src={item.icon} />
                 </a>
