@@ -465,6 +465,12 @@ body{
     }
 }
 
+@media (max-width: 768px) {
+    .featured-products-home {
+        margin-top: 0;
+    }
+}
+
 @media (max-width: 767px) {
     .w-full.hero:not(:first-of-type) {
         display: none;
