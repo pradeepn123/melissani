@@ -3,7 +3,7 @@ const TextSection = ({data}) => <div className="flex-auto w-full py-8 px-6 md:pl
   <p className='right_text_description md:w-8/12 text-black leading-snug'>{data.description}</p>
   <ul className="grid grid-cols-2">
     {(data?.items || []).map((item, index) => (
-      <li key={`googbye-${item.index}`} className="flex py-4 text-black items-center gap-4">
+      <li key={`googbye-${index}`} className="flex py-4 text-black items-center gap-4">
         <img src={item.icon} alt="" />
         <p>{item.text}</p>
       </li>

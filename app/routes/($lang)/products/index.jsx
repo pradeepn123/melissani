@@ -3,7 +3,7 @@ import invariant from 'tiny-invariant';
 import {
   PageHeader,
   Section,
-  ProductCard,
+  SingleProductCard,
   Grid,
   Pagination,
   getPaginationVariables,
@@ -55,7 +55,7 @@ export default function AllProducts() {
             isLoading,
           }) => {
             const itemsMarkup = nodes.map((product, i) => (
-              <ProductCard
+              <SingleProductCard
                 key={product.id}
                 product={product}
                 loading={getImageLoadingPriority(i)}

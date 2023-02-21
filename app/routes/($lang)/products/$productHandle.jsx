@@ -241,6 +241,7 @@ export function ProductForm() {
               ]}
               variant={isOutOfStock ? 'secondary' : 'primary'}
               data-test="add-to-cart"
+              disabled={true}
               analytics={{
                 products: [productAnalytics],
                 totalValue: parseFloat(productAnalytics.price),

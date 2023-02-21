@@ -1,4 +1,4 @@
-import {Button, Grid, ProductCard, Link} from '~/components';
+import {Button, Grid, SingleProductCard, Link} from '~/components';
 import {getImageLoadingPriority} from '~/lib/const';
 import {useFetcher} from '@remix-run/react';
 import {useEffect, useState} from 'react';
@@ -56,7 +56,7 @@ export function ProductGrid({url, collection, ...props}) {
     <>
       <Grid layout="products" {...props}>
         {products.map((product, i) => (
-          <ProductCard
+          <SingleProductCard
             key={product.id}
             product={product}
             loading={getImageLoadingPriority(i)}

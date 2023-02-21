@@ -1,23 +1,28 @@
-import {ProductCard, Section} from '~/components';
+import {SingleProductCard, Section, MultipleProductsCard} from '~/components';
 
-const mockProducts = new Array(12).fill('');
-
-export function ProductSwimlane({
-  title = 'Featured Products',
-  products = mockProducts,
-  count = 12,
-  ...props
-}) {
+export function ProductSwimlane({...props}) {
   return (
-    <Section heading={title} padding="y" {...props}>
-      <div className="swimlane hiddenScroll md:pb-8 md:scroll-px-8 lg:scroll-px-12 md:px-8 lg:px-12">
-        {products.map((product) => (
-          <ProductCard
-            product={product}
-            key={product.id}
-            className="snap-start w-80"
-          />
-        ))}
+    <Section className={props.className}>
+      <div className={`swimlane hiddenScroll card-wrapper grid-cols-${props.count}`}>
+        {props.products.map((products, index) => (<>
+          {products.length == 1 && <SingleProductCard
+            product={products[0]}
+            key={products[0].id}
+            className="product-card-wrapper"
+            showLabel={false}
+            quickAdd={true}
+            learnMore={true}
+          />}
+
+          {products.length > 1 && <MultipleProductsCard
+            products={products}
+            key={`product-${index}`}
+            className="product-card-wrapper"
+            showLabel={false}
+            quickAdd={true}
+            learnMore={true}
+          />}
+        </>))}
       </div>
     </Section>
   );

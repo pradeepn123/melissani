@@ -1,10 +1,10 @@
-import { defer } from '@shopify/remix-oxygen';
-import { Suspense } from 'react';
-import { Await, useLoaderData } from '@remix-run/react';
-import { ProductSwimlane, FeaturedCollections, Hero, KeyFeatures } from '~/components';
-import { MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
-import { getHeroPlaceholder } from '~/lib/placeholders';
-import { AnalyticsPageType } from '@shopify/hydrogen';
+import {defer} from '@shopify/remix-oxygen';
+import {Suspense} from 'react';
+import {Await, useLoaderData} from '@remix-run/react';
+import {ProductSwimlane, FeaturedCollections, Hero, KeyFeatures} from '~/components';
+import {PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
+import {getHeroPlaceholder} from '~/lib/placeholders';
+import {AnalyticsPageType} from '@shopify/hydrogen';
 import { ImageWithText } from '~/components/ImageWithText';
 import { VolumeControlProperty } from '~/components/VolumeControlProperty';
 import { ImageWithTwoText } from '~/components/ImageWithTwoText';
@@ -30,57 +30,64 @@ export async function loader({ params, context }) {
     variables: { handle: 'home' }
   })
 
-  const features = page.metafields.filter(item => {
+  const features = page.metafields.find(item => {
     return item.key == "features"
-  })[0]
+  })
 
-  const goodbye = page.metafields.filter(item => {
+  const goodbye = page.metafields.find(item => {
     return item.key == "goodbye"
-  })[0]
+  })
 
-  const advancedFiltration = page.metafields.filter(item => {
+  const advancedFiltration = page.metafields.find(item => {
     return item.key == "advanced_filtration"
-  })[0]
+  })
 
-  const filterClub = page.metafields.filter(item => {
+  const filterClub = page.metafields.find(item => {
     return item.key == "filter_club"
-  })[0]
+  })
 
-  const membership = page.metafields.filter(item => {
+  const membership = page.metafields.find(item => {
     return item.key == "membership"
-  })[0]
+  })
 
-  const videoSection = page.metafields.filter(item => {
+  const videoSection = page.metafields.find(item => {
     return item.key == "video_section"
-  })[0]
+  })
 
-  const temperature = page.metafields.filter(item => {
+  const temperature = page.metafields.find(item => {
     return item.key == "temperature"
-  })[0]
+  })
 
-  const installation = page.metafields.filter(item => {
+  const installation = page.metafields.find(item => {
     return item.key == "installation"
-  })[0]
+  })
 
-  const volume = page.metafields.filter(item => {
+  const volume = page.metafields.find(item => {
     return item.key == "volume"
-  })[0]
+  })
 
-  const reviews = page.metafields.filter(item => {
+  const reviews = page.metafields.find(item => {
     return item.key == "reviews"
-  })[0]
+  })
 
-  const learnMore = page.metafields.filter(item => {
+  const learnMore = page.metafields.find(item => {
     return item.key == "learn_more"
-  })[0]
+  })
 
-  const footerBanner = page.metafields.filter(item => {
+  const footerBanner = page.metafields.find(item => {
     return item.key == "footer_banner"
-  })[0]
+  })
 
-  const featuredProducts = page.metafields.filter(item => {
-    return item.key == "featured_products"
-  })[0]
+  let featuredProductsHandles = page.metafields.find(item => {
+    return item.key == "featured_products_handle"
+  })
+
+  featuredProductsHandles = featuredProductsHandles ? JSON.parse(featuredProductsHandles.value) : []
+
+  const { products } = await context.storefront.query(HOMEPAGE_FEATURED_PRODUCTS_QUERY);
+  const featuredProducts = featuredProductsHandles.map(productHandles => {
+    return productHandles.map(productHandle => products.nodes.find(product => product.handle === productHandle))
+  })
 
   return defer({
     shop,
@@ -97,23 +104,9 @@ export async function loader({ params, context }) {
     reviews: JSON.parse(reviews?.value),
     learnMore: JSON.parse(learnMore?.value),
     footerBanner: JSON.parse(footerBanner?.value),
-    featuredProducts: JSON.parse(featuredProducts?.value),
+    featuredProducts: featuredProducts,
     // These different queries are separated to illustrate how 3rd party content
     // fetching can be optimized for both above and below the fold.
-    // featuredProducts: context.storefront.query(
-    //   HOMEPAGE_FEATURED_PRODUCTS_QUERY,
-    //   {
-    //     variables: {
-    //       /**
-    //        * Country and language properties are automatically injected
-    //        * into all queries. Passing them is unnecessary unless you
-    //        * want to override them from the following default:
-    //        */
-    //       country,
-    //       language,
-    //     },
-    //   },
-    // ),
     secondaryHero: context.storefront.query(COLLECTION_HERO_QUERY, {
       variables: {
         handle: 'backcountry',
@@ -189,16 +182,11 @@ export default function Homepage() {
       {featuredProducts && (
         <Suspense>
           <Await resolve={featuredProducts}>
-            {({ products }) => {
-              if (!products?.nodes) return <></>;
-              return (
-                <ProductSwimlane
-                  products={products.nodes}
-                  title="Featured Products"
-                  count={4}
-                />
-              );
-            }}
+            <ProductSwimlane
+              products={featuredProducts}
+              count={2}
+              className={"featured-products-home"}
+            />
           </Await>
         </Suspense>
       )}
@@ -291,7 +279,7 @@ const PAGE_QUERY = `#graphql
           { namespace: "home", key: "reviews" }
           { namespace: "home", key: "learn_more" }
           { namespace: "home", key: "footer_banner" }
-          { namespace: "home", key: "featured_products" }
+          { namespace: "home", key: "featured_products_handle" }
         ]
       ) {
         value
@@ -315,7 +303,7 @@ export const HOMEPAGE_FEATURED_PRODUCTS_QUERY = `#graphql
   ${PRODUCT_CARD_FRAGMENT}
   query homepageFeaturedProducts($country: CountryCode, $language: LanguageCode)
   @inContext(country: $country, language: $language) {
-    products(first: 8) {
+    products(first: 50) {
       nodes {
         ...ProductCard
       }
