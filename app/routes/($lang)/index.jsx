@@ -8,6 +8,7 @@ import { AnalyticsPageType } from '@shopify/hydrogen';
 import { ImageWithText } from '~/components/ImageWithText';
 import { VolumeControlProperty } from '~/components/VolumeControlProperty';
 import { ImageWithTwoText } from '~/components/ImageWithTwoText';
+import { Carousel } from '~/components/Carousel';
 
 export async function loader({ params, context }) {
   const { language, country } = context.storefront.i18n;
@@ -181,6 +182,9 @@ export default function Homepage() {
 
       {goodbye && (
         <ImageWithText goodbye={goodbye} height="full" />)}
+
+      {advancedFiltration && (
+        <Carousel advancedFiltration = {advancedFiltration} />)}
 
       {featuredProducts && (
         <Suspense>
