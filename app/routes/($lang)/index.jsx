@@ -202,22 +202,6 @@ export default function Homepage() {
         </Suspense>
       )}
 
-      {featuredCollections && (
-        <Suspense>
-          <Await resolve={featuredCollections}>
-            {({ collections }) => {
-              if (!collections?.nodes) return <></>;
-              return (
-                <FeaturedCollections
-                  collections={collections.nodes}
-                  title="Collections"
-                />
-              );
-            }}
-          </Await>
-        </Suspense>
-      )}
-
       {tertiaryHero && (
         <Suspense fallback={<Hero {...skeletons[2]} />}>
           <Await resolve={tertiaryHero}>

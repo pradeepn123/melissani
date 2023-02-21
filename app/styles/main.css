@@ -321,7 +321,7 @@ body{
 .featured-products-home {
     background-color: #fff;
     padding: 0;
-
+    margin-top: 80px;
 }
 
 .featured-products-home .card-wrapper {
