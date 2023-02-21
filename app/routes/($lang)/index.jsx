@@ -1,14 +1,15 @@
-import {defer} from '@shopify/remix-oxygen';
-import {Suspense} from 'react';
-import {Await, useLoaderData} from '@remix-run/react';
-import {ProductSwimlane, FeaturedCollections, Hero, KeyFeatures} from '~/components';
-import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
-import {getHeroPlaceholder} from '~/lib/placeholders';
-import {AnalyticsPageType} from '@shopify/hydrogen';
+import { defer } from '@shopify/remix-oxygen';
+import { Suspense } from 'react';
+import { Await, useLoaderData } from '@remix-run/react';
+import { ProductSwimlane, FeaturedCollections, Hero, KeyFeatures } from '~/components';
+import { MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
+import { getHeroPlaceholder } from '~/lib/placeholders';
+import { AnalyticsPageType } from '@shopify/hydrogen';
 import { ImageWithText } from '~/components/ImageWithText';
+import { VolumeControlProperty } from '~/components/VolumeControlProperty';
 
-export async function loader({params, context}) {
-  const {language, country} = context.storefront.i18n;
+export async function loader({ params, context }) {
+  const { language, country } = context.storefront.i18n;
 
   if (
     params.lang &&
@@ -16,15 +17,15 @@ export async function loader({params, context}) {
   ) {
     // If the lang URL param is defined, yet we still are on `EN-US`
     // the the lang param must be invalid, send to the 404 page
-    throw new Response(null, {status: 404});
+    throw new Response(null, { status: 404 });
   }
 
-  const {shop, hero} = await context.storefront.query(HOMEPAGE_SEO_QUERY, {
-    variables: {handle: 'frontpage'},
+  const { shop, hero } = await context.storefront.query(HOMEPAGE_SEO_QUERY, {
+    variables: { handle: 'frontpage' },
   });
 
   const { page } = await context.storefront.query(PAGE_QUERY, {
-    variables: {handle: 'home'}
+    variables: { handle: 'home' }
   })
 
   const features = page.metafields.filter(item => {
@@ -82,7 +83,7 @@ export async function loader({params, context}) {
   return defer({
     shop,
     primaryHero: hero,
-    features: JSON.parse(features?.value), 
+    features: JSON.parse(features?.value),
     goodbye: JSON.parse(goodbye?.value),
     advancedFiltration: JSON.parse(advancedFiltration?.value),
     filterClub: JSON.parse(filterClub?.value),
@@ -178,12 +179,12 @@ export default function Homepage() {
         <KeyFeatures features={features} />)}
 
       {goodbye && (
-        <ImageWithText goodbye={goodbye} height="full"  />)}
+        <ImageWithText goodbye={goodbye} height="full" />)}
 
       {featuredProducts && (
         <Suspense>
           <Await resolve={featuredProducts}>
-            {({products}) => {
+            {({ products }) => {
               if (!products?.nodes) return <></>;
               return (
                 <ProductSwimlane
@@ -200,7 +201,7 @@ export default function Homepage() {
       {secondaryHero && (
         <Suspense fallback={<Hero {...skeletons[1]} />}>
           <Await resolve={secondaryHero}>
-            {({hero}) => {
+            {({ hero }) => {
               if (!hero) return <></>;
               return <Hero {...hero} />;
             }}
@@ -211,7 +212,7 @@ export default function Homepage() {
       {featuredCollections && (
         <Suspense>
           <Await resolve={featuredCollections}>
-            {({collections}) => {
+            {({ collections }) => {
               if (!collections?.nodes) return <></>;
               return (
                 <FeaturedCollections
@@ -227,13 +228,15 @@ export default function Homepage() {
       {tertiaryHero && (
         <Suspense fallback={<Hero {...skeletons[2]} />}>
           <Await resolve={tertiaryHero}>
-            {({hero}) => {
+            {({ hero }) => {
               if (!hero) return <></>;
               return <Hero {...hero} />;
             }}
           </Await>
         </Suspense>
       )}
+
+      {volume && (<VolumeControlProperty volume={volume} />)}
     </>
   );
 }
