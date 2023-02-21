@@ -365,12 +365,12 @@ body{
         padding: unset;
         max-width: 17rem;
         text-align: unset;
-        transform: translate(31%, -49%);
+        transform: translate(20%, -49%);
     }
 
     .installation-para {
         max-width: 15rem;
-        transform: translate(49%, -49%);
+        transform: translate(54%, -49%);
         font-size: 0.75rem;
     }
 
@@ -515,6 +515,28 @@ body{
 
     .installation-para {
         transform: translate(59%, -58%);
+    }
+}
+
+
+@media screen and (min-width: 1600px) {
+    .installation-para {
+        transform: translate(78%, -70%);
+    }
+}
+
+@media screen and (min-width: 1900px) {
+    .installation-para {
+        transform: translate(77%, -93%);
+        max-width: 30rem;
+        font-size: 1.75rem;
+        line-height: 2.25rem;
+    }
+
+    .installation-header {
+        font-size: 4rem;
+        max-width: 30rem;
+        transform: translate(24%, -63%);
     }
 }
 
