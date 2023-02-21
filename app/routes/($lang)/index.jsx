@@ -7,6 +7,7 @@ import { getHeroPlaceholder } from '~/lib/placeholders';
 import { AnalyticsPageType } from '@shopify/hydrogen';
 import { ImageWithText } from '~/components/ImageWithText';
 import { VolumeControlProperty } from '~/components/VolumeControlProperty';
+import { ImageWithTwoText } from '~/components/ImageWithTwoText';
 
 export async function loader({ params, context }) {
   const { language, country } = context.storefront.i18n;
@@ -235,6 +236,8 @@ export default function Homepage() {
           </Await>
         </Suspense>
       )}
+
+      {installation && (<ImageWithTwoText installation={installation} />)}
 
       {volume && (<VolumeControlProperty volume={volume} />)}
     </>

@@ -26,5 +26,6 @@ export { FeaturedProducts } from './FeaturedProducts';
 export { Pagination, getPaginationVariables, usePagination } from './Pagination';
 export { AddToCartButton } from './AddToCartButton';
 export { VolumeControlProperty } from './VolumeControlProperty';
+export { ImageWithTwoText } from './ImageWithTwoText';
 // Sue me
 export * from './Icon';
