@@ -711,9 +711,6 @@ body{
         row-gap: 1em;
     }
     .slider-heading {
-        /* font-size: 32px;
-        font-weight: 900;
-        line-height: 40px; */
         font-size: 28px;
         font-weight: 900;
         line-height: 36px;
@@ -1131,9 +1128,6 @@ body{
         width: 32rem;
     }
 }
-
-
-/* end Good bye section css*/
 /* End: Media Query */
 
 /* End: Home Page */
