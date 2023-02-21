@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import {useEffect, useId, useMemo} from 'react';
 import {useFetcher} from '@remix-run/react';
-import {Heading, ProductCard, Skeleton, Text} from '~/components';
+import {Heading, SingleProductCard, Skeleton, Text} from '~/components';
 
 /**
  * Display a grid of products and a heading based on some options.
@@ -83,7 +83,7 @@ function FeatureProductsContent({count = 4, onClick, products}) {
   return (
     <>
       {products.map((product) => (
-        <ProductCard
+        <SingleProductCard
           product={product}
           key={product.id}
           onClick={onClick}

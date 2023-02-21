@@ -45,6 +45,7 @@ export const PRODUCT_CARD_FRAGMENT = `#graphql
     variants(first: 1) {
       nodes {
         id
+        availableForSale
         image {
           url
           altText
@@ -62,10 +63,6 @@ export const PRODUCT_CARD_FRAGMENT = `#graphql
         selectedOptions {
           name
           value
-        }
-        product {
-          handle
-          title
         }
       }
     }

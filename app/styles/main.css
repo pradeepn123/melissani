@@ -316,6 +316,101 @@ body{
     font-weight: 500;
 }
 
+/* Start Featured Products Section */
+
+.featured-products-home {
+    background-color: #fff;
+    padding: 0;
+    margin-top: 80px;
+}
+
+.featured-products-home .card-wrapper {
+    padding: 0;
+    gap: 0;
+}
+
+.featured-products-home .product-card-wrapper {
+    padding: 0 100px;
+    color: #000;
+}
+
+.featured-products-home .product-card {
+    background-color: #f5f5f5;
+    padding: 30px 40px 0;
+}
+
+.featured-products-home .product-card-wrapper h3 {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 36px;
+    min-height: 75px;
+}
+
+.featured-products-home .product-card-wrapper .card-image {
+    border-bottom: 1px solid #E2E2E2;
+    background: none;
+    padding-bottom: 10px;
+}
+
+.featured-products-home .product-card-wrapper .card-image:before {
+    box-shadow: none;
+}
+
+.featured-products-home .product-card-wrapper .price {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 38px;
+    margin: auto;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+}
+
+.featured-products-home .product-card-wrapper select {
+    border-color: #DDDDDD;
+    padding: 13px 20px;
+    padding-right: 2.5rem;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.featured-products-home .product-card-wrapper select:focus {
+    box-shadow: none;
+}
+
+.featured-products-home .product-card-wrapper:not(:last-child) {
+    border-right: 1px solid #C0C0C0;
+}
+
+.featured-products-home .cta-wrapper {
+    background-color: #f5f5f5;
+    padding: 0 40px 30px;
+}
+
+.featured-products-home .cta-wrapper .add-to-cart-btn {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    padding: 16px;
+}
+
+.featured-products-home .cta-wrapper form {
+    width: 100%;
+}
+
+.featured-products-home .cta-wrapper a {
+    text-decoration: underline;
+    color: #1376BC;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+/* End Featured Products Section */
+
 /* Begin: Media Query */
 @media screen and (min-width:1200px) {
     .footer-wrapper .footer-text p {
@@ -477,6 +572,20 @@ body{
     }
     .flickity-prev-next-button.next {
         right: -90px;
+    }
+    .featured-products-home .card-wrapper {
+        display: block;
+    }
+    .featured-products-home .product-card-wrapper {
+        padding: 0;
+    }
+    .featured-products-home .product-card-wrapper:not(:last-child) {
+        margin-bottom: 30px;
+        border: none;
+    }
+    .featured-products-home .product-card-wrapper h3 {
+        min-height: auto;
+        font-size: 24px;
     }
 }
 

@@ -284,8 +284,8 @@ function Footer({menu, metafields}) {
         <FooterMenu menu={menu} />
       </div>
       <div className="bg-white social-section-wrapper flex items-center justify-center pt-7 pb-4">
-        {footerMetafields.social.map(item => (
-          <div key={item.index} className="social-links mr-4">
+        {footerMetafields.social.map((item, index) => (
+          <div key={`footer-social-${index}`} className="social-links mr-4">
             <a href={item.link}>
               <img src={item.icon} />
             </a>
