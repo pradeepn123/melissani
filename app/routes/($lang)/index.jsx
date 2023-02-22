@@ -9,7 +9,7 @@ import { ImageWithText } from '~/components/ImageWithText';
 import { VolumeControlProperty } from '~/components/VolumeControlProperty';
 import { ImageWithTwoText } from '~/components/ImageWithTwoText';
 import { Carousel } from '~/components/Carousel';
-import { ImageWithTextAndBtn } from '~/components/ImageWithTextAndBtn'
+import { SecondaryHero } from '~/components/SecondaryHero'
 
 export async function loader({ params, context }) {
   const { language, country } = context.storefront.i18n;
@@ -218,7 +218,7 @@ export default function Homepage() {
 
       {volume && (<VolumeControlProperty volume={volume} />)}
 
-      {footerBanner && (<ImageWithTextAndBtn data={footerBanner} />)}
+      {footerBanner && (<SecondaryHero data={footerBanner} />)}
     </>
   );
 }

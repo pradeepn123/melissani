@@ -761,16 +761,16 @@ body{
         font-size: 1.15rem;
     }
 
-    .footer-banner-content {
+    .secondary-hero-content {
         top: 40%;
         left: 10%;
     }
 
-    .footer-banner-header {
+    .secondary-hero-header {
         margin-bottom: 0.75rem;
     }
 
-    .footer-banner-button {
+    .secondary-hero-button {
         font-size: 0.75rem;
         padding: 0.75rem 1rem 0.75rem 1rem;
     }
@@ -790,7 +790,7 @@ body{
         font-size: 1.25rem;
     }
 
-    .footer-banner-content {
+    .secondary-hero-content {
         top: 48%;
         left: 15%;
     }
@@ -809,7 +809,7 @@ body{
         font-size: 15px;
     }
 
-    .footer-banner-header {
+    .secondary-hero-header {
         max-width: 151px;
         font-size: 1.25rem;
     }
@@ -856,7 +856,11 @@ body{
         padding-top: 0;
     }
 
-    .footer-banner-header {
+    .secondary-hero-content {
+        left: 10%;
+    }
+
+    .secondary-hero-header {
         font-size: 1.5rem;
         max-width: 185px;
     }
@@ -911,17 +915,17 @@ body{
         padding: unset;
     }
 
-    .footer-banner-header {
+    .secondary-hero-header {
         font-size: 1.75rem;
         max-width: 20rem;
     }
 
-    .footer-banner-content {
+    .secondary-hero-content {
         top: 21%;
         left: 13%;
     }
 
-    .footer-banner-button {
+    .secondary-hero-button {
         font-size: unset;
         padding: 1rem 2rem;
     }
@@ -1267,7 +1271,7 @@ body{
         padding: 0 6em 0 6em;
     }
 
-    .footer-banner-header {
+    .secondary-hero-header {
         font-size: 2.5rem;
         max-width: 24rem;
     }
@@ -1395,12 +1399,12 @@ body{
         width: 32rem;
     }
 
-    .footer-banner-header {
+    .secondary-hero-header {
         font-size: 3.25rem;
         max-width: 37rem;
     }
 
-    .footer-banner-button {
+    .secondary-hero-button {
         font-size: 1.75rem;
         padding: 1rem 2.5rem;
     }
@@ -1437,7 +1441,7 @@ body{
         transform: translate(59%, -58%);
     }
 
-    .footer-banner-button {
+    .secondary-hero-button {
         font-size: 2rem;
     }
 
@@ -1464,12 +1468,12 @@ body{
         transform: translate(24%, -63%);
     }
 
-    .footer-banner-header {
+    .secondary-hero-header {
         font-size: 4.25rem;
         max-width: 47rem;
     }
 
-    .footer-banner-button {
+    .secondary-hero-button {
         font-size: 2.5rem;
         padding: 1.5rem 3.5rem;
 
