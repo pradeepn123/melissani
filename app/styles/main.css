@@ -101,6 +101,19 @@ body{
     color: #fff;
 }
 
+.learn-more-btn {
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 15px;
+    padding: 1.2em 1.6em;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #1376BC;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
 .key-features-section {
     display: grid;
     grid-template-columns: auto auto auto auto;
@@ -407,6 +420,63 @@ body{
 
 /* End Featured Products Section */
 
+/* Begin: Filter Club */
+.filter-club-section {
+    width: 50%;
+    padding: 6em 3em 4em 6em;
+}
+.filter-club-title {
+    /* font-family: SF Pro; */
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 62px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+}
+.filter-club-description {
+    /* font-family: SF Pro; */
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+    margin: 0.5em 0 1em 0;
+    width: 70%;
+}
+ul.filter-club-list {
+    list-style-type: none;
+    margin-bottom: 1em;
+}
+
+.filter-club-list-item {
+    padding: 1em 3em 1em 0;
+    border-top: 1px solid #D9D9D9;
+    display: flex;
+    flex-direction: row;
+    column-gap: 1em;
+    color: #000;
+}
+
+.filter-club-list-text {
+    margin: auto 0 !important;
+    /* font-family: SF Pro; */
+    font-size: 18px;
+    font-weight: 510;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.filter-club-btns {
+    display: flex;
+    column-gap: 1em;
+}
+
+
+/* End: Filter Club */
+
 /* Begin: Media Query */
 @media screen and (min-width:1200px) {
     .footer-wrapper .footer-text p {
@@ -467,10 +537,6 @@ body{
 }
 
 @media (max-width: 767px) {
-    .w-full.hero:not(:first-of-type) {
-        display: none;
-    }
-
     .hero-text {
         display: none;
     }
@@ -729,7 +795,8 @@ body{
 @media screen and (min-width: 320px) {
 
     .shop-btn,
-    .club-btn {
+    .club-btn,
+    .learn-more-btn {
         font-size: 14px;
     }
 
@@ -763,7 +830,8 @@ body{
     }
 
     .shop-btn,
-    .club-btn {
+    .club-btn,
+    .learn-more-btn {
         font-size: 16px;
     }
 
@@ -800,7 +868,8 @@ body{
 @media screen and (min-width: 375px) {
 
     .shop-btn,
-    .club-btn {
+    .club-btn,
+    .learn-more-btn {
         font-size: 17px;
     }
 }
@@ -808,7 +877,8 @@ body{
 @media screen and (min-width: 390px) {
 
     .shop-btn,
-    .club-btn {
+    .club-btn,
+    .learn-more-btn {
         font-size: 18px;
     }
 }
@@ -816,7 +886,8 @@ body{
 @media screen and (min-width: 412px) {
 
     .shop-btn,
-    .club-btn {
+    .club-btn,
+    .learn-more-btn {
         font-size: 19px;
     }
 }
@@ -824,7 +895,8 @@ body{
 @media screen and (min-width: 425px) {
 
     .shop-btn,
-    .club-btn {
+    .club-btn,
+    .learn-more-btn {
         font-size: 20px;
     }
 
@@ -871,7 +943,8 @@ body{
         transform: scale(1);
     }
 
-    .shop-btn {
+    .shop-btn,
+    .learn-more-btn {
         font-size: 11px;
     }
 
@@ -1271,7 +1344,8 @@ body{
         line-height: 54.8px;
     }
 
-    .shop-btn {
+    .shop-btn,
+    .learn-more-btn {
         font-size: 17px;
     }
 

@@ -175,7 +175,7 @@ export default function Homepage() {
         <KeyFeatures features={features} />)}
 
       {goodbye && (
-        <ImageWithText goodbye={goodbye} height="full" alignment="rtl" className="bg-grey"/>)}
+        <ImageWithText goodbye={goodbye} height="full" className="bg-grey"/>)}
 
       {advancedFiltration && (
         <Carousel advancedFiltration={advancedFiltration} />)}
@@ -192,26 +192,8 @@ export default function Homepage() {
         </Suspense>
       )}
 
-      {secondaryHero && (
-        <Suspense fallback={<Hero {...skeletons[1]} />}>
-          <Await resolve={secondaryHero}>
-            {({ hero }) => {
-              if (!hero) return <></>;
-              return <Hero {...hero} />;
-            }}
-          </Await>
-        </Suspense>
-      )}
-
-      {tertiaryHero && (
-        <Suspense fallback={<Hero {...skeletons[2]} />}>
-          <Await resolve={tertiaryHero}>
-            {({ hero }) => {
-              if (!hero) return <></>;
-              return <Hero {...hero} />;
-            }}
-          </Await>
-        </Suspense>
+      {filterClub && (
+        <ImageWithText filterClub={filterClub} alignment="rtl" />
       )}
 
       {installation && (<ImageWithTwoText installation={installation} />)}
