@@ -10,18 +10,16 @@ export function VolumeControlProperty({ volume }) {
                     </h2>
 
                     <div className="lg:flex-row lg:w-auto sm:flex sm:flex-col">
-                        {volume.items.map((item) => {
-                            return (
-                                <div className="lg:w-6/12">
-                                    <div className=" relative top-0 -left-0" >
-                                        <img className="relative top-0 -left-0 w-full" src={item?.bgImage} />
-                                        <img
-                                            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 md:w-16 xl:w-20"
-                                            src={item?.iconWithText} />
-                                    </div>
+                        {volume.items.map((item, index) => 
+                            <div className="lg:w-6/12" key={index}>
+                                <div className=" relative top-0 -left-0" >
+                                    <img className="relative top-0 -left-0 w-full" src={item?.bgImage} />
+                                    <img
+                                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 md:w-16 xl:w-20"
+                                        src={item?.iconWithText} />
                                 </div>
-                            )
-                        })}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
