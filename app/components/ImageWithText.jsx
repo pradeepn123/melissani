@@ -15,8 +15,8 @@ const ImageSection = ({data}) => <div className="flex-auto w-full xl:w-6/12">
     <img src={data?.image} alt='' className='w-full'/>
 </div>
 
-export function ImageWithText({ goodbye, alignment }) {
-  return <section className='w-full xl:flex gap-4 gb_bg_color md:gap-8 items-center'>
+export function ImageWithText({ goodbye, alignment, className }) {
+  return <section className={`w-full xl:flex gap-4 gb_bg_color md:gap-8 items-center ${className}`}>
     {alignment == "rtl" ? <>
       <TextSection data={goodbye} />
       <ImageSection data={goodbye}/>

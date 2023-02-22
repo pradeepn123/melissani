@@ -141,7 +141,7 @@ body{
 }
 
 /* Good bye section css*/
-.gb_bg_color {
+.bg-grey {
     background: #f5f5f5;
 }
 
@@ -310,25 +310,6 @@ body{
 }
 
 /* End: Advanced Filteration section */
-
-/* Good bye section css*/
-.gb_bg_color {
-    background: #f5f5f5;
-}
-
-.right_text_block ul li {
-    font-size: 18px;
-}
-
-.gb_bg_color .right_text_block .right_text_heading {
-    font-size: 28px;
-    font-weight: 700;
-}
-
-.gb_bg_color .right_text_block .right_text_description {
-    font-size: 20px;
-    font-weight: 500;
-}
 
 /* Start Featured Products Section */
 

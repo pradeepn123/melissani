@@ -175,7 +175,7 @@ export default function Homepage() {
         <KeyFeatures features={features} />)}
 
       {goodbye && (
-        <ImageWithText goodbye={goodbye} height="full" />)}
+        <ImageWithText goodbye={goodbye} height="full" alignment="rtl" className="bg-grey"/>)}
 
       {advancedFiltration && (
         <Carousel advancedFiltration={advancedFiltration} />)}
