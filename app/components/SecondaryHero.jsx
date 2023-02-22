@@ -7,7 +7,7 @@ export function SecondaryHero({ data }) {
             <div className="relative">
                 <div className="relative">
                     <picture>
-                        <source media="(min-width: 768px)" srcset={data.img} />
+                        <source media="(min-width: 768px)" srcSet={data.img} />
                         <img className="secondary-hero-img top-0 -left-0 w-full" src={data.smallImg} />
                     </picture>
                 </div>

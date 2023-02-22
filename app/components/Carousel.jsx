@@ -5,7 +5,6 @@ export function Carousel({advancedFiltration}) {
     <Flickity
     pageDots="false">
       {advancedFiltration && advancedFiltration.map((item, index) =>
-        <>
         <div className="slider" key={index}>
             <div className="left-slider-content">
                 <h2 className="slider-heading">
@@ -22,7 +21,6 @@ export function Carousel({advancedFiltration}) {
                 <img className="slider-image" src={item.image} alt={item.heading}/>
             </div>
         </div>
-        </>
         )}
     </Flickity>
 )}
