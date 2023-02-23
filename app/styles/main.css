@@ -1225,6 +1225,18 @@ ul.filter-club-list {
         bottom: 5%;
         padding-left: 3rem;
     }
+
+    .filter-club-section {
+        padding: 6em 2em 4em 3em;
+    }
+
+    .filter-club-description {
+        width: 100%;
+    }
+
+    .filter-club-img {
+        width: 80%;
+    }
 }
 
 @media (min-width:767px) and (max-width:1023px) {
@@ -1595,6 +1607,15 @@ ul.filter-club-list {
         width: 70%;
     }
 
+    .filter-club-img {
+        width: 50%;
+        padding: 5em 0 2em;
+    }
+
+    .filter-club-description {
+        width: 70%;
+    }
+
 }
 
 @media screen and (min-width: 1280px) {
@@ -1781,6 +1802,14 @@ ul.filter-club-list {
 
     .secondary-hero-button {
         font-size: 2rem;
+    }
+
+    .filter-club-section {
+        padding: 2em 2em 0em 6em;
+    }
+
+    .filter-club-img img {
+        padding: 8em 0 5em 12em;
     }
 
     .filter-club-section {
