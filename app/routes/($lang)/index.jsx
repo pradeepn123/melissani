@@ -55,8 +55,8 @@ export async function loader({ params, context }) {
     return item.key == "video_section"
   })
 
-  const temperature = page.metafields.find(item => {
-    return item.key == "temperature"
+  const discover = page.metafields.find(item => {
+    return item.key == "discover"
   })
 
   const installation = page.metafields.find(item => {
@@ -99,7 +99,7 @@ export async function loader({ params, context }) {
     filterClub: JSON.parse(filterClub?.value),
     membership: JSON.parse(membership?.value),
     videoSection: JSON.parse(videoSection?.value),
-    temperature: JSON.parse(temperature?.value),
+    discover: JSON.parse(discover?.value),
     installation: JSON.parse(installation?.value),
     volume: JSON.parse(volume?.value),
     reviews: JSON.parse(reviews?.value),
@@ -147,7 +147,7 @@ export default function Homepage() {
     filterClub,
     membership,
     videoSection,
-    temperature,
+    discover,
     installation,
     volume,
     reviews,
@@ -242,7 +242,7 @@ const PAGE_QUERY = `#graphql
           { namespace: "home", key: "filter_club" }
           { namespace: "home", key: "membership" }
           { namespace: "home", key: "video_section" }
-          { namespace: "home", key: "temperature" }
+          { namespace: "home", key: "discover" }
           { namespace: "home", key: "installation" }
           { namespace: "home", key: "volume" }
           { namespace: "home", key: "reviews" }
