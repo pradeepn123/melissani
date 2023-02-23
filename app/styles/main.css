@@ -981,8 +981,8 @@ ul.filter-club-list {
         height: 120vh;
     }
 
-    .test {
-        height: 90vh;
+    .menu-drawer-container {
+        height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -991,7 +991,7 @@ ul.filter-club-list {
 
     .footer-social-media {
         position: absolute;
-        bottom: 2.5%;
+        bottom: 0;
         padding-left: 1.5rem;
     }
 }
@@ -1014,6 +1014,20 @@ ul.filter-club-list {
     .secondary-hero-content {
         top: 48%;
         left: 15%;
+    }
+
+    .menu-drawer-container {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .footer-social-media {
+        position: absolute;
+        bottom: 2.5%;
+        padding-left: 1.5rem;
     }
 }
 
@@ -1164,7 +1178,7 @@ ul.filter-club-list {
         transition: all 0.4s;
     }
 
-    .test {
+    .menu-drawer-container {
         height: 90vh;
         display: flex;
         flex-direction: column;
@@ -1198,7 +1212,7 @@ ul.filter-club-list {
         transition: all 0.4s;
     }
 
-    .test {
+    .menu-drawer-container {
         height: 90vh;
         display: flex;
         flex-direction: column;
@@ -1294,7 +1308,7 @@ ul.filter-club-list {
         right: -70px;
     }
 
-    .test {
+    .menu-drawer-container {
         height: 90vh;
         display: flex;
         flex-direction: column;
