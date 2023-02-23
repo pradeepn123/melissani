@@ -62,6 +62,14 @@ const PAGE_QUERY = `#graphql
         description
         title
       }
+      metafields(
+        identifiers: [
+          { namespace: "faq", key: "qna" }
+        ]
+      ) {
+        value
+        key
+      }
     }
   }
 `;

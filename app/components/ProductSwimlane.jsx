@@ -4,7 +4,7 @@ export function ProductSwimlane({...props}) {
   return (
     <Section className={props.className}>
       <div className={`swimlane hiddenScroll card-wrapper grid-cols-${props.count}`}>
-        {props.products.map((products, index) => (<>
+        {props.products.map((products, index) => (<div key={index}>
           {products.length == 1 && <SingleProductCard
             product={products[0]}
             key={products[0].id}
@@ -22,7 +22,7 @@ export function ProductSwimlane({...props}) {
             quickAdd={true}
             learnMore={true}
           />}
-        </>))}
+        </div>))}
       </div>
     </Section>
   );
