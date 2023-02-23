@@ -1280,6 +1280,18 @@ ul.filter-club-list {
         bottom: 5%;
         padding-left: 3rem;
     }
+
+    .filter-club-section {
+        padding: 6em 2em 4em 3em;
+    }
+
+    .filter-club-description {
+        width: 100%;
+    }
+
+    .filter-club-img {
+        width: 80%;
+    }
 }
 
 @media (min-width:767px) and (max-width:1023px) {
