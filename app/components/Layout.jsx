@@ -36,6 +36,7 @@ export function Layout({ children, layout }) {
           menu={layout?.headerMenu}
           logo={logo}
           footerMenu={layout?.footerMenu}
+          metafields={layout?.metafields}
         />
         <main role="main" id="mainContent" className="flex-grow">
           {children}
@@ -46,7 +47,7 @@ export function Layout({ children, layout }) {
   );
 }
 
-function Header({ logo, menu, footerMenu }) {
+function Header({ logo, menu, footerMenu ,metafields}) {
   const isHome = useIsHomePath();
 
   const {
@@ -73,7 +74,7 @@ function Header({ logo, menu, footerMenu }) {
     <>
       <CartDrawer isOpen={isCartOpen} onClose={closeCart} />
       {menu && (
-        <MenuDrawer isOpen={isMenuOpen} onClose={closeMenu} menu={menu} footerMenu={footerMenu} />
+        <MenuDrawer isOpen={isMenuOpen} onClose={closeMenu} menu={menu} footerMenu={footerMenu} metafields={metafields}/>
       )}
       <MobileHeader
         isHome={isHome}
@@ -101,21 +102,22 @@ function CartDrawer({ isOpen, onClose }) {
   );
 }
 
-export function MenuDrawer({ isOpen, onClose, menu, footerMenu }) {
+export function MenuDrawer({ isOpen, onClose, menu, footerMenu,metafields }) {
   return (
     <Drawer open={isOpen} onClose={onClose} openFrom="right" heading="Menu">
-      <div className="grid">
-        <MenuMobileNav menu={menu} onClose={onClose} footerMenu={footerMenu} />
+      <div className="test">
+        <MenuMobileNav menu={menu} onClose={onClose} footerMenu={footerMenu} metafields={metafields} />
       </div>
     </Drawer>
   );
 }
 
-function MenuMobileNav({ menu, onClose, footerMenu }) {
-
+function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
+  const footerMetafields = JSON.parse(metafields.footer.value)
   return (
+    <>
     <nav className="grid gap-4 p-6 sm:gap-6 sm:px-12 pt-5">
-      <div className="test">
+      <div>
 
         {/* Top level menu items */}
         {(menu?.items || []).map((item) => (
@@ -151,7 +153,20 @@ function MenuMobileNav({ menu, onClose, footerMenu }) {
           </span>
         ))
       }
+
+      {/* Social Media Links  */}
+     
     </nav >
+     <div className="footer-social-media">
+     {footerMetafields.social.map((item, index) => (
+         <span key={`footer-social-${index}`} className="social-links mr-4">
+           <a href={item.link}>
+             <img className='inline-block' src={item.iconBlack} />
+           </a>
+         </span>
+       ))}
+     </div>
+     </>
   );
 }
 
@@ -295,7 +310,7 @@ function Footer({ menu, metafields }) {
         {footerMetafields.social.map((item, index) => (
           <div key={`footer-social-${index}`} className="social-links mr-4">
             <a href={item.link}>
-              <img src={item.icon} />
+              <img src={item.iconBlue} />
             </a>
           </div>
         ))}

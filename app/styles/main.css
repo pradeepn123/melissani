@@ -455,6 +455,7 @@ body{
 .filter-club-section {
     padding: 6em 3em 4em 6em;
 }
+
 .filter-club-title {
     /* font-family: SF Pro; */
     font-size: 52px;
@@ -464,6 +465,7 @@ body{
     text-align: left;
     color: #000;
 }
+
 .filter-club-description {
     /* font-family: SF Pro; */
     font-size: 20px;
@@ -475,6 +477,7 @@ body{
     margin: 0.5em 0 1em 0;
     width: 70%;
 }
+
 ul.filter-club-list {
     list-style-type: none;
     margin-bottom: 1em;
@@ -886,6 +889,20 @@ ul.filter-club-list {
         width: 120vw;
         height: 120vh;
     }
+
+    .test {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .footer-social-media {
+        position: absolute;
+        bottom: 2.5%;
+        padding-left: 1.5rem;
+    }
 }
 
 @media screen and (min-width: 360px) {
@@ -1055,6 +1072,20 @@ ul.filter-club-list {
         margin-left: 2rem;
         transition: all 0.4s;
     }
+
+    .test {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .footer-social-media {
+        position: absolute;
+        bottom: 5%;
+        padding-left: 3rem;
+    }
 }
 
 @media (min-width:767px) and (max-width:1023px) {
@@ -1136,6 +1167,20 @@ ul.filter-club-list {
 
     .flickity-prev-next-button.next {
         right: -70px;
+    }
+
+    .test {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .footer-social-media {
+        position: absolute;
+        bottom: 9%;
+        padding-left: 2.75rem;
     }
 }
 
