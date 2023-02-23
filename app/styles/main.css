@@ -1066,13 +1066,14 @@ ul.filter-club-list {
         padding: 1rem 2rem;
     }
     .filter-club-section {
-        padding: 6em 2em 4em 3em;
+        padding: 6em 0em 4em 3em;
     }
     .filter-club-description {
         width: 100%;
     }
     .filter-club-img {
         width: 80%;
+        padding-left: 1em;
     }
 }
 
@@ -1518,12 +1519,13 @@ ul.filter-club-list {
     }
     .filter-club-section {
         padding: 6em 2em 4em 6em;
+        width: 40%;
     }
     .filter-club-description {
         width: 100%;
     }
     .filter-club-img {
-        width: 80%;
+        width: 50%;
         padding: 5em 0 2em 6em;
     }
 }
@@ -1574,7 +1576,11 @@ ul.filter-club-list {
     }
     .filter-club-img {
         width: 50%;
-        padding: 5em 0 2em 4em;
+        padding: 7em 0 2em 9em;
+    }
+    .filter-club-section {
+        padding: 6em 6em 4em;
+        width: 40%;
     }
 }
 
