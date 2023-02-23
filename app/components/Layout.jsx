@@ -246,11 +246,6 @@ function Badge({openCart, dark, count}) {
 
 function Footer({menu, metafields}) {
   const isHome = useIsHomePath();
-  const itemsCount = menu
-    ? menu?.items?.length + 1 > 4
-      ? 4
-      : menu?.items?.length + 1
-    : [];
 
   const footerMetafields = JSON.parse(metafields.footer.value)
   return (
@@ -280,7 +275,7 @@ function Footer({menu, metafields}) {
           <img src={footerMetafields.image} />
         </div>
       </div>
-      <div className={`bg-white grid lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-${itemsCount} px-9 pt-9 pb-2`}>
+      <div className={`bg-white flex justify-around px-9 pt-9 pb-2`}>
         <FooterMenu menu={menu} />
       </div>
       <div className="bg-white social-section-wrapper flex items-center justify-center pt-7 pb-4">
@@ -312,7 +307,7 @@ const FooterLink = ({item}) => {
   }
 
   return (
-    <Link to={item.to} target={item.target} prefetch="intent">
+    <Link to={item.to} className="footer-menu" target={item.target} prefetch="intent">
       {item.title}
     </Link>
   );
@@ -320,8 +315,8 @@ const FooterLink = ({item}) => {
 
 function FooterMenu({menu}) {
   const styles = {
-    section: 'grid gap-4 justify-center py-4 lg:py-2 lg:pt-0',
-    nav: 'grid gap-2 pb-6',
+    section: 'justify-center py-4 lg:py-2 lg:pt-0',
+    nav: 'pb-6',
   };
 
   return (
@@ -332,14 +327,7 @@ function FooterMenu({menu}) {
             {({open}) => (
               <>
                 <Disclosure.Button className="text-left md:cursor-default">
-                  <Heading className="flex justify-between footer-menu" size="lead" as="h3">
-                    {item.title}
-                    {item?.items?.length > 0 && (
-                      <span className="md:hidden">
-                        <IconCaret direction={open ? 'up' : 'down'} />
-                      </span>
-                    )}
-                  </Heading>
+                  <FooterLink item={item} />
                 </Disclosure.Button>
                 {item?.items?.length > 0 ? (
                   <div
