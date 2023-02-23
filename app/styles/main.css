@@ -1189,6 +1189,14 @@ ul.filter-club-list {
     .filter-club-img {
         width: 80%;
     }
+
+    .forward-nav-icon {
+        opacity: 0;
+        display: inline-block;
+        transform: translateY(25%);
+        margin-left: 2rem;
+        transition: all 0.4s;
+    }
 }
 
 @media (min-width:767px) and (max-width:1023px) {
