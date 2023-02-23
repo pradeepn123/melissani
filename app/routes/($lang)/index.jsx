@@ -175,7 +175,7 @@ export default function Homepage() {
         <KeyFeatures features={features} />)}
 
       {goodbye && (
-        <ImageWithText goodbye={goodbye} height="full" className="bg-grey"/>)}
+        <ImageWithText goodbye={goodbye} height="full" className="bg-grey xl:flex"/>)}
 
       {advancedFiltration && (
         <Carousel advancedFiltration={advancedFiltration} />)}
@@ -193,7 +193,7 @@ export default function Homepage() {
       )}
 
       {filterClub && (
-        <ImageWithText filterClub={filterClub} alignment="rtl" />
+        <ImageWithText filterClub={filterClub} alignment="rtl" className="md:flex filter-club-flex"/>
       )}
 
       {installation && (<ImageWithTwoText installation={installation} />)}
