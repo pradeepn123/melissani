@@ -980,16 +980,9 @@ ul.filter-club-list {
         width: 120vw;
         height: 120vh;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     .menu-drawer-container {
         height: 100vh;
-=======
-
-    .test {
-        height: 90vh;
->>>>>>> f9ec27d (Social Media Icons added)
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -998,17 +991,9 @@ ul.filter-club-list {
 
     .footer-social-media {
         position: absolute;
-<<<<<<< HEAD
         bottom: 0;
         padding-left: 1.5rem;
     }
-=======
->>>>>>> 61d90c3 (MenuDrawerDesignUpdate)
-=======
-        bottom: 2.5%;
-        padding-left: 1.5rem;
-    }
->>>>>>> f9ec27d (Social Media Icons added)
 }
 
 @media screen and (min-width: 360px) {
@@ -1185,7 +1170,6 @@ ul.filter-club-list {
         padding: 1rem 2rem;
     }
 
-<<<<<<< HEAD
     .forward-nav-icon {
         opacity: 0;
         display: inline-block;
@@ -1208,8 +1192,6 @@ ul.filter-club-list {
         padding-left: 3rem;
     }
 
-=======
->>>>>>> 61d90c3 (MenuDrawerDesignUpdate)
     .filter-club-section {
         padding: 6em 2em 4em 3em;
     }
@@ -1218,7 +1200,6 @@ ul.filter-club-list {
         width: 100%;
     }
 
-<<<<<<< HEAD
     .filter-club-img {
         width: 80%;
     }
@@ -1253,8 +1234,6 @@ ul.filter-club-list {
         width: 100%;
     }
 
-=======
->>>>>>> 61d90c3 (MenuDrawerDesignUpdate)
     .filter-club-img {
         width: 80%;
     }
@@ -1285,6 +1264,13 @@ ul.filter-club-list {
         padding: 6em 2em 4em 3em;
     }
 
+    .filter-club-description {
+        width: 100%;
+    }
+    
+    .filter-club-section {
+        padding: 6em 2em 4em 3em;
+    }
     .filter-club-description {
         width: 100%;
     }
@@ -1375,11 +1361,7 @@ ul.filter-club-list {
         right: -70px;
     }
 
-<<<<<<< HEAD
     .menu-drawer-container {
-=======
-    .test {
->>>>>>> f9ec27d (Social Media Icons added)
         height: 90vh;
         display: flex;
         flex-direction: column;
@@ -1656,8 +1638,6 @@ ul.filter-club-list {
         font-size: 2.5rem;
         max-width: 24rem;
     }
-
-<<<<<<< HEAD
     .filter-club-img {
         width: 50%;
         padding: 5em 0 2em;
@@ -1667,8 +1647,6 @@ ul.filter-club-list {
         width: 70%;
     }
 
-=======
->>>>>>> 61d90c3 (MenuDrawerDesignUpdate)
     .filter-club-img {
         width: 50%;
         padding: 5em 0 2em;
@@ -1865,12 +1843,9 @@ ul.filter-club-list {
     .secondary-hero-button {
         font-size: 2rem;
     }
-
     .filter-club-section {
         padding: 2em 2em 0em 6em;
     }
-
-<<<<<<< HEAD
     .filter-club-img img {
         padding: 8em 0 5em 12em;
     }
@@ -1879,8 +1854,10 @@ ul.filter-club-list {
         padding: 2em 2em 0em 6em;
     }
 
-=======
->>>>>>> 61d90c3 (MenuDrawerDesignUpdate)
+    .filter-club-section {
+        padding: 2em 2em 0em 6em;
+    }
+    
     .filter-club-img img {
         padding: 8em 0 5em 12em;
     }
