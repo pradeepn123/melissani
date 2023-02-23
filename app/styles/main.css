@@ -980,6 +980,7 @@ ul.filter-club-list {
         width: 120vw;
         height: 120vh;
     }
+<<<<<<< HEAD
 
     .menu-drawer-container {
         height: 100vh;
@@ -994,6 +995,8 @@ ul.filter-club-list {
         bottom: 0;
         padding-left: 1.5rem;
     }
+=======
+>>>>>>> 61d90c3 (MenuDrawerDesignUpdate)
 }
 
 @media screen and (min-width: 360px) {
@@ -1170,6 +1173,7 @@ ul.filter-club-list {
         padding: 1rem 2rem;
     }
 
+<<<<<<< HEAD
     .forward-nav-icon {
         opacity: 0;
         display: inline-block;
@@ -1192,6 +1196,8 @@ ul.filter-club-list {
         padding-left: 3rem;
     }
 
+=======
+>>>>>>> 61d90c3 (MenuDrawerDesignUpdate)
     .filter-club-section {
         padding: 6em 2em 4em 3em;
     }
@@ -1200,6 +1206,7 @@ ul.filter-club-list {
         width: 100%;
     }
 
+<<<<<<< HEAD
     .filter-club-img {
         width: 80%;
     }
@@ -1234,8 +1241,18 @@ ul.filter-club-list {
         width: 100%;
     }
 
+=======
+>>>>>>> 61d90c3 (MenuDrawerDesignUpdate)
     .filter-club-img {
         width: 80%;
+    }
+
+    .forward-nav-icon {
+        opacity: 0;
+        display: inline-block;
+        transform: translateY(25%);
+        margin-left: 2rem;
+        transition: all 0.4s;
     }
 }
 
@@ -1598,6 +1615,7 @@ ul.filter-club-list {
         max-width: 24rem;
     }
 
+<<<<<<< HEAD
     .filter-club-img {
         width: 50%;
         padding: 5em 0 2em;
@@ -1607,6 +1625,8 @@ ul.filter-club-list {
         width: 70%;
     }
 
+=======
+>>>>>>> 61d90c3 (MenuDrawerDesignUpdate)
     .filter-club-img {
         width: 50%;
         padding: 5em 0 2em;
@@ -1808,6 +1828,7 @@ ul.filter-club-list {
         padding: 2em 2em 0em 6em;
     }
 
+<<<<<<< HEAD
     .filter-club-img img {
         padding: 8em 0 5em 12em;
     }
@@ -1816,6 +1837,8 @@ ul.filter-club-list {
         padding: 2em 2em 0em 6em;
     }
 
+=======
+>>>>>>> 61d90c3 (MenuDrawerDesignUpdate)
     .filter-club-img img {
         padding: 8em 0 5em 12em;
     }
