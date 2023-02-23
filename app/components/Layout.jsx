@@ -298,7 +298,7 @@ function Footer({ menu, metafields }) {
           <img src={footerMetafields.image} />
         </div>
       </div>
-      <div className={`bg-white flex justify-around px-9 pt-9 pb-2`}>
+      <div className={`bg-white flex md:justify-around text-center flex-col md:flex-row px-9 pt-9 pb-2`}>
         <FooterMenu menu={menu} />
       </div>
       <div className="bg-white social-section-wrapper flex items-center justify-center pt-7 pb-4">
