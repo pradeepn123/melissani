@@ -174,6 +174,37 @@ body{
 
 /* end Good bye section css*/
 
+
+/* Begin: Menu Cart Drawer css*/
+
+.menuDrawer-Headermenu:hover {
+    color: #1376BC;
+    position: relative;
+}
+
+/* .menuDrawer-Headermenu:hover::after {
+    content: "";
+    position: absolute;
+    background-image: url('../../public/ForwardNav.png');
+    background-repeat: no-repeat;
+
+} */
+
+.menuDrawer-Headermenu:hover .forward-nav-icon {
+    opacity: 1;
+}
+
+.menuDrawer-Foootermenu:hover {
+    color: #1376BC;
+}
+
+.menuDrawer-nav {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+/* End: Menu Cart Drawer css*/
+
+
 /* Begin: Advanced Filteration section */
 
 .main-slider {
@@ -529,9 +560,38 @@ ul.filter-club-list {
     }
 }
 
+@media (max-width:512px) {
+
+    .menuDrawer-Headermenu {
+        font-size: 32px;
+        font-weight: 590;
+        line-height: 38px;
+        letter-spacing: 0em;
+        text-align: left;
+
+    }
+
+    .menuDrawer-Foootermenu {
+        font-size: 16px;
+        font-weight: 510;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+
+    }
+
+    .menu-span {
+        margin-bottom: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
     .featured-products-home {
         margin-top: 0;
+    }
+
+    .forward-nav-icon {
+        display: none;
     }
 }
 
@@ -821,6 +881,11 @@ ul.filter-club-list {
         font-size: 0.75rem;
         padding: 0.75rem 1rem 0.75rem 1rem;
     }
+
+    .drawer-dialog-panel {
+        width: 120vw;
+        height: 120vh;
+    }
 }
 
 @media screen and (min-width: 360px) {
@@ -981,6 +1046,14 @@ ul.filter-club-list {
     .secondary-hero-button {
         font-size: unset;
         padding: 1rem 2rem;
+    }
+
+    .forward-nav-icon {
+        opacity: 0;
+        display: inline-block;
+        transform: translateY(25%);
+        margin-left: 2rem;
+        transition: all 0.4s;
     }
 }
 
