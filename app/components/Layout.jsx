@@ -105,11 +105,7 @@ function CartDrawer({ isOpen, onClose }) {
 export function MenuDrawer({ isOpen, onClose, menu, footerMenu,metafields }) {
   return (
     <Drawer open={isOpen} onClose={onClose} openFrom="right" heading="Menu">
-<<<<<<< HEAD
       <div className="menu-drawer-container">
-=======
-      <div className="test">
->>>>>>> f9ec27d (Social Media Icons added)
         <MenuMobileNav menu={menu} onClose={onClose} footerMenu={footerMenu} metafields={metafields} />
       </div>
     </Drawer>
