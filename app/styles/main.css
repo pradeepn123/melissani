@@ -1197,6 +1197,20 @@ ul.filter-club-list {
         margin-left: 2rem;
         transition: all 0.4s;
     }
+
+    .test {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .footer-social-media {
+        position: absolute;
+        bottom: 5%;
+        padding-left: 3rem;
+    }
 }
 
 @media (min-width:767px) and (max-width:1023px) {
