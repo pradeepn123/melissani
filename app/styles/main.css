@@ -981,9 +981,15 @@ ul.filter-club-list {
         height: 120vh;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     .menu-drawer-container {
         height: 100vh;
+=======
+
+    .test {
+        height: 90vh;
+>>>>>>> f9ec27d (Social Media Icons added)
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -992,11 +998,17 @@ ul.filter-club-list {
 
     .footer-social-media {
         position: absolute;
+<<<<<<< HEAD
         bottom: 0;
         padding-left: 1.5rem;
     }
 =======
 >>>>>>> 61d90c3 (MenuDrawerDesignUpdate)
+=======
+        bottom: 2.5%;
+        padding-left: 1.5rem;
+    }
+>>>>>>> f9ec27d (Social Media Icons added)
 }
 
 @media screen and (min-width: 360px) {
@@ -1254,6 +1266,20 @@ ul.filter-club-list {
         margin-left: 2rem;
         transition: all 0.4s;
     }
+
+    .test {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .footer-social-media {
+        position: absolute;
+        bottom: 5%;
+        padding-left: 3rem;
+    }
 }
 
 @media (min-width:767px) and (max-width:1023px) {
@@ -1337,7 +1363,11 @@ ul.filter-club-list {
         right: -70px;
     }
 
+<<<<<<< HEAD
     .menu-drawer-container {
+=======
+    .test {
+>>>>>>> f9ec27d (Social Media Icons added)
         height: 90vh;
         display: flex;
         flex-direction: column;
