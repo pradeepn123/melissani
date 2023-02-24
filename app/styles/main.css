@@ -544,6 +544,7 @@ ul.filter-club-list {
     .featured-products-home {
         margin-top: 0;
     }
+
 }
 
 @media (max-width: 767px) {
@@ -736,6 +737,37 @@ ul.filter-club-list {
         line-height: 24px;
     }
 }
+@media (max-width:640px){
+    .learn-more{
+        flex-direction: column-reverse;
+    }
+
+    .learn-more-container{
+        padding: 2rem;
+    }
+
+    .learn-more-header{
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 34px;
+        letter-spacing: 0em;
+        margin-bottom: 1rem;
+    }
+
+    .learn-more-content{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0em;
+        margin-bottom: 1rem;
+
+    }
+
+    .learn-more-sec-btn{
+        padding: 1rem;
+    }
+}
+
 
 @media (max-width: 540px) {
     .flickity-enabled {
@@ -1009,6 +1041,7 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 768px) {
+
     .hero-text {
         top: 40%;
         left: 36%;
@@ -1074,6 +1107,20 @@ ul.filter-club-list {
     .filter-club-img {
         width: 80%;
         padding-left: 1em;
+    }
+
+    .learn-more-container{
+        flex:1 0 50%;
+    }
+
+    .img-sec{
+        flex:1 0 50%;
+
+    }
+
+    .learn-more-sec-btn{
+        padding: 0.75rem 1.15rem;
+        font-size: 0.75rem;
     }
 }
 
@@ -1581,6 +1628,11 @@ ul.filter-club-list {
         padding: 6em 6em 4em;
         width: 40%;
     }
+
+    .learn-more-sec-btn{
+        padding: 1.25rem 2.5rem;
+        font-size: 1.5rem
+    }
 }
 
 @media screen and (min-width: 1536px) {
@@ -1634,6 +1686,18 @@ ul.filter-club-list {
         transform: translate(78%, -70%);
     }
 
+    .learn-more-container{
+        padding-top: 7rem;
+    }
+
+    .learn-more-header{
+        font-size: 4rem;
+    }
+    
+    .learn-more-content{
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
 }
 
 @media screen and (min-width: 1900px) {
@@ -1659,6 +1723,10 @@ ul.filter-club-list {
         font-size: 2.5rem;
         padding: 1.5rem 3.5rem;
 
+    }
+
+    .learn-more-container{
+        padding-top: 10rem;
     }
 }
 
