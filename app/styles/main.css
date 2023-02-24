@@ -174,44 +174,6 @@ body{
 
 /* end Good bye section css*/
 
-
-/* Begin: Menu Cart Drawer css*/
-
-.menuDrawer-Headermenu:hover {
-    color: #1376BC;
-    position: relative;
-}
-
-/* .menuDrawer-Headermenu:hover::after {
-    content: "";
-    position: absolute;
-    background-image: url('../../public/ForwardNav.png');
-    background-repeat: no-repeat;
-
-} */
-
-.menuDrawer-Headermenu:hover .forward-nav-icon {
-    opacity: 1;
-}
-
-.menuDrawer-Foootermenu:hover {
-    color: #1376BC;
-}
-
-.menuDrawer-nav {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2)
-}
-
-.menu-drawer-cart {
-    position: relative;
-    margin-right: 1rem;
-    top: 32%;
-}
-
-
-/* End: Menu Cart Drawer css*/
-
-
 /* Begin: Advanced Filteration section */
 
 .main-slider {
@@ -462,7 +424,6 @@ body{
 .filter-club-section {
     padding: 6em 3em 4em 6em;
 }
-
 .filter-club-title {
     /* font-family: SF Pro; */
     font-size: 52px;
@@ -472,7 +433,6 @@ body{
     text-align: left;
     color: #000;
 }
-
 .filter-club-description {
     /* font-family: SF Pro; */
     font-size: 20px;
@@ -484,7 +444,6 @@ body{
     margin: 0.5em 0 1em 0;
     width: 70%;
 }
-
 ul.filter-club-list {
     list-style-type: none;
     margin-bottom: 1em;
@@ -581,38 +540,9 @@ ul.filter-club-list {
     }
 }
 
-@media (max-width:512px) {
-
-    .menuDrawer-Headermenu {
-        font-size: 32px;
-        font-weight: 590;
-        line-height: 38px;
-        letter-spacing: 0em;
-        text-align: left;
-
-    }
-
-    .menuDrawer-Foootermenu {
-        font-size: 16px;
-        font-weight: 510;
-        line-height: 19px;
-        letter-spacing: 0em;
-        text-align: left;
-
-    }
-
-    .menu-span {
-        margin-bottom: 1rem;
-    }
-}
-
 @media (max-width: 768px) {
     .featured-products-home {
         margin-top: 0;
-    }
-
-    .forward-nav-icon {
-        display: none;
     }
 }
 
@@ -772,7 +702,6 @@ ul.filter-club-list {
         min-height: auto;
         font-size: 24px;
     }
-
     .filter-club-section {
         width: 100%;
         padding: 1em 2em 1em;
@@ -795,16 +724,13 @@ ul.filter-club-list {
         width: 100%;
         row-gap: 2em;
     }
-
-    .subscribe-btn button {
+    .subscribe-btn button{
         width: 100%;
         text-align: center;
     }
-
     .filter-club-learn-more-btn {
         text-align: center;
     }
-
     .filter-club-anouncement {
         font-size: 16px;
         line-height: 24px;
@@ -855,7 +781,6 @@ ul.filter-club-list {
     .flickity-prev-next-button {
         margin: 1em 1em 1em -1em;
     }
-
     .filter-club-description {
         width: 100%;
     }
@@ -929,7 +854,6 @@ ul.filter-club-list {
         font-size: 16px;
         line-height: 24px;
     }
-
     .filter-club-list-icon svg {
         width: 48px;
         height: 48px;
@@ -942,9 +866,7 @@ ul.filter-club-list {
         letter-spacing: 0em;
         text-align: left;
     }
-
-    .subscribe-btn button,
-    .filter-club-learn-more-btn {
+    .subscribe-btn button, .filter-club-learn-more-btn {
         font-weight: 700;
         font-size: 16px;
         line-height: 19px;
@@ -982,44 +904,7 @@ ul.filter-club-list {
         font-size: 0.75rem;
         padding: 0.75rem 1rem 0.75rem 1rem;
     }
-
-    .drawer-dialog-panel {
-        width: 120vw;
-        height: 120vh;
-    }
-
-    .menu-drawer-container {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-    }
-
-    .footer-social-media {
-        position: absolute;
-        bottom: 0;
-        padding-left: 1.5rem;
-    }
-
-    .menu-drawer-cart {
-        width: 1rem;
-        height: 1rem;
-        position: relative;
-        margin-right: 2.75rem;
-        top: 18%;
-    }
-
-    .menu-cart-icon {
-        margin: 0.75rem;
-    }
-
-    /* .menuDrawer-nav {
-     align-content: center;
-     flex-wrap: wrap;
-    } */
 }
-
 
 @media screen and (min-width: 360px) {
     .mobile-heading-text {
@@ -1039,20 +924,6 @@ ul.filter-club-list {
     .secondary-hero-content {
         top: 48%;
         left: 15%;
-    }
-
-    .menu-drawer-container {
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-    }
-
-    .footer-social-media {
-        position: absolute;
-        bottom: 2.5%;
-        padding-left: 1.5rem;
     }
 }
 
@@ -1194,127 +1065,15 @@ ul.filter-club-list {
         font-size: unset;
         padding: 1rem 2rem;
     }
-
-    .forward-nav-icon {
-        opacity: 0;
-        display: inline-block;
-        transform: translateY(25%);
-        margin-left: 2rem;
-        transition: all 0.4s;
-    }
-
-    .menu-drawer-container {
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-    }
-
-    .footer-social-media {
-        position: absolute;
-        bottom: 5%;
-        padding-left: 3rem;
-    }
-
-    .filter-club-section {
-        padding: 6em 2em 4em 3em;
-    }
-
-    .filter-club-description {
-        width: 100%;
-    }
-
-    .filter-club-img {
-        width: 80%;
-    }
-
-    .forward-nav-icon {
-        opacity: 0;
-        display: inline-block;
-        transform: translateY(25%);
-        margin-left: 2rem;
-        transition: all 0.4s;
-    }
-
-    .menu-drawer-container {
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-    }
-
-    .footer-social-media {
-        position: absolute;
-        bottom: 5%;
-        padding-left: 3rem;
-    }
-
-    .filter-club-section {
-        padding: 6em 2em 4em 3em;
-    }
-
-    .filter-club-description {
-        width: 100%;
-    }
-
-    .filter-club-img {
-        width: 80%;
-    }
-
-    .forward-nav-icon {
-        opacity: 0;
-        display: inline-block;
-        transform: translateY(25%);
-        margin-left: 2rem;
-        transition: all 0.4s;
-    }
-
-    .test {
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-    }
-
-    .footer-social-media {
-        position: absolute;
-        bottom: 5%;
-        padding-left: 3rem;
-    }
-
-    .filter-club-section {
-        padding: 6em 2em 4em 3em;
-    }
-
-    .filter-club-description {
-        width: 100%;
-    }
-
     .filter-club-section {
         padding: 6em 0em 4em 3em;
     }
-
     .filter-club-description {
         width: 100%;
     }
-
     .filter-club-img {
         width: 80%;
         padding-left: 1em;
-    }
-
-    .menu-drawer-cart {
-        width: unset;
-        height: unset;
-        top: 32%;
-        margin-right: 0.75rem;
-    }
-
-    .menu-drawer-account {
-        margin: 1rem;
     }
 }
 
@@ -1397,20 +1156,6 @@ ul.filter-club-list {
 
     .flickity-prev-next-button.next {
         right: -70px;
-    }
-
-    .menu-drawer-container {
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-    }
-
-    .footer-social-media {
-        position: absolute;
-        bottom: 9%;
-        padding-left: 2.75rem;
     }
 }
 
@@ -1676,7 +1421,6 @@ ul.filter-club-list {
         font-size: 2.5rem;
         max-width: 24rem;
     }
-
     .filter-club-section {
         padding: 6em 0em 4em 3em;
         width: 40%;
@@ -1684,10 +1428,6 @@ ul.filter-club-list {
     .filter-club-img {
         width: 50%;
         padding: 5em 0 2em 3em;
-    }
-    
-    .filter-club-description {
-        width: 70%;
     }
 }
 
@@ -1776,16 +1516,13 @@ ul.filter-club-list {
         justify-content: center;
         margin: 2em auto;
     }
-
     .filter-club-section {
         padding: 6em 2em 4em 6em;
         width: 40%;
     }
-
     .filter-club-description {
         width: 100%;
     }
-
     .filter-club-img {
         width: 50%;
         padding: 5em 0 2em 6em;
@@ -1836,7 +1573,6 @@ ul.filter-club-list {
         font-size: 1.75rem;
         padding: 1rem 2.5rem;
     }
-
     .filter-club-img {
         width: 50%;
         padding: 7em 0 2em 10em;
@@ -1881,25 +1617,11 @@ ul.filter-club-list {
     .secondary-hero-button {
         font-size: 2rem;
     }
-
-    .filter-club-section {
-        padding: 2em 2em 0em 6em;
-    }
-
-    .filter-club-img img {
-        padding: 8em 0 5em 12em;
-    }
-
-    .filter-club-section {
-        padding: 2em 2em 0em 6em;
-    }
-
     .filter-club-section {
         /* padding: 2em 2em 0em 6em; */
         padding: 2em 12em 0 6em;
         width: 40%;
     }
-
     .filter-club-img img {
         /* padding: 8em 0 5em 12em; */
         padding: 8em 0 5em 0em;

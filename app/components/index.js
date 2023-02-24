@@ -30,6 +30,5 @@ export { AddToCartButton } from './AddToCartButton';
 export { VolumeControlProperty } from './VolumeControlProperty';
 export { ImageWithTwoText } from './ImageWithTwoText';
 export { SecondaryHero } from './SecondaryHero';
-export { CartCount } from './CartCount';
 // Sue me
 export * from './Icon';
