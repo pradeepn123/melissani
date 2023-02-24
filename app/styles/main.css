@@ -202,6 +202,13 @@ body{
     border-bottom: 1px solid rgba(0, 0, 0, 0.2)
 }
 
+.menu-drawer-cart {
+    position: relative;
+    margin-right: 1rem;
+    top: 32%;
+}
+
+
 /* End: Menu Cart Drawer css*/
 
 
@@ -994,7 +1001,25 @@ ul.filter-club-list {
         bottom: 0;
         padding-left: 1.5rem;
     }
+
+    .menu-drawer-cart {
+        width: 1rem;
+        height: 1rem;
+        position: relative;
+        margin-right: 2.75rem;
+        top: 18%;
+    }
+
+    .menu-cart-icon {
+        margin: 0.75rem;
+    }
+
+    /* .menuDrawer-nav {
+     align-content: center;
+     flex-wrap: wrap;
+    } */
 }
+
 
 @media screen and (min-width: 360px) {
     .mobile-heading-text {
@@ -1267,16 +1292,28 @@ ul.filter-club-list {
     .filter-club-description {
         width: 100%;
     }
-    
+
     .filter-club-section {
         padding: 6em 2em 4em 3em;
     }
+
     .filter-club-description {
         width: 100%;
     }
 
     .filter-club-img {
         width: 80%;
+    }
+
+    .menu-drawer-cart {
+        width: unset;
+        height: unset;
+        top: 32%;
+        margin-right: 0.75rem;
+    }
+
+    .menu-drawer-account {
+        margin: 1rem;
     }
 }
 
@@ -1638,6 +1675,7 @@ ul.filter-club-list {
         font-size: 2.5rem;
         max-width: 24rem;
     }
+
     .filter-club-img {
         width: 50%;
         padding: 5em 0 2em;
@@ -1843,9 +1881,11 @@ ul.filter-club-list {
     .secondary-hero-button {
         font-size: 2rem;
     }
+
     .filter-club-section {
         padding: 2em 2em 0em 6em;
     }
+
     .filter-club-img img {
         padding: 8em 0 5em 12em;
     }
@@ -1857,7 +1897,7 @@ ul.filter-club-list {
     .filter-club-section {
         padding: 2em 2em 0em 6em;
     }
-    
+
     .filter-club-img img {
         padding: 8em 0 5em 12em;
     }

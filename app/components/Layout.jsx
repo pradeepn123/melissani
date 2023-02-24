@@ -15,13 +15,12 @@ import {
 import { useParams, Await, useMatches } from '@remix-run/react';
 import { Disclosure } from '@headlessui/react';
 import { Suspense, useEffect, useMemo } from 'react';
-import { useIsHydrated } from '~/hooks/useIsHydrated';
 import { useCartFetchers } from '~/hooks/useCartFetchers';
 import { ForwardNav } from '~/components';
+import {CartCount} from '~/components/CartCount'
 
 import logo from '../../public/logo.svg';
 import account from '../../public/account.svg';
-import cart from '../../public/cart.svg';
 
 export function Layout({ children, layout }) {
   return (
@@ -72,9 +71,9 @@ function Header({ logo, menu, footerMenu ,metafields}) {
 
   return (
     <>
-      <CartDrawer isOpen={isCartOpen} onClose={closeCart} />
+      <CartDrawer isOpen={isCartOpen} onClose={closeCart} isHome={isHome} openCart={openCart} />
       {menu && (
-        <MenuDrawer isOpen={isMenuOpen} onClose={closeMenu} menu={menu} footerMenu={footerMenu} metafields={metafields}/>
+        <MenuDrawer isOpen={isMenuOpen} onClose={closeMenu} menu={menu} footerMenu={footerMenu} isHome={isHome} openCart={openCart} metafields={metafields}/>
       )}
       <MobileHeader
         isHome={isHome}
@@ -86,11 +85,11 @@ function Header({ logo, menu, footerMenu ,metafields}) {
   );
 }
 
-function CartDrawer({ isOpen, onClose }) {
+function CartDrawer({ isOpen, onClose,isHome, openCart }) {
   const [root] = useMatches();
 
   return (
-    <Drawer open={isOpen} onClose={onClose} heading="Cart" openFrom="right">
+    <Drawer open={isOpen} onClose={onClose} isHome={isHome} openCart={openCart} heading="Cart" openFrom="right">
       <div className="grid">
         <Suspense fallback={<CartLoading />}>
           <Await resolve={root.data?.cart}>
@@ -102,9 +101,9 @@ function CartDrawer({ isOpen, onClose }) {
   );
 }
 
-export function MenuDrawer({ isOpen, onClose, menu, footerMenu,metafields }) {
+export function MenuDrawer({ isOpen, onClose, menu, footerMenu,metafields , isHome, openCart}) {
   return (
-    <Drawer open={isOpen} onClose={onClose} openFrom="right" heading="Menu">
+    <Drawer open={isOpen} onClose={onClose} isHome={isHome} openCart={openCart}  openFrom="right" heading="Menu">
       <div className="menu-drawer-container">
         <MenuMobileNav menu={menu} onClose={onClose} footerMenu={footerMenu} metafields={metafields} />
       </div>
@@ -138,8 +137,7 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
       </div>
 
       {/* Bottom level menu items */}
-      {
-        (footerMenu?.items || []).map((item) => (
+      { (footerMenu?.items || []).map((item) => (
           <span key={item.id} className="block">
             <Link
               to={item.to}
@@ -216,56 +214,56 @@ function MobileHeader({ logo, isHome, openCart, openMenu }) {
   );
 }
 
-function CartCount({ isHome, openCart }) {
-  const [root] = useMatches();
+// function CartCount({ isHome, openCart }) {
+//   const [root] = useMatches();
 
-  return (
-    <Suspense fallback={<Badge count={0} dark={isHome} openCart={openCart} />}>
-      <Await resolve={root.data?.cart}>
-        {(cart) => (
-          <Badge
-            openCart={openCart}
-            count={cart?.totalQuantity || 0}
-          />
-        )}
-      </Await>
-    </Suspense>
-  );
-}
+//   return (
+//     <Suspense fallback={<Badge count={0} dark={isHome} openCart={openCart} />}>
+//       <Await resolve={root.data?.cart}>
+//         {(cart) => (
+//           <Badge
+//             openCart={openCart}
+//             count={cart?.totalQuantity || 0}
+//           />
+//         )}
+//       </Await>
+//     </Suspense>
+//   );
+// }
 
-function Badge({ openCart, dark, count }) {
-  const isHydrated = useIsHydrated();
+// function Badge({ openCart, dark, count }) {
+//   const isHydrated = useIsHydrated();
 
-  const BadgeCounter = useMemo(
-    () => (
-      <>
-        <img src={cart} />
-        <div
-          className={'text-contrast bg-primary absolute -top-1.5 -right-1 text-[0.625rem] font-medium subpixel-antialiased min-w-[0.75rem] flex items-center justify-center leading-none text-center rounded-full w-4 h-4 px-[0.175rem] pb-px'}
-        >
-          <span>{count || 0}</span>
-        </div>
-      </>
-    ),
-    [count, dark],
-  );
+//   const BadgeCounter = useMemo(
+//     () => (
+//       <>
+//         <img src={cart} />
+//         <div
+//           className={'text-contrast bg-primary absolute -top-1.5 -right-1 text-[0.625rem] font-medium subpixel-antialiased min-w-[0.75rem] flex items-center justify-center leading-none text-center rounded-full w-4 h-4 px-[0.175rem] pb-px'}
+//         >
+//           <span>{count || 0}</span>
+//         </div>
+//       </>
+//     ),
+//     [count, dark],
+//   );
 
-  return isHydrated ? (
-    <button
-      onClick={openCart}
-      className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 ml-4"
-    >
-      {BadgeCounter}
-    </button>
-  ) : (
-    <Link
-      to="/cart"
-      className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 ml-4"
-    >
-      {BadgeCounter}
-    </Link>
-  );
-}
+//   return isHydrated ? (
+//     <button
+//       onClick={openCart}
+//       className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 ml-4"
+//     >
+//       {BadgeCounter}
+//     </button>
+//   ) : (
+//     <Link
+//       to="/cart"
+//       className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 ml-4"
+//     >
+//       {BadgeCounter}
+//     </Link>
+//   );
+// }
 
 function Footer({ menu, metafields }) {
   const isHome = useIsHomePath();
