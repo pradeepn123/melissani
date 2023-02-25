@@ -2,6 +2,7 @@ import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
 import {PageHeader} from '~/components';
+import {Faq} from '~/components';
 
 const seo = ({data}) => ({
   title: data?.page?.seo?.title,
@@ -26,6 +27,10 @@ export async function loader({request, params, context}) {
     throw new Response(null, {status: 404});
   }
 
+  const faq = page.metafields.find(item => {
+    return item.key == "faq"
+  })
+
   return json(
     {page},
     {
@@ -40,13 +45,17 @@ export default function Page() {
   const {page} = useLoaderData();
 
   return (
-    <>
+    <>      
       <PageHeader heading={page.title}>
+        {page.handle == 'faq' ? (<Faq metafields={page.metafields} />) :
         <div
           dangerouslySetInnerHTML={{__html: page.body}}
           className="prose dark:prose-invert"
-        />
+        />  }
       </PageHeader>
+
+      
+
     </>
   );
 }
@@ -58,6 +67,7 @@ const PAGE_QUERY = `#graphql
       id
       title
       body
+      handle
       seo {
         description
         title

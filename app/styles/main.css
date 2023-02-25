@@ -2,7 +2,7 @@
     font-family: 'SF-Pro';
     font-display: swap;
     font-weight: 400;    
-    src: url('../styles/fonts/SF-Pro.ttf') format('ttf');
+    src: url('./fonts/SF-Pro.ttf') format('ttf');
 }
 
 body{
@@ -1665,3 +1665,20 @@ ul.filter-club-list {
 /* End: Media Query */
 
 /* End: Home Page */
+
+
+/* faq section */
+.main_content_heading{
+    font-family: 'SF-Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 52px;
+    color: #000;
+}
+
+.faq_section_wrapper .icon_with_text img{
+    width: 80px;
+    height: 80px;
+}
+
+/* ends faq section */
