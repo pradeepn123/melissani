@@ -26,20 +26,25 @@ export function ImageWithText({ goodbye, alignment, className, filterClub,learnM
       
           </>}</>
         }
+        {
+          learnMore && <div className="learn-more w-full flex">
+          {
+           <>
+              { alignment == "rtl" ?
+               <>
+                  <ImageSection data={learnMore} /> 
+                  <LearnMoreSection data={learnMore}/>
+                </> : <>
+                  <LearnMoreSection data={learnMore}/>
+                  <ImageSection data={learnMore}/> 
+                </>
+              }
+            </>
+          }
+          </div>
+        }
     </section>
 
-     <section className='learn-more w-full flex'>
-        {learnMore && <>
-        { alignment == "rtl" ? <>
-          
-            <ImageSection data={learnMore} /> 
-            <LearnMoreSection data={learnMore}/>
-          </> : <>
-            <LearnMoreSection data={learnMore}/>
-            <ImageSection data={learnMore}/> 
-          </>}</>}
-      </section>
-      
   {filterClub && 
   <div className="filter-club-anouncement">
     <b>1468+</b> customers have joined <b>FILTER CLUB MEMBERSHIP</b> and saving $150/yr <Link to={filterClub.subscribeBtnLink}><b><u>JOIN NOW</u></b></Link>
