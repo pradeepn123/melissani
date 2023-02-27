@@ -203,8 +203,7 @@ export default function Homepage() {
       {learnMore && ( <ImageWithText learnMore={learnMore} className="flex md:flex-row"/>)}
 
       {footerBanner && (<SecondaryHero data={footerBanner} />)}
-
-
+      
     </>
   );
 }

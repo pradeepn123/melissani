@@ -1,4 +1,4 @@
-import { useIsHomePath } from '~/lib/utils';
+import {useIsHomePath} from '~/lib/utils';
 import {
   Drawer,
   useDrawer,
@@ -12,18 +12,16 @@ import {
   CartLoading,
   Link,
 } from '~/components';
-import { useParams, Await, useMatches } from '@remix-run/react';
-import { Disclosure } from '@headlessui/react';
-import { Suspense, useEffect, useMemo } from 'react';
-import { useIsHydrated } from '~/hooks/useIsHydrated';
-import { useCartFetchers } from '~/hooks/useCartFetchers';
-// import { ForwardNav } from '~/components';
-
+import {useParams, Await, useMatches} from '@remix-run/react';
+import {Disclosure} from '@headlessui/react';
+import {Suspense, useEffect, useMemo} from 'react';
+import {useIsHydrated} from '~/hooks/useIsHydrated';
+import {useCartFetchers} from '~/hooks/useCartFetchers';
 import logo from '../../public/logo.svg';
 import account from '../../public/account.svg';
 import cart from '../../public/cart.svg';
 
-export function Layout({ children, layout }) {
+export function Layout({children, layout}) {
   return (
     <>
       <div className="flex flex-col min-h-screen">
@@ -35,8 +33,6 @@ export function Layout({ children, layout }) {
         <Header
           menu={layout?.headerMenu}
           logo={logo}
-          footerMenu={layout?.footerMenu}
-          metafields={layout?.metafields}
         />
         <main role="main" id="mainContent" className="flex-grow">
           {children}
@@ -47,7 +43,7 @@ export function Layout({ children, layout }) {
   );
 }
 
-function Header({ logo, menu, footerMenu ,metafields}) {
+function Header({logo, menu}) {
   const isHome = useIsHomePath();
 
   const {
@@ -74,7 +70,7 @@ function Header({ logo, menu, footerMenu ,metafields}) {
     <>
       <CartDrawer isOpen={isCartOpen} onClose={closeCart} />
       {menu && (
-        <MenuDrawer isOpen={isMenuOpen} onClose={closeMenu} menu={menu} footerMenu={footerMenu} metafields={metafields}/>
+        <MenuDrawer isOpen={isMenuOpen} onClose={closeMenu} menu={menu} />
       )}
       <MobileHeader
         isHome={isHome}
@@ -86,7 +82,7 @@ function Header({ logo, menu, footerMenu ,metafields}) {
   );
 }
 
-function CartDrawer({ isOpen, onClose }) {
+function CartDrawer({isOpen, onClose}) {
   const [root] = useMatches();
 
   return (
@@ -102,75 +98,56 @@ function CartDrawer({ isOpen, onClose }) {
   );
 }
 
-export function MenuDrawer({ isOpen, onClose, menu, footerMenu,metafields }) {
+export function MenuDrawer({isOpen, onClose, menu}) {
   return (
     <Drawer open={isOpen} onClose={onClose} openFrom="right" heading="Menu">
-      <div className="test">
-        <MenuMobileNav menu={menu} onClose={onClose} footerMenu={footerMenu} metafields={metafields} />
+      <div className="grid">
+        <MenuMobileNav menu={menu} onClose={onClose} />
       </div>
     </Drawer>
   );
 }
 
-function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
-  const footerMetafields = JSON.parse(metafields.footer.value)
+function MenuMobileNav({menu, onClose}) {
   return (
-    <>
-    <nav className="grid gap-4 p-6 sm:gap-6 sm:px-12 pt-5">
-      <div>
-
-        {/* Top level menu items */}
-        {(menu?.items || []).map((item) => (
-          <span key={item.id} className="block menu-span">
-            <Link
-              to={item.to}
-              target={item.target}
-              onClick={onClose}
-            >
-              <Text as="span" size="copy" className='menuDrawer-Headermenu text-black md:text-4xl md:font-semibold'>
-                {item.title}
-                <span className='forward-nav-icon'><ForwardNav /></span>
-              </Text>
-            </Link>
-          </span>
-        ))
-        }
-      </div>
-
-      {/* Bottom level menu items */}
-      {
-        (footerMenu?.items || []).map((item) => (
-          <span key={item.id} className="block">
-            <Link
-              to={item.to}
-              target={item.target}
-              onClick={onClose}
-            >
-              <Text as="span" size="copy" className='menuDrawer-Foootermenu text-black md:font-normal'>
-                {item.title}
-              </Text>
-            </Link>
-          </span>
-        ))
-      }
-
-      {/* Social Media Links  */}
-     
-    </nav >
-     <div className="footer-social-media">
-     {footerMetafields.social.map((item, index) => (
-         <span key={`footer-social-${index}`} className="social-links mr-4">
-           <a href={item.link}>
-             <img className='inline-block' src={item.iconBlack} />
-           </a>
-         </span>
-       ))}
-     </div>
-     </>
+    <nav className="grid gap-4 p-6 sm:gap-6 sm:px-12 sm:py-8">
+      {/* Top level menu items */}
+      <span className="block">
+        <Link
+          to={"/"}
+          onClick={onClose}
+          className={({isActive}) =>
+            isActive ? 'pb-1 border-b -mb-px' : 'pb-1'
+          }
+        >
+          <Link to="/products/" className="">
+            <Button className="inline-block rounded font-medium text-center py-3 px-8 border md:none
+            border-transparent bg-primary hover:bg-white hover:border-primary text-contrast hover:text-primary w-auto"> SHOP NOW </Button>
+          </Link>
+        </Link>
+      </span>
+      {(menu?.items || []).map((item) => (
+        <span key={item.id} className="block">
+          <Link
+            to={item.to}
+            target={item.target}
+            onClick={onClose}
+            className={({isActive}) =>
+              isActive ? 'pb-1 border-b -mb-px' : 'pb-1'
+            }
+          >
+            <Text as="span" size="copy">
+              {item.title}
+            </Text>
+          </Link>
+        </span>
+      ))}
+      
+    </nav>
   );
 }
 
-function MobileHeader({ logo, isHome, openCart, openMenu }) {
+function MobileHeader({logo, isHome, openCart, openMenu}) {
   // useHeaderStyleFix(containerStyle, setContainerStyle, isHome);
 
   const params = useParams();
@@ -216,7 +193,7 @@ function MobileHeader({ logo, isHome, openCart, openMenu }) {
   );
 }
 
-function CartCount({ isHome, openCart }) {
+function CartCount({isHome, openCart}) {
   const [root] = useMatches();
 
   return (
@@ -233,7 +210,7 @@ function CartCount({ isHome, openCart }) {
   );
 }
 
-function Badge({ openCart, dark, count }) {
+function Badge({openCart, dark, count}) {
   const isHydrated = useIsHydrated();
 
   const BadgeCounter = useMemo(
@@ -267,7 +244,7 @@ function Badge({ openCart, dark, count }) {
   );
 }
 
-function Footer({ menu, metafields }) {
+function Footer({menu, metafields}) {
   const isHome = useIsHomePath();
 
   const footerMetafields = JSON.parse(metafields.footer.value)
@@ -298,14 +275,14 @@ function Footer({ menu, metafields }) {
           <img src={footerMetafields.image} />
         </div>
       </div>
-      <div className={`bg-white flex justify-around px-9 pt-9 pb-2`}>
+      <div className={`bg-white flex md:justify-around text-center flex-col md:flex-row px-9 pt-9 pb-2`}>
         <FooterMenu menu={menu} />
       </div>
       <div className="bg-white social-section-wrapper flex items-center justify-center pt-7 pb-4">
         {footerMetafields.social.map((item, index) => (
           <div key={`footer-social-${index}`} className="social-links mr-4">
             <a href={item.link}>
-              <img src={item.iconBlue} />
+              <img src={item.icon} />
             </a>
           </div>
         ))}
@@ -313,14 +290,14 @@ function Footer({ menu, metafields }) {
       <div
         className={`bg-white pt-3 pb-4 text-center footer-bottom`}
       >
-        {footerMetafields.address}
+        {footerMetafields.address} 
         <span className="ml-5">&copy; MELISSANI</span>
       </div>
     </Section>
   );
 }
 
-const FooterLink = ({ item }) => {
+const FooterLink = ({item}) => {
   if (item.to.startsWith('http')) {
     return (
       <a href={item.to} target={item.target} rel="noopener noreferrer">
@@ -336,7 +313,7 @@ const FooterLink = ({ item }) => {
   );
 };
 
-function FooterMenu({ menu }) {
+function FooterMenu({menu}) {
   const styles = {
     section: 'justify-center py-4 lg:py-2 lg:pt-0',
     nav: 'pb-6',
@@ -347,15 +324,16 @@ function FooterMenu({ menu }) {
       {(menu?.items || []).map((item) => (
         <section key={item.id} className={styles.section}>
           <Disclosure>
-            {({ open }) => (
+            {({open}) => (
               <>
                 <Disclosure.Button className="text-left md:cursor-default">
                   <FooterLink item={item} />
                 </Disclosure.Button>
                 {item?.items?.length > 0 ? (
                   <div
-                    className={`${open ? `max-h-48 h-fit` : `max-h-0 md:max-h-fit`
-                      } overflow-hidden transition-all duration-300`}
+                    className={`${
+                      open ? `max-h-48 h-fit` : `max-h-0 md:max-h-fit`
+                    } overflow-hidden transition-all duration-300`}
                   >
                     <Suspense data-comment="This suspense fixes a hydration bug in Disclosure.Panel with static prop">
                       <Disclosure.Panel static>
