@@ -2088,10 +2088,11 @@ ul.filter-club-list {
     .filter-club-section {
         padding: 2em 2em 0em 6em;
     }
-    .discover-icons .discover-icon:nth-of-type(2) img {
+
+    .discover-icons .discover-icon:nth-of-type(2) img,
+    .discover-icons .discover-icon:nth-of-type(3) img {
         margin-top: 0;
     }
-
 }
 
 @media screen and (min-width: 1600px) {
@@ -2110,6 +2111,12 @@ ul.filter-club-list {
     .learn-more-content{
         font-size: 2rem;
         line-height: 2.5rem;
+    }
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 0;
+    }
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: -3px;
     }
 }
 
@@ -2140,6 +2147,13 @@ ul.filter-club-list {
 
     .learn-more-container{
         padding-top: 10rem;
+    }
+
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 20px;
+    }
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 0;
     }
 }
 
