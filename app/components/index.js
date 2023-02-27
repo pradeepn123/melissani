@@ -16,6 +16,7 @@ export { OrderCard } from './OrderCard';
 export { AccountDetails } from './AccountDetails';
 export { AccountAddressBook } from './AccountAddressBook';
 export { Modal } from './Modal';
+export { Faq } from './Faq';
 export { Link } from './Link';
 export { FeaturedCollections } from './FeaturedCollections';
 export { Hero } from './Hero';
