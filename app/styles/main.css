@@ -1,18 +1,28 @@
-/* @font-face {
-    font-family: 'SF-Pro';
+@font-face {
+    font-family: 'Peachi-Bold';
     font-display: swap;
-    font-weight: 400;    
-    src: url('./fonts/SF-Pro.ttf') format('ttf');
-}
-*/
+    font-weight: 700;
+    src: url('./fonts/Peachi-Bold.otf') format('opentype');
+  }
+
+  @font-face {
+    font-family: 'Peachi-Light';
+    font-display: swap;
+    font-weight: 400;
+    font-style: italic;
+    src: url('./fonts/Peachi-Light.otf') format('opentype') ;
+  }
+  
 body{
     letter-spacing: 0.5px;
+    /* font-family: 'Peachi-Bold', 'Peachi-Light'; */
 } 
 
 .footer-wrapper {
     padding: 0;
     display: block;
-    color: #1376BC;
+    color: #1B2943;
+    
 }
 
 .footer-image-section {
@@ -23,7 +33,7 @@ body{
     font-weight: 700;
     font-size: 42px;
     line-height: 56px;
-    color: #000;
+    color: #1B2943;
 }
 
 .footer-wrapper .footer-text p span {

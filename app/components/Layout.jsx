@@ -159,7 +159,7 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
      {footerMetafields.social.map((item, index) => (
          <span key={`footer-social-${index}`} className="social-links mr-4">
            <a href={item.link}>
-             <img className='inline-block' src={item.iconBlack} />
+             <img className='inline-block' src={item.icon} />
            </a>
          </span>
        ))}
@@ -188,20 +188,20 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
       <div className="flex items-center justify-end w-full gap-5">
 
         <Link to="/products/" className="hidden lg:block">
-          <Button className="inline-block rounded font-medium text-center py-5 px-8 border 
-          border-transparent bg-primary hover:bg-white hover:border-primary text-contrast hover:text-primary w-auto"> SHOP NOW </Button>
+          <Button className="inline-block rounded-full font-medium text-center py-5 px-6 border 
+          border-transparent bg-primary hover:bg-white hover:border-primary text-contrast hover:text-primary w-auto"> Shop Now</Button>
         </Link>
 
         <Link to="/pages/melissani-club/" className="hidden lg:block">
-          <Button variant="secondary" className="inline-block rounded font-medium text-center py-5 px-8 border 
-          border-primary bg-contrast text-primary hover:bg-primary hover:border-primary hover:text-contrast w-auto"> FILTER CLUB </Button>
+          <Button variant="secondary" className="inline-block rounded-full font-medium text-center py-5 px-6 border 
+          border-primary bg-contrast text-primary hover:bg-primary hover:border-primary hover:text-contrast w-auto"> Filter Club </Button>
         </Link>
-
-        <CartCount isHome={isHome} openCart={openCart} />
 
         <Link to="/account" className="relative hidden items-center justify-center w-8 h-8 lg:flex">
           <img src={account} />
         </Link>
+
+        <CartCount isHome={isHome} openCart={openCart} />
 
         <button
           onClick={openMenu}
@@ -252,7 +252,7 @@ function Footer({menu, metafields}) {
         {footerMetafields.social.map((item, index) => (
           <div key={`footer-social-${index}`} className="social-links mr-4">
             <a href={item.link}>
-              <img src={item.iconBlue} />
+              <img src={item.icon} />
             </a>
           </div>
         ))}

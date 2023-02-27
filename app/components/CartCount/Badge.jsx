@@ -24,14 +24,14 @@ export function Badge({ openCart, dark, count }) {
     return isHydrated ? (
       <button
         onClick={openCart}
-        className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 ml-4"
+        className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 mr-1"
       >
         {BadgeCounter}
       </button>
     ) : (
       <Link
         to="/cart"
-        className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 ml-4"
+        className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 mr-1"
       >
         {BadgeCounter}
       </Link>
