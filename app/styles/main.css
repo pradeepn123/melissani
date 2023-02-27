@@ -1,10 +1,20 @@
-/* @font-face {
-    font-family: 'SF-Pro';
+@font-face {
+    font-family: 'Peachi-Bold';
     font-display: swap;
-    font-weight: 400;    
-    src: url('./fonts/SF-Pro.ttf') format('ttf');
-}
-*/
+    font-weight: 700;
+    src: url('./fonts/Peachi-Bold.otf') ;
+    /* format('woff2') */
+  }
+
+  @font-face {
+    font-family: 'Peachi-Light';
+    font-display: swap;
+    font-weight: 400;
+    font-style: italic;
+    src: url('./fonts/Peachi-Light.otf') ;
+    /* format('woff2') */
+  }
+  
 body{
     letter-spacing: 0.5px;
 } 
