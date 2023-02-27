@@ -159,7 +159,7 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
      {footerMetafields.social.map((item, index) => (
          <span key={`footer-social-${index}`} className="social-links mr-4">
            <a href={item.link}>
-             <img className='inline-block' src={item.iconBlack} />
+             <img className='inline-block' src={item.icon} />
            </a>
          </span>
        ))}
@@ -252,7 +252,7 @@ function Footer({menu, metafields}) {
         {footerMetafields.social.map((item, index) => (
           <div key={`footer-social-${index}`} className="social-links mr-4">
             <a href={item.link}>
-              <img src={item.iconBlue} />
+              <img src={item.icon} />
             </a>
           </div>
         ))}
