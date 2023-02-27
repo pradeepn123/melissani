@@ -559,6 +559,70 @@ ul.filter-club-list {
 
 /* End: Video Section */
 
+/* Begin: Discover Section */
+.discover-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5em 0 1em;
+}
+.discover-heading {
+    width: 90%;
+}
+.discover-title {
+    /* font-family: SF Pro; */
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 70px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+}
+.italic-discover-title {
+    font-style: italic;
+    font-weight: 400;
+}
+.discover-description {
+    /* font-family: SF Pro; */
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+    margin: 1em 0 1em 0;
+}
+.discover-icons {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 0;
+    padding: 0;
+    margin: 1em 0 0 0;
+    justify-content: center;
+}
+.discover-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.discover-icon img{
+    margin: 0 auto;
+}
+.discover-icon-text {
+    text-align: center;
+    width: 90%;
+    margin-left: 10px;
+    font-size: 16px;
+    /* font-family: SF Pro; */
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    color: #1376BC;
+}
+
+/* End: Discover Section */
+
+
 /* Begin: Media Query */
 @media screen and (min-width:1200px) {
     .main_content_heading{
