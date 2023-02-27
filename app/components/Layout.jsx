@@ -12,14 +12,15 @@ import {
   CartLoading,
   Link,
 } from '~/components';
-import {useParams, Await, useMatches} from '@remix-run/react';
-import {Disclosure} from '@headlessui/react';
-import {Suspense, useEffect, useMemo} from 'react';
-import {useIsHydrated} from '~/hooks/useIsHydrated';
-import {useCartFetchers} from '~/hooks/useCartFetchers';
+import { useParams, Await, useMatches } from '@remix-run/react';
+import { Disclosure } from '@headlessui/react';
+import { Suspense, useEffect, useMemo } from 'react';
+import { useCartFetchers } from '~/hooks/useCartFetchers';
+import { ForwardNav } from '~/components';
+import {CartCount} from '~/components/CartCount'
+
 import logo from '../../public/logo.svg';
 import account from '../../public/account.svg';
-import cart from '../../public/cart.svg';
 
 export function Layout({children, layout}) {
   return (
@@ -33,6 +34,8 @@ export function Layout({children, layout}) {
         <Header
           menu={layout?.headerMenu}
           logo={logo}
+          footerMenu={layout?.footerMenu}
+          metafields={layout?.metafields}
         />
         <main role="main" id="mainContent" className="flex-grow">
           {children}
@@ -43,7 +46,7 @@ export function Layout({children, layout}) {
   );
 }
 
-function Header({logo, menu}) {
+function Header({logo, menu,footerMenu,metafields}) {
   const isHome = useIsHomePath();
 
   const {
@@ -68,9 +71,9 @@ function Header({logo, menu}) {
 
   return (
     <>
-      <CartDrawer isOpen={isCartOpen} onClose={closeCart} />
+      <CartDrawer isOpen={isCartOpen} onClose={closeCart} isHome={isHome} openCart={openCart}/>
       {menu && (
-        <MenuDrawer isOpen={isMenuOpen} onClose={closeMenu} menu={menu} />
+        <MenuDrawer isOpen={isMenuOpen} onClose={closeMenu} menu={menu} footerMenu={footerMenu} isHome={isHome} openCart={openCart} metafields={metafields}/>
       )}
       <MobileHeader
         isHome={isHome}
@@ -82,11 +85,11 @@ function Header({logo, menu}) {
   );
 }
 
-function CartDrawer({isOpen, onClose}) {
+function CartDrawer({isOpen, onClose,isHome, openCart }) {
   const [root] = useMatches();
 
   return (
-    <Drawer open={isOpen} onClose={onClose} heading="Cart" openFrom="right">
+    <Drawer open={isOpen} onClose={onClose} isHome={isHome} openCart={openCart} heading="Cart" openFrom="right">
       <div className="grid">
         <Suspense fallback={<CartLoading />}>
           <Await resolve={root.data?.cart}>
@@ -98,52 +101,70 @@ function CartDrawer({isOpen, onClose}) {
   );
 }
 
-export function MenuDrawer({isOpen, onClose, menu}) {
+export function MenuDrawer({isOpen, onClose, menu,footerMenu,metafields,isHome,openCart}) {
   return (
-    <Drawer open={isOpen} onClose={onClose} openFrom="right" heading="Menu">
-      <div className="grid">
-        <MenuMobileNav menu={menu} onClose={onClose} />
+    <Drawer open={isOpen} onClose={onClose} isHome={isHome} openCart={openCart}  openFrom="right" heading="Menu">
+    <div className="menu-drawer-container">
+      <MenuMobileNav menu={menu} onClose={onClose} footerMenu={footerMenu} metafields={metafields} />
       </div>
     </Drawer>
   );
 }
 
-function MenuMobileNav({menu, onClose}) {
+function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
+  const footerMetafields = JSON.parse(metafields.footer.value)
   return (
-    <nav className="grid gap-4 p-6 sm:gap-6 sm:px-12 sm:py-8">
-      {/* Top level menu items */}
-      <span className="block">
-        <Link
-          to={"/"}
-          onClick={onClose}
-          className={({isActive}) =>
-            isActive ? 'pb-1 border-b -mb-px' : 'pb-1'
-          }
-        >
-          <Link to="/products/" className="">
-            <Button className="inline-block rounded font-medium text-center py-3 px-8 border md:none
-            border-transparent bg-primary hover:bg-white hover:border-primary text-contrast hover:text-primary w-auto"> SHOP NOW </Button>
-          </Link>
-        </Link>
-      </span>
-      {(menu?.items || []).map((item) => (
-        <span key={item.id} className="block">
-          <Link
-            to={item.to}
-            target={item.target}
-            onClick={onClose}
-            className={({isActive}) =>
-              isActive ? 'pb-1 border-b -mb-px' : 'pb-1'
-            }
-          >
-            <Text as="span" size="copy">
-              {item.title}
-            </Text>
-          </Link>
-        </span>
-      ))}
-      
-    </nav>
+    <>
+    <nav className="grid gap-4 p-6 sm:gap-6 sm:px-12 pt-5">
+      <div>
+
+        {/* Top level menu items */}
+        {(menu?.items || []).map((item) => (
+          <span key={item.id} className="block menu-span">
+            <Link
+              to={item.to}
+              target={item.target}
+              onClick={onClose}
+            >
+              <Text as="span" size="copy" className='menuDrawer-Headermenu text-black md:text-4xl md:font-semibold'>
+                {item.title}
+                <span className='forward-nav-icon'><ForwardNav /></span>
+              </Text>
+            </Link>
+          </span>
+        ))
+        }
+      </div>
+
+      {/* Bottom level menu items */}
+      { (footerMenu?.items || []).map((item) => (
+          <span key={item.id} className="block">
+            <Link
+              to={item.to}
+              target={item.target}
+              onClick={onClose}
+            >
+              <Text as="span" size="copy" className='menuDrawer-Foootermenu text-black md:font-normal'>
+                {item.title}
+              </Text>
+            </Link>
+          </span>
+        ))
+      }
+
+      {/* Social Media Links  */}
+
+    </nav >
+     <div className="footer-social-media">
+     {footerMetafields.social.map((item, index) => (
+         <span key={`footer-social-${index}`} className="social-links mr-4">
+           <a href={item.link}>
+             <img className='inline-block' src={item.iconBlack} />
+           </a>
+         </span>
+       ))}
+     </div>
+     </>
   );
 }
 
@@ -193,57 +214,6 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
   );
 }
 
-function CartCount({isHome, openCart}) {
-  const [root] = useMatches();
-
-  return (
-    <Suspense fallback={<Badge count={0} dark={isHome} openCart={openCart} />}>
-      <Await resolve={root.data?.cart}>
-        {(cart) => (
-          <Badge
-            openCart={openCart}
-            count={cart?.totalQuantity || 0}
-          />
-        )}
-      </Await>
-    </Suspense>
-  );
-}
-
-function Badge({openCart, dark, count}) {
-  const isHydrated = useIsHydrated();
-
-  const BadgeCounter = useMemo(
-    () => (
-      <>
-        <img src={cart} />
-        <div
-          className={'text-contrast bg-primary absolute -top-1.5 -right-1 text-[0.625rem] font-medium subpixel-antialiased min-w-[0.75rem] flex items-center justify-center leading-none text-center rounded-full w-4 h-4 px-[0.175rem] pb-px'}
-        >
-          <span>{count || 0}</span>
-        </div>
-      </>
-    ),
-    [count, dark],
-  );
-
-  return isHydrated ? (
-    <button
-      onClick={openCart}
-      className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 ml-4"
-    >
-      {BadgeCounter}
-    </button>
-  ) : (
-    <Link
-      to="/cart"
-      className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 ml-4"
-    >
-      {BadgeCounter}
-    </Link>
-  );
-}
-
 function Footer({menu, metafields}) {
   const isHome = useIsHomePath();
 
@@ -282,7 +252,7 @@ function Footer({menu, metafields}) {
         {footerMetafields.social.map((item, index) => (
           <div key={`footer-social-${index}`} className="social-links mr-4">
             <a href={item.link}>
-              <img src={item.icon} />
+              <img src={item.iconBlue} />
             </a>
           </div>
         ))}
