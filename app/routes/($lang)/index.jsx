@@ -200,7 +200,10 @@ export default function Homepage() {
 
       {volume && (<VolumeControlProperty volume={volume} />)}
 
+      {learnMore && ( <ImageWithText learnMore={learnMore} className="flex md:flex-row"/>)}
+
       {footerBanner && (<SecondaryHero data={footerBanner} />)}
+      
     </>
   );
 }
