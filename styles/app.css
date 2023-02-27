@@ -9,7 +9,7 @@
 
 /* Tokens */
 :root {
-  --color-primary: 19 118 188; /* Text, buttons, etc. */
+  --color-primary: 27 41 67; /* Text, buttons, etc. */
   --color-contrast: 255 255 255; /* Backgrounds, borders, etc. */
   --color-accent: 191 72 0; /* Labels like "On sale" */
   --font-size-fine: 0.75rem; /* text-xs */
