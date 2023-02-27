@@ -768,6 +768,9 @@ ul.filter-club-list {
 
     .learn-more-sec-btn{
         padding: 1rem;
+        background-color: transparent;
+        color: #1376BC;
+        border-color: #1376BC;
     }
 }
 
