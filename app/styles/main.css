@@ -174,6 +174,35 @@ body{
 
 /* end Good bye section css*/
 
+/* Begin: Menu Cart Drawer css*/
+
+.menuDrawer-Headermenu:hover {
+    color: #1376BC;
+    position: relative;
+}
+
+.menuDrawer-Headermenu:hover .forward-nav-icon {
+    opacity: 1;
+}
+
+.menuDrawer-Foootermenu:hover {
+    color: #1376BC;
+}
+
+.menuDrawer-nav {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+.menu-drawer-cart {
+    position: relative;
+    margin-right: 1rem;
+    top: 32%;
+}
+
+
+/* End: Menu Cart Drawer css*/
+
+
 /* Begin: Advanced Filteration section */
 
 .main-slider {
@@ -543,11 +572,39 @@ ul.filter-club-list {
     }
 }
 
+@media (max-width:512px) {
+
+    .menuDrawer-Headermenu {
+        font-size: 32px;
+        font-weight: 590;
+        line-height: 38px;
+        letter-spacing: 0em;
+        text-align: left;
+
+    }
+
+    .menuDrawer-Foootermenu {
+        font-size: 16px;
+        font-weight: 510;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+
+    }
+
+    .menu-span {
+        margin-bottom: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
     .featured-products-home {
         margin-top: 0;
     }
 
+    .forward-nav-icon {
+        display: none;
+    }
 }
 
 @media (max-width: 767px) {
@@ -939,6 +996,43 @@ ul.filter-club-list {
         font-size: 0.75rem;
         padding: 0.75rem 1rem 0.75rem 1rem;
     }
+
+
+    .drawer-dialog-panel {
+        width: 120vw;
+        height: 120vh;
+    }
+
+    .menu-drawer-container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .footer-social-media {
+        position: absolute;
+        bottom: 0;
+        padding-left: 1.5rem;
+    }
+
+    .menu-drawer-cart {
+        width: 1rem;
+        height: 1rem;
+        position: relative;
+        margin-right: 2.75rem;
+        top: 18%;
+    }
+
+    .menu-cart-icon {
+        margin: 0.75rem;
+    }
+
+    /* .menuDrawer-nav {
+     align-content: center;
+     flex-wrap: wrap;
+    } */
 }
 
 @media screen and (min-width: 360px) {
@@ -959,6 +1053,20 @@ ul.filter-club-list {
     .secondary-hero-content {
         top: 48%;
         left: 15%;
+    }
+
+    .menu-drawer-container {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .footer-social-media {
+        position: absolute;
+        bottom: 2.5%;
+        padding-left: 1.5rem;
     }
 }
 
@@ -1125,6 +1233,39 @@ ul.filter-club-list {
         padding: 0.75rem 1.15rem;
         font-size: 0.75rem;
     }
+
+    .forward-nav-icon {
+        opacity: 0;
+        display: inline-block;
+        transform: translateY(25%);
+        margin-left: 2rem;
+        transition: all 0.4s;
+    }
+
+    .menu-drawer-container {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .footer-social-media {
+        position: absolute;
+        bottom: 5%;
+        padding-left: 3rem;
+    }
+
+    .menu-drawer-cart {
+        width: unset;
+        height: unset;
+        top: 32%;
+        margin-right: 0.75rem;
+    }
+
+    .menu-drawer-account {
+        margin: 1rem;
+    }
 }
 
 @media (min-width:767px) and (max-width:1023px) {
@@ -1206,6 +1347,20 @@ ul.filter-club-list {
 
     .flickity-prev-next-button.next {
         right: -70px;
+    }
+
+    .menu-drawer-container {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .footer-social-media {
+        position: absolute;
+        bottom: 9%;
+        padding-left: 2.75rem;
     }
 }
 
@@ -1479,6 +1634,7 @@ ul.filter-club-list {
         width: 50%;
         padding: 5em 0 2em 3em;
     }
+    
 }
 
 @media screen and (min-width: 1280px) {
