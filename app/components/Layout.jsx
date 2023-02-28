@@ -1,4 +1,4 @@
-import {useIsHomePath} from '~/lib/utils';
+import { useIsHomePath } from '~/lib/utils';
 import {
   Drawer,
   useDrawer,
@@ -22,7 +22,7 @@ import {CartCount} from '~/components/CartCount'
 import logo from '../../public/logo.svg';
 import account from '../../public/account.svg';
 
-export function Layout({children, layout}) {
+export function Layout({ children, layout }) {
   return (
     <>
       <div className="flex flex-col min-h-screen">
@@ -153,7 +153,6 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
       }
 
       {/* Social Media Links  */}
-
     </nav >
      <div className="footer-social-media">
      {footerMetafields.social.map((item, index) => (
@@ -168,7 +167,7 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
   );
 }
 
-function MobileHeader({logo, isHome, openCart, openMenu}) {
+function MobileHeader({ logo, isHome, openCart, openMenu }) {
   // useHeaderStyleFix(containerStyle, setContainerStyle, isHome);
 
   const params = useParams();
@@ -245,14 +244,14 @@ function Footer({menu, metafields}) {
           <img src={footerMetafields.image} />
         </div>
       </div>
-      <div className={`bg-white flex md:justify-around text-center flex-col md:flex-row px-9 pt-9 pb-2`}>
+      <div className={`bg-white flex justify-around px-9 pt-9 pb-2`}>
         <FooterMenu menu={menu} />
       </div>
       <div className="bg-white social-section-wrapper flex items-center justify-center pt-7 pb-4">
         {footerMetafields.social.map((item, index) => (
           <div key={`footer-social-${index}`} className="social-links mr-4">
             <a href={item.link}>
-              <img src={item.icon} />
+              <img src={item.iconBlue} />
             </a>
           </div>
         ))}
@@ -260,14 +259,14 @@ function Footer({menu, metafields}) {
       <div
         className={`bg-white pt-3 pb-4 text-center footer-bottom`}
       >
-        {footerMetafields.address} 
+        {footerMetafields.address}
         <span className="ml-5">&copy; MELISSANI</span>
       </div>
     </Section>
   );
 }
 
-const FooterLink = ({item}) => {
+const FooterLink = ({ item }) => {
   if (item.to.startsWith('http')) {
     return (
       <a href={item.to} target={item.target} rel="noopener noreferrer">
@@ -283,7 +282,7 @@ const FooterLink = ({item}) => {
   );
 };
 
-function FooterMenu({menu}) {
+function FooterMenu({ menu }) {
   const styles = {
     section: 'justify-center py-4 lg:py-2 lg:pt-0',
     nav: 'pb-6',
@@ -294,16 +293,15 @@ function FooterMenu({menu}) {
       {(menu?.items || []).map((item) => (
         <section key={item.id} className={styles.section}>
           <Disclosure>
-            {({open}) => (
+            {({ open }) => (
               <>
                 <Disclosure.Button className="text-left md:cursor-default">
                   <FooterLink item={item} />
                 </Disclosure.Button>
                 {item?.items?.length > 0 ? (
                   <div
-                    className={`${
-                      open ? `max-h-48 h-fit` : `max-h-0 md:max-h-fit`
-                    } overflow-hidden transition-all duration-300`}
+                    className={`${open ? `max-h-48 h-fit` : `max-h-0 md:max-h-fit`
+                      } overflow-hidden transition-all duration-300`}
                   >
                     <Suspense data-comment="This suspense fixes a hydration bug in Disclosure.Panel with static prop">
                       <Disclosure.Panel static>
