@@ -193,7 +193,7 @@ export default function Homepage() {
       )}
 
       {filterClub && (
-        <ImageWithText filterClub={filterClub} alignment="rtl" className="md:flex filter-club-flex"/>
+        <ImageWithText filterClub={filterClub} className="md:flex filter-club-flex"/>
       )}
 
       {installation && (<ImageWithTwoText installation={installation} />)}
