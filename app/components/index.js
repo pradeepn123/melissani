@@ -32,9 +32,12 @@ export { VolumeControlProperty } from './VolumeControlProperty';
 export { ImageWithTwoText } from './ImageWithTwoText';
 export { SecondaryHero } from './SecondaryHero';
 <<<<<<< HEAD
+<<<<<<< HEAD
 export { VideoPlayer } from './VideoPlayer';
 =======
 export { CartCount } from './CartCount';
 >>>>>>> d1c8057 (On click functionality for Drawer Icons)
+=======
+>>>>>>> eb755f2 (Revert "Menu drawer ")
 // Sue me
 export * from './Icon';

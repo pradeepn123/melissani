@@ -1,4 +1,4 @@
-import { useIsHomePath } from '~/lib/utils';
+import {useIsHomePath} from '~/lib/utils';
 import {
   Drawer,
   useDrawer,
@@ -22,7 +22,7 @@ import {CartCount} from '~/components/CartCount'
 import logo from '../../public/logo.svg';
 import account from '../../public/account.svg';
 
-export function Layout({ children, layout }) {
+export function Layout({children, layout}) {
   return (
     <>
       <div className="flex flex-col min-h-screen">
@@ -71,11 +71,7 @@ function Header({logo, menu,footerMenu,metafields}) {
 
   return (
     <>
-<<<<<<< HEAD
       <CartDrawer isOpen={isCartOpen} onClose={closeCart} isHome={isHome} openCart={openCart}/>
-=======
-      <CartDrawer isOpen={isCartOpen} onClose={closeCart} isHome={isHome} openCart={openCart} />
->>>>>>> 71d2a26 (Fixed conflict)
       {menu && (
         <MenuDrawer isOpen={isMenuOpen} onClose={closeMenu} menu={menu} footerMenu={footerMenu} isHome={isHome} openCart={openCart} metafields={metafields}/>
       )}
@@ -89,11 +85,7 @@ function Header({logo, menu,footerMenu,metafields}) {
   );
 }
 
-<<<<<<< HEAD
 function CartDrawer({isOpen, onClose,isHome, openCart }) {
-=======
-function CartDrawer({ isOpen, onClose,isHome, openCart }) {
->>>>>>> 71d2a26 (Fixed conflict)
   const [root] = useMatches();
 
   return (
@@ -109,19 +101,11 @@ function CartDrawer({ isOpen, onClose,isHome, openCart }) {
   );
 }
 
-<<<<<<< HEAD
 export function MenuDrawer({isOpen, onClose, menu,footerMenu,metafields,isHome,openCart}) {
   return (
     <Drawer open={isOpen} onClose={onClose} isHome={isHome} openCart={openCart}  openFrom="right" heading="Menu">
     <div className="menu-drawer-container">
       <MenuMobileNav menu={menu} onClose={onClose} footerMenu={footerMenu} metafields={metafields} />
-=======
-export function MenuDrawer({ isOpen, onClose, menu, footerMenu,metafields , isHome, openCart}) {
-  return (
-    <Drawer open={isOpen} onClose={onClose} isHome={isHome} openCart={openCart}  openFrom="right" heading="Menu">
-      <div className="menu-drawer-container">
-        <MenuMobileNav menu={menu} onClose={onClose} footerMenu={footerMenu} metafields={metafields} />
->>>>>>> 71d2a26 (Fixed conflict)
       </div>
     </Drawer>
   );
@@ -184,7 +168,7 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
   );
 }
 
-function MobileHeader({ logo, isHome, openCart, openMenu }) {
+function MobileHeader({logo, isHome, openCart, openMenu}) {
   // useHeaderStyleFix(containerStyle, setContainerStyle, isHome);
 
   const params = useParams();
@@ -230,62 +214,7 @@ function MobileHeader({ logo, isHome, openCart, openMenu }) {
   );
 }
 
-<<<<<<< HEAD
 function Footer({menu, metafields}) {
-=======
-// function CartCount({ isHome, openCart }) {
-//   const [root] = useMatches();
-
-//   return (
-//     <Suspense fallback={<Badge count={0} dark={isHome} openCart={openCart} />}>
-//       <Await resolve={root.data?.cart}>
-//         {(cart) => (
-//           <Badge
-//             openCart={openCart}
-//             count={cart?.totalQuantity || 0}
-//           />
-//         )}
-//       </Await>
-//     </Suspense>
-//   );
-// }
-
-// function Badge({ openCart, dark, count }) {
-//   const isHydrated = useIsHydrated();
-
-//   const BadgeCounter = useMemo(
-//     () => (
-//       <>
-//         <img src={cart} />
-//         <div
-//           className={'text-contrast bg-primary absolute -top-1.5 -right-1 text-[0.625rem] font-medium subpixel-antialiased min-w-[0.75rem] flex items-center justify-center leading-none text-center rounded-full w-4 h-4 px-[0.175rem] pb-px'}
-//         >
-//           <span>{count || 0}</span>
-//         </div>
-//       </>
-//     ),
-//     [count, dark],
-//   );
-
-//   return isHydrated ? (
-//     <button
-//       onClick={openCart}
-//       className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 ml-4"
-//     >
-//       {BadgeCounter}
-//     </button>
-//   ) : (
-//     <Link
-//       to="/cart"
-//       className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 ml-4"
-//     >
-//       {BadgeCounter}
-//     </Link>
-//   );
-// }
-
-function Footer({ menu, metafields }) {
->>>>>>> 71d2a26 (Fixed conflict)
   const isHome = useIsHomePath();
 
   const footerMetafields = JSON.parse(metafields.footer.value)
@@ -331,14 +260,14 @@ function Footer({ menu, metafields }) {
       <div
         className={`bg-white pt-3 pb-4 text-center footer-bottom`}
       >
-        {footerMetafields.address}
+        {footerMetafields.address} 
         <span className="ml-5">&copy; MELISSANI</span>
       </div>
     </Section>
   );
 }
 
-const FooterLink = ({ item }) => {
+const FooterLink = ({item}) => {
   if (item.to.startsWith('http')) {
     return (
       <a href={item.to} target={item.target} rel="noopener noreferrer">
@@ -354,7 +283,7 @@ const FooterLink = ({ item }) => {
   );
 };
 
-function FooterMenu({ menu }) {
+function FooterMenu({menu}) {
   const styles = {
     section: 'justify-center py-4 lg:py-2 lg:pt-0',
     nav: 'pb-6',
@@ -365,15 +294,16 @@ function FooterMenu({ menu }) {
       {(menu?.items || []).map((item) => (
         <section key={item.id} className={styles.section}>
           <Disclosure>
-            {({ open }) => (
+            {({open}) => (
               <>
                 <Disclosure.Button className="text-left md:cursor-default">
                   <FooterLink item={item} />
                 </Disclosure.Button>
                 {item?.items?.length > 0 ? (
                   <div
-                    className={`${open ? `max-h-48 h-fit` : `max-h-0 md:max-h-fit`
-                      } overflow-hidden transition-all duration-300`}
+                    className={`${
+                      open ? `max-h-48 h-fit` : `max-h-0 md:max-h-fit`
+                    } overflow-hidden transition-all duration-300`}
                   >
                     <Suspense data-comment="This suspense fixes a hydration bug in Disclosure.Panel with static prop">
                       <Disclosure.Panel static>

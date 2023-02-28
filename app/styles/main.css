@@ -613,38 +613,9 @@ ul.filter-club-list {
     }
 }
 
-@media (max-width:512px) {
-
-    .menuDrawer-Headermenu {
-        font-size: 32px;
-        font-weight: 590;
-        line-height: 38px;
-        letter-spacing: 0em;
-        text-align: left;
-
-    }
-
-    .menuDrawer-Foootermenu {
-        font-size: 16px;
-        font-weight: 510;
-        line-height: 19px;
-        letter-spacing: 0em;
-        text-align: left;
-
-    }
-
-    .menu-span {
-        margin-bottom: 1rem;
-    }
-}
-
 @media (max-width: 768px) {
     .featured-products-home {
         margin-top: 0;
-    }
-
-    .forward-nav-icon {
-        display: none;
     }
 }
 
@@ -1080,7 +1051,6 @@ ul.filter-club-list {
     } */
 }
 
-
 @media screen and (min-width: 360px) {
     .mobile-heading-text {
         font-size: 26px;
@@ -1099,20 +1069,6 @@ ul.filter-club-list {
     .secondary-hero-content {
         top: 48%;
         left: 15%;
-    }
-
-    .menu-drawer-container {
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-    }
-
-    .footer-social-media {
-        position: absolute;
-        bottom: 2.5%;
-        padding-left: 1.5rem;
     }
 }
 
@@ -1414,20 +1370,6 @@ ul.filter-club-list {
 
     .flickity-prev-next-button.next {
         right: -70px;
-    }
-
-    .menu-drawer-container {
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-    }
-
-    .footer-social-media {
-        position: absolute;
-        bottom: 9%;
-        padding-left: 2.75rem;
     }
 }
 
