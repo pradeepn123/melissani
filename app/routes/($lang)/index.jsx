@@ -10,6 +10,7 @@ import { VolumeControlProperty } from '~/components/VolumeControlProperty';
 import { ImageWithTwoText } from '~/components/ImageWithTwoText';
 import { Carousel } from '~/components/Carousel';
 import { SecondaryHero } from '~/components/SecondaryHero';
+import { VideoPlayer } from '~/components/VideoPlayer';
 
 export async function loader({ params, context }) {
   const { language, country } = context.storefront.i18n;
@@ -194,6 +195,10 @@ export default function Homepage() {
 
       {filterClub && (
         <ImageWithText filterClub={filterClub} className="md:flex filter-club-flex"/>
+      )}
+
+      {videoSection && (
+        <VideoPlayer data={videoSection} />
       )}
 
       {discover && (<ImageWithText discover={discover} discoverClassName={"flex discover-main-section"} />)}

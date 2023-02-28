@@ -246,3 +246,12 @@ export function ForwardNav() {
     </span>
   )
 }
+
+export function IconPlay(props) {
+  return(
+    <svg {...props} width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="50" fill="#1B2943"/>
+      <path d="M40.019 32.3467L70.019 49.6672L40.019 66.9877L40.019 32.3467Z" fill="white" stroke="black"/>
+    </svg>
+  )
+}

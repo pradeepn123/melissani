@@ -529,6 +529,37 @@ ul.filter-club-list {
 }
 /* End: Filter Club */
 
+/* Begin: Video Section */
+
+.video-player-wrapper {
+    position: relative;
+}
+
+.video-player-wrapper img.video-thumbnail {
+    width: 100%;
+    height: 100%;
+}
+
+.video-player-wrapper svg.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.video-player-wrapper iframe,
+.video-player-wrapper video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+/* End: Video Section */
+
 /* Begin: Discover Section */
 .discover-section {
     width: 50%;
@@ -2116,7 +2147,7 @@ ul.filter-club-list {
         margin-top: 20px;
     }
     .discover-icons .discover-icon:nth-of-type(3) img {
-        margin-top: 25px;
+        margin-top: 0;
     }
 }
 
