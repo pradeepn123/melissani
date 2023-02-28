@@ -1,7 +1,9 @@
 import {Fragment, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 
-import {Heading, IconClose} from '~/components';
+import { IconClose,Link} from '~/components';
+import account from '../../public/account.svg';
+import {CartCount} from '~/components/CartCount'
 
 /**
  * Drawer component that opens on user click.
@@ -11,11 +13,7 @@ import {Heading, IconClose} from '~/components';
  * @param openFrom - right, left
  * @param children - react children node.
  */
-<<<<<<< HEAD
 export function Drawer({isHome, openCart, open, onClose, openFrom = 'right', children}) {
-=======
-export function Drawer({heading, open, onClose, openFrom = 'right', children}) {
->>>>>>> a47bdb0 (Revert "Menu drawer ")
   const offScreen = {
     right: 'translate-x-full',
     left: '-translate-x-full',
@@ -52,7 +50,6 @@ export function Drawer({heading, open, onClose, openFrom = 'right', children}) {
                 leaveFrom="translate-x-0"
                 leaveTo={offScreen[openFrom]}
               >
-<<<<<<< HEAD
                 <Dialog.Panel className="drawer-dialog-panel w-screen max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl text-left align-middle transition-all transform shadow-xl h-screen-dynamic bg-contrast" onClick={onClose}>
                   <header className='menuDrawer-nav sticky top-0 flex px-6 h-nav sm:px-8 md:px-12 justify-end relative'>
                     <span className="menu-drawer-cart">
@@ -64,24 +61,9 @@ export function Drawer({heading, open, onClose, openFrom = 'right', children}) {
                     className="menu-drawer-account relative items-center justify-center w-8 flex"  onClick={onClose}>
                       <img src={account} />
                     </Link>
-=======
-                <Dialog.Panel className="w-screen max-w-lg text-left align-middle transition-all transform shadow-xl h-screen-dynamic bg-contrast">
-                  <header
-                    className={`sticky top-0 flex items-center px-6 h-nav sm:px-8 md:px-12 ${
-                      heading ? 'justify-between' : 'justify-end'
-                    }`}
-                  >
-                    {heading !== null && (
-                      <Dialog.Title>
-                        <Heading as="span" size="lead" id="cart-contents">
-                          {heading}
-                        </Heading>
-                      </Dialog.Title>
-                    )}
->>>>>>> a47bdb0 (Revert "Menu drawer ")
                     <button
                       type="button"
-                      className="p-4 -m-4 transition text-primary hover:text-primary/50"
+                      className="menu-cart-icon m-4"
                       onClick={onClose}
                       data-test="close-cart"
                     >

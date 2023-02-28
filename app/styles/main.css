@@ -613,6 +613,31 @@ ul.filter-club-list {
     }
 }
 
+@media (max-width:512px) {
+
+    .menuDrawer-Headermenu {
+        font-size: 32px;
+        font-weight: 590;
+        line-height: 38px;
+        letter-spacing: 0em;
+        text-align: left;
+
+    }
+
+    .menuDrawer-Foootermenu {
+        font-size: 16px;
+        font-weight: 510;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+
+    }
+
+    .menu-span {
+        margin-bottom: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
     .featured-products-home {
         margin-top: 0;

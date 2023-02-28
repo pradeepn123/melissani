@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-function Icon({children, className, fill = 'currentColor', stroke, ...props}) {
+function Icon({ children, className, fill = 'currentColor', stroke, ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@ export function IconMenu(props) {
   );
 }
 
-export function IconClose(props) {
+export function IconClose() {
   return (
     <span>
     <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,7 @@ export function IconClose(props) {
   );
 }
 
-export function IconArrow({direction = 'right'}) {
+export function IconArrow({ direction = 'right' }) {
   let rotate;
 
   switch (direction) {
@@ -145,7 +145,7 @@ export function IconSearch(props) {
   );
 }
 
-export function IconCheck({stroke = 'currentColor', ...props}) {
+export function IconCheck({ stroke = 'currentColor', ...props }) {
   return (
     <Icon {...props} fill="transparent" stroke={stroke}>
       <title>Check</title>
@@ -160,7 +160,7 @@ export function IconCheck({stroke = 'currentColor', ...props}) {
   );
 }
 
-export function IconXMark({stroke = 'currentColor', ...props}) {
+export function IconXMark({ stroke = 'currentColor', ...props }) {
   return (
     <Icon {...props} fill="transparent" stroke={stroke}>
       <title>Delete</title>
