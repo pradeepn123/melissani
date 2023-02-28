@@ -1719,6 +1719,11 @@ ul.filter-club-list {
     .flickity-prev-next-button {
         margin: 1em 1em 1em 1.8em;
     }
+    .discover-icons .discover-icon:nth-of-type(2) img,
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 12px;
+        padding: 0;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -1974,10 +1979,17 @@ ul.filter-club-list {
         height: 92px;
         margin: 0 auto;
     }
+    .discover-icon:nth-of-type(3) {
+        margin-top: 0;
+    }
     .discover-icons .discover-icon:nth-of-type(2) img,
     .discover-icons .discover-icon:nth-of-type(3) img {
         padding: 0;
-        margin-top: 12px;
+        margin-top: 0;
+    }
+    .discover-icon-text {
+        font-size: 13px;
+        line-height: 15px;
     }
 }
 
@@ -2038,6 +2050,21 @@ ul.filter-club-list {
         padding: 1.25rem 2.5rem;
         font-size: 1.5rem
     }
+    .discover-icon-text {
+        font-size: 16px;
+        line-height: 24px;
+        margin-left: 15px;
+    }
+    .discover-icon-text:nth-of-type(2) {
+        padding-left: 28px
+    }
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 20px;
+    }
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 0;
+    }
+
 }
 
 @media screen and (min-width: 1536px) {
@@ -2090,6 +2117,9 @@ ul.filter-club-list {
 
     .filter-club-section {
         padding: 2em 2em 0em 6em;
+    }
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 0;
     }
 
 }
