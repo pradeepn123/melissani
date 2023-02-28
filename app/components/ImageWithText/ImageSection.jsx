@@ -1,4 +1,4 @@
-export function ImageSection ({data, filterClassName}) {
+export function ImageSection ({data, filterClassName }) {
     return (
       <div className={`img-sec flex-auto ${filterClassName} ${filterClassName ? 'md:w-6/12' : 'xl:w-6/12'}}`}>
           <picture>

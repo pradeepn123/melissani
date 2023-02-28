@@ -32,5 +32,6 @@ export { VolumeControlProperty } from './VolumeControlProperty';
 export { ImageWithTwoText } from './ImageWithTwoText';
 export { SecondaryHero } from './SecondaryHero';
 export { CartCount } from './CartCount';
+export { VideoPlayer } from './VideoPlayer';
 // Sue me
 export * from './Icon';

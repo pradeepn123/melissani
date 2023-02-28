@@ -267,16 +267,16 @@ body{
     width: 65px;
     height: 65px;
     border-radius: 50px;
-    background: #1376BC;
+    background: #1B2943;
     padding: 20px;
     margin: 1em;
     position: relative;
     margin-left: 2.8em;
-    border: 3.23px solid #1376BC;
+    border: 3.23px solid #1B2943;
 }
 
 .flickity-prev-next-button:hover {
-    background: #1376BC;
+    background: #1B2943;
 }
 
 .flickity-button:disabled {
@@ -515,17 +515,112 @@ ul.filter-club-list {
 
 .filter-club-anouncement {
     padding: 1em;
-    background-color: #E1E9EB;
-    /* font-family: DIN Next LT Pro; */
+    background-color: #e1e9eb;
     font-size: 24px;
     font-weight: 500;
     line-height: 29px;
     letter-spacing: 0em;
     text-align: center;
-    color: #1B2943;
+    color: #1b2943;
 }
 
+.membership-bold-text {
+    font-weight: 700;
+}
 /* End: Filter Club */
+
+/* Begin: Video Section */
+
+.video-player-wrapper {
+    position: relative;
+}
+
+.video-player-wrapper img.video-thumbnail {
+    width: 100%;
+    height: 100%;
+}
+
+.video-player-wrapper svg.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.video-player-wrapper iframe,
+.video-player-wrapper video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+/* End: Video Section */
+
+/* Begin: Discover Section */
+.discover-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5em 0 1em;
+}
+.discover-heading {
+    width: 90%;
+}
+.discover-title {
+    /* font-family: SF Pro; */
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 70px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+}
+.italic-discover-title {
+    font-style: italic;
+    font-weight: 400;
+}
+.discover-description {
+    /* font-family: SF Pro; */
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+    margin: 1em 0 1em 0;
+}
+.discover-icons {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 0;
+    padding: 0;
+    margin: 1em 0 0 0;
+    justify-content: center;
+}
+.discover-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.discover-icon img{
+    margin: 0 auto;
+}
+.discover-icon-text {
+    text-align: center;
+    width: 90%;
+    margin-left: 10px;
+    font-size: 16px;
+    /* font-family: SF Pro; */
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    color: #1376BC;
+}
+/* End: Discover Section */
 
 /* Begin: Media Query */
 @media screen and (min-width:1200px) {
@@ -551,6 +646,30 @@ ul.filter-club-list {
 @media (max-width: 1024px) {
     .featured-products-home .product-card-wrapper {
         padding: 0 50px;
+    }
+    .discover-heading {
+        padding-top: 2em;
+    }
+    .discover-title {
+        font-size: 42px;
+        line-height: 60px;
+    }
+    .discover-description {
+        font-size: 16px;
+        line-height: 32px;
+    }
+    .discover-icons {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .discover-icon-text {
+        font-size: 12px;
+        line-height: 18px;
+        margin-left: 2px;
+        width: 100%;
+    }
+    .discover-icons .discover-icon img {
+        width: 82px;
+        height: 82px;
     }
 }
 
@@ -583,38 +702,9 @@ ul.filter-club-list {
     }
 }
 
-@media (max-width:512px) {
-
-    .menuDrawer-Headermenu {
-        font-size: 32px;
-        font-weight: 590;
-        line-height: 38px;
-        letter-spacing: 0em;
-        text-align: left;
-
-    }
-
-    .menuDrawer-Foootermenu {
-        font-size: 16px;
-        font-weight: 510;
-        line-height: 19px;
-        letter-spacing: 0em;
-        text-align: left;
-
-    }
-
-    .menu-span {
-        margin-bottom: 1rem;
-    }
-}
-
 @media (max-width: 768px) {
     .featured-products-home {
         margin-top: 0;
-    }
-
-    .forward-nav-icon {
-        display: none;
     }
 }
 
@@ -774,14 +864,10 @@ ul.filter-club-list {
         min-height: auto;
         font-size: 24px;
     }
+
     .filter-club-section {
         width: 100%;
         padding: 1em 2em 1em;
-    }
-
-    .filter-club-flex {
-        display: flex;
-        flex-direction: column-reverse;
     }
 
     .filter-club-img {
@@ -796,18 +882,40 @@ ul.filter-club-list {
         width: 100%;
         row-gap: 2em;
     }
+
     .subscribe-btn button{
         width: 100%;
         text-align: center;
     }
+
     .filter-club-learn-more-btn {
         text-align: center;
     }
+
     .filter-club-anouncement {
         font-size: 16px;
         line-height: 24px;
     }
+
+    .discover-main-section {
+        display: block;
+    }
+
+    .discover-section {
+        width: 100%;
+        padding: 0 5em 3em 2em;
+    }
+
+    .discover-icons, .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 0;
+    }
+
+    .discover-icons {
+        margin-top: 1em 0 0;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }
+
 @media (max-width:640px){
     .learn-more{
         flex-direction: column-reverse;
@@ -889,6 +997,39 @@ ul.filter-club-list {
     }
     .filter-club-description {
         width: 100%;
+    }
+
+    .discover-section {
+        width: 100%;
+        padding: 0 2em 3em 1em;
+    }
+    .discover-heading {
+        width: 100%;
+        padding: 2em 0 0 0;
+    }
+
+    .discover-title {
+        font-size: 28px;
+        line-height: 34px;
+        width: 100%;
+    }
+
+    .discover-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .discover-icons {
+        margin-top: 1em 0 0;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 1em;
+    }
+
+    .discover-icon-text {
+        font-size: 16px;
+        line-height: 24px;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 }
 
@@ -981,7 +1122,6 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 320px) {
-
     .shop-btn,
     .club-btn,
     .learn-more-btn {
@@ -1011,14 +1151,15 @@ ul.filter-club-list {
         padding: 0.75rem 1rem 0.75rem 1rem;
     }
 
-
     .drawer-dialog-panel {
         width: 120vw;
         height: 120vh;
     }
-
     .menu-drawer-container {
         height: 100vh;
+    }
+    .test {
+        height: 90vh;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -1068,19 +1209,13 @@ ul.filter-club-list {
         top: 48%;
         left: 15%;
     }
-
-    .menu-drawer-container {
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
+    .discover-section {
+        padding: 0 1em 3em;
     }
-
-    .footer-social-media {
-        position: absolute;
-        bottom: 2.5%;
-        padding-left: 1.5rem;
+    .discover-icon-text {
+        padding-left: 1em;
+        padding-right: 2em;
+        margin-left: 10px;
     }
 }
 
@@ -1111,6 +1246,11 @@ ul.filter-club-list {
     .learn-more-btn {
         font-size: 17px;
     }
+    .discover-icon-text {
+        padding-left: 1em;
+        padding-right: 3em;
+        margin-left: 17px;
+    }
 }
 
 @media screen and (min-width: 390px) {
@@ -1120,6 +1260,10 @@ ul.filter-club-list {
     .learn-more-btn {
         font-size: 18px;
     }
+
+    .discover-section {
+        padding: 0 1em 3em 1em;
+    }
 }
 
 @media screen and (min-width: 412px) {
@@ -1128,6 +1272,12 @@ ul.filter-club-list {
     .club-btn,
     .learn-more-btn {
         font-size: 19px;
+    }
+
+    .discover-icon-text {
+        padding-left: 1em;
+        padding-right: 4em;
+        margin-left: 28px;
     }
 }
 
@@ -1226,6 +1376,10 @@ ul.filter-club-list {
     .filter-club-section {
         padding: 6em 0em 4em 3em;
     }
+    .filter-club-flex {
+        display: flex;
+        flex-direction: row-reverse;
+    }
     .filter-club-description {
         width: 100%;
     }
@@ -1279,6 +1433,65 @@ ul.filter-club-list {
 
     .menu-drawer-account {
         margin: 1rem;
+    }
+    .forward-nav-icon {
+        opacity: 0;
+        display: inline-block;
+        transform: translateY(25%);
+        margin-left: 2rem;
+        transition: all 0.4s;
+    }
+    .discover-section {
+        padding: 0 1em 1em 0em;
+    }
+    .discover-title {
+        font-size: 30px;
+        line-height: 28px;
+    }
+    .discover-description {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .discover-icons {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-column-gap: 0;
+        padding: 0;
+        margin-left: -1em;
+        justify-content: center;
+    }
+    .discover-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .discover-icon:nth-of-type(3) {
+        margin-top: -12px;
+    }
+    .discover-icons .discover-icon img {
+        width: 72px;
+        height: 72px;
+    }
+    .discover-icon-text {
+        padding-left: 1em;
+        padding-right: 3em;
+        margin-left: 10px;
+        font-size: 10px;
+        line-height: 12px;
+        width: 100%;
+    }
+    .test {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .footer-social-media {
+        position: absolute;
+        bottom: 5%;
+        padding-left: 3rem;
     }
 }
 
@@ -1362,20 +1575,6 @@ ul.filter-club-list {
     .flickity-prev-next-button.next {
         right: -70px;
     }
-
-    .menu-drawer-container {
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-    }
-
-    .footer-social-media {
-        position: absolute;
-        bottom: 9%;
-        padding-left: 2.75rem;
-    }
 }
 
 @media screen and (min-width: 820px) {
@@ -1450,6 +1649,47 @@ ul.filter-club-list {
     .flickity-prev-next-button.next {
         right: -70px;
     }
+    .discover-section {
+        padding: 0 2em 1em 0;
+    }
+    .discover-title {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    .discover-description {
+        font-size: 12px;
+        line-height: 22px;
+    }
+    .discover-icons {
+        margin-top: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-column-gap: 0;
+        padding: 0;
+        margin-left: -1em;
+        justify-content: center;
+    }
+    .discover-icons .discover-icon img {
+        width: 62px;
+        height: 62px;
+        margin: 0 auto;
+    }
+    .discover-icon-text {
+        padding-left: 1em;
+        padding-right: 3em;
+        margin-left: 12px;
+        font-size: 10px;
+        line-height: 14px;
+        width: 100%;
+    }
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        padding: 0;
+    }
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 0;
+        padding: 0;
+    }
 }
 
 @media screen and (min-width: 912px) {
@@ -1513,6 +1753,11 @@ ul.filter-club-list {
     .flickity-button:disabled,
     .flickity-prev-next-button {
         margin: 1em 1em 1em 1.8em;
+    }
+    .discover-icons .discover-icon:nth-of-type(2) img,
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 12px;
+        padding: 0;
     }
 }
 
@@ -1611,12 +1856,12 @@ ul.filter-club-list {
         width: 55px;
         height: 55px;
         border-radius: 50px;
-        background: #1376BC;
+        background: #1B2943;
         padding: 15px;
         margin: 1em;
         position: relative;
         margin-left: 2.8em;
-        border: 3.23px solid #1376BC;
+        border: 3.23px solid #1B2943;
     }
 
     .flickity-button:disabled,
@@ -1648,7 +1893,23 @@ ul.filter-club-list {
         width: 50%;
         padding: 5em 0 2em 3em;
     }
-    
+    .filter-club-description {
+        width: 70%;
+    }
+    .discover-title {
+        font-size: 32px;
+        line-height: 38px;
+    }
+    .discover-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 0;
+    }
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 12px;
+    }
 }
 
 @media screen and (min-width: 1280px) {
@@ -1747,6 +2008,40 @@ ul.filter-club-list {
         width: 50%;
         padding: 5em 0 2em 6em;
     }
+    .discover-title {
+        font-size: 42px;
+        line-height: 50px;
+    }
+    .discover-description {
+        font-size: 20px;
+        line-height: 36px;
+    }
+    .discover-icons {
+        margin-top: -10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-column-gap: 0;
+        padding: 0;
+        margin-left: -1em;
+        justify-content: center;
+    }
+    .discover-icons .discover-icon img {
+        width: 92px;
+        height: 92px;
+        margin: 0 auto;
+    }
+    .discover-icon:nth-of-type(3) {
+        margin-top: 0;
+    }
+    .discover-icons .discover-icon:nth-of-type(2) img,
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        padding: 0;
+        margin-top: 0;
+    }
+    .discover-icon-text {
+        font-size: 13px;
+        line-height: 15px;
+    }
 }
 
 @media screen and (min-width: 1440px) {
@@ -1806,6 +2101,21 @@ ul.filter-club-list {
         padding: 1.25rem 2.5rem;
         font-size: 1.5rem
     }
+    .discover-icon-text {
+        font-size: 16px;
+        line-height: 24px;
+        margin-left: 15px;
+    }
+    .discover-icon-text:nth-of-type(2) {
+        padding-left: 28px
+    }
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 20px;
+    }
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 0;
+    }
+
 }
 
 @media screen and (min-width: 1536px) {
@@ -1843,7 +2153,6 @@ ul.filter-club-list {
         font-size: 2rem;
     }
     .filter-club-section {
-        /* padding: 2em 2em 0em 6em; */
         padding: 2em 12em 0 6em;
         width: 40%;
     }
@@ -1852,6 +2161,19 @@ ul.filter-club-list {
         padding: 8em 0 5em 0em;
     }
 
+    .filter-club-section {
+        padding: 2em 2em 0em 6em;
+    }
+    
+
+    .filter-club-section {
+        padding: 2em 2em 0em 6em;
+    }
+
+    .discover-icons .discover-icon:nth-of-type(2) img,
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 0;
+    }
 }
 
 @media screen and (min-width: 1600px) {
@@ -1870,6 +2192,12 @@ ul.filter-club-list {
     .learn-more-content{
         font-size: 2rem;
         line-height: 2.5rem;
+    }
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 20px;
+    }
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 0;
     }
 }
 
@@ -1901,12 +2229,18 @@ ul.filter-club-list {
     .learn-more-container{
         padding-top: 10rem;
     }
+
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 20px;
+    }
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 0;
+    }
 }
 
 /* End: Media Query */
 
 /* End: Home Page */
-
 
 /* faq section */
 .main_content_heading{        

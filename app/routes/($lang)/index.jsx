@@ -1,7 +1,7 @@
 import { defer } from '@shopify/remix-oxygen';
 import { Suspense } from 'react';
 import { Await, useLoaderData } from '@remix-run/react';
-import { ProductSwimlane, FeaturedCollections, Hero, KeyFeatures } from '~/components';
+import { ProductSwimlane, Hero, KeyFeatures } from '~/components';
 import { PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
 import { getHeroPlaceholder } from '~/lib/placeholders';
 import { AnalyticsPageType } from '@shopify/hydrogen';
@@ -9,7 +9,8 @@ import { ImageWithText } from '~/components/ImageWithText';
 import { VolumeControlProperty } from '~/components/VolumeControlProperty';
 import { ImageWithTwoText } from '~/components/ImageWithTwoText';
 import { Carousel } from '~/components/Carousel';
-import { SecondaryHero } from '~/components/SecondaryHero'
+import { SecondaryHero } from '~/components/SecondaryHero';
+import { VideoPlayer } from '~/components/VideoPlayer';
 
 export async function loader({ params, context }) {
   const { language, country } = context.storefront.i18n;
@@ -193,16 +194,22 @@ export default function Homepage() {
       )}
 
       {filterClub && (
-        <ImageWithText filterClub={filterClub} className="md:flex filter-club-flex"/>
+        <ImageWithText filterClub={filterClub} filterClassName="md:flex filter-club-flex"/>
       )}
+
+      {videoSection && (
+        <VideoPlayer data={videoSection} />
+      )}
+
+      {discover && (<ImageWithText discover={discover} discoverClassName={"flex discover-main-section"} />)}
 
       {installation && (<ImageWithTwoText installation={installation} />)}
 
       {volume && (<VolumeControlProperty volume={volume} />)}
 
-      {learnMore && ( <ImageWithText learnMore={learnMore} className="flex md:flex-row"/>)}
+      {/* {learnMore && ( <ImageWithText learnMore={learnMore} className="flex md:flex-row"/>)} */}
 
-      {footerBanner && (<SecondaryHero data={footerBanner} />)}
+      {/* {footerBanner && (<SecondaryHero data={footerBanner} />)} */}
       
     </>
   );
