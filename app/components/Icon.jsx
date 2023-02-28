@@ -247,3 +247,11 @@ export function ForwardNav() {
   )
 }
 
+export function IconPlay(props) {
+  return(
+    <svg {...props} width="152" height="152" viewBox="0 0 152 152" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="76.1875" cy="75.8125" r="71.8125" stroke="white" strokeWidth="8"/>
+      <path d="M64.7723 54.6599L100.534 75.3071L64.7723 95.9542L64.7723 54.6599Z" stroke="white" strokeWidth="8"/>
+    </svg>
+  )
+}
