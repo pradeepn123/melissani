@@ -47,7 +47,7 @@ export function ImageWithText({ goodbye, alignment, className, filterClub,learnM
 
   {filterClub && 
   <div className="filter-club-anouncement">
-    <b>1468+</b> customers have joined <b>FILTER CLUB MEMBERSHIP</b> and saving $150/yr <Link to={filterClub.subscribeBtnLink}><b><u>JOIN NOW</u></b></Link>
+    <b>1468+</b> customers have joined <b>FILTER CLUB MEMBERSHIP</b> and saving $150/yr <Link to={filterClub.subscribeBtnLink}><b><u>Join Now</u></b></Link>
   </div>}
 
 
