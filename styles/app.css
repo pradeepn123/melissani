@@ -41,9 +41,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-primary: 19 118 188;
+    --color-primary: 27 41 67;
     --color-contrast: 255 255 255;
-    --color-accent: 235 86 40;
+    --color-accent: 191 72 0;
   }
 }
 
