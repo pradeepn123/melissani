@@ -200,6 +200,7 @@ export default function Homepage() {
       {videoSection && (
         <VideoPlayer data={videoSection} />
       )}
+      {discover && (<ImageWithText discover={discover} discoverClassName={"flex discover-main-section"} />)}
 
       {installation && (<ImageWithTwoText installation={installation} />)}
 
