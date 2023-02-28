@@ -71,7 +71,11 @@ function Header({logo, menu,footerMenu,metafields}) {
 
   return (
     <>
+<<<<<<< HEAD
       <CartDrawer isOpen={isCartOpen} onClose={closeCart} isHome={isHome} openCart={openCart}/>
+=======
+      <CartDrawer isOpen={isCartOpen} onClose={closeCart} isHome={isHome} openCart={openCart} />
+>>>>>>> 71d2a26 (Fixed conflict)
       {menu && (
         <MenuDrawer isOpen={isMenuOpen} onClose={closeMenu} menu={menu} footerMenu={footerMenu} isHome={isHome} openCart={openCart} metafields={metafields}/>
       )}
@@ -85,7 +89,11 @@ function Header({logo, menu,footerMenu,metafields}) {
   );
 }
 
+<<<<<<< HEAD
 function CartDrawer({isOpen, onClose,isHome, openCart }) {
+=======
+function CartDrawer({ isOpen, onClose,isHome, openCart }) {
+>>>>>>> 71d2a26 (Fixed conflict)
   const [root] = useMatches();
 
   return (
@@ -101,11 +109,19 @@ function CartDrawer({isOpen, onClose,isHome, openCart }) {
   );
 }
 
+<<<<<<< HEAD
 export function MenuDrawer({isOpen, onClose, menu,footerMenu,metafields,isHome,openCart}) {
   return (
     <Drawer open={isOpen} onClose={onClose} isHome={isHome} openCart={openCart}  openFrom="right" heading="Menu">
     <div className="menu-drawer-container">
       <MenuMobileNav menu={menu} onClose={onClose} footerMenu={footerMenu} metafields={metafields} />
+=======
+export function MenuDrawer({ isOpen, onClose, menu, footerMenu,metafields , isHome, openCart}) {
+  return (
+    <Drawer open={isOpen} onClose={onClose} isHome={isHome} openCart={openCart}  openFrom="right" heading="Menu">
+      <div className="menu-drawer-container">
+        <MenuMobileNav menu={menu} onClose={onClose} footerMenu={footerMenu} metafields={metafields} />
+>>>>>>> 71d2a26 (Fixed conflict)
       </div>
     </Drawer>
   );
@@ -214,7 +230,62 @@ function MobileHeader({ logo, isHome, openCart, openMenu }) {
   );
 }
 
+<<<<<<< HEAD
 function Footer({menu, metafields}) {
+=======
+// function CartCount({ isHome, openCart }) {
+//   const [root] = useMatches();
+
+//   return (
+//     <Suspense fallback={<Badge count={0} dark={isHome} openCart={openCart} />}>
+//       <Await resolve={root.data?.cart}>
+//         {(cart) => (
+//           <Badge
+//             openCart={openCart}
+//             count={cart?.totalQuantity || 0}
+//           />
+//         )}
+//       </Await>
+//     </Suspense>
+//   );
+// }
+
+// function Badge({ openCart, dark, count }) {
+//   const isHydrated = useIsHydrated();
+
+//   const BadgeCounter = useMemo(
+//     () => (
+//       <>
+//         <img src={cart} />
+//         <div
+//           className={'text-contrast bg-primary absolute -top-1.5 -right-1 text-[0.625rem] font-medium subpixel-antialiased min-w-[0.75rem] flex items-center justify-center leading-none text-center rounded-full w-4 h-4 px-[0.175rem] pb-px'}
+//         >
+//           <span>{count || 0}</span>
+//         </div>
+//       </>
+//     ),
+//     [count, dark],
+//   );
+
+//   return isHydrated ? (
+//     <button
+//       onClick={openCart}
+//       className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 ml-4"
+//     >
+//       {BadgeCounter}
+//     </button>
+//   ) : (
+//     <Link
+//       to="/cart"
+//       className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5 ml-4"
+//     >
+//       {BadgeCounter}
+//     </Link>
+//   );
+// }
+
+function Footer({ menu, metafields }) {
+>>>>>>> 71d2a26 (Fixed conflict)
   const isHome = useIsHomePath();
 
   const footerMetafields = JSON.parse(metafields.footer.value)
