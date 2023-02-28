@@ -1873,7 +1873,6 @@ ul.filter-club-list {
     }
 
     .filter-club-section {
-        /* padding: 2em 2em 0em 6em; */
         padding: 2em 12em 0 6em;
         width: 40%;
     }
@@ -1886,9 +1885,10 @@ ul.filter-club-list {
     .filter-club-section {
         padding: 2em 2em 0em 6em;
     }
+    
 
-    .filter-club-img img {
-        padding: 8em 0 5em 12em;
+    .filter-club-section {
+        padding: 2em 2em 0em 6em;
     }
 
 }
