@@ -1,4 +1,4 @@
-import {useIsHomePath} from '~/lib/utils';
+import { useIsHomePath } from '~/lib/utils';
 import {
   Drawer,
   useDrawer,
@@ -22,7 +22,7 @@ import {CartCount} from '~/components/CartCount'
 import logo from '../../public/logo.svg';
 import account from '../../public/account.svg';
 
-export function Layout({children, layout}) {
+export function Layout({ children, layout }) {
   return (
     <>
       <div className="flex flex-col min-h-screen">
@@ -168,7 +168,7 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
   );
 }
 
-function MobileHeader({logo, isHome, openCart, openMenu}) {
+function MobileHeader({ logo, isHome, openCart, openMenu }) {
   // useHeaderStyleFix(containerStyle, setContainerStyle, isHome);
 
   const params = useParams();
@@ -260,14 +260,14 @@ function Footer({menu, metafields}) {
       <div
         className={`bg-white pt-3 pb-4 text-center footer-bottom`}
       >
-        {footerMetafields.address} 
+        {footerMetafields.address}
         <span className="ml-5">&copy; MELISSANI</span>
       </div>
     </Section>
   );
 }
 
-const FooterLink = ({item}) => {
+const FooterLink = ({ item }) => {
   if (item.to.startsWith('http')) {
     return (
       <a href={item.to} target={item.target} rel="noopener noreferrer">
@@ -283,7 +283,7 @@ const FooterLink = ({item}) => {
   );
 };
 
-function FooterMenu({menu}) {
+function FooterMenu({ menu }) {
   const styles = {
     section: 'justify-center py-4 lg:py-2 lg:pt-0',
     nav: 'pb-6',
@@ -294,16 +294,15 @@ function FooterMenu({menu}) {
       {(menu?.items || []).map((item) => (
         <section key={item.id} className={styles.section}>
           <Disclosure>
-            {({open}) => (
+            {({ open }) => (
               <>
                 <Disclosure.Button className="text-left md:cursor-default">
                   <FooterLink item={item} />
                 </Disclosure.Button>
                 {item?.items?.length > 0 ? (
                   <div
-                    className={`${
-                      open ? `max-h-48 h-fit` : `max-h-0 md:max-h-fit`
-                    } overflow-hidden transition-all duration-300`}
+                    className={`${open ? `max-h-48 h-fit` : `max-h-0 md:max-h-fit`
+                      } overflow-hidden transition-all duration-300`}
                   >
                     <Suspense data-comment="This suspense fixes a hydration bug in Disclosure.Panel with static prop">
                       <Disclosure.Panel static>
