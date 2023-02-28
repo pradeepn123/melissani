@@ -515,15 +515,13 @@ ul.filter-club-list {
 
 .filter-club-anouncement {
     padding: 1em;
-    padding: 1em 0;
-    background-color: #E3F4FF;
-    /* font-family: DIN Next LT Pro; */
+    background-color: #e1e9eb;
     font-size: 24px;
     font-weight: 500;
     line-height: 29px;
     letter-spacing: 0em;
     text-align: center;
-    color: #1376BC;
+    color: #1b2943;
 }
 
 .membership-bold-text {

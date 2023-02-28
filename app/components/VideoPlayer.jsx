@@ -26,7 +26,7 @@ export class VideoPlayer extends React.Component {
                         }
                         {data.host == "youtube" && 
                             <>{data.autoPlay == true ? 
-                            <iframe src={`${data.videoSrc}?playsinline=1&background=1&autoplay=1&controls=0&mute=1&loop=1&enablejsapi=1&rel=0&modestbranding=1`} allow="autoplay; encrypted-media" allowFullScreen></iframe>
+                            <iframe src={`${data.videoSrc}?playsinline=1&background=1&autoplay=1&controls=1&mute=1&loop=1&enablejsapi=1&rel=0&modestbranding=1`} allow="autoplay; encrypted-media" allowFullScreen></iframe>
                             : <iframe src={`${data.videoSrc}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                             }</>
                         }
