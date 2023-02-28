@@ -194,7 +194,7 @@ export default function Homepage() {
       )}
 
       {filterClub && (
-        <ImageWithText filterClub={filterClub} className="md:flex filter-club-flex"/>
+        <ImageWithText filterClub={filterClub} filterClassName="md:flex filter-club-flex"/>
       )}
 
       {videoSection && (
@@ -207,9 +207,9 @@ export default function Homepage() {
 
       {volume && (<VolumeControlProperty volume={volume} />)}
 
-      {learnMore && ( <ImageWithText learnMore={learnMore} className="flex md:flex-row"/>)}
+      {/* {learnMore && ( <ImageWithText learnMore={learnMore} className="flex md:flex-row"/>)} */}
 
-      {footerBanner && (<SecondaryHero data={footerBanner} />)}
+      {/* {footerBanner && (<SecondaryHero data={footerBanner} />)} */}
       
     </>
   );

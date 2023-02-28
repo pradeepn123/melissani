@@ -1,7 +1,9 @@
 import {Fragment, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 
-import {Heading, IconClose} from '~/components';
+import { IconClose,Link} from '~/components';
+import account from '../../public/account.svg';
+import {CartCount} from '~/components/CartCount'
 
 /**
  * Drawer component that opens on user click.
@@ -61,7 +63,7 @@ export function Drawer({isHome, openCart, open, onClose, openFrom = 'right', chi
                     </Link>
                     <button
                       type="button"
-                      className="p-4 -m-4 transition text-primary hover:text-primary/50"
+                      className="menu-cart-icon m-4"
                       onClick={onClose}
                       data-test="close-cart"
                     >

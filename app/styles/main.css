@@ -267,16 +267,16 @@ body{
     width: 65px;
     height: 65px;
     border-radius: 50px;
-    background: #1376BC;
+    background: #1B2943;
     padding: 20px;
     margin: 1em;
     position: relative;
     margin-left: 2.8em;
-    border: 3.23px solid #1376BC;
+    border: 3.23px solid #1B2943;
 }
 
 .flickity-prev-next-button:hover {
-    background: #1376BC;
+    background: #1B2943;
 }
 
 .flickity-button:disabled {
@@ -515,15 +515,17 @@ ul.filter-club-list {
 
 .filter-club-anouncement {
     padding: 1em;
-    background-color: #E1E9EB;
+    padding: 1em 0;
+    background-color: #E3F4FF;
     /* font-family: DIN Next LT Pro; */
     font-size: 24px;
     font-weight: 500;
     line-height: 29px;
     letter-spacing: 0em;
     text-align: center;
-    color: #1B2943;
+    color: #1376BC;
 }
+
 .membership-bold-text {
     font-weight: 700;
 }
@@ -620,9 +622,7 @@ ul.filter-club-list {
     letter-spacing: 0em;
     color: #1376BC;
 }
-
 /* End: Discover Section */
-
 
 /* Begin: Media Query */
 @media screen and (min-width:1200px) {
@@ -872,11 +872,6 @@ ul.filter-club-list {
         padding: 1em 2em 1em;
     }
 
-    .filter-club-flex {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
     .filter-club-img {
         padding: 5em 0 5em 5em;
     }
@@ -921,9 +916,8 @@ ul.filter-club-list {
         margin-top: 1em 0 0;
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-
-
 }
+
 @media (max-width:640px){
     .learn-more{
         flex-direction: column-reverse;
@@ -1384,6 +1378,10 @@ ul.filter-club-list {
     .filter-club-section {
         padding: 6em 0em 4em 3em;
     }
+    .filter-club-flex {
+        display: flex;
+        flex-direction: row-reverse;
+    }
     .filter-club-description {
         width: 100%;
     }
@@ -1445,7 +1443,45 @@ ul.filter-club-list {
         margin-left: 2rem;
         transition: all 0.4s;
     }
-
+    .discover-section {
+        padding: 0 1em 1em 0em;
+    }
+    .discover-title {
+        font-size: 30px;
+        line-height: 28px;
+    }
+    .discover-description {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .discover-icons {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-column-gap: 0;
+        padding: 0;
+        margin-left: -1em;
+        justify-content: center;
+    }
+    .discover-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .discover-icon:nth-of-type(3) {
+        margin-top: -12px;
+    }
+    .discover-icons .discover-icon img {
+        width: 72px;
+        height: 72px;
+    }
+    .discover-icon-text {
+        padding-left: 1em;
+        padding-right: 3em;
+        margin-left: 10px;
+        font-size: 10px;
+        line-height: 12px;
+        width: 100%;
+    }
     .test {
         height: 90vh;
         display: flex;
@@ -1822,12 +1858,12 @@ ul.filter-club-list {
         width: 55px;
         height: 55px;
         border-radius: 50px;
-        background: #1376BC;
+        background: #1B2943;
         padding: 15px;
         margin: 1em;
         position: relative;
         margin-left: 2.8em;
-        border: 3.23px solid #1376BC;
+        border: 3.23px solid #1B2943;
     }
 
     .flickity-button:disabled,
@@ -1859,7 +1895,23 @@ ul.filter-club-list {
         width: 50%;
         padding: 5em 0 2em 3em;
     }
-    
+    .filter-club-description {
+        width: 70%;
+    }
+    .discover-title {
+        font-size: 32px;
+        line-height: 38px;
+    }
+    .discover-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 0;
+    }
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 12px;
+    }
 }
 
 @media screen and (min-width: 1280px) {

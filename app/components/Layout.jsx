@@ -12,14 +12,15 @@ import {
   CartLoading,
   Link,
 } from '~/components';
-import {useParams, Await, useMatches} from '@remix-run/react';
-import {Disclosure} from '@headlessui/react';
-import {Suspense, useEffect, useMemo} from 'react';
-import {useIsHydrated} from '~/hooks/useIsHydrated';
-import {useCartFetchers} from '~/hooks/useCartFetchers';
+import { useParams, Await, useMatches } from '@remix-run/react';
+import { Disclosure } from '@headlessui/react';
+import { Suspense, useEffect, useMemo } from 'react';
+import { useCartFetchers } from '~/hooks/useCartFetchers';
+import { ForwardNav } from '~/components';
+import {CartCount} from '~/components/CartCount'
+
 import logo from '../../public/logo.svg';
 import account from '../../public/account.svg';
-import cart from '../../public/cart.svg';
 
 export function Layout({children, layout}) {
   return (
@@ -88,7 +89,7 @@ function CartDrawer({isOpen, onClose,isHome, openCart }) {
   const [root] = useMatches();
 
   return (
-    <Drawer open={isOpen} onClose={onClose} heading="Cart" openFrom="right">
+    <Drawer open={isOpen} onClose={onClose} isHome={isHome} openCart={openCart} heading="Cart" openFrom="right">
       <div className="grid">
         <Suspense fallback={<CartLoading />}>
           <Await resolve={root.data?.cart}>
@@ -152,6 +153,7 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
       }
 
       {/* Social Media Links  */}
+
     </nav >
      <div className="footer-social-media">
      {footerMetafields.social.map((item, index) => (
@@ -243,14 +245,14 @@ function Footer({menu, metafields}) {
           <img src={footerMetafields.image} />
         </div>
       </div>
-      <div className={`bg-white flex justify-around px-9 pt-9 pb-2`}>
+      <div className={`bg-white flex md:justify-around text-center flex-col md:flex-row px-9 pt-9 pb-2`}>
         <FooterMenu menu={menu} />
       </div>
       <div className="bg-white social-section-wrapper flex items-center justify-center pt-7 pb-4">
         {footerMetafields.social.map((item, index) => (
           <div key={`footer-social-${index}`} className="social-links mr-4">
             <a href={item.link}>
-              <img src={item.iconBlue} />
+              <img src={item.icon} />
             </a>
           </div>
         ))}
