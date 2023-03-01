@@ -1,17 +1,38 @@
 import { defer } from '@shopify/remix-oxygen';
 import { Suspense } from 'react';
 import { Await, useLoaderData } from '@remix-run/react';
-import { ProductSwimlane, Hero, KeyFeatures } from '~/components';
+import { 
+  ProductSwimlane,
+  Hero,
+  KeyFeatures,
+  Carousel,
+  ImageWithText,
+  VideoPlayer,
+  ImageWithTwoText,
+  SecondaryHero,
+  VolumeControlProperty
+}from '~/components';
 import { PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
 import { getHeroPlaceholder } from '~/lib/placeholders';
 import { AnalyticsPageType } from '@shopify/hydrogen';
-import { ImageWithText } from '~/components/ImageWithText';
-import { VolumeControlProperty } from '~/components/VolumeControlProperty';
-import { ImageWithTwoText } from '~/components/ImageWithTwoText';
-import { Carousel } from '~/components/Carousel';
-import { SecondaryHero } from '~/components/SecondaryHero';
-import { VideoPlayer } from '~/components/VideoPlayer';
-
+import ImageWithTextStyles from '~/components/ImageWithText/ImageWithText.css';
+import KeyFeaturesStyles from '~/components/KeyFeatures/KeyFeatures.css';
+import CarouselStyles from '~/components/Carousel/Carousel.css';
+import ProductSwimlaneStyles from '~/components/ProductSwimlane/ProductSwimlane.css';
+import VideoPlayerStyles from '~/components/VideoPlayer/VideoPlayer.css';
+import HeroStyles from '~/components/Hero/Hero.css';
+import VolumeControlPropertyStyles from '~/components/VolumeControlProperty/VolumeControlProperty.css';
+export const links = () => {
+  return [
+    {rel: 'stylesheet', href: ImageWithTextStyles},
+    {rel: 'stylesheet', href: KeyFeaturesStyles},
+    {rel: 'stylesheet', href: CarouselStyles},
+    {rel: 'stylesheet', href: ProductSwimlaneStyles},
+    {rel: 'stylesheet', href: VideoPlayerStyles},
+    {rel: 'stylesheet', href: HeroStyles},
+    {rel: 'stylesheet', href: VolumeControlPropertyStyles},
+  ]
+}
 export async function loader({ params, context }) {
   const { language, country } = context.storefront.i18n;
 

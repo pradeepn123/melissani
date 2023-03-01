@@ -1,0 +1,641 @@
+
+/* Begin: Contaminants Section */
+.bg-grey {
+    background: #f5f5f5;
+}
+
+.right_text_block ul li {
+    font-family: 'Montserrat';
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.gb_bg_color .right_text_block .right_text_heading {
+    font-family: 'Peachi-Light';
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.gb_bg_color .right_text_block .right_text_description {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+}
+/* End: Contaminants Section */
+
+
+/* Begin: Discover Section */
+.discover-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5em 0 1em;
+}
+.discover-heading {
+    width: 90%;
+}
+.discover-title {
+    font-family: 'Peachi-Light';
+    font-size: 52px;
+    line-height: 70px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+}
+.bold-discover-title {
+    font-family: 'Peachi-Bold';
+    font-weight: 700;
+}
+.discover-description {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+    margin: 1em 0 1em 0;
+}
+.discover-icons {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 0;
+    padding: 0;
+    margin: 1em 0 0 0;
+    justify-content: center;
+}
+.discover-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.discover-icon img{
+    margin: 0 auto;
+}
+.discover-icon-text {
+    text-align: center;
+    width: 90%;
+    margin-left: 10px;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    color: #1B2943;
+}
+/* End: Discover Section */
+
+/* Begin: Filter Club Section */
+.filter-club-section {
+    padding: 6em 3em 4em 6em;
+}
+.filter-club-title {
+    font-family: 'Peachi-Light';
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 62px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+}
+.filter-club-description {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+    margin: 0.5em 0 1em 0;
+    width: 70%;
+}
+ul.filter-club-list {
+    list-style-type: none;
+    margin-bottom: 1em;
+}
+
+.filter-club-list-item {
+    padding: 1em 3em 1em 0;
+    border-top: 1px solid #D9D9D9;
+    display: flex;
+    flex-direction: row;
+    column-gap: 1em;
+    color: #000;
+}
+
+.filter-club-list-text {
+    margin: auto 0 !important;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.filter-club-btns {
+    display: flex;
+    column-gap: 1em;
+}
+
+.filter-club-anouncement {
+    padding: 1em;
+    background-color: #e1e9eb;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #1b2943;
+}
+
+.membership-bold-text {
+    font-weight: 700;
+}
+/* End: Filter Club Section */
+
+/* Begin: Media Query */
+@media screen and (max-width: 425px) {
+    .filter-club-img {
+        padding: 5em 0 2em 5em;
+    }
+
+    .filter-club-title {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    .filter-club-description {
+        font-style: normal;
+        font-weight: 510;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .filter-club-list-icon svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    .filter-club-list-text {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+    .subscribe-btn button, .filter-club-learn-more-btn {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+    }
+}
+
+
+@media (max-width: 540px) {
+    .discover-section {
+        width: 100%;
+        padding: 0 2em 3em 1em;
+    }
+    .discover-heading {
+        width: 100%;
+        padding: 2em 0 0 0;
+    }
+
+    .discover-title {
+        font-size: 28px;
+        line-height: 34px;
+        width: 100%;
+    }
+
+    .discover-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .discover-icons {
+        margin-top: 1em 0 0;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 1em;
+    }
+
+    .discover-icon-text {
+        font-size: 16px;
+        line-height: 24px;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    .filter-club-description {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .gb_bg_color .right_text_block .right_text_heading {
+        font-size: 52px;
+        font-weight: 300;
+    }
+
+    .discover-main-section {
+        display: block;
+    }
+
+    .discover-section {
+        width: 100%;
+        padding: 0 5em 3em 2em;
+    }
+
+    .discover-icons, .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 0;
+    }
+
+    .discover-icons {
+        margin-top: 1em 0 0;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .filter-club-section {
+        width: 100%;
+        padding: 1em 2em 1em;
+    }
+
+    .filter-club-img {
+        padding: 5em 0 5em 5em;
+    }
+
+    .filter-club-btns {
+        display: flex;
+        column-gap: 0;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        row-gap: 2em;
+    }
+
+    .subscribe-btn button{
+        width: 100%;
+        text-align: center;
+    }
+
+    .filter-club-learn-more-btn {
+        text-align: center;
+    }
+
+    .filter-club-anouncement {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .discover-heading {
+        padding-top: 2em;
+    }
+    .discover-title {
+        font-size: 42px;
+        line-height: 60px;
+    }
+    .discover-description {
+        font-size: 16px;
+        line-height: 32px;
+    }
+    .discover-icons {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .discover-icon-text {
+        font-size: 12px;
+        line-height: 18px;
+        margin-left: 2px;
+        width: 100%;
+    }
+    .discover-icons .discover-icon img {
+        width: 82px;
+        height: 82px;
+    }
+}
+
+@media screen and (min-width: 320px) {
+    .learn-more-btn {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    .discover-section {
+        padding: 0 1em 3em;
+    }
+    .discover-icon-text {
+        padding-left: 1em;
+        padding-right: 2em;
+        margin-left: 10px;
+    }
+    .learn-more-btn {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .discover-icon-text {
+        padding-left: 1em;
+        padding-right: 3em;
+        margin-left: 17px;
+    }
+    .learn-more-btn {
+        font-size: 17px;
+    }
+}
+
+@media screen and (min-width: 390px) {
+    .discover-section {
+        padding: 0 1em 3em 1em;
+    }
+    .learn-more-btn {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 412px) {
+    .discover-icon-text {
+        padding-left: 1em;
+        padding-right: 4em;
+        margin-left: 28px;
+    }
+    .learn-more-btn {
+        font-size: 19px;
+    }
+}
+
+@media screen and (min-width: 425px) {
+    .learn-more-btn {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .discover-section {
+        padding: 0 1em 1em 0em;
+    }
+    .discover-title {
+        font-size: 30px;
+        line-height: 28px;
+    }
+    .discover-description {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .discover-icons {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-column-gap: 0;
+        padding: 0;
+        margin-left: -1em;
+        justify-content: center;
+    }
+    .discover-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .discover-icon:nth-of-type(3) {
+        margin-top: -12px;
+    }
+    .discover-icons .discover-icon img {
+        width: 72px;
+        height: 72px;
+    }
+    .discover-icon-text {
+        padding-left: 1em;
+        padding-right: 3em;
+        margin-left: 10px;
+        font-size: 10px;
+        line-height: 12px;
+        width: 100%;
+    }
+    .filter-club-section {
+        padding: 6em 0em 4em 3em;
+    }
+    .filter-club-flex {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .filter-club-description {
+        width: 100%;
+    }
+    .filter-club-img {
+        width: 80%;
+        padding-left: 1em;
+    }
+
+}
+
+@media screen and (min-width: 820px) {
+    .discover-section {
+        padding: 0 2em 1em 0;
+    }
+    .discover-title {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    .discover-description {
+        font-size: 12px;
+        line-height: 22px;
+    }
+    .discover-icons {
+        margin-top: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-column-gap: 0;
+        padding: 0;
+        margin-left: -1em;
+        justify-content: center;
+    }
+    .discover-icons .discover-icon img {
+        width: 62px;
+        height: 62px;
+        margin: 0 auto;
+    }
+    .discover-icon-text {
+        padding-left: 1em;
+        padding-right: 3em;
+        margin-left: 12px;
+        font-size: 10px;
+        line-height: 14px;
+        width: 100%;
+    }
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        padding: 0;
+    }
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 912px) {
+    .discover-icons .discover-icon:nth-of-type(2) img,
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 12px;
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .discover-title {
+        font-size: 32px;
+        line-height: 38px;
+    }
+    .discover-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 0;
+    }
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 12px;
+    }
+    .filter-club-section {
+        padding: 6em 0em 4em 3em;
+        width: 40%;
+    }
+    .filter-club-img {
+        width: 50%;
+        padding: 5em 0 2em 3em;
+    }
+    .filter-club-description {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .gb_bg_color .right_text_block .right_text_heading {
+        font-size: 52px;
+        font-weight: 300;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .discover-title {
+        font-size: 42px;
+        line-height: 50px;
+    }
+    .discover-description {
+        font-size: 20px;
+        line-height: 36px;
+    }
+    .discover-icons {
+        margin-top: -10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-column-gap: 0;
+        padding: 0;
+        margin-left: -1em;
+        justify-content: center;
+    }
+    .discover-icons .discover-icon img {
+        width: 92px;
+        height: 92px;
+        margin: 0 auto;
+    }
+    .discover-icon:nth-of-type(3) {
+        margin-top: 0;
+    }
+    .discover-icons .discover-icon:nth-of-type(2) img,
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        padding: 0;
+        margin-top: 0;
+    }
+    .discover-icon-text {
+        font-size: 13px;
+        line-height: 15px;
+    }
+    .filter-club-section {
+        padding: 6em 2em 4em 6em;
+        width: 40%;
+    }
+    .filter-club-description {
+        width: 100%;
+    }
+    .filter-club-img {
+        width: 50%;
+        padding: 5em 0 2em 6em;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .discover-title {
+        font-size: 52px;
+        line-height: 70px;
+    }
+    .discover-icon-text {
+        font-size: 16px;
+        line-height: 24px;
+        margin-left: 15px;
+    }
+    .discover-icon-text:nth-of-type(2) {
+        padding-left: 28px
+    }
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 20px;
+    }
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 0;
+    }
+    .filter-club-img {
+        width: 50%;
+        padding: 7em 0 2em 10em;
+    }
+    .filter-club-section {
+        padding: 6em 6em 4em;
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1536px) {
+    .discover-icons .discover-icon:nth-of-type(2) img,
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 0;
+    }
+    .filter-club-section {
+        padding: 2em 12em 0 6em;
+        width: 40%;
+    }
+    .filter-club-img img {
+        /* padding: 8em 0 5em 12em; */
+        padding: 8em 0 5em 0em;
+    }
+
+    .filter-club-section {
+        padding: 2em 2em 0em 6em;
+    }
+    
+
+    .filter-club-section {
+        padding: 2em 2em 0em 6em;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 20px;
+    }
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 1900px) {
+    .discover-icons .discover-icon:nth-of-type(2) img {
+        margin-top: 20px;
+    }
+    .discover-icons .discover-icon:nth-of-type(3) img {
+        margin-top: 0;
+    }
+}
+
+
+/* End: Media Query */

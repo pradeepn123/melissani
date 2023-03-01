@@ -1,0 +1,55 @@
+/* Begin: Volume Control Section */
+
+/* End: Volume Control Section */
+
+/* Begin: Media Query */
+@media screen and (min-width: 320px) {
+    .main-header-volume-controller {
+        font-size: 1.15rem;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    .main-header-volume-controller {
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 425px) {
+    .main-header-volume-controller {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 512px) {
+    .main-header-volume-controller {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .main-header-volume-controller {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .main-header-volume-controller {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .main-header-volume-controller {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .main-header-volume-controller {
+        width: 32rem;
+    }
+}
+
+
+/* End: Media Query */

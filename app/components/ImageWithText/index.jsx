@@ -1,5 +1,5 @@
 import {FilterClubTextSection} from './FilterClubTextSection';
-import {GoodbyeTextSection} from './GoodbyeTextSection';
+import {ContaminantTextSection} from './ContaminantTextSection';
 import {DiscoverTextSection} from './DiscoverTextSection';
 import {ImageSection} from './ImageSection';
 import {LearnMoreSection} from './LearnMoreSection';
@@ -11,11 +11,11 @@ export function ImageWithText({ goodbye, alignment, filterClassName, filterClub,
   <section className={`w-full gap-4 md:gap-8 items-center ${filterClassName && filterClassName} ${goodbye ? "xl:flex gb_bg_color" : ""} ${discoverClassName && discoverClassName}`}>
     {goodbye && <>
       {alignment == "rtl" ? <>
-        <GoodbyeTextSection data={goodbye} />
+        <ContaminantTextSection data={goodbye} />
         <ImageSection data={goodbye}/>
       </>: <>
         <ImageSection data={goodbye}/>
-        <GoodbyeTextSection data={goodbye} />
+        <ContaminantTextSection data={goodbye} />
       </>}</>
     }
     {filterClub && <>

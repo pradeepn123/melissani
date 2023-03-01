@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 import {useFetcher} from '@remix-run/react';
 import {FeaturedCollections} from './FeaturedCollections';
-import {ProductSwimlane} from './ProductSwimlane';
+import {ProductSwimlane} from './ProductSwimlane/ProductSwimlane';
 import {usePrefixPathWithLocale} from '~/lib/utils';
 
 export function FeaturedSection() {
