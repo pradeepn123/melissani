@@ -8,7 +8,7 @@ import {
   Carousel,
   ImageWithText,
   VideoPlayer,
-  ImageWithTwoText,
+  ImageCenterWithText,
   SecondaryHero,
   VolumeControlProperty
 }from '~/components';
@@ -22,6 +22,9 @@ import ProductSwimlaneStyles from '~/components/ProductSwimlane/ProductSwimlane.
 import VideoPlayerStyles from '~/components/VideoPlayer/VideoPlayer.css';
 import HeroStyles from '~/components/Hero/Hero.css';
 import VolumeControlPropertyStyles from '~/components/VolumeControlProperty/VolumeControlProperty.css';
+import ImageCenterWithTextStyles from '~/components/ImageCenterWithText/ImageCenterWithText.css';
+import SecondaryHeroStyles from '~/components/SecondaryHero/SecondaryHero.css';
+
 export const links = () => {
   return [
     {rel: 'stylesheet', href: ImageWithTextStyles},
@@ -31,6 +34,8 @@ export const links = () => {
     {rel: 'stylesheet', href: VideoPlayerStyles},
     {rel: 'stylesheet', href: HeroStyles},
     {rel: 'stylesheet', href: VolumeControlPropertyStyles},
+    {rel: 'stylesheet', href: ImageCenterWithTextStyles},
+    {rel: 'stylesheet', href: SecondaryHeroStyles}
   ]
 }
 export async function loader({ params, context }) {
@@ -224,7 +229,7 @@ export default function Homepage() {
 
       {discover && (<ImageWithText discover={discover} discoverClassName={"flex discover-main-section"} />)}
 
-      {installation && (<ImageWithTwoText installation={installation} />)}
+      {installation && (<ImageCenterWithText installation={installation} installationHeadingClassName="installation-header" installationParaClassName="installation-para" />)}
 
       {volume && (<VolumeControlProperty volume={volume} />)}
 

@@ -29,8 +29,8 @@ export { FeaturedProducts } from './FeaturedProducts';
 export { Pagination, getPaginationVariables, usePagination } from './Pagination';
 export { AddToCartButton } from './AddToCartButton';
 export { VolumeControlProperty } from './VolumeControlProperty/VolumeControlProperty';
-export { ImageWithTwoText } from './ImageWithTwoText';
-export { SecondaryHero } from './SecondaryHero';
+export { ImageCenterWithText } from './ImageCenterWithText/ImageCenterWithText';
+export { SecondaryHero } from './SecondaryHero/SecondaryHero';
 export { CartCount } from './CartCount';
 export { VideoPlayer } from './VideoPlayer/VideoPlayer';
 // Sue me

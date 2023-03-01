@@ -1,450 +1,183 @@
 /* Begin: Common Styles */
-body{
-    letter-spacing: 0.5px;
-    font-family: 'Peachi-Bold', 'Peachi-Light';
-} 
+body {
+  letter-spacing: 0.5px;
+  font-family: 'Peachi-Bold', 'Peachi-Light';
+}
 
-/* Begin: Footer */
+/* Begin: Footer Section */
 .footer-wrapper {
-    padding: 0;
-    display: block;
-    color: #1B2943;
+  padding: 0;
+  display: block;
+  color: #1b2943;
 }
 
 .footer-image-section {
-    background-color:#E1E9EB;
+  background-color: #e1e9eb;
 }
 
 .footer-wrapper .footer-text p {
-    font-weight: 700;
-    font-size: 42px;
-    line-height: 56px;
-    color: #1B2943;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 56px;
+  color: #1b2943;
 }
 
 .footer-wrapper .footer-text p span {
-    font-weight: 400;
-    font-size: 28px;
-    display: block;
+  font-weight: 400;
+  font-size: 28px;
+  display: block;
 }
 
 .footer-wrapper .footer-text {
-    padding: 60px 0 60px 30px;
+  padding: 60px 0 60px 30px;
 }
 
 .footer-bottom {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .footer-menu {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
 }
-/* Begin: Footer */
+/* End: Footer Section */
 
-/* Begin: Menu Cart Drawer css*/
+/* Begin: Menu Cart Drawer Section */
 .menuDrawer-Headermenu:hover {
-    color: #1376BC;
-    position: relative;
+  color: #1376bc;
+  position: relative;
 }
 
 .menuDrawer-Headermenu:hover .forward-nav-icon {
-    opacity: 1;
+  opacity: 1;
 }
 
 .menuDrawer-Foootermenu:hover {
-    color: #1376BC;
+  color: #1376bc;
 }
 
 .menuDrawer-nav {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2)
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .menu-drawer-cart {
-    position: relative;
-    margin-right: 1rem;
-    top: 32%;
+  position: relative;
+  margin-right: 1rem;
+  top: 32%;
 }
-/* End: Menu Cart Drawer */
-
-  .installation-para {
-    font-family: 'Peachi-Light';
-    font-size: 32px;
-    font-weight: 300;
-    line-height: 47px;
-    letter-spacing: -0.005em;
-    text-align: left;   
-}
-
-.installation-header{
-    text-align: left;
-}
+/* End: Menu Cart Drawer Section */
 /* End: Common Styles */
 
 /* Begin: Media Query */
-@media screen and (min-width:1200px) {
-    .main_content_heading{
-        width: 30%;
-    }
-    .footer-wrapper .footer-text p {
-        font-size: 52px;
-        line-height: 56px;
-    }
+@media screen and (min-width: 1200px) {
+  .footer-wrapper .footer-text p {
+    font-size: 52px;
+    line-height: 56px;
+  }
 
-    .footer-wrapper .footer-text p span {
-        padding-top: 20px;
-        font-size: 32px;
-    }
+  .footer-wrapper .footer-text p span {
+    padding-top: 20px;
+    font-size: 32px;
+  }
 }
 
-@media(min-width:768px) and (max-width:1024px) {
-    .footer-image-section .footer-image {
-        display: flex;
-        align-items: flex-end;
-    }
-}
-
-@media (max-width:640px){
-    .learn-more{
-        flex-direction: column-reverse;
-    }
-
-    .learn-more-container{
-        padding: 2rem;
-    }
-
-    .learn-more-header{
-        font-size: 28px;
-        font-weight: 700;
-        line-height: 34px;
-        letter-spacing: 0em;
-        margin-bottom: 1rem;
-    }
-
-    .learn-more-content{
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
-        letter-spacing: 0em;
-        margin-bottom: 1rem;
-    }
-
-    .learn-more-sec-btn{
-        padding: 1rem;
-        background-color: transparent;
-        color: #1376BC;
-        border-color: #1376BC;
-    }
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer-image-section .footer-image {
+    display: flex;
+    align-items: flex-end;
+  }
 }
 
 @media screen and (min-width: 320px) {
-    .secondary-hero-content {
-        top: 40%;
-        left: 10%;
-    }
+  .drawer-dialog-panel {
+    width: 120vw;
+    height: 120vh;
+  }
+  .menu-drawer-container {
+    height: 100vh;
+  }
 
-    .secondary-hero-header {
-        margin-bottom: 0.75rem;
-    }
+  .footer-social-media {
+    position: absolute;
+    bottom: 0;
+    padding-left: 1.5rem;
+  }
 
-    .secondary-hero-button {
-        font-size: 0.75rem;
-        padding: 0.75rem 1rem 0.75rem 1rem;
-    }
+  .menu-drawer-cart {
+    width: 1rem;
+    height: 1rem;
+    position: relative;
+    margin-right: 2.75rem;
+    top: 18%;
+  }
 
-    .drawer-dialog-panel {
-        width: 120vw;
-        height: 120vh;
-    }
-    .menu-drawer-container {
-        height: 100vh;
-    }
+  .menu-cart-icon {
+    margin: 0.75rem;
+  }
 
-    .footer-social-media {
-        position: absolute;
-        bottom: 0;
-        padding-left: 1.5rem;
-    }
-
-    .menu-drawer-cart {
-        width: 1rem;
-        height: 1rem;
-        position: relative;
-        margin-right: 2.75rem;
-        top: 18%;
-    }
-
-    .menu-cart-icon {
-        margin: 0.75rem;
-    }
-
-    /* .menuDrawer-nav {
+  /* .menuDrawer-nav {
      align-content: center;
      flex-wrap: wrap;
     } */
 }
 
-@media screen and (min-width: 360px) {
-    .secondary-hero-content {
-        top: 48%;
-        left: 15%;
-    }
-}
-
-@media (min-width:320px) and (max-width:512px) {
-    .installation-header {
-        font-size: 30px;
-        padding: 32px;
-        padding-bottom: 10px;
-    }
-
-    .installation-para {
-        font-size: 20px;
-        font-weight: 300;
-        line-height: 31px;
-        padding: 32px;
-        padding-top: 0;
-    }
-
-    .secondary-hero-header {
-        max-width: 151px;
-        font-size: 1.25rem;
-    }
-
-}
-
-@media screen and (min-width: 425px) {
-    .installation-para {
-        padding: 32px;
-        padding-top: 0;
-    }
-
-    .secondary-hero-content {
-        left: 10%;
-    }
-
-    .secondary-hero-header {
-        font-size: 1.5rem;
-        max-width: 185px;
-    }
-}
-
 @media screen and (min-width: 768px) {
-    .installation-para {
-        padding: unset;
-    }
+  .forward-nav-icon {
+    opacity: 0;
+    display: inline-block;
+    transform: translateY(25%);
+    margin-left: 2rem;
+    transition: all 0.4s;
+  }
 
-    .secondary-hero-header {
-        font-size: 1.75rem;
-        max-width: 20rem;
-    }
+  .menu-drawer-container {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
 
-    .secondary-hero-content {
-        top: 21%;
-        left: 13%;
-    }
+  .footer-social-media {
+    position: absolute;
+    bottom: 5%;
+    padding-left: 3rem;
+  }
 
-    .secondary-hero-button {
-        font-size: unset;
-        padding: 1rem 2rem;
-    }
+  .menu-drawer-cart {
+    width: unset;
+    height: unset;
+    top: 32%;
+    margin-right: 0.75rem;
+  }
 
-    .learn-more-container{
-        flex:1 0 50%;
-    }
+  .menu-drawer-account {
+    margin: 1rem;
+  }
+  .forward-nav-icon {
+    opacity: 0;
+    display: inline-block;
+    transform: translateY(25%);
+    margin-left: 2rem;
+    transition: all 0.4s;
+  }
+  .test {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
 
-    .img-sec{
-        flex:1 0 50%;
-
-    }
-
-    .learn-more-sec-btn{
-        padding: 0.75rem 1.15rem;
-        font-size: 0.75rem;
-    }
-
-    .forward-nav-icon {
-        opacity: 0;
-        display: inline-block;
-        transform: translateY(25%);
-        margin-left: 2rem;
-        transition: all 0.4s;
-    }
-
-    .menu-drawer-container {
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-    }
-
-    .footer-social-media {
-        position: absolute;
-        bottom: 5%;
-        padding-left: 3rem;
-    }
-
-    .menu-drawer-cart {
-        width: unset;
-        height: unset;
-        top: 32%;
-        margin-right: 0.75rem;
-    }
-
-    .menu-drawer-account {
-        margin: 1rem;
-    }
-    .forward-nav-icon {
-        opacity: 0;
-        display: inline-block;
-        transform: translateY(25%);
-        margin-left: 2rem;
-        transition: all 0.4s;
-    }
-    .test {
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-    }
-
-    .footer-social-media {
-        position: absolute;
-        bottom: 5%;
-        padding-left: 3rem;
-    }
-}
-
-@media (min-width:767px) and (max-width:1023px) {
-    .installation-header {
-        padding-left: 3rem;
-        max-width: 17rem;
-        transform: translate(10px, -45px);
-    }
-
-    .installation-para {
-        max-width: 15rem;
-        transform: translate(54%, -49%);
-        font-family: 'Peachi-Light';
-        font-size: 20px;
-        font-weight: 300;
-        line-height: 30px;
-        letter-spacing: -0.005em;
-        text-align: left;
-
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .installation-header {
-        transform: translate(14%, -50%);
-        
-    }
-
-    .installation-para {
-        transform: translate(53%, -69%);
-    }
-
-    .secondary-hero-header {
-        font-size: 2.5rem;
-        max-width: 24rem;
-    }
-}
-
-@media screen and (min-width: 1280px) {
-    .installation-header {
-        transform: translate(24%, -51%);
-    }
-
-    .installation-para {
-        transform: translate(63%, -85%);
-    }
-}
-
-@media screen and (min-width: 1440px) {
-    .installation-para {
-        transform: translate(66%, -58%);
-    }
-
-    .secondary-hero-header {
-        font-size: 3.25rem;
-        max-width: 37rem;
-    }
-
-    .secondary-hero-button {
-        font-size: 1.75rem;
-        padding: 1rem 2.5rem;
-    }
-    .learn-more-sec-btn{
-        padding: 1.25rem 2.5rem;
-        font-size: 1.5rem
-    }
-}
-
-@media screen and (min-width: 1536px) {
-    .installation-para {
-        transform: translate(59%, -58%);
-    }
-
-    .secondary-hero-button {
-        font-size: 2rem;
-    }
-}
-
-@media screen and (min-width: 1600px) {
-    .installation-para {
-        transform: translate(78%, -70%);
-    }
-
-    .learn-more-container{
-        padding-top: 7rem;
-    }
-
-    .learn-more-header{
-        font-size: 4rem;
-    }
-    
-    .learn-more-content{
-        font-size: 2rem;
-        line-height: 2.5rem;
-    }
-    
-}
-
-@media screen and (min-width: 1900px) {
-    .installation-para {
-        transform: translate(77%, -93%);
-        max-width: 30rem;
-        font-size: 1.75rem;
-        line-height: 2.25rem;
-    }
-
-    .installation-header {
-        font-size: 4rem;
-        max-width: 30rem;
-        transform: translate(24%, -63%);
-    }
-
-    .secondary-hero-header {
-        font-size: 4.25rem;
-        max-width: 47rem;
-    }
-
-    .secondary-hero-button {
-        font-size: 2.5rem;
-        padding: 1.5rem 3.5rem;
-
-    }
-
-    .learn-more-container{
-        padding-top: 10rem;
-    }
+  .footer-social-media {
+    position: absolute;
+    bottom: 5%;
+    padding-left: 3rem;
+  }
 }
 
 /* End: Media Query */

@@ -1,0 +1,119 @@
+/* Begin: Installation Section */
+.installation-para {
+    font-family: 'Peachi-Light';
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 47px;
+    letter-spacing: -0.005em;
+    text-align: left;   
+}
+
+.installation-header{
+    text-align: left;
+}
+/* End: Installation Section */
+
+/* Begin: Media Query */
+@media (min-width:320px) and (max-width:512px) {
+    .installation-header {
+        font-size: 30px;
+        padding: 32px;
+        padding-bottom: 10px;
+    }
+
+    .installation-para {
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 31px;
+        padding: 32px;
+        padding-top: 0;
+    }
+}
+
+@media screen and (min-width: 425px) {
+    .installation-para {
+        padding: 32px;
+        padding-top: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .installation-para {
+        padding: unset;
+    }
+}
+
+@media (min-width:767px) and (max-width:1023px) {
+    .installation-header {
+        padding-left: 3rem;
+        max-width: 17rem;
+        transform: translate(10px, -45px);
+    }
+
+    .installation-para {
+        max-width: 15rem;
+        transform: translate(54%, -49%);
+        font-family: 'Peachi-Light';
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 30px;
+        letter-spacing: -0.005em;
+        text-align: left;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .installation-header {
+        transform: translate(14%, -50%);
+        
+    }
+
+    .installation-para {
+        transform: translate(53%, -69%);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .installation-header {
+        transform: translate(24%, -51%);
+    }
+
+    .installation-para {
+        transform: translate(63%, -85%);
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .installation-para {
+        transform: translate(66%, -58%);
+    }
+}
+
+@media screen and (min-width: 1536px) {
+    .installation-para {
+        transform: translate(59%, -58%);
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .installation-para {
+        transform: translate(78%, -70%);
+    }
+}
+
+@media screen and (min-width: 1900px) {
+    .installation-para {
+        transform: translate(77%, -93%);
+        max-width: 30rem;
+        font-size: 1.75rem;
+        line-height: 2.25rem;
+    }
+
+    .installation-header {
+        font-size: 4rem;
+        max-width: 30rem;
+        transform: translate(24%, -63%);
+    }
+}
+
+/* Begin: Media Query */

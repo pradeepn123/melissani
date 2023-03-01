@@ -1,7 +1,7 @@
 import {Button, Link} from '~/components';
 
 
-export function LearnMoreSection({data}) {
+export function PurityTextSection({data}) {
   return (
     <div className="learn-more-container flex-auto w-full md:p-8 md:w-6/12 lg:p-16 lg:pt-20">
         <div 

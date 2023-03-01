@@ -2,7 +2,7 @@ import {FilterClubTextSection} from './FilterClubTextSection';
 import {ContaminantTextSection} from './ContaminantTextSection';
 import {DiscoverTextSection} from './DiscoverTextSection';
 import {ImageSection} from './ImageSection';
-import {LearnMoreSection} from './LearnMoreSection';
+import {PurityTextSection} from './PurityTextSection';
 import {Link} from '../Link';
 
 export function ImageWithText({ goodbye, alignment, filterClassName, filterClub, discover, discoverClassName, learnMore }) {
@@ -43,9 +43,9 @@ export function ImageWithText({ goodbye, alignment, filterClassName, filterClub,
           { alignment == "rtl" ?
             <>
               <ImageSection data={learnMore} /> 
-              <LearnMoreSection data={learnMore}/>
+              <PurityTextSection data={learnMore}/>
             </> : <>
-              <LearnMoreSection data={learnMore}/>
+              <PurityTextSection data={learnMore}/>
               <ImageSection data={learnMore}/> 
             </>
           }
