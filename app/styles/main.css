@@ -70,6 +70,19 @@ body{
     top: 32%;
 }
 /* End: Menu Cart Drawer */
+
+  .installation-para {
+    font-family: 'Peachi-Light';
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 47px;
+    letter-spacing: -0.005em;
+    text-align: left;   
+}
+
+.installation-header{
+    text-align: left;
+}
 /* End: Common Styles */
 
 /* Begin: Media Query */
@@ -150,13 +163,6 @@ body{
     .menu-drawer-container {
         height: 100vh;
     }
-    .test {
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-    }
 
     .footer-social-media {
         position: absolute;
@@ -191,15 +197,17 @@ body{
 
 @media (min-width:320px) and (max-width:512px) {
     .installation-header {
+        font-size: 30px;
         padding: 32px;
         padding-bottom: 10px;
-        text-align: left;
     }
 
     .installation-para {
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 31px;
         padding: 32px;
         padding-top: 0;
-        font-size: 15px;
     }
 
     .secondary-hero-header {
@@ -315,22 +323,28 @@ body{
 
 @media (min-width:767px) and (max-width:1023px) {
     .installation-header {
-        padding: unset;
+        padding-left: 3rem;
         max-width: 17rem;
-        text-align: unset;
+        transform: translate(10px, -45px);
     }
 
     .installation-para {
         max-width: 15rem;
         transform: translate(54%, -49%);
-        font-size: 0.75rem;
+        font-family: 'Peachi-Light';
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 30px;
+        letter-spacing: -0.005em;
+        text-align: left;
+
     }
 }
 
 @media screen and (min-width: 1024px) {
     .installation-header {
-        transform: translate(19%, -51%);
-        text-align: unset;
+        transform: translate(14%, -50%);
+        
     }
 
     .installation-para {

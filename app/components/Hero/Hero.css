@@ -22,14 +22,21 @@
     line-height: 76.8px;
     letter-spacing: 0em;
     text-align: left;
+    padding-bottom: 0.5rem;
+}
+
+.text-bold{
+    font-weight: bold !important;
 }
 
 .hero-banner-subtitle {
-    font-style: italic;
-    display: block;
-    font-weight: 400;
-    margin-top: 0.2em;
-    margin-bottom: 1em;
+    font-family: 'Peachi-Light';
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 46px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
 }
 
 .hero-image {
