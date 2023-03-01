@@ -16,15 +16,8 @@ export function Hero({
           'w-full hero'
         )}>
           <div className="hero-text">
-            {data?.heading && (
-              <h1 className="hero-banner-title">
-                {data.heading}
-                <span className="hero-banner-subtitle">
-                  {data.sub_heading}
-                </span>
-              </h1>
-            )}
-
+            <div dangerouslySetInnerHTML={{ __html: data.rawHtml}}></div>
+            
             {data?.cta && <Link
                 to="/products/">
                 <Button className="shop-btn">
