@@ -1,0 +1,125 @@
+/* Begin: Key Features Section */
+
+.key-features-section {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 3em;
+    padding: 4em 2em;
+    justify-content: center;
+    background: #E1E9EB;
+}
+
+.key-feature-icon {
+    width: 115px;
+    height: 115px;
+}
+
+.key-feature {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.key-feature-text {
+    font-family: 'Montserrat';
+    text-align: center;
+    color: #1B2943;
+    margin-top: 1em;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    width: 60%;
+}
+
+/* End: Key Features Section */
+
+/* Begin: Media Query */
+
+@media screen and (max-width: 767px) {
+    .key-features-section {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-column-gap: 1em;
+        padding: 2em 3em;
+        grid-row-gap: 2em;
+    }
+
+    .key-feature-icon {
+        width: 72px;
+        height: 72px;
+    }
+
+    .key-feature-text {
+        /* font-family: SF Pro; */
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0em;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .key-features-section {
+        padding: 4em 2em;
+        grid-column-gap: 1em;
+    }
+
+    .key-feature-text {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 820px) {
+    .key-features-section {
+        padding: 4em 2em;
+        grid-column-gap: 1em;
+    }
+
+    .key-feature-text {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 912px) {
+    .key-features-section {
+        grid-column-gap: 1em;
+        padding: 4em;
+    }
+
+    .key-feature-text {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .key-features-section {
+        grid-column-gap: 1em;
+        padding: 4em 6em;
+    }
+
+    .key-feature-text {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .key-features-section {
+        grid-column-gap: 0;
+    }
+
+    .key-feature-text {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .key-features-section {
+        grid-column-gap: 1em;
+        padding: 4em 2em;
+    }
+}
+
+/* End: Media Query */

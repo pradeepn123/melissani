@@ -1,0 +1,55 @@
+/* Begin: Faq Section */
+.main_content_heading{        
+    font-size: 52px;
+    color: #000;
+    line-height: 1.2;
+}
+
+.faq_section_wrapper .icon_with_text img{
+    width: 80px;
+    height: 80px;
+}
+
+.tabs_with_icons button[aria-selected="false"]{
+    margin-bottom: 3.5rem;
+    border: 1px solid #CACACA;
+    border-radius: 10px;
+    width: 156px;
+    height: 156px;
+}
+.tabs_with_icons button[aria-selected="true"]{
+    margin-bottom: 3.5rem;
+    border: 2px solid #1376BC;
+    border-radius: 10px;
+    width: 156px;
+    height: 156px;
+}
+.tabs_with_icons .p-4[role="tabpanel"]{
+    padding: 0;
+}
+.tabs_with_icons .custom_content{
+    border-top: 0;
+}
+.font-text-22{
+    font-size: 22px;
+}
+.font-text-28{
+    font-size: 28px;
+    line-height: 1.2;
+}
+.font-text-32{
+    font-size: 32px;    
+}
+.tracking-wide{
+    letter-spacing: 0.025em;
+}
+.tabs_with_icons svg[data-testid="flowbite-accordion-arrow"] {
+    border-radius: 50%;
+    stroke-width: 0;
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    border: 1.5px solid #1376BC;
+}
+
+/* End: Faq Section */

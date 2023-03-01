@@ -3,6 +3,13 @@ import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
 import {PageHeader} from '~/components';
 import {Faq} from '~/components';
+import FaqStyles from '~/components/Faq/Faq.css';
+
+export const links = () => {
+  return [
+    {rel: 'stylesheet', href: FaqStyles}
+  ]
+}
 
 const seo = ({data}) => ({
   title: data?.page?.seo?.title,
