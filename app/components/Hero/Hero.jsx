@@ -24,12 +24,20 @@ export function Hero({
                 </span>
               </h1>
             )}
+
             {data?.cta && <Link
                 to="/products/">
                 <Button className="shop-btn">
                 {data.cta}
                 </Button>
             </Link>}
+            <Link
+                    to={data.learnMoreBtnLink}>
+                    <Button className="hero-learn-more-btn">
+                        {data.learnMoreBtnText}
+                    </Button>
+            </Link>
+            
           </div>
           <div className="hero-image-wrapper">
             <img src={data?.banner_image} className="hero-image"/>

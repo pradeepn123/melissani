@@ -137,7 +137,7 @@ ul.filter-club-list {
 
 .filter-club-btns {
     display: flex;
-    column-gap: 1em;
+    align-items: center;
 }
 
 .filter-club-anouncement {
@@ -153,6 +153,28 @@ ul.filter-club-list {
 
 .membership-bold-text {
     font-weight: 700;
+}
+
+.learn-more-btn {
+    font-family: 'Avenir';
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: left;    
+    color: #1B2943;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.filter-shop-btn {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 15px;
+    padding: 12px 50px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #fff;
 }
 /* End: Filter Club Section */
 

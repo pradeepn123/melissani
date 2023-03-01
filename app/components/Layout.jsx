@@ -188,12 +188,12 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
       <div className="flex items-center justify-end w-full gap-5">
 
         <Link to="/products/" className="hidden lg:block">
-          <Button className="inline-block rounded-full font-medium text-center py-5 px-6 border 
+          <Button className="inline-block rounded-full font-medium text-center py-4 px-7 border 
           border-transparent bg-primary hover:bg-white hover:border-primary text-contrast hover:text-primary w-auto"> Shop Now</Button>
         </Link>
 
         <Link to="/pages/melissani-club/" className="hidden lg:block">
-          <Button variant="secondary" className="inline-block rounded-full font-medium text-center py-5 px-6 border 
+          <Button variant="secondary" className="inline-block rounded-full font-medium text-center py-4 px-7 border 
           border-primary bg-contrast text-primary hover:bg-primary hover:border-primary hover:text-contrast w-auto"> Filter Club </Button>
         </Link>
 
