@@ -25,7 +25,7 @@ export function FilterClubTextSection({ filterClub }) {
         <div className="subscribe-btn">
             <Link
                 to={filterClub.subscribeBtnLink}>
-                <Button className="shop-btn">
+                <Button className="filter-shop-btn">
                     {filterClub.subscribeBtnText}
                 </Button>
             </Link>
