@@ -50,12 +50,12 @@ export async function loader({ params, context }) {
     throw new Response(null, { status: 404 });
   }
 
-  const { shop, hero } = await context.storefront.query(HOMEPAGE_SEO_QUERY, {
-    variables: { handle: 'frontpage' },
-  });
-
   const { page } = await context.storefront.query(PAGE_QUERY, {
     variables: { handle: 'home' }
+  })
+
+  const hero = page.metafields.find(item => {
+    return item.key == "hero"
   })
 
   const features = page.metafields.find(item => {
@@ -72,10 +72,6 @@ export async function loader({ params, context }) {
 
   const filterClub = page.metafields.find(item => {
     return item.key == "filter_club"
-  })
-
-  const membership = page.metafields.find(item => {
-    return item.key == "membership"
   })
 
   const videoSection = page.metafields.find(item => {
@@ -118,13 +114,11 @@ export async function loader({ params, context }) {
   })
 
   return defer({
-    shop,
-    primaryHero: hero,
+    primaryHero: JSON.parse(hero?.value),
     features: JSON.parse(features?.value),
     goodbye: JSON.parse(goodbye?.value),
     advancedFiltration: JSON.parse(advancedFiltration?.value),
     filterClub: JSON.parse(filterClub?.value),
-    membership: JSON.parse(membership?.value),
     videoSection: JSON.parse(videoSection?.value),
     discover: JSON.parse(discover?.value),
     installation: JSON.parse(installation?.value),
@@ -135,26 +129,6 @@ export async function loader({ params, context }) {
     featuredProducts: featuredProducts,
     // These different queries are separated to illustrate how 3rd party content
     // fetching can be optimized for both above and below the fold.
-    secondaryHero: context.storefront.query(COLLECTION_HERO_QUERY, {
-      variables: {
-        handle: 'backcountry',
-        country,
-        language,
-      },
-    }),
-    featuredCollections: context.storefront.query(FEATURED_COLLECTIONS_QUERY, {
-      variables: {
-        country,
-        language,
-      },
-    }),
-    tertiaryHero: context.storefront.query(COLLECTION_HERO_QUERY, {
-      variables: {
-        handle: 'winter-2022',
-        country,
-        language,
-      },
-    }),
     analytics: {
       pageType: AnalyticsPageType.home,
     },
@@ -164,15 +138,11 @@ export async function loader({ params, context }) {
 export default function Homepage() {
   const {
     primaryHero,
-    secondaryHero,
-    tertiaryHero,
-    featuredCollections,
     featuredProducts,
     features,
     goodbye,
     advancedFiltration,
     filterClub,
-    membership,
     videoSection,
     discover,
     installation,
@@ -195,7 +165,7 @@ export default function Homepage() {
   return (
     <>
       {primaryHero && (
-        <Hero {...primaryHero} height="full" top loading="eager" />
+        <Hero data={primaryHero} height="full" top loading="eager" />
       )}
 
       {features && (
@@ -241,37 +211,12 @@ export default function Homepage() {
   );
 }
 
-const COLLECTION_CONTENT_FRAGMENT = `#graphql
-  fragment CollectionContent on Collection {
-    id
-    handle
-    title
-    descriptionHtml
-    metafields: metafield(namespace: "hero", key: "metafields") {
-      value
-    }
-  }
-`;
-
-const HOMEPAGE_SEO_QUERY = `#graphql
-  ${COLLECTION_CONTENT_FRAGMENT}
-  query collectionContent($handle: String, $country: CountryCode, $language: LanguageCode)
-  @inContext(country: $country, language: $language) {
-    hero: collection(handle: $handle) {
-      ...CollectionContent
-    }
-    shop {
-      name
-      description
-    }
-  }
-`;
-
 const PAGE_QUERY = `#graphql
   query getPageByHandle($handle: String!) {
     page(handle: $handle) {
       metafields(
         identifiers: [
+          { namespace: "global", key: "hero" }
           { namespace: "home", key: "features" }
           { namespace: "home", key: "goodbye" }
           { namespace: "home", key: "advanced_filtration" }
@@ -293,15 +238,6 @@ const PAGE_QUERY = `#graphql
     }
   }
 `
-const COLLECTION_HERO_QUERY = `#graphql
-  ${COLLECTION_CONTENT_FRAGMENT}
-  query collectionContent($handle: String, $country: CountryCode, $language: LanguageCode)
-  @inContext(country: $country, language: $language) {
-    hero: collection(handle: $handle) {
-      ...CollectionContent
-    }
-  }
-`;
 
 // @see: https://shopify.dev/api/storefront/latest/queries/products
 export const HOMEPAGE_FEATURED_PRODUCTS_QUERY = `#graphql
@@ -311,29 +247,6 @@ export const HOMEPAGE_FEATURED_PRODUCTS_QUERY = `#graphql
     products(first: 50) {
       nodes {
         ...ProductCard
-      }
-    }
-  }
-`;
-
-// @see: https://shopify.dev/api/storefront/latest/queries/collections
-export const FEATURED_COLLECTIONS_QUERY = `#graphql
-  query homepageFeaturedCollections($country: CountryCode, $language: LanguageCode)
-  @inContext(country: $country, language: $language) {
-    collections(
-      first: 4,
-      sortKey: UPDATED_AT
-    ) {
-      nodes {
-        id
-        title
-        handle
-        image {
-          altText
-          width
-          height
-          url
-        }
       }
     }
   }
