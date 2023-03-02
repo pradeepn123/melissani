@@ -1,0 +1,99 @@
+/* Begin: Secondary Hero Section */
+/* End: Secondary Hero Section */
+
+/* Begin: Media Query */
+@media screen and (min-width: 320px) {
+    .secondary-hero-content {
+        top: 40%;
+        left: 10%;
+    }
+
+    .secondary-hero-header {
+        margin-bottom: 0.75rem;
+    }
+
+    .secondary-hero-button {
+        font-size: 0.75rem;
+        padding: 0.75rem 1rem 0.75rem 1rem;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    .secondary-hero-content {
+        top: 48%;
+        left: 15%;
+    }
+}
+
+@media (min-width:320px) and (max-width:512px) {
+    .secondary-hero-header {
+        max-width: 151px;
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 425px) {
+    .secondary-hero-content {
+        left: 10%;
+    }
+
+    .secondary-hero-header {
+        font-size: 1.5rem;
+        max-width: 185px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .secondary-hero-header {
+        font-size: 1.75rem;
+        max-width: 20rem;
+    }
+
+    .secondary-hero-content {
+        top: 21%;
+        left: 13%;
+    }
+
+    .secondary-hero-button {
+        font-size: unset;
+        padding: 1rem 2rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .secondary-hero-header {
+        font-size: 2.5rem;
+        max-width: 24rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .secondary-hero-header {
+        font-size: 3.25rem;
+        max-width: 37rem;
+    }
+
+    .secondary-hero-button {
+        font-size: 1.75rem;
+        padding: 1rem 2.5rem;
+    }
+}
+
+@media screen and (min-width: 1536px) {
+    .secondary-hero-button {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 1900px) {
+    .secondary-hero-header {
+        font-size: 4.25rem;
+        max-width: 47rem;
+    }
+
+    .secondary-hero-button {
+        font-size: 2.5rem;
+        padding: 1.5rem 3.5rem;
+    }
+}
+/* End: Media Query */

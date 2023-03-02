@@ -53,3 +53,11 @@
 }
 
 /* End: Faq Section */
+
+/* Begin: Media Query */
+@media screen and (min-width:1200px) {
+    .main_content_heading{
+        width: 30%;
+    }
+}
+/* End: Media Query */

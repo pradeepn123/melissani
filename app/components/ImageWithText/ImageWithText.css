@@ -25,7 +25,6 @@
 }
 /* End: Contaminants Section */
 
-
 /* Begin: Discover Section */
 .discover-section {
     width: 50%;
@@ -216,7 +215,6 @@ ul.filter-club-list {
     }
 }
 
-
 @media (max-width: 540px) {
     .discover-section {
         width: 100%;
@@ -252,6 +250,39 @@ ul.filter-club-list {
     }
     .filter-club-description {
         width: 100%;
+    }
+}
+
+@media (max-width:640px){
+    .learn-more{
+        flex-direction: column-reverse;
+    }
+
+    .learn-more-container{
+        padding: 2rem;
+    }
+
+    .learn-more-header{
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 34px;
+        letter-spacing: 0em;
+        margin-bottom: 1rem;
+    }
+
+    .learn-more-content{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0em;
+        margin-bottom: 1rem;
+    }
+
+    .learn-more-sec-btn{
+        padding: 1rem;
+        background-color: transparent;
+        color: #1376BC;
+        border-color: #1376BC;
     }
 }
 
@@ -397,6 +428,9 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 768px) {
+    .img-sec{
+        flex:1 0 50%;
+    }
     .discover-section {
         padding: 0 1em 1em 0em;
     }
@@ -450,7 +484,13 @@ ul.filter-club-list {
         width: 80%;
         padding-left: 1em;
     }
-
+    .learn-more-container {
+        flex:1 0 50%;
+    }
+    .learn-more-sec-btn{
+        padding: 0.75rem 1.15rem;
+        font-size: 0.75rem;
+    }
 }
 
 @media screen and (min-width: 820px) {
@@ -615,6 +655,10 @@ ul.filter-club-list {
         padding: 6em 6em 4em;
         width: 40%;
     }
+    .learn-more-sec-btn{
+        padding: 1.25rem 2.5rem;
+        font-size: 1.5rem
+    }
 }
 
 @media screen and (min-width: 1536px) {
@@ -627,7 +671,6 @@ ul.filter-club-list {
         width: 40%;
     }
     .filter-club-img img {
-        /* padding: 8em 0 5em 12em; */
         padding: 8em 0 5em 0em;
     }
 
@@ -648,6 +691,18 @@ ul.filter-club-list {
     .discover-icons .discover-icon:nth-of-type(3) img {
         margin-top: 0;
     }
+    .learn-more-container{
+        padding-top: 7rem;
+    }
+
+    .learn-more-header{
+        font-size: 4rem;
+    }
+    
+    .learn-more-content{
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
 }
 
 @media screen and (min-width: 1900px) {
@@ -657,7 +712,8 @@ ul.filter-club-list {
     .discover-icons .discover-icon:nth-of-type(3) img {
         margin-top: 0;
     }
+    .learn-more-container{
+        padding-top: 10rem;
+    }
 }
-
-
 /* End: Media Query */
