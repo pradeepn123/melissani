@@ -5,11 +5,8 @@ import {Button, Link} from '~/components';
  * Hero component that renders metafields attached to collection resources
  **/
 
-export function Hero({
-  metafields
-}) {
-  const data = metafields && JSON.parse(metafields.value)
-  
+export function Hero({ data }) {
+
   return (
       <section
         className={clsx(
