@@ -1,5 +1,4 @@
 export function DiscoverTextSection({discover}) {
-    const discoverTitle = discover?.title.split(" ");
     return (
         <div className="discover-section">
             <h2 className="discover-heading">

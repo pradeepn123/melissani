@@ -43,18 +43,7 @@
     color: #000;
     
 }
-.discover-title {
-    font-family: 'Peachi-Light';
-    font-size: 52px;
-    line-height: 70px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #000;
-}
-.bold-discover-title {
-    font-family: 'Peachi-Bold';
-    font-weight: 700;
-}
+
 .discover-description {
     font-family: 'Montserrat';
     font-size: 20px;
@@ -233,12 +222,6 @@ ul.filter-club-list {
         padding: 2em 0 0 0;
     }
 
-    .discover-title {
-        font-size: 28px;
-        line-height: 34px;
-        width: 100%;
-    }
-
     .discover-description {
         font-size: 16px;
         line-height: 24px;
@@ -304,11 +287,6 @@ ul.filter-club-list {
         display: block;
     }
 
-    .bold-discover-title {
-        font-family: 'Peachi-Light';
-        font-weight: 400;
-    }
-
     .discover-section {
         width: 100%;
         padding: 0 5em 3em 2em;
@@ -366,13 +344,6 @@ ul.filter-club-list {
 }
 
 @media screen and (max-width: 1024px) {
-    /* .discover-heading {
-        padding-top: 2em;
-    } */
-    .discover-title {
-        font-size: 42px;
-        line-height: 60px;
-    }
     .discover-description {
         font-size: 16px;
         line-height: 32px;
@@ -452,17 +423,6 @@ ul.filter-club-list {
         font-size: 19px;
     }
 
-    .discover-title {
-        font-size: 28px;
-        font-weight: 300;
-        line-height: 41px;
-    }
-
-    .bold-discover-title {
-        font-family: 'Peachi-Light';
-        font-weight: 300;
-    }
-
     .discover-heading{
         font-size: 30px;
         line-height: 2.75rem;
@@ -488,19 +448,9 @@ ul.filter-club-list {
     .discover-section {
         padding: 10px 26px 14px 8px;
     }
-
-    .discover-title {
-        font-size: 30px;
-        line-height: 28px;
-    }
     .discover-description {
         font-size: 14px;
         line-height: 20px;
-    }
-
-    .bold-discover-title {
-        font-family: 'Peachi-Bold';
-        font-weight: 700;
     }
 
     .discover-icons {
@@ -559,10 +509,6 @@ ul.filter-club-list {
     .discover-section {
         padding: 0px 12em 1em 12px;
         /* padding: 0 2em 1em 0; */
-    }
-    .discover-title {
-        font-size: 30px;
-        line-height: 36px;
     }
 
     .discover-description {
@@ -704,10 +650,6 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 1440px) {
-    .discover-title {
-        font-size: 52px;
-        line-height: 70px;
-    }
     .discover-icon-text {
         font-size: 14px;
         line-height: 24px;
