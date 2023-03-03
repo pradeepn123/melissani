@@ -17,13 +17,13 @@ export function Hero({ data }) {
             
             {data?.cta && <Link
                 to="/products/">
-                <Button className="shop-btn">
+                <Button variant='primary' className="hero-shop-btn">
                 {data.cta}
                 </Button>
             </Link>}
             <Link
                     to={data.learnMoreBtnLink}>
-                    <Button className="hero-learn-more-btn">
+                    <Button variant='inline' className="hero-learn-more-btn">
                         {data.learnMoreBtnText}
                     </Button>
             </Link>
