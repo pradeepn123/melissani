@@ -296,6 +296,11 @@ ul.filter-club-list {
         display: block;
     }
 
+    .bold-discover-title {
+        font-family: 'Peachi-Light';
+        font-weight: 400;
+    }
+
     .discover-section {
         width: 100%;
         padding: 0 5em 3em 2em;
@@ -308,6 +313,15 @@ ul.filter-club-list {
     .discover-icons {
         margin-top: 1em 0 0;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .discover-icons{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .discover-icon{
+        flex: 1 1 50%;
     }
 
     .filter-club-section {
@@ -373,6 +387,24 @@ ul.filter-club-list {
 @media screen and (min-width: 320px) {
     .learn-more-btn {
         font-size: 14px;
+    }
+
+    .discover-title {
+        font-family: 'Peachi-Light';
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 41px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .bold-discover-title {
+        font-family: 'Peachi-Light';
+        font-weight: 300;
+    }
+
+    .discover-section {
+        padding: 0 16px 3em 16px;
     }
 }
 
