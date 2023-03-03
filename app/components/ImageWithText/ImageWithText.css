@@ -34,6 +34,14 @@
 }
 .discover-heading {
     width: 90%;
+    font-family: 'Peachi-Bold';
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 70px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+    
 }
 .discover-title {
     font-family: 'Peachi-Light';
@@ -358,9 +366,9 @@ ul.filter-club-list {
 }
 
 @media screen and (max-width: 1024px) {
-    .discover-heading {
+    /* .discover-heading {
         padding-top: 2em;
-    }
+    } */
     .discover-title {
         font-size: 42px;
         line-height: 60px;
@@ -389,18 +397,10 @@ ul.filter-club-list {
         font-size: 14px;
     }
 
-    .discover-title {
-        font-family: 'Peachi-Light';
+    .discover-heading{
         font-size: 24px;
-        font-weight: 300;
-        line-height: 41px;
-        letter-spacing: 0em;
-        text-align: left;
-    }
-
-    .bold-discover-title {
-        font-family: 'Peachi-Light';
-        font-weight: 300;
+        line-height: 2.5rem;
+        max-width: 12rem;
     }
 
     .discover-section {
@@ -462,6 +462,16 @@ ul.filter-club-list {
         font-family: 'Peachi-Light';
         font-weight: 300;
     }
+
+    .discover-heading{
+        font-size: 30px;
+        line-height: 2.75rem;
+        max-width: 18rem;
+    }
+
+    .discover-section{
+        padding: 0 2em 3em;
+    }
 }
 
 @media screen and (min-width: 425px) {
@@ -474,10 +484,11 @@ ul.filter-club-list {
     .img-sec{
         flex:1 0 50%;
     }
+
     .discover-section {
-        /* padding: 0 1em 1em 0em; */
-        padding: 0 4em 2em 0;
+        padding: 10px 26px 14px 8px;
     }
+
     .discover-title {
         font-size: 30px;
         line-height: 28px;
@@ -486,6 +497,12 @@ ul.filter-club-list {
         font-size: 14px;
         line-height: 20px;
     }
+
+    .bold-discover-title {
+        font-family: 'Peachi-Bold';
+        font-weight: 700;
+    }
+
     .discover-icons {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -601,11 +618,12 @@ ul.filter-club-list {
     .discover-icon-text {
         font-size: 9px;
     }
-
-    .discover-title {
-        font-size: 32px;
-        line-height: 38px;
+    .discover-heading{
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 56px;
     }
+
     .discover-description {
         font-size: 16px;
         line-height: 24px;
@@ -637,14 +655,15 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 1280px) {
-    .discover-title {
-        font-size: 42px;
-        line-height: 50px;
+    .discover-heading {
+        font-size: 47px;
+        line-height: 58px;
     }
     .discover-description {
-        font-size: 20px;
-        line-height: 36px;
+        font-size: 22px;
+        line-height: 34px;
     }
+    
     .discover-icons {
         margin-top: -10px;
         display: grid;
