@@ -229,7 +229,7 @@ function Footer({menu, metafields}) {
         <div className="footer-text flex item-center flex-col md:w-6/12">
           <p>
             {footerMetafields.heading}
-            <span className='leading-tight'>{footerMetafields.subHeading}</span>
+            <span className='footer-subHeading leading-tight'>{footerMetafields.subHeading}</span>
           </p>
           <div className="footer-contact-wrapper flex mt-7">
             {footerMetafields.contact.map((item, index) => (

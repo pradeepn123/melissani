@@ -12,16 +12,23 @@
 }
 
 .gb_bg_color .right_text_block .right_text_heading {
-    font-family: 'Peachi-Light';
-    font-size: 28px;
-    font-weight: 300;
+    font-family: 'Peachi-Bold';
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 67px;
+    letter-spacing: 0em;
+    text-align: left;
+    
 }
 
 .gb_bg_color .right_text_block .right_text_description {
-    font-family: 'Montserrat';
+    font-family: 'Avenir';
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
+    letter-spacing: -0.005em;
+    text-align: left;
+    
 }
 /* End: Contaminants Section */
 
@@ -88,7 +95,7 @@
     padding: 6em 3em 4em 6em;
 }
 .filter-club-title {
-    font-family: 'Peachi-Light';
+    font-family: 'Peachi-Bold';
     font-size: 52px;
     font-weight: 300;
     line-height: 62px;
@@ -365,6 +372,26 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 320px) {
+    .gb_bg_color .right_text_block .right_text_heading {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    
+    .gb_bg_color .right_text_block .right_text_description {
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: -0.005em;
+    }
+
+    .contaminants-list{
+        font-family: 'Avenir';
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
     .learn-more-btn {
         font-size: 14px;
     }
@@ -378,6 +405,7 @@ ul.filter-club-list {
     .discover-section {
         padding: 0 16px 3em 16px;
     }
+    
 }
 
 @media screen and (min-width: 360px) {
@@ -415,6 +443,21 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 412px) {
+    .gb_bg_color .right_text_block .right_text_heading {
+        font-size: 32px;
+        line-height: 41px;
+    }
+    
+    .gb_bg_color .right_text_block .right_text_description {
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: -0.005em;
+    }
+
+    .contaminants-list{
+        font-size: 14px;
+    }
+
     .discover-icon-text {
         padding-left: 1em;
         padding-right: 4em;
@@ -444,6 +487,15 @@ ul.filter-club-list {
 @media screen and (min-width: 768px) {
     .img-sec{
         flex:1 0 50%;
+    }
+
+    .contaminants-list{
+        font-family: 'SF Pro';
+        font-size: 20px;
+        font-weight: 510;
+        line-height: 28px;
+        letter-spacing: 0em;
+        text-align: left;
     }
 
     .discover-section {
@@ -558,6 +610,10 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 1024px) {
+    .contaminants-list{
+        font-size: 24px;
+    }
+
     .discover-section {
         padding: 0 7em 0em 6px;
     }
@@ -602,6 +658,7 @@ ul.filter-club-list {
     .gb_bg_color .right_text_block .right_text_heading {
         font-size: 52px;
         font-weight: 300;
+        line-height: 51px;
     }
 }
 

@@ -51,14 +51,27 @@ font-family: 'Peachi-Light';
 }
 
 .footer-wrapper .footer-text p span {
-  font-weight: 400;
-  font-size: 28px;
   display: block;
+  font-family: 'Avenir';
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 .footer-wrapper .footer-text {
   padding: 60px 0 60px 30px;
 }
+
+/* .footer-subHeading{
+  font-family: 'Avenir';
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
+} */
 
 .footer-bottom {
   font-style: normal;
@@ -101,6 +114,21 @@ font-family: 'Peachi-Light';
 /* End: Common Styles */
 
 /* Begin: Media Query */
+@media screen and (max-width:640px) {
+  .footer-wrapper .footer-text p {
+    font-size: 32px;
+    line-height: 44px;
+    letter-spacing: 0em;
+    
+  }
+
+  .footer-wrapper .footer-text p span {
+    font-size: 20px;
+    line-height: 26px;
+    margin-top: 1rem;
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .footer-wrapper .footer-text p {
     font-size: 52px;
@@ -205,6 +233,18 @@ font-family: 'Peachi-Light';
     position: absolute;
     bottom: 5%;
     padding-left: 3rem;
+  }
+
+  .footer-wrapper .footer-text p {
+    font-size: 34px;
+    line-height: 44px;
+    letter-spacing: 0em;
+  }
+
+  .footer-wrapper .footer-text p span {
+    font-size: 24px;
+    line-height: 26px;
+    margin-top: 1rem;
   }
 }
 
