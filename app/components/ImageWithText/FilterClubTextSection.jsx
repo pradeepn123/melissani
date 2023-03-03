@@ -25,7 +25,7 @@ export function FilterClubTextSection({ filterClub }) {
         <div className="subscribe-btn">
             <Link
                 to={filterClub.subscribeBtnLink}>
-                <Button className="filter-shop-btn">
+                <Button variant='primary'>
                     {filterClub.subscribeBtnText}
                 </Button>
             </Link>
@@ -33,7 +33,7 @@ export function FilterClubTextSection({ filterClub }) {
         <div className="filter-club-learn-more-btn">
             <Link
                 to={filterClub.learnMoreBtnLink}>
-                <Button className="learn-more-btn">
+                <Button variant='inline'>
                     {filterClub.learnMoreBtnText}
                 </Button>
             </Link>
