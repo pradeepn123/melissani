@@ -1,13 +1,8 @@
 export function DiscoverTextSection({discover}) {
-    const discoverTitle = discover?.title.split(" ");
     return (
         <div className="discover-section">
             <h2 className="discover-heading">
-            {discoverTitle && discoverTitle.map((item, index) => (
-                <span className={`discover-title ${item.includes('M1') || item.includes('Melissani') ? "bold-discover-title" : ""}`} key={index}>
-                    {item + " "}
-                </span>
-            ))}
+                {discover.title}
             </h2>
             <p className="discover-description">
                 {discover.description}
