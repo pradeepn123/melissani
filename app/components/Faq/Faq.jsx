@@ -1,9 +1,7 @@
 import { Tabs } from 'flowbite-react';
 import { Accordion } from 'flowbite-react';
 
-export function Faq({metafields}) {
-    const data = JSON.parse(metafields.find(metafield => metafield.key == "qna").value)
-    console.log(data)
+export function Faq({data}) {
     return (
       <>
         <section className='faq_section_wrapper w-full'>
