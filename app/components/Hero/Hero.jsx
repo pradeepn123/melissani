@@ -17,7 +17,7 @@ export function Hero({ data }) {
             
             {data?.cta && <Link
                 to="/products/">
-                <Button variant='primary' className="shop-btn">
+                <Button variant='primary' className="hero-shop-btn">
                 {data.cta}
                 </Button>
             </Link>}

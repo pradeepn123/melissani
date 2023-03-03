@@ -368,6 +368,7 @@ ul.filter-club-list {
         width: 82px;
         height: 82px;
     }
+
 }
 
 @media screen and (min-width: 320px) {
@@ -570,6 +571,10 @@ ul.filter-club-list {
     }
     .filter-club-description {
         width: 70%;
+    }
+
+    .filterclub-subscribeBtn{
+        padding: 0.65rem 2.25rem;
     }
 }
 
