@@ -451,6 +451,17 @@ ul.filter-club-list {
     .learn-more-btn {
         font-size: 19px;
     }
+
+    .discover-title {
+        font-size: 28px;
+        font-weight: 300;
+        line-height: 41px;
+    }
+
+    .bold-discover-title {
+        font-family: 'Peachi-Light';
+        font-weight: 300;
+    }
 }
 
 @media screen and (min-width: 425px) {
