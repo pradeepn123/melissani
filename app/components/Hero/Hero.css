@@ -46,15 +46,17 @@
     width: 100%;
 }
 
-.shop-btn {
+.shop-btn:hover {
+    color: #1B2943;
+    background-color: white;
     font-size: 17px;
     font-weight: 700;
     line-height: 15px;
     padding: 16px 28px;
     letter-spacing: 0em;
     text-align: left;
-    color: #fff;
 }
+
 
 .hero-learn-more-btn {
     font-family: 'Avenir';
@@ -66,6 +68,13 @@
     color: #1B2943;
     background-color: transparent;
     text-decoration: underline;
+}
+
+
+.club-btn:hover {
+    background-color: #1B2943;
+    border: #1B2943;
+    color: #ffff;
 }
 
 
@@ -105,16 +114,6 @@
         justify-content: space-between;
     }
 
-    .club-btn {
-        text-transform: uppercase;
-        font-size: 17px;
-        font-weight: 700;
-        line-height: 15px;
-        padding: 1.2em 1.2em;
-        letter-spacing: 0em;
-        text-align: left;
-        color: #1376bc;
-    }
 }
 
 @media screen and (min-width: 320px) {
@@ -246,6 +245,11 @@
     .hero-banner-title {
         font-size: 40px;
         line-height: 50.8px;
+    }
+
+    .shop-btn,
+    .learn-more-btn {
+        font-size: 15px;
     }
 }
 
