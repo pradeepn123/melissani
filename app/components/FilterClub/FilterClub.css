@@ -1,0 +1,28 @@
+.filter_club_faq button[aria-selected="false"]{
+    margin-bottom: 3.5rem;
+    border: 1px solid #CACACA;
+    border-radius: 10px;
+    width: 156px;
+    height: 156px;
+}
+.filter_club_faq button[aria-selected="true"]{
+    margin-bottom: 3.5rem;
+    border: 2px solid #1376BC;
+    border-radius: 10px;
+    width: 156px;
+    height: 156px;
+}
+.filter_club_faq .p-4[role="tabpanel"]{
+    padding: 0;
+}
+.filter_club_faq .custom_content{
+    border-top: 0;
+}
+.filter_club_faq svg[data-testid="flowbite-accordion-arrow"] {
+    border-radius: 50%;
+    stroke-width: 0;
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    border: 1.5px solid #1376BC;
+}

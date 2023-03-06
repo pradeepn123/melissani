@@ -18,6 +18,7 @@ export { AccountAddressBook } from './AccountAddressBook';
 export { Modal } from './Modal';
 export { Faq } from './Faq/Faq';
 export { About } from './About/About';
+export { FilterClub } from './FilterClub/FilterClub';
 export { Link } from './Link';
 export { FeaturedCollections } from './FeaturedCollections';
 export { Hero } from './Hero/Hero';

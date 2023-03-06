@@ -2,9 +2,10 @@ import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
 import {PageHeader} from '~/components';
-import {Faq, Purifier, About} from '~/components';
+import {Faq, Purifier, About, FilterClub} from '~/components';
 import FaqStyles from '~/components/Faq/Faq.css';
 import AboutUsStyles from '~/components/About/About.css';
+import FilterClubStyles from '~/components/FilterClub/FilterClub.css';
 import PurifierStyles from '~/components/Purifier/Purifier.css';
 import HeroStyles from '~/components/Hero/Hero.css';
 import ImageCenterWithTextStyles from '~/components/ImageCenterWithText/ImageCenterWithText.css';
@@ -19,7 +20,8 @@ export const links = () => {
     {rel: 'stylesheet', href: ImageCenterWithTextStyles},
     {rel: 'stylesheet', href: ImageWithTextStyles},
     {rel: 'stylesheet', href: VideoPlayerStyles},
-    {rel: 'stylesheet', href: AboutUsStyles}
+    {rel: 'stylesheet', href: AboutUsStyles},
+    {rel: 'stylesheet', href: FilterClubStyles}
   ]
 }
 
@@ -46,7 +48,7 @@ export async function loader({request, params, context}) {
     throw new Response(null, {status: 404});
   }
   
-  const faq = page.handle == 'faq' && page.metafields.find(item => {
+  const faq = (page.handle == 'faq' ||  page.handle == 'melissani-club') && page.metafields.find(item => {
     if(item !== null){
       return item.key == "qna"
     }
@@ -58,7 +60,7 @@ export async function loader({request, params, context}) {
     }
   })
 
-  const hero = page.handle == 'purifier' && page.metafields.find(item => {
+  const hero = (page.handle == 'purifier' ||  page.handle == 'melissani-club') && page.metafields.find(item => {
     if(item !== null) {
       return item.key == "hero"
     }
@@ -125,6 +127,7 @@ export default function Page() {
     <>
       {page.handle == 'faq' && (<Faq data={parsed_faq} />)}
       {page.handle == 'about-us' && (<About data={parsed_about} />)}
+      {page.handle == 'melissani-club' && (<FilterClub hero={parsed_hero} data={parsed_faq} />)}
       {page.handle == 'purifier' && (
         <Purifier installation={parsed_installation} hero={parsed_hero} temperature={parsed_temperature} volume={parsed_volume} video_section={parsed_video_section}/>
       )}
