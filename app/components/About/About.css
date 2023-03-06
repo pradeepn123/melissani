@@ -1,0 +1,79 @@
+.main_about_us_section .image_main_wrapper img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+.main_about_us_section .image_main_wrapper{
+    width: 100%;
+}
+.main_about_us_section .about_us_content{
+    top: 16%;
+    z-index: 9;
+    margin-bottom: 80px;
+}
+.main_about_us_section .about_us_content.left{
+    left: 5%;
+    transform: translate(-5%, 10%);
+}
+.main_about_us_section .about_us_content.right{
+    right: 5%;
+    top: unset;
+    bottom: 25%;
+    transform: translate(-5%, 25%);
+}
+.main_about_us_section .about_us_content.right .about_us_content_inner h2{
+    text-transform: inherit;
+}
+.main_about_us_section .about_us_content .about_us_content_inner{
+    color: #ffffff;
+}
+.main_about_us_section .about_us_content .about_us_content_inner h2{
+    font-family: 'Peachi-Bold';    
+    font-weight: 700;
+    font-size: 40px;
+}
+.main_about_us_section .content_info_section{
+    position: absolute;    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+.main_about_us_section .about_us_content .about_us_content_inner h4{
+    font-family: 'Peachi-Light';
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 1.2;    
+}
+.main_about_us_section .about_us_content .about_us_content_inner p{
+    font-family: 'Avenir';    
+    font-weight: 500;
+    font-size: 16px;    
+    line-height: 24px;
+}
+@media(min-width:768px){
+    .main_about_us_section .image_main_wrapper img{
+        height: 100%;
+    }
+}
+@media(min-width:1200px){
+    .main_about_us_section .about_us_content{
+        margin-bottom: 0;
+    }
+    .main_about_us_section .content_info_section{
+        position: static;
+    }
+    .main_about_us_section .about_us_content{
+        width: 30%;
+    }
+    .main_about_us_section .about_us_content .about_us_content_inner h2{
+        font-size: 64px;
+    }
+    .main_about_us_section .about_us_content .about_us_content_inner h4{
+        font-size: 52px;
+    }
+    .main_about_us_section .about_us_content .about_us_content_inner p{
+        font-size: 20px;
+        line-height: 36px;
+    }
+}
