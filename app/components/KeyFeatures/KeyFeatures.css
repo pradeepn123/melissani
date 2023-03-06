@@ -22,7 +22,6 @@
 }
 
 .key-feature-text {
-    font-family: 'Montserrat';
     text-align: center;
     color: #1B2943;
     margin-top: 1em;
@@ -52,7 +51,6 @@
     }
 
     .key-feature-text {
-        /* font-family: SF Pro; */
         font-size: 12px;
         line-height: 15px;
         letter-spacing: 0em;

@@ -7,13 +7,13 @@ export function Carousel({advancedFiltration}) {
       {advancedFiltration && advancedFiltration.map((item, index) =>
         <div className="slider" key={index}>
             <div className="left-slider-content">
-                <h2 className="slider-heading">
+                <h2 className="slider-heading font-primary">
                     {item.heading}
                 </h2>
-                <h3 className="slider-sub-heading">
+                <h3 className="slider-sub-heading font-tertiary">
                     {item.subHeading}
                 </h3>
-                <p className="slider-description">
+                <p className="slider-description font-tertiary">
                     {item.description}
                 </p>
             </div>

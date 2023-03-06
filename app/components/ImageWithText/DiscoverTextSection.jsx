@@ -4,7 +4,7 @@ export function DiscoverTextSection({discover}) {
             <h2 className="discover-heading">
                 {discover.title}
             </h2>
-            <p className="discover-description">
+            <p className="discover-description font-tertiary">
                 {discover.description}
             </p>
             
@@ -12,7 +12,7 @@ export function DiscoverTextSection({discover}) {
             {discover.iconWithText.map((item, index) => (
                 <div className="discover-icon" key={index}>
                     <img src={item.icon} />
-                    <div className="discover-icon-text">
+                    <div className="discover-icon-text font-tertiary">
                         {item.text}
                     </div>
                 </div>))}

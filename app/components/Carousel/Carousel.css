@@ -102,7 +102,6 @@
 }
 
 .slider-heading {
-    font-family: 'Peachi-Light';
     font-style: normal;
     font-weight: 300;
     font-size: 52px;
@@ -112,7 +111,6 @@
 }
 
 .slider-sub-heading {
-    font-family: 'Montserrat';
     font-size: 32px;
     font-weight: 800;
     line-height: 42px;
@@ -138,7 +136,6 @@
 }
 
 .slider-description {
-    font-family: 'Montserrat';
     font-size: 20px;
     font-weight: 500;
     line-height: 36px;
