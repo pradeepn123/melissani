@@ -5,7 +5,6 @@
 }
 
 .right_text_block ul li {
-    font-family: 'Montserrat';
     font-size: 18px;
     font-weight: 500;
     line-height: 30px;
@@ -22,7 +21,6 @@
 }
 
 .gb_bg_color .right_text_block .right_text_description {
-    font-family: 'Avenir';
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
@@ -52,7 +50,6 @@
 }
 
 .discover-description {
-    font-family: 'Montserrat';
     font-size: 20px;
     font-weight: 400;
     line-height: 36px;
@@ -82,7 +79,6 @@
     width: 90%;
     margin-left: 10px;
     font-size: 16px;
-    font-family: 'Montserrat';
     font-weight: 500;
     line-height: 24px;
     letter-spacing: 0em;
@@ -104,7 +100,6 @@
     color: #000;
 }
 .filter-club-description {
-    font-family: 'Montserrat';
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
@@ -130,7 +125,6 @@ ul.filter-club-list {
 
 .filter-club-list-text {
     margin: auto 0 !important;
-    font-family: 'Montserrat';
     font-size: 18px;
     font-weight: 500;
     line-height: 21px;
@@ -159,7 +153,6 @@ ul.filter-club-list {
 }
 
 .learn-more-btn {
-    font-family: 'Avenir';
     font-size: 17px;
     font-weight: 500;
     line-height: 23px;
@@ -199,7 +192,6 @@ ul.filter-club-list {
     width: 90%;
 }
 .text-section-description {
-    font-family: 'Montserrat';
     font-size: 20px;
     font-weight: 500;
     line-height: 36px;
@@ -229,7 +221,6 @@ ul.filter-club-list {
     margin: 0 auto;
 }
 .text-section-icon-text {
-    font-family: 'Montserrat';
     font-size: 24px;
     font-weight: 500;
     line-height: 24px;
@@ -448,7 +439,6 @@ ul.filter-club-list {
     }
 
     .contaminants-list{
-        font-family: 'Avenir';
         font-size: 12px;
         font-weight: 500;
         line-height: 21px;
@@ -587,7 +577,6 @@ ul.filter-club-list {
     }
 
     .contaminants-list{
-        font-family: 'SF Pro';
         font-size: 20px;
         font-weight: 510;
         line-height: 28px;

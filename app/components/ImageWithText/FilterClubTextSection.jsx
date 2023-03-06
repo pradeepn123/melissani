@@ -6,7 +6,7 @@ export function FilterClubTextSection({ filterClub }) {
     <h2 className="filter-club-title">
         {filterClub.heading}
     </h2>
-    <p className="filter-club-description">
+    <p className="filter-club-description font-tertiary">
         {filterClub.description}
     </p>
     <ul className="filter-club-list">
@@ -15,7 +15,7 @@ export function FilterClubTextSection({ filterClub }) {
                 <div className="filter-club-list-icon">
                     <img src={listItem.icon} />
                 </div>
-                <div className="filter-club-list-text">
+                <div className="filter-club-list-text font-tertiary">
                     {listItem.text}
                 </div>
             </li>

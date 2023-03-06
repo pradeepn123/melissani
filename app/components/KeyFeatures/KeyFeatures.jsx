@@ -6,7 +6,7 @@ export function KeyFeatures({features}) {
             <span className="key-feature-icon">
                 <img src={feature.icon} />
             </span>
-            <p className="key-feature-text">
+            <p className="key-feature-text font-tertiary">
                 {feature.text}
             </p>
         </span> ))}

@@ -4,7 +4,7 @@ export function TemperatureTextSection({data}) {
             <h2 className="text-section-heading text-section-title">
                 {data.title}
             </h2>
-            <p className="text-section-description">
+            <p className="text-section-description font-tertiary">
                 {data.description}
             </p>
             
@@ -12,7 +12,7 @@ export function TemperatureTextSection({data}) {
             {data.iconWithText.map((item, index) => (
                 <div className="text-section-icon" key={index}>
                     <img src={item.icon} />
-                    <div className="text-section-icon-text">
+                    <div className="text-section-icon-text font-tertiary">
                         {item.text}
                     </div>
                 </div>))}
