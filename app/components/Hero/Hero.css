@@ -79,15 +79,11 @@
 
 
 .hero-learn-more-btn {
-    font-family: 'Avenir';
     font-size: 17px;
-    font-weight: 500;
-    line-height: 23px;
     letter-spacing: 0em;
     text-align: left; 
     color: #1B2943;
     background-color: transparent;
-    text-decoration: underline;
 }
 
 
