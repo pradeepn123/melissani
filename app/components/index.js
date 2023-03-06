@@ -33,5 +33,6 @@ export { ImageCenterWithText } from './ImageCenterWithText/ImageCenterWithText';
 export { SecondaryHero } from './SecondaryHero/SecondaryHero';
 export { CartCount } from './CartCount';
 export { VideoPlayer } from './VideoPlayer/VideoPlayer';
+export { Purifier } from './Purifier/Purifier';
 // Sue me
 export * from './Icon';

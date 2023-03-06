@@ -15,6 +15,26 @@
     text-align: left;
 }
 
+#purifier-hero-text {
+    top: 44%;
+    left: 31.5%;
+    width: 40%;
+    transform: translate(70%, -30%);
+}
+
+#purifier-hero-text .hero-banner-title,
+#purifier-hero-text .hero-banner-subtitle,
+#purifier-hero-text .hero-learn-more-btn {
+    color: #fff;
+}
+
+#purifier-hero-text .hero-banner-subtitle {
+    font-family: Peachi-Light;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 47px;
+}
+
 .hero-banner-title {
     font-size: 64px;
     color: #000;
@@ -125,8 +145,18 @@
     }
 
     .hero-image-wrapper {
+        display: none;
+    }
+    .hero-mobile-image-wrapper {
+        display: block;
         margin-top: 2em;
-        transform: scale(1.4);
+        transform: scale(1.3);
+    }
+    .hero-mobile-image-wrapper .hero-image {
+        padding-left: 1.2em;
+    }
+    .hero-image {
+        padding-left: 2.5em;
     }
 }
 
@@ -185,6 +215,11 @@
     }
 }
 
+@media screen and (min-width: 540px) {
+    .hero-mobile-image-wrapper {
+        transform: scale(1.2);
+    }
+}
 @media screen and (min-width: 768px) {
 
     .hero-text {
@@ -198,11 +233,21 @@
         line-height: 35.8px;
     }
 
+    #purifier-hero-text .hero-banner-subtitle {
+        font-size: 18px;
+        line-height: 26px;
+    }
+    .hero-mobile-image-wrapper {
+        display: none;
+    }
     .hero-image-wrapper {
+        display: block;
         margin-top: 0;
         transform: scale(1);
     }
-
+    .hero-image {
+        padding-left: 0;
+    }
     .shop-btn,
     .hero-shop-btn,
     .learn-more-btn {
@@ -236,6 +281,11 @@
         top: 42%;
     }
 
+    #purifier-hero-text .hero-banner-subtitle {
+        font-size: 21px;
+        line-height: 30px;
+    }
+
     .hero-banner-title {
         font-size: 35px;
         line-height: 40.8px;
@@ -247,6 +297,11 @@
         top: 39%;
         left: 43%;
         width: 40%;
+    }
+
+    #purifier-hero-text .hero-banner-subtitle {
+        font-size: 24px;
+        line-height: 35px;
     }
 
     .hero-banner-title {
@@ -278,6 +333,11 @@
         width: 35%;
     }
 
+    #purifier-hero-text .hero-banner-subtitle {
+        font-size: 30px;
+        line-height: 41px;
+    }
+
     .hero-banner-title {
         font-size: 47px;
         line-height: 54.8px;
@@ -294,6 +354,12 @@
     .hero-banner-title {
         font-size: 64px;
         line-height: 76.8px;
+    }
+    #purifierhero-text {
+        top: 44%;
+        left: 32%;
+        width: 40%;
+        transform: translate(70%, -30%);
     }
 }
 
