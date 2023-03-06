@@ -5,14 +5,14 @@ import {Button, Link} from '~/components';
  * Hero component that renders metafields attached to collection resources
  **/
 
-export function Hero({ data }) {
+export function Hero({ data, purifier_hero_text_id }) {
 
   return (
       <section
         className={clsx(
           'w-full hero'
         )}>
-          <div className="hero-text">
+          <div className="hero-text" id={`${purifier_hero_text_id}`}>
             <div dangerouslySetInnerHTML={{ __html: data.rawHtml}}></div>
             
             {data?.cta && <Link
@@ -32,15 +32,11 @@ export function Hero({ data }) {
           <div className="hero-image-wrapper">
             <img src={data?.banner_image} className="hero-image"/>
           </div>
+          <div className="hero-mobile-image-wrapper">
+            <img src={data?.mobile_banner_image} className="hero-image"/>
+          </div>
           <div className="mobile-heading-wrapper">
-              {data?.heading && (
-              <h1 className="mobile-heading-text">
-                {data.heading}
-                <span className="mobile-heading-subtitle">
-                  {data.sub_heading}
-                </span>
-              </h1>
-            )}
+              <div dangerouslySetInnerHTML={{ __html: data.rawHtml}}></div>
               <div className="mobile-button-wrapper">
                 {data?.cta && <>
                     <Link

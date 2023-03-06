@@ -222,7 +222,7 @@ const PAGE_QUERY = `#graphql
           { namespace: "home", key: "advanced_filtration" }
           { namespace: "home", key: "filter_club" }
           { namespace: "home", key: "membership" }
-          { namespace: "home", key: "video_section" }
+          { namespace: "global", key: "video_section" }
           { namespace: "home", key: "discover" }
           { namespace: "home", key: "installation" }
           { namespace: "home", key: "volume" }

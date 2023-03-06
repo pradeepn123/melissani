@@ -3,12 +3,15 @@ import {ContaminantTextSection} from './ContaminantTextSection';
 import {DiscoverTextSection} from './DiscoverTextSection';
 import {ImageSection} from './ImageSection';
 import {PurityTextSection} from './PurityTextSection';
+import {TemperatureTextSection} from './TemperatureTextSection';
+import {VolumeTextSection} from './VolumeTextSection';
 import {Link} from '../Link';
 
-export function ImageWithText({ goodbye, alignment, filterClassName, filterClub, discover, discoverClassName, learnMore }) {
+export function ImageWithText({ goodbye, alignment, filterClassName, filterClub, discover, discoverClassName, learnMore, temperature, temperatureClassName, volume, volumeClassName }) {
   const membershipText = filterClub?.membershipText[0].text.split(" ");
   return <>
-  <section className={`w-full gap-4 md:gap-8 items-center ${filterClassName && filterClassName} ${goodbye ? "xl:flex gb_bg_color" : ""} ${discoverClassName && discoverClassName}`}>
+  <section className={`w-full gap-4 md:gap-8 items-center ${filterClassName && filterClassName} ${goodbye ? "xl:flex gb_bg_color" : ""}
+    ${discoverClassName && discoverClassName} ${temperatureClassName && temperatureClassName} ${volumeClassName && volumeClassName}`}>
     {goodbye && <>
       {alignment == "rtl" ? <>
         <ContaminantTextSection data={goodbye} />
@@ -52,6 +55,30 @@ export function ImageWithText({ goodbye, alignment, filterClassName, filterClub,
           </>
         }
         </div>
+    }
+    {
+      temperature && <>
+        { alignment == "rtl" ? <>
+          <TemperatureTextSection data={temperature} />
+          <ImageSection data={temperature}/>
+        </> : <>
+          <ImageSection data={temperature}/>
+          <TemperatureTextSection data={temperature} />
+        </>
+        }
+      </>
+    }
+    {
+      volume && <>
+        { alignment == "rtl" ? <>
+          <VolumeTextSection data={volume} />
+          <ImageSection data={volume}/>
+        </> : <>
+          <ImageSection data={volume}/>
+          <VolumeTextSection data={volume} />
+        </>
+        }
+      </>
     }
   </section>
   {filterClub && 
