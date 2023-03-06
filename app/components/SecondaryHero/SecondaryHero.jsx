@@ -19,7 +19,7 @@ export function SecondaryHero({ data }) {
                     </h2>
                     {data?.cta && <Link
                         to="/products/">
-                        <Button className="secondary-hero-button">
+                        <Button className="secondary-hero-button font-medium">
                             {data.cta}
                         </Button>
                     </Link>}
