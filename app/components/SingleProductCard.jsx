@@ -104,7 +104,7 @@ export function SingleProductCard({
             ]}
             disabled={!availableForSale ? true : false}
             variant={availableForSale ? "primary" : "secondary"}
-            className="mt-2 add-to-cart-btn w-full uppercase"
+            className="mt-2 add-to-cart-btn w-full uppercase font-bold"
             analytics={{
               products: [productAnalytics],
               totalValue: parseFloat(productAnalytics.price),

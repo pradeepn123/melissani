@@ -17,13 +17,13 @@ export function Hero({ data, purifier_hero_text_id }) {
             
             {data?.cta && <Link
                 to="/products/">
-                <Button variant='primary' className="hero-shop-btn">
+                <Button variant='primary' className="hero-shop-btn font-medium">
                 {data.cta}
                 </Button>
             </Link>}
             <Link
                     to={data.learnMoreBtnLink}>
-                    <Button variant='inline' className="hero-learn-more-btn">
+                    <Button variant='inline' className="hero-learn-more-btn font-medium">
                         {data.learnMoreBtnText}
                     </Button>
             </Link>
@@ -41,7 +41,7 @@ export function Hero({ data, purifier_hero_text_id }) {
                 {data?.cta && <>
                     <Link
                       to="/products/">
-                      <Button className="shop-btn" variant="primary">
+                      <Button className="shop-btn font-medium" variant="primary">
                         {data.cta}
                       </Button>
                     </Link>
@@ -49,7 +49,7 @@ export function Hero({ data, purifier_hero_text_id }) {
                 {data?.cta && <>
                     <Link
                       to="/pages/melissani-club/">
-                      <Button className="club-btn" variant="secondary">
+                      <Button className="club-btn font-medium" variant="secondary">
                         {data.club_btn_text}
                       </Button>
                     </Link>

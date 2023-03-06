@@ -16,7 +16,7 @@ export function PurityTextSection({data}) {
         {data?.cta && 
           <Link
               to="/products/">
-              <Button className="learn-more-sec-btn">
+              <Button className="learn-more-sec-btn font-medium">
                   {data.cta}
                 </Button>
           </Link>}
