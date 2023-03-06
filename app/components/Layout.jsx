@@ -116,17 +116,17 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
   return (
     <>
     <nav className="grid gap-4 p-6 sm:gap-6 sm:px-12 pt-5">
-      <div>
+      <div className="mb-6">
 
         {/* Top level menu items */}
         {(menu?.items || []).map((item) => (
-          <span key={item.id} className="block menu-span">
+          <span key={item.id} className="block menu-span mb-4">
             <Link
               to={item.to}
               target={item.target}
               onClick={onClose}
             >
-              <Text as="span" size="copy" className='menuDrawer-Headermenu text-black md:text-4xl md:font-semibold'>
+              <Text as="span" size="copy" className='menuDrawer-Headermenu text-black md:text-4xl md:font-medium font-tertiary'>
                 {item.title}
                 <span className='forward-nav-icon'><ForwardNav /></span>
               </Text>
@@ -144,7 +144,7 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
               target={item.target}
               onClick={onClose}
             >
-              <Text as="span" size="copy" className='menuDrawer-Foootermenu text-black md:font-normal'>
+              <Text as="span" size="copy" className='menuDrawer-Foootermenu text-black md:font-normal font-tertiary'>
                 {item.title}
               </Text>
             </Link>
