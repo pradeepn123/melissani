@@ -1,7 +1,7 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
-import {Faq, Purifier, About, FilterClub, Contact} from '~/components';
+import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration} from '~/components';
 import FaqStyles from '~/components/Faq/Faq.css';
 import AboutUsStyles from '~/components/About/About.css';
 import FilterClubStyles from '~/components/FilterClub/FilterClub.css';
@@ -11,6 +11,7 @@ import ImageCenterWithTextStyles from '~/components/ImageCenterWithText/ImageCen
 import ImageWithTextStyles from '~/components/ImageWithText/ImageWithText.css';
 import VideoPlayerStyles from '~/components/VideoPlayer/VideoPlayer.css';
 import ContactStyles from '~/components/Contact/Contact.css';
+import ProductRegistrationStyles from '~/components/ProductRegistration/ProductRegistration.css';
 
 export const links = () => {
   return [
@@ -22,7 +23,8 @@ export const links = () => {
     {rel: 'stylesheet', href: VideoPlayerStyles},
     {rel: 'stylesheet', href: AboutUsStyles},
     {rel: 'stylesheet', href: FilterClubStyles},
-    {rel: 'stylesheet', href: ContactStyles}
+    {rel: 'stylesheet', href: ContactStyles},
+    {rel: 'stylesheet', href: ProductRegistrationStyles}
   ]
 }
 
@@ -97,8 +99,14 @@ export async function loader({request, params, context}) {
     }
   })
 
+  const product_registration_form = page.handle == 'product-registration' && page.metafields.find(item => {
+    if(item !== null) {
+      return item.key == "product_registration_form"
+    }
+  })
+
   return json(
-    {page, faq, hero, installation, temperature, volume, video_section, about, contact_form},
+    {page, faq, hero, installation, temperature, volume, video_section, about, contact_form, product_registration_form},
     {
       headers: {
         // TODO cacheLong()
@@ -108,8 +116,8 @@ export async function loader({request, params, context}) {
 }
 
 export default function Page() {
-  const {page, faq, hero, installation, temperature, volume, video_section, about, contact_form} = useLoaderData();
-  let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, parsed_about, parsed_contact_form;
+  const {page, faq, hero, installation, temperature, volume, video_section, about, contact_form, product_registration_form} = useLoaderData();
+  let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, parsed_about, parsed_contact_form, parsed_product_registration_form;
   if(faq) {
     parsed_faq = JSON.parse(faq?.value);
   }
@@ -134,6 +142,9 @@ export default function Page() {
   if(contact_form) {
     parsed_contact_form = JSON.parse(contact_form?.value);
   }
+  if(product_registration_form) {
+    parsed_product_registration_form = JSON.parse(product_registration_form?.value);
+  }
   return (
     <>
       {page.handle == 'faq' && (<Faq data={parsed_faq} />)}
@@ -143,6 +154,8 @@ export default function Page() {
         <Purifier installation={parsed_installation} hero={parsed_hero} temperature={parsed_temperature} volume={parsed_volume} video_section={parsed_video_section}/>
       )}
       {page.handle == 'contact' && (<Contact data={parsed_contact_form} />)}
+      {page.handle == 'melissani-club' && (<FilterClub hero={parsed_hero} data={parsed_faq} />)}
+      {page.handle == 'product-registration' && (<ProductRegistration data={parsed_product_registration_form} />)}
     </>
   );
 }
@@ -169,6 +182,7 @@ const PAGE_QUERY = `#graphql
           { namespace: "global", key: "video_section" },
           { namespace: "about", key: "about_us" },
           { namespace: "contact", key: "contact_form" },
+          { namespace: "product_registration", key: "product_registration_form" },
         ]
       ) {
         value

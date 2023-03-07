@@ -1,6 +1,6 @@
-/* Begin: Contact Section */
+/* Begin: Product Registration Section */
 
-.contact-section {
+.product-registration-section {
     background-color: #e1e9eb;
     padding-top: 4em;
 }
@@ -29,7 +29,7 @@
     color: #5E6366;
 }
 
-.contact-form .field-input {
+.form .field-input {
     color: #5E6366;
     font-size: 14px;
     font-weight: 400;
@@ -38,7 +38,7 @@
     text-align: left;
 }
 
-.contact-form .field-input::placeholder {
+.form .field-input::placeholder {
     font-family: var(--font-tertiary);
     font-size: 14px;
     font-weight: 400;
@@ -48,11 +48,50 @@
     color: #ABAFB1;
 }
 
+[type=checkbox], [type=checkbox]:not(:checked) {
+    color: transparent;
+    outline: none;
+}
+
+[type=checkbox]:focus {
+    outline-color: #1B2943;
+}
+
+[type=checkbox]:checked, [type=checkbox]:checked:hover, [type=checkbox]:checked:focus {
+    background-color: #1B2943;
+    outline-color: #1B2943;
+    color: #1B2943;
+}
+
+.checkbox-label {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    color: #2B2F32;
+    vertical-align: middle;
+}
+
+.warranty-text {
+    font-size: 14px;
+    font-weight: 510;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #8B9398;
+}
+
+.warranty-text .learn-more-text a {
+    color: #2B2F32;
+    text-decoration: underline;
+    margin-left: 5px;
+}
+
 .submit-btn {
     margin-top: 2em;
 }
 
-/* End: Contact Section */
+/* End: Product Registration Section */
 
 /* Begin: Media Query */
 @media screen and (max-width: 540px) {
@@ -79,12 +118,12 @@
 
 @media screen and (min-width:1440px) {
     .card {
-        margin: 0 20em;
+        margin: 0 25em;
     }
 }
 
 @media screen and (min-width: 820px) and (max-width: 912px) {
-    .contact-section {
+    .product-registration-section {
         height: 100vh;
     }
 }
