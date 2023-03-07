@@ -36,5 +36,6 @@ export { SecondaryHero } from './SecondaryHero/SecondaryHero';
 export { CartCount } from './CartCount';
 export { VideoPlayer } from './VideoPlayer/VideoPlayer';
 export { Purifier } from './Purifier/Purifier';
+export { Contact } from './Contact/Contact';
 // Sue me
 export * from './Icon';
