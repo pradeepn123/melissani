@@ -29,7 +29,7 @@
     color: #5E6366;
 }
 
-.contact-form .field-input {
+.form .field-input {
     color: #5E6366;
     font-size: 14px;
     font-weight: 400;
@@ -38,7 +38,7 @@
     text-align: left;
 }
 
-.contact-form .field-input::placeholder {
+.form .field-input::placeholder {
     font-family: var(--font-tertiary);
     font-size: 14px;
     font-weight: 400;

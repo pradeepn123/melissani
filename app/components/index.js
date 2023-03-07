@@ -37,7 +37,7 @@ export { CartCount } from './CartCount';
 export { VideoPlayer } from './VideoPlayer/VideoPlayer';
 export { Purifier } from './Purifier/Purifier';
 export { Contact } from './Contact/Contact';
-export { ProductRegistration } from './ProductRegistration';
+export { ProductRegistration } from './ProductRegistration/ProductRegistration';
 
 // Sue me
 export * from './Icon';
