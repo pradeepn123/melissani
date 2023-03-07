@@ -35,7 +35,7 @@ export function Contact({data}) {
                 <h1 className="card-title font-primary">
                     {data.title}
                 </h1>
-                <form className="form" id="contact-form">
+                <form className="contact-form" id="contact-form">
                     <div className="grid md:grid-cols-2 md:gap-6">
                     {data.form_fields && data.form_fields[0]?.name.map((field_value, field_index) =>
                         (<div className="relative z-0 w-full mb-6 group" key={field_index}>

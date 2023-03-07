@@ -29,7 +29,7 @@
     color: #5E6366;
 }
 
-.form .field-input {
+.contact-form .field-input {
     color: #5E6366;
     font-size: 14px;
     font-weight: 400;
@@ -38,7 +38,7 @@
     text-align: left;
 }
 
-.form .field-input::placeholder {
+.contact-form .field-input::placeholder {
     font-family: var(--font-tertiary);
     font-size: 14px;
     font-weight: 400;
@@ -79,7 +79,7 @@
 
 @media screen and (min-width:1440px) {
     .card {
-        margin: 0 20em;
+        margin: 0 25em;
     }
 }
 
