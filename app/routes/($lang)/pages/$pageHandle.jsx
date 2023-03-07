@@ -1,8 +1,7 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
-import {PageHeader} from '~/components';
-import {Faq, Purifier, About, FilterClub} from '~/components';
+import {Faq, Purifier, About, FilterClub, Contact} from '~/components';
 import FaqStyles from '~/components/Faq/Faq.css';
 import AboutUsStyles from '~/components/About/About.css';
 import FilterClubStyles from '~/components/FilterClub/FilterClub.css';
@@ -11,6 +10,7 @@ import HeroStyles from '~/components/Hero/Hero.css';
 import ImageCenterWithTextStyles from '~/components/ImageCenterWithText/ImageCenterWithText.css';
 import ImageWithTextStyles from '~/components/ImageWithText/ImageWithText.css';
 import VideoPlayerStyles from '~/components/VideoPlayer/VideoPlayer.css';
+import ContactStyles from '~/components/Contact/Contact.css';
 
 export const links = () => {
   return [
@@ -21,7 +21,8 @@ export const links = () => {
     {rel: 'stylesheet', href: ImageWithTextStyles},
     {rel: 'stylesheet', href: VideoPlayerStyles},
     {rel: 'stylesheet', href: AboutUsStyles},
-    {rel: 'stylesheet', href: FilterClubStyles}
+    {rel: 'stylesheet', href: FilterClubStyles},
+    {rel: 'stylesheet', href: ContactStyles}
   ]
 }
 
@@ -89,8 +90,15 @@ export async function loader({request, params, context}) {
       return item.key == "video_section"
     }
   })
+
+  const contact_form = page.handle == 'contact' && page.metafields.find(item => {
+    if(item !== null) {
+      return item.key == "contact_form"
+    }
+  })
+
   return json(
-    {page, faq, hero, installation, temperature, volume, video_section, about},
+    {page, faq, hero, installation, temperature, volume, video_section, about, contact_form},
     {
       headers: {
         // TODO cacheLong()
@@ -100,8 +108,8 @@ export async function loader({request, params, context}) {
 }
 
 export default function Page() {
-  const {page, faq, hero, installation, temperature, volume, video_section, about} = useLoaderData();
-  let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, parsed_about;
+  const {page, faq, hero, installation, temperature, volume, video_section, about, contact_form} = useLoaderData();
+  let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, parsed_about, parsed_contact_form;
   if(faq) {
     parsed_faq = JSON.parse(faq?.value);
   }
@@ -123,6 +131,9 @@ export default function Page() {
   if(video_section) {
     parsed_video_section = JSON.parse(video_section?.value);
   }
+  if(contact_form) {
+    parsed_contact_form = JSON.parse(contact_form?.value);
+  }
   return (
     <>
       {page.handle == 'faq' && (<Faq data={parsed_faq} />)}
@@ -131,6 +142,7 @@ export default function Page() {
       {page.handle == 'purifier' && (
         <Purifier installation={parsed_installation} hero={parsed_hero} temperature={parsed_temperature} volume={parsed_volume} video_section={parsed_video_section}/>
       )}
+      {page.handle == 'contact' && (<Contact data={parsed_contact_form} />)}
     </>
   );
 }
@@ -155,7 +167,8 @@ const PAGE_QUERY = `#graphql
           { namespace: "global", key: "temperature" },
           { namespace: "purifier", key: "volume" },
           { namespace: "global", key: "video_section" },
-          { namespace: "about", key: "about_us" }
+          { namespace: "about", key: "about_us" },
+          { namespace: "contact", key: "contact_form" },
         ]
       ) {
         value
