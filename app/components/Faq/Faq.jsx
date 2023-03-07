@@ -17,7 +17,12 @@ export function Faq({data}) {
                     aria-label="Tabs with icons"                    
                     >
                     {(data?.tab_heading || []).map((item, index) => (
-                        <Tabs.Item key={`faq-${index}`} active={true} title={<div className='flex flex-col text-sm items-center text-[#1376BC] icon_with_text'><img src={item.icon} alt=''/><p className='font-extrabold tracking-wider text-base text-[#1376BC]'>{item.text}</p></div>}>
+                        <Tabs.Item key={`faq-${index}`} active={true} title={
+                            <div className='flex flex-col text-sm items-center text-[#1376BC] icon_with_text'>
+                                <img src={item.icon} alt=''/>
+                                <p className='font-sfpro font-extrabold tracking-wider text-base text-[#1376BC]'>{item.text}</p>
+                            </div>
+                        }>
                             <FaqAccordion item={item} />
                         </Tabs.Item>
                     ))}

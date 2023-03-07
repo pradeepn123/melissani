@@ -9,7 +9,7 @@ export function Purifier({installation, hero, temperature, volume, video_section
     return (
       <>
         {hero && (
-            <Hero data={hero} purifier_hero_text_id={"purifier-hero-text"} height="full" top loading="eager" />
+            <Hero data={hero} id={"purifier-hero-text"} height="full" top loading="eager" />
         )}
         {installation && (
             <ImageCenterWithText installation={installation} installationHeadingClassName="installation-header" installationParaClassName="installation-para" />

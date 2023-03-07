@@ -175,7 +175,7 @@ export default function Homepage() {
         <ImageWithText goodbye={goodbye} height="full" className="bg-grey xl:flex"/>)}
 
       {advancedFiltration && (
-        <Carousel advancedFiltration={advancedFiltration} />)}
+        <Carousel data={advancedFiltration} />)}
 
       {featuredProducts && (
         <Suspense>

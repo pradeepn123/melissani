@@ -5,14 +5,14 @@ import {Button, Link} from '~/components';
  * Hero component that renders metafields attached to collection resources
  **/
 
-export function Hero({ data, purifier_hero_text_id }) {
+export function Hero({ data, id }) {
 
   return (
       <section
         className={clsx(
           'w-full hero'
         )}>
-          <div className="hero-text" id={`${purifier_hero_text_id}`}>
+          <div className="hero-text" id={id}>
             <div dangerouslySetInnerHTML={{ __html: data.rawHtml}}></div>
             
             {data?.cta && <Link

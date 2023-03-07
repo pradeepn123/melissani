@@ -1,10 +1,10 @@
 import Flickity from 'react-flickity-component'
 
-export function Carousel({advancedFiltration}) {
+export function Carousel({ data }) {
   return (
     <Flickity
     pageDots="false">
-      {advancedFiltration && advancedFiltration.map((item, index) =>
+      {data && data.map((item, index) =>
         <div className="slider" key={index}>
             <div className="left-slider-content">
                 <h2 className="slider-heading font-primary">

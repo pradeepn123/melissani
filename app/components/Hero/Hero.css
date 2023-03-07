@@ -37,7 +37,6 @@
 
 .hero-banner-title {
     font-size: 64px;
-    color: #000;
     font-weight: 700;
     line-height: 76.8px;
     letter-spacing: 0em;
@@ -56,7 +55,6 @@
     line-height: 46px;
     letter-spacing: 0em;
     text-align: left;
-    color: #000;
 }
 
 .hero-image {
@@ -93,6 +91,9 @@
     color: #ffff;
 }
 
+#filter-hero-text .hero-learn-more-btn {
+    color: #fff;
+}
 
 /* End: Hero Section */
 
