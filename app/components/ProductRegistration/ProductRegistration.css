@@ -55,6 +55,7 @@
 
 [type=checkbox]:focus {
     outline-color: #1B2943;
+    --tw-ring-color: transparent;
 }
 
 [type=checkbox]:checked, [type=checkbox]:checked:hover, [type=checkbox]:checked:focus {
