@@ -1,7 +1,7 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
-import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration} from '~/components';
+import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration, Filter} from '~/components';
 import FaqStyles from '~/components/Faq/Faq.css';
 import AboutUsStyles from '~/components/About/About.css';
 import FilterClubStyles from '~/components/FilterClub/FilterClub.css';
@@ -12,6 +12,7 @@ import ImageWithTextStyles from '~/components/ImageWithText/ImageWithText.css';
 import VideoPlayerStyles from '~/components/VideoPlayer/VideoPlayer.css';
 import ContactStyles from '~/components/Contact/Contact.css';
 import ProductRegistrationStyles from '~/components/ProductRegistration/ProductRegistration.css';
+import CarouselStyles from '~/components/Carousel/Carousel.css';
 
 export const links = () => {
   return [
@@ -24,7 +25,8 @@ export const links = () => {
     {rel: 'stylesheet', href: AboutUsStyles},
     {rel: 'stylesheet', href: FilterClubStyles},
     {rel: 'stylesheet', href: ContactStyles},
-    {rel: 'stylesheet', href: ProductRegistrationStyles}
+    {rel: 'stylesheet', href: ProductRegistrationStyles},
+    {rel: 'stylesheet', href: CarouselStyles}
   ]
 }
 
@@ -63,7 +65,7 @@ export async function loader({request, params, context}) {
     }
   })
 
-  const hero = (page.handle == 'purifier' ||  page.handle == 'melissani-club') && page.metafields.find(item => {
+  const hero = (page.handle == 'purifier' ||  page.handle == 'melissani-club' || page.handle == "melissani-m1-filter") && page.metafields.find(item => {
     if(item !== null) {
       return item.key == "hero"
     }
@@ -87,7 +89,7 @@ export async function loader({request, params, context}) {
     }
   })
 
-  const video_section = page.handle == 'purifier' && page.metafields.find(item => {
+  const video_section = (page.handle == 'purifier' || page.handle == 'melissani-m1-filter') && page.metafields.find(item => {
     if(item !== null) {
       return item.key == "video_section"
     }
@@ -105,8 +107,33 @@ export async function loader({request, params, context}) {
     }
   })
 
+  const carousel = page.handle == 'melissani-m1-filter' && page.metafields.find(item => {
+    if(item !== null) {
+      return item.key == "carousel"
+    }
+  })
+
+  const filter_changes = page.handle == 'melissani-m1-filter' && page.metafields.find(item => {
+    if(item !== null) {
+      return item.key == "filter_changes"
+    }
+  })
+
   return json(
-    {page, faq, hero, installation, temperature, volume, video_section, about, contact_form, product_registration_form},
+    {
+      page, 
+      faq, 
+      hero, 
+      installation, 
+      temperature, 
+      volume, 
+      video_section, 
+      about, 
+      carousel,
+      contact_form,
+      product_registration_form,
+      filter_changes
+    },
     {
       headers: {
         // TODO cacheLong()
@@ -116,35 +143,68 @@ export async function loader({request, params, context}) {
 }
 
 export default function Page() {
-  const {page, faq, hero, installation, temperature, volume, video_section, about, contact_form, product_registration_form} = useLoaderData();
-  let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, parsed_about, parsed_contact_form, parsed_product_registration_form;
+  const {
+    page, 
+    faq, 
+    hero, 
+    installation, 
+    temperature, 
+    volume, 
+    video_section, 
+    about,
+    carousel,
+    contact_form,
+    product_registration_form,
+    filter_changes,
+  } = useLoaderData();
+
+  let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, 
+    parsed_about, parsed_carousel, parsed_contact_form, parsed_product_registration_form, parsed_filter_changes;
+  
   if(faq) {
     parsed_faq = JSON.parse(faq?.value);
   }
+
   if(about) {
     parsed_about = JSON.parse(about?.value);
   }
+
   if(hero) {
     parsed_hero = JSON.parse(hero?.value);
   }
+
   if(installation) {
     parsed_installation = JSON.parse(installation?.value);
   }
+
   if(temperature) {
     parsed_temperature = JSON.parse(temperature?.value);
   }
+
   if(volume) {
     parsed_volume = JSON.parse(volume?.value);
   }
+
   if(video_section) {
     parsed_video_section = JSON.parse(video_section?.value);
   }
+  
   if(contact_form) {
     parsed_contact_form = JSON.parse(contact_form?.value);
   }
+  
   if(product_registration_form) {
     parsed_product_registration_form = JSON.parse(product_registration_form?.value);
   }
+
+  if(carousel) {
+    parsed_carousel = JSON.parse(carousel?.value);
+  }
+
+  if(filter_changes) {
+    parsed_filter_changes = JSON.parse(filter_changes?.value);
+  }
+
   return (
     <>
       {page.handle == 'faq' && (<Faq data={parsed_faq} />)}
@@ -154,8 +214,10 @@ export default function Page() {
         <Purifier installation={parsed_installation} hero={parsed_hero} temperature={parsed_temperature} volume={parsed_volume} video_section={parsed_video_section}/>
       )}
       {page.handle == 'contact' && (<Contact data={parsed_contact_form} />)}
-      {page.handle == 'melissani-club' && (<FilterClub hero={parsed_hero} data={parsed_faq} />)}
       {page.handle == 'product-registration' && (<ProductRegistration data={parsed_product_registration_form} />)}
+      {page.handle == 'melissani-m1-filter' && (
+        <Filter hero={parsed_hero} carousel={parsed_carousel} filter_changes={parsed_filter_changes} video_section={parsed_video_section} />
+      )}
     </>
   );
 }
@@ -182,7 +244,9 @@ const PAGE_QUERY = `#graphql
           { namespace: "global", key: "video_section" },
           { namespace: "about", key: "about_us" },
           { namespace: "contact", key: "contact_form" },
-          { namespace: "product_registration", key: "product_registration_form" },
+          { namespace: "global", key: "carousel" },
+          { namespace: "about", key: "filter_changes" },
+          { namespace: "product_registration", key: "product_registration_form" }
         ]
       ) {
         value

@@ -67,7 +67,7 @@ export async function loader({ params, context }) {
   })
 
   const advancedFiltration = page.metafields.find(item => {
-    return item.key == "advanced_filtration"
+    return item.key == "carousel"
   })
 
   const filterClub = page.metafields.find(item => {
@@ -165,7 +165,7 @@ export default function Homepage() {
   return (
     <>
       {primaryHero && (
-        <Hero data={primaryHero} height="full" top loading="eager" />
+        <Hero data={primaryHero} id="home-hero" height="full" top loading="eager" />
       )}
 
       {features && (
@@ -175,7 +175,7 @@ export default function Homepage() {
         <ImageWithText goodbye={goodbye} height="full" className="bg-grey xl:flex"/>)}
 
       {advancedFiltration && (
-        <Carousel advancedFiltration={advancedFiltration} />)}
+        <Carousel data={advancedFiltration} className="home-carousel" />)}
 
       {featuredProducts && (
         <Suspense>
@@ -190,14 +190,14 @@ export default function Homepage() {
       )}
 
       {filterClub && (
-        <ImageWithText filterClub={filterClub} filterClassName="md:flex filter-club-flex"/>
+        <ImageWithText filterClub={filterClub} className="md:flex filter-club-flex"/>
       )}
 
       {videoSection && (
         <VideoPlayer data={videoSection} />
       )}
 
-      {discover && (<ImageWithText discover={discover} discoverClassName={"flex discover-main-section"} />)}
+      {discover && (<ImageWithText discover={discover} className={"flex discover-main-section"} />)}
 
       {installation && (<ImageCenterWithText installation={installation} installationHeadingClassName="installation-header" installationParaClassName="installation-para" />)}
 
@@ -219,7 +219,7 @@ const PAGE_QUERY = `#graphql
           { namespace: "global", key: "hero" }
           { namespace: "home", key: "features" }
           { namespace: "home", key: "goodbye" }
-          { namespace: "home", key: "advanced_filtration" }
+          { namespace: "global", key: "carousel" }
           { namespace: "home", key: "filter_club" }
           { namespace: "home", key: "membership" }
           { namespace: "global", key: "video_section" }

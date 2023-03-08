@@ -7,11 +7,10 @@ import {TemperatureTextSection} from './TemperatureTextSection';
 import {VolumeTextSection} from './VolumeTextSection';
 import {Link} from '../Link';
 
-export function ImageWithText({ goodbye, alignment, filterClassName, filterClub, discover, discoverClassName, learnMore, temperature, temperatureClassName, volume, volumeClassName }) {
+export function ImageWithText({ goodbye, alignment, filterClub, discover, className, learnMore, temperature, volume }) {
   const membershipText = filterClub?.membershipText[0].text.split(" ");
   return <>
-  <section className={`w-full gap-4 md:gap-8 items-center ${filterClassName && filterClassName} ${goodbye ? "xl:flex gb_bg_color" : ""}
-    ${discoverClassName && discoverClassName} ${temperatureClassName && temperatureClassName} ${volumeClassName && volumeClassName}`}>
+  <section className={`w-full gap-4 md:gap-8 items-center ${goodbye ? "xl:flex gb_bg_color" : ""} ${className && className}`}>
     {goodbye && <>
       {alignment == "rtl" ? <>
         <ContaminantTextSection data={goodbye} />
@@ -24,9 +23,9 @@ export function ImageWithText({ goodbye, alignment, filterClassName, filterClub,
     {filterClub && <>
         {alignment == "rtl" ? <>
         <FilterClubTextSection filterClub={filterClub}/>
-        <ImageSection data={filterClub} filterClassName={"filter-club-img"}/>
+        <ImageSection data={filterClub} className={"filter-club-img"}/>
       </> : <>
-        <ImageSection data={filterClub} filterClassName={"filter-club-img"}/>
+        <ImageSection data={filterClub} className={"filter-club-img"}/>
         <FilterClubTextSection filterClub={filterClub} />
       </>}</>
     }

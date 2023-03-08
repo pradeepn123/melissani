@@ -39,5 +39,6 @@ export { Purifier } from './Purifier/Purifier';
 export { Contact } from './Contact/Contact';
 export { ProductRegistration } from './ProductRegistration/ProductRegistration';
 
+export { Filter } from './Filter/Filter';
 // Sue me
 export * from './Icon';

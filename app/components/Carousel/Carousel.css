@@ -20,6 +20,7 @@
 .flickity-enabled {
     outline: none;
     overflow: hidden;
+    position: relative;
 }
 
 .carousel {
@@ -54,9 +55,10 @@
     background: #1B2943;
     padding: 20px;
     margin: 1em;
-    position: relative;
+    position: absolute;
     margin-left: 2.8em;
     border: 3.23px solid #1B2943;
+    bottom: 0;
 }
 
 .flickity-prev-next-button:hover {
@@ -88,7 +90,8 @@
 }
 
 .flickity-prev-next-button.next {
-    right: -40px;
+    right: auto;
+    left: 170px;
 }
 
 /* End: Flickity */
@@ -147,13 +150,25 @@
 
 /* End: Advanced Filteration section */
 
+/* Begin: RO Membrane section */
+
+.filter-carousel .slider {
+    padding: 0;
+}
+
+.filter-carousel .left-slider-content {
+    padding: 6em 0 6em 6em;
+}
+
+.filter-carousel .right-slider-content {
+    margin: 0;
+}
+
+/* End: RO Membrane section */
+
 /* Begin: Media Query */
 
 @media (max-width: 767px) {
-    .flickity-viewport {
-        height: 1110px;
-    }
-
     .slider {
         display: flex;
         flex-direction: column-reverse;
@@ -171,6 +186,8 @@
         row-gap: 2em;
         width: 100%;
         margin: 0 3em 0em;
+        padding-top: 40px;
+        padding-bottom: 100px;
     }
 
     .slider-heading {
@@ -207,12 +224,20 @@
     }
 
     .flickity-prev-next-button.next {
-        right: -90px;
+        left: 140px;
+    }
+
+    .filter-carousel .left-slider-content {
+        padding: 0 0 100px 0;
+    }
+
+    .filter-carousel .flickity-prev-next-button {
+        bottom: 0;
     }
 }
 
 @media (max-width: 540px) {
-    .flickity-enabled {
+    .carousel-wrapper {
         padding-bottom: 2em;
     }
 
@@ -251,13 +276,13 @@
     .flickity-prev-next-button {
         margin: 1em 1em 1em -1em;
     }
+
+    .filter-carousel .right-slider-content {
+        width: 100%;
+    }
 }
 
 @media (max-width: 425px) {
-    .flickity-viewport {
-        height: 720px !important;
-    }
-
     .slider {
         padding: 5em 0 0;
     }
@@ -299,12 +324,8 @@
 }
 
 @media (min-width:767px) and (max-width:1023px) {
-    .flickity-enabled {
+    .home-carousel {
         padding-bottom: 5em;
-    }
-
-    .flickity-viewport {
-        height: 470px;
     }
 
     .slider {
@@ -320,7 +341,7 @@
     }
 
     .slider-heading {
-        font-size: 28px;
+        font-size: 26px;
         font-weight: 900;
         line-height: 36px;
     }
@@ -334,7 +355,7 @@
     .slider-description {
         width: 100%;
         font-size: 12px;
-        line-height: 30px;
+        line-height: 24px;
         width: 100%;
     }
 
@@ -356,18 +377,22 @@
         margin: 1em 1em 1em 0.8em;
     }
 
+    .filter-carousel .left-slider-content {
+        padding: 4em 0 4em 4em;
+    }
+
+    .filter-carousel .flickity-prev-next-button {
+        bottom: 8%;
+    }
+
     .flickity-prev-next-button.next {
-        right: -70px;
+        left: 140px;
     }
 }
 
 @media screen and (min-width: 820px) {
-    .flickity-enabled {
+    .home-carousel {
         padding-bottom: 4em;
-    }
-
-    .flickity-viewport {
-        height: 600px;
     }
 
     .slider {
@@ -406,18 +431,14 @@
         margin: 1em 1em 1em 0.8em;
     }
 
-    .flickity-prev-next-button.next {
-        right: -70px;
+    .filter-carousel .flickity-prev-next-button {
+        bottom: 0;
     }
 }
 
 @media screen and (min-width: 912px) {
-    .flickity-enabled {
+    .home-carousel {
         padding-bottom: 4em;
-    }
-
-    .flickity-viewport {
-        height: 530px;
     }
 
     .slider {
@@ -455,14 +476,14 @@
     .flickity-prev-next-button {
         margin: 1em 1em 1em 1.8em;
     }
+
+    .filter-carousel .flickity-prev-next-button {
+        bottom: 8%;
+    }
 }
 
 @media screen and (min-width: 1024px) {
-    .flickity-viewport {
-        height: 550px !important;
-    }
-
-    .flickity-enabled {
+    .home-carousel {
         padding-top: 5em;
         padding-bottom: 2em;
     }
@@ -474,15 +495,15 @@
     .slider-heading {
         font-style: normal;
         font-weight: 860;
-        font-size: 45px;
-        line-height: 60px;
+        font-size: 40px;
+        line-height: 55px;
         color: #000;
         width: 100%;
     }
 
     .slider-sub-heading {
         font-size: 26px;
-        line-height: 42px;
+        line-height: 38px;
         width: 90%;
     }
 
@@ -491,7 +512,7 @@
         flex-direction: column;
         row-gap: 1em;
         width: 50%;
-        padding: 0;
+        padding: 0 0 100px;
         margin: 0;
     }
 
@@ -504,7 +525,7 @@
 
     .slider-description {
         font-size: 16px;
-        line-height: 36px;
+        line-height: 30px;
         width: 90%;
     }
 
@@ -515,7 +536,6 @@
         background: #1B2943;
         padding: 15px;
         margin: 1em;
-        position: relative;
         margin-left: 2.8em;
         border: 3.23px solid #1B2943;
     }
@@ -529,35 +549,19 @@
         left: 64px;
     }
 
-    .flickity-prev-next-button.next {
-        right: -80px;
-    }
-
     .slider {
         padding: 0 6em 0 6em;
     }
 }
 
 @media screen and (min-width: 1280px) {
-    .flickity-viewport {
-        height: 550px !important;
-    }
-
-    .flickity-enabled {
+    .carousel-wrapper {
         padding-top: 6em;
     }
 
     .flickity-button:disabled,
     .flickity-prev-next-button {
         margin: 1em 1em 1em 1.8em;
-    }
-
-    .flickity-prev-next-button.previous {
-        left: 64px;
-    }
-
-    .flickity-prev-next-button.next {
-        right: -80px;
     }
 
     .slider {
@@ -584,13 +588,17 @@
         justify-content: center;
         margin: 2em auto;
     }
+
+    .filter-carousel {
+        padding: 0;
+    }
+
+    .filter-carousel .flickity-prev-next-button {
+        bottom: 20%;
+    }
 }
 
 @media screen and (min-width: 1440px) {
-    .flickity-viewport {
-        height: 560px !important;
-    }
-
     .slider-heading {
         width: 85%;
     }
@@ -600,35 +608,23 @@
         margin: 1em 1em 1em 1.8em;
     }
 
-    .flickity-prev-next-button.previous {
-        left: 64px;
+    .home-carousel .flickity-prev-next-button {
+        bottom: 35px;
     }
 
-    .flickity-prev-next-button.next {
-        right: -80px;
+    .filter-carousel .flickity-prev-next-button {
+        bottom: 32%;
     }
 }
 
 @media screen and (min-width: 1536px) {
-    .flickity-enabled {
-        padding-bottom: 6em;
-    }
-
-    .flickity-viewport {
-        height: 430px !important;
-    }
-
     .slider {
         padding: 0 8em;
     }
 
-    .flickity-button:disabled,
-    .flickity-prev-next-button {
+    .home-carousel .flickity-button:disabled,
+    .home-carousel .flickity-prev-next-button {
         margin: 1em 1em 1em 3.8em;
-    }
-
-    .flickity-prev-next-button.next {
-        right: -70px;
     }
 }
 

@@ -6,7 +6,7 @@ export function ContaminantTextSection({ data }) {
             <ul className="grid grid-cols-2">
                 {(data?.items || []).map((item, index) => (
                     <li key={`googbye-${index}`} className="flex py-4 text-black items-center gap-4 font-tertiary">
-                        <img src={item.icon} alt="" />
+                        <img src={item.icon} alt="" width="60px" />
                         <p className="contaminants-list font-tertiary">{item.text}</p>
                     </li>
                 ))}
