@@ -89,7 +89,7 @@ export async function loader({request, params, context}) {
     }
   })
 
-  const video_section = page.handle == 'purifier' && page.metafields.find(item => {
+  const video_section = (page.handle == 'purifier' || page.handle == 'melissani-m1-filter') && page.metafields.find(item => {
     if(item !== null) {
       return item.key == "video_section"
     }
@@ -113,6 +113,12 @@ export async function loader({request, params, context}) {
     }
   })
 
+  const filter_changes = page.handle == 'melissani-m1-filter' && page.metafields.find(item => {
+    if(item !== null) {
+      return item.key == "filter_changes"
+    }
+  })
+
   return json(
     {
       page, 
@@ -125,7 +131,8 @@ export async function loader({request, params, context}) {
       about, 
       carousel,
       contact_form,
-      product_registration_form
+      product_registration_form,
+      filter_changes
     },
     {
       headers: {
@@ -147,10 +154,12 @@ export default function Page() {
     about,
     carousel,
     contact_form,
-    product_registration_form
+    product_registration_form,
+    filter_changes,
   } = useLoaderData();
 
-  let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, parsed_about, parsed_carousel, parsed_contact_form, parsed_product_registration_form;
+  let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, 
+    parsed_about, parsed_carousel, parsed_contact_form, parsed_product_registration_form, parsed_filter_changes;
   
   if(faq) {
     parsed_faq = JSON.parse(faq?.value);
@@ -192,6 +201,10 @@ export default function Page() {
     parsed_carousel = JSON.parse(carousel?.value);
   }
 
+  if(filter_changes) {
+    parsed_filter_changes = JSON.parse(filter_changes?.value);
+  }
+
   return (
     <>
       {page.handle == 'faq' && (<Faq data={parsed_faq} />)}
@@ -203,7 +216,7 @@ export default function Page() {
       {page.handle == 'contact' && (<Contact data={parsed_contact_form} />)}
       {page.handle == 'product-registration' && (<ProductRegistration data={parsed_product_registration_form} />)}
       {page.handle == 'melissani-m1-filter' && (
-        <Filter hero={parsed_hero} carousel={parsed_carousel} video_section={parsed_video_section} />
+        <Filter hero={parsed_hero} carousel={parsed_carousel} filter_changes={parsed_filter_changes} video_section={parsed_video_section} />
       )}
     </>
   );
@@ -231,8 +244,9 @@ const PAGE_QUERY = `#graphql
           { namespace: "global", key: "video_section" },
           { namespace: "about", key: "about_us" },
           { namespace: "contact", key: "contact_form" },
-          { namespace: "product_registration", key: "product_registration_form" },
-          { namespace: "global", key: "carousel" }
+          { namespace: "global", key: "carousel" },
+          { namespace: "about", key: "filter_changes" },
+          { namespace: "product_registration", key: "product_registration_form" }
         ]
       ) {
         value
