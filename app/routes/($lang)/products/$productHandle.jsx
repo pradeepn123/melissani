@@ -26,11 +26,22 @@ import {
   Text,
   Link,
   AddToCartButton,
+  ProductHeader,
+  ImageCarousel
 } from '~/components';
 import {getExcerpt} from '~/lib/utils';
 import invariant from 'tiny-invariant';
 import clsx from 'clsx';
 import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
+import ProductHeaderStyles from '~/components/ProductHeader/ProductHeader.css';
+import ImageCarouselStyles from '~/components/ImageCarousel/ImageCarousel.css';
+
+export const links = () => {
+  return [
+    {rel: 'stylesheet', href: ProductHeaderStyles},
+    {rel: 'stylesheet', href: ImageCarouselStyles}
+  ]
+}
 
 const seo = ({data}) => {
   const media = flattenConnection(data.product.media).find(
@@ -71,6 +82,7 @@ export async function loader({params, request, context}) {
       selectedOptions,
       country: context.storefront.i18n.country,
       language: context.storefront.i18n.language,
+      metafields: context.metafields
     },
   });
 
@@ -81,6 +93,11 @@ export async function loader({params, request, context}) {
   const recommended = getRecommendedProducts(context.storefront, product.id);
   const firstVariant = product.variants.nodes[0];
   const selectedVariant = product.selectedVariant ?? firstVariant;
+  const product_details = product.metafields.find(item => {
+    if(item !== null){
+      return item.key == "product_details"
+    }
+  })
 
   const productAnalytics = {
     productGid: product.id,
@@ -101,22 +118,30 @@ export async function loader({params, request, context}) {
       products: [productAnalytics],
       totalValue: parseFloat(selectedVariant.price.amount),
     },
+    product_details
   });
 }
 
 export default function Product() {
-  const {product, shop, recommended} = useLoaderData();
+  const {product, shop, recommended, product_details} = useLoaderData();
   const {media, title, vendor, descriptionHtml} = product;
   const {shippingPolicy, refundPolicy} = shop;
+  let parsed_product_details;
+
+  if(product_details) {
+    parsed_product_details = JSON.parse(product_details?.value);
+  }
 
   return (
     <>
-      <Section padding="x" className="px-0">
-        <div className="grid items-start md:gap-6 lg:gap-20 md:grid-cols-2 lg:grid-cols-3">
-          <ProductGallery
+      <Section className="product-section" padding="x" className="px-0">
+        <ProductHeader title={title} data={parsed_product_details}/>
+        <div className="grid items-start md:gap-6 lg:gap-10 md:grid-cols-2 lg:grid-cols-2">
+          <ImageCarousel data={media.nodes} className="w-screen md:w-full lg:col-span-1" />
+          {/* <ProductGallery
             media={media.nodes}
             className="w-screen md:w-full lg:col-span-2"
-          />
+          /> */}
           <div className="sticky md:-mb-nav md:top-nav md:-translate-y-nav md:h-screen md:pt-nav hiddenScroll md:overflow-y-scroll">
             <section className="flex flex-col w-full max-w-xl gap-8 p-6 md:mx-auto md:max-w-sm md:px-0">
               <div className="grid gap-2">
@@ -537,6 +562,14 @@ const PRODUCT_QUERY = `#graphql
       seo {
         description
         title
+      },
+      metafields(
+        identifiers: [
+          { namespace: "product", key: "product_details" }
+        ]
+      ) {
+        value
+        key
       }
     }
     shop {

@@ -1,0 +1,109 @@
+.product-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 1.5em 0;
+    border-top: 1px solid #DDDDDD;
+}
+
+.product-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name .product-title {
+    font-family: 'Peachi-Bold';
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 52px;
+    text-align: left;
+    color: #1D1D1F;
+}
+
+.product-name .product-subtitle {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1em;
+    margin-top: 1em;
+}
+
+.product-subtitle .subtitle {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    margin: auto;
+    color: #1D1D1F;
+}
+
+.learn-more-btn {
+    padding-top: 0.3rem;
+    padding-bottom: .3rem;
+    padding-right: 2em;
+    padding-left: 2em;
+    font-size: 12px;
+}
+
+.product-key-features {
+    border-left: 1px solid #DDDDDD;
+    display: flex;
+    flex-direction: row;
+    padding-left: 2em;
+}
+
+.key-feature {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    align-items: center;
+    column-gap: 0.5em;
+    justify-content: flex-end;
+}
+
+.key-feature-text {
+    width: 50%;
+    text-align: left;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+@media screen and (max-width: 540px) {
+    .product-header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-name {
+        row-gap: 1em;
+    }
+
+    .product-name .product-title {
+        font-size: 32px;
+        line-height: 39px;
+    }
+
+    .product-name .product-subtitle {
+        flex-direction: column;
+        row-gap: 1em;
+        margin-top: 0;
+    }
+
+    .product-subtitle .subtitle {
+        font-size: 16px;
+        line-height: 15px;
+        margin: 0;
+    }
+
+    .product-key-features {
+        border-left: none;
+        border-top: 1px solid #DDDDDD;
+        padding-left: 0;
+        border-bottom: 1px solid #DDDDDD;
+    }
+}
