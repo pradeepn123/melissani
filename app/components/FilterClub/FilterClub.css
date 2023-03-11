@@ -26,3 +26,21 @@
     padding: 4px;
     border: 1.5px solid #1376BC;
 }
+.filterclub_learnmore_sec .warrentyIcon_section{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media(min-width:1200px){
+    .filterclub_learnmore_sec .text-section{
+        padding: 0 90px;
+    }
+    .filterclub_learnmore_sec .warrentyIcon_section{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

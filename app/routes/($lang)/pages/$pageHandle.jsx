@@ -77,7 +77,7 @@ export async function loader({request, params, context}) {
     }
   })
   
-  const temperature = page.handle == 'purifier' && page.metafields.find(item => {
+  const temperature = (page.handle == 'purifier' ||  page.handle == 'melissani-club') && page.metafields.find(item => {
     if(item !== null) {
       return item.key == "temperature"
     }
@@ -209,7 +209,7 @@ export default function Page() {
     <>
       {page.handle == 'faq' && (<Faq data={parsed_faq} />)}
       {page.handle == 'about-us' && (<About data={parsed_about} />)}
-      {page.handle == 'melissani-club' && (<FilterClub hero={parsed_hero} data={parsed_faq} />)}
+      {page.handle == 'melissani-club' && (<FilterClub hero={parsed_hero} data={parsed_faq}  temperature={parsed_temperature} />)}
       {page.handle == 'purifier' && (
         <Purifier installation={parsed_installation} hero={parsed_hero} temperature={parsed_temperature} volume={parsed_volume} video_section={parsed_video_section}/>
       )}
