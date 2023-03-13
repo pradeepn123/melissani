@@ -1,5 +1,5 @@
-import {useRef, Suspense, useMemo} from 'react';
-import {Disclosure, Listbox} from '@headlessui/react';
+import {useRef, Suspense, useMemo, useState} from 'react';
+import {Listbox} from '@headlessui/react';
 import {defer} from '@shopify/remix-oxygen';
 import {
   useLoaderData,
@@ -11,15 +11,12 @@ import {
 import {
   AnalyticsPageType,
   Money,
-  ShopPayButton,
   flattenConnection,
 } from '@shopify/hydrogen';
 import {
   Heading,
   IconCaret,
   IconCheck,
-  IconClose,
-  ProductGallery,
   ProductSwimlane,
   Section,
   Skeleton,
@@ -27,9 +24,9 @@ import {
   Link,
   AddToCartButton,
   ProductHeader,
-  ImageCarousel
+  ImageCarousel,
+  QuantityAdjust
 } from '~/components';
-import {getExcerpt} from '~/lib/utils';
 import invariant from 'tiny-invariant';
 import clsx from 'clsx';
 import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
@@ -127,6 +124,8 @@ export default function Product() {
   const {media, title, vendor, descriptionHtml} = product;
   const {shippingPolicy, refundPolicy} = shop;
   let parsed_product_details;
+  const firstVariant = product.variants.nodes[0];
+  const selectedVariant = product.selectedVariant ?? firstVariant;
 
   if(product_details) {
     parsed_product_details = JSON.parse(product_details?.value);
@@ -135,45 +134,30 @@ export default function Product() {
   return (
     <>
       <Section className="product-section" padding="x" className="px-0">
-        <ProductHeader title={title} data={parsed_product_details}/>
+        {/* <ProductHeader title={title} data={parsed_product_details}/> */}
         <div className="grid items-start md:gap-6 lg:gap-10 md:grid-cols-2 lg:grid-cols-2">
           <ImageCarousel data={media.nodes} className="w-screen md:w-full lg:col-span-1" />
-          {/* <ProductGallery
-            media={media.nodes}
-            className="w-screen md:w-full lg:col-span-2"
-          /> */}
           <div className="sticky md:-mb-nav md:top-nav md:-translate-y-nav md:h-screen md:pt-nav hiddenScroll md:overflow-y-scroll">
             <section className="flex flex-col w-full max-w-xl gap-8 p-6 md:mx-auto md:max-w-sm md:px-0">
-              <div className="grid gap-2">
-                <Heading as="h1" className="whitespace-normal">
-                  {title}
-                </Heading>
-                {vendor && (
-                  <Text className={'opacity-50 font-medium'}>{vendor}</Text>
-                )}
-              </div>
-              <ProductForm />
-              <div className="grid gap-4 py-4">
-                {descriptionHtml && (
-                  <ProductDetail
-                    title="Product Details"
-                    content={descriptionHtml}
-                  />
-                )}
-                {shippingPolicy?.body && (
-                  <ProductDetail
-                    title="Shipping"
-                    content={getExcerpt(shippingPolicy.body)}
-                    learnMore={`/policies/${shippingPolicy.handle}`}
-                  />
-                )}
-                {refundPolicy?.body && (
-                  <ProductDetail
-                    title="Returns"
-                    content={getExcerpt(refundPolicy.body)}
-                    learnMore={`/policies/${refundPolicy.handle}`}
-                  />
-                )}
+              <div className="product-form-wrapper">
+                <div className="grid gap-2">
+                  <Heading as="h1" className="whitespace-normal product-title font-secondary">
+                    {title}
+                  </Heading>
+                  {selectedVariant && <div className="product-price font-tertiary">
+                    <Money
+                      withoutTrailingZeros
+                      data={selectedVariant?.price}
+                      as="span"
+                    />
+                  </div>}
+                </div>
+                <ProductForm />
+                <div className="grid gap-4 py-4">
+                  {parsed_product_details.productDescription && (
+                    <div className="desc-list" dangerouslySetInnerHTML={{ __html: parsed_product_details.productDescription}}></div>
+                  )}
+                </div>
               </div>
             </section>
           </div>
@@ -198,6 +182,7 @@ export function ProductForm() {
 
   const [currentSearchParams] = useSearchParams();
   const transition = useTransition();
+  const [quantity, setQuantity] = useState(1);
 
   /**
    * We update `searchParams` with in-flight request data from `transition` (if available)
@@ -256,17 +241,17 @@ export function ProductForm() {
           searchParamsWithDefaults={searchParamsWithDefaults}
         />
         {selectedVariant && (
-          <div className="grid items-stretch gap-4">
+          <div className="grid gap-4 add-to-cart-wrapper">
+            <QuantityAdjust quantity={quantity} setQuantity={setQuantity} />
             <AddToCartButton
               lines={[
                 {
                   merchandiseId: selectedVariant.id,
-                  quantity: 1,
+                  quantity: quantity,
                 },
               ]}
               variant={isOutOfStock ? 'secondary' : 'primary'}
               data-test="add-to-cart"
-              disabled={true}
               analytics={{
                 products: [productAnalytics],
                 totalValue: parseFloat(productAnalytics.price),
@@ -279,26 +264,10 @@ export function ProductForm() {
                   as="span"
                   className="flex items-center justify-center gap-2"
                 >
-                  <span>Add to Bag</span> <span>·</span>{' '}
-                  <Money
-                    withoutTrailingZeros
-                    data={selectedVariant?.price}
-                    as="span"
-                  />
-                  {isOnSale && (
-                    <Money
-                      withoutTrailingZeros
-                      data={selectedVariant?.compareAtPrice}
-                      as="span"
-                      className="opacity-50 strike"
-                    />
-                  )}
+                  <span>Add to Cart</span>
                 </Text>
               )}
             </AddToCartButton>
-            {!isOutOfStock && (
-              <ShopPayButton variantIds={[selectedVariant?.id]} />
-            )}
           </div>
         )}
       </div>
@@ -446,47 +415,6 @@ function ProductOptionLink({
     >
       {children ?? optionValue}
     </Link>
-  );
-}
-
-function ProductDetail({title, content, learnMore}) {
-  return (
-    <Disclosure key={title} as="div" className="grid w-full gap-2">
-      {({open}) => (
-        <>
-          <Disclosure.Button className="text-left">
-            <div className="flex justify-between">
-              <Text size="lead" as="h4">
-                {title}
-              </Text>
-              <IconClose
-                className={clsx(
-                  'transition-transform transform-gpu duration-200',
-                  !open && 'rotate-[45deg]',
-                )}
-              />
-            </div>
-          </Disclosure.Button>
-
-          <Disclosure.Panel className={'pb-4 pt-2 grid gap-2'}>
-            <div
-              className="prose dark:prose-invert"
-              dangerouslySetInnerHTML={{__html: content}}
-            />
-            {learnMore && (
-              <div className="">
-                <Link
-                  className="pb-px border-b border-primary/30 text-primary/50"
-                  to={learnMore}
-                >
-                  Learn more
-                </Link>
-              </div>
-            )}
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
   );
 }
 

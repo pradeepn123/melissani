@@ -116,6 +116,48 @@ font-family: 'Peachi-Light';
 /* End: Menu Cart Drawer Section */
 /* End: Common Styles */
 
+/* Begin: Product Form Section */
+
+.product-form-wrapper {
+  border: 1px solid #DDDDDD;
+  padding: 50px 40px;
+  border-radius: 10px;
+}
+
+.product-form-wrapper .product-title {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 41px;
+  color: #000;
+}
+
+.product-form-wrapper .add-to-cart-wrapper {
+  grid-template-columns: auto auto;
+  margin: 20px 0 30px;
+}
+
+.product-form-wrapper .add-to-cart-wrapper .quantity-selector {
+  border: 1px solid #000;
+}
+
+.product-form-wrapper .desc-list ul {
+  list-style: disc;
+  margin-left: 15px;
+}
+
+.product-form-wrapper .desc-list ul li {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000;
+}
+
+.product-form-wrapper .desc-list ul li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+/* End: Product Form Section */
+
 /* Begin: Media Query */
 @media screen and (max-width:640px) {
   .footer-wrapper .footer-text p {
