@@ -247,6 +247,17 @@ export function ForwardNav() {
   )
 }
 
+export function RightArrow() {
+  return (
+    <span>
+      <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.749966 24.25C0.749966 37.2287 11.2713 47.75 24.25 47.75C37.2287 47.75 47.75 37.2287 47.75 24.25C47.75 11.2713 37.2287 0.75 24.25 0.75C11.2713 0.75 0.749966 11.2713 0.749966 24.25Z" stroke="white" stroke-width="1.5"/>
+        <path d="M21.8266 16.9766L29.1016 24.2516L21.8266 31.5266" stroke="white" stroke-width="2.425" stroke-linecap="round"/>
+      </svg>
+    </span>
+  )
+}
+
 export function IconPlay(props) {
   return(
     <svg {...props} width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">

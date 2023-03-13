@@ -1,0 +1,68 @@
+/* image with text overlay */
+.image_with_block_sec_inner{
+    position: relative;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+}
+.image_with_block_sec_inner .card_overlay__first{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transition: .2s ease-in-out;
+}
+.image_with_block_sec_inner .card_overlay__first .card__header_first h2{
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    line-height: 36px;
+    color: #ffffff;    
+}
+.image_with_block_sec_inner .card_overlay__first .card__header_first{
+    padding: 2em;
+    background: linear-gradient(360deg, rgba(0, 0, 0, 0.5) 0%, rgba(217, 217, 217, 0) 100%);
+}
+.image_with_block_sec_inner .card_overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    transform: translateY(100%);
+    transition: .2s ease-in-out;
+}
+.image_with_block_sec_inner .card__header h2{
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    line-height: 36px;
+    color: #ffffff; 
+}
+.image_with_block_sec_inner .card__header{
+    padding: 2em;
+}
+.image_with_block_sec_inner:hover .card_overlay {
+    transform: translateY(0);
+    background-color: #1B2943;
+    color: #ffffff;    
+}
+.right_rotate_arrow_icon{
+    transition: .2s ease-in-out;
+}
+.image_with_block_sec_inner:hover .right_rotate_arrow_icon{
+    transform: rotate(268deg);
+    transition: .2s ease-in-out;
+}
+.image_with_block_sec_inner .card__description{
+    padding: 2em;    
+    margin: 0;
+    transition: .2s ease-in-out;
+    overflow-y: auto;
+    max-height: 280px;
+    font-family: 'Avenir';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 36px;
+}

@@ -9,6 +9,9 @@ import PurifierStyles from '~/components/Purifier/Purifier.css';
 import HeroStyles from '~/components/Hero/Hero.css';
 import ImageCenterWithTextStyles from '~/components/ImageCenterWithText/ImageCenterWithText.css';
 import ImageWithTextStyles from '~/components/ImageWithText/ImageWithText.css';
+import ImageWithBlockOverlayStyles from '~/components/ImageWithBlockOverlay/ImageWithBlockOverlay.css';
+import TextWithButtonStyles from '~/components/TextWithButton/TextWithButton.css';
+import FilterClubSupportInfoStyles from '~/components/FilterClubSupportInfo/FilterClubSupportInfo.css';
 import VideoPlayerStyles from '~/components/VideoPlayer/VideoPlayer.css';
 import ContactStyles from '~/components/Contact/Contact.css';
 import ProductRegistrationStyles from '~/components/ProductRegistration/ProductRegistration.css';
@@ -20,6 +23,9 @@ export const links = () => {
     {rel: 'stylesheet', href: PurifierStyles},
     {rel: 'stylesheet', href: HeroStyles},
     {rel: 'stylesheet', href: ImageCenterWithTextStyles},
+    {rel: 'stylesheet', href: ImageWithBlockOverlayStyles},
+    {rel: 'stylesheet', href: FilterClubSupportInfoStyles},
+    {rel: 'stylesheet', href: TextWithButtonStyles},
     {rel: 'stylesheet', href: ImageWithTextStyles},
     {rel: 'stylesheet', href: VideoPlayerStyles},
     {rel: 'stylesheet', href: AboutUsStyles},
@@ -56,6 +62,24 @@ export async function loader({request, params, context}) {
   const faq = (page.handle == 'faq' ||  page.handle == 'melissani-club') && page.metafields.find(item => {
     if(item !== null){
       return item.key == "qna"
+    }
+  })
+
+  const filterclub = (page.handle == 'melissani-club') && page.metafields.find(item => {
+    if(item !== null){
+      return item.key == "image_with_block_overlay"
+    }
+  })
+
+  const supportinfo = (page.handle == 'melissani-club') && page.metafields.find(item => {
+    if(item !== null){
+      return item.key == "filter_club_support_info"
+    }
+  })
+
+  const textwithbutton = (page.handle == 'melissani-club') && page.metafields.find(item => {
+    if(item !== null){
+      return item.key == "text_with_button"
     }
   })
 
@@ -132,7 +156,10 @@ export async function loader({request, params, context}) {
       carousel,
       contact_form,
       product_registration_form,
-      filter_changes
+      filter_changes,
+      filterclub,
+      supportinfo,
+      textwithbutton
     },
     {
       headers: {
@@ -156,13 +183,29 @@ export default function Page() {
     contact_form,
     product_registration_form,
     filter_changes,
+    filterclub,
+    supportinfo,
+    textwithbutton,
   } = useLoaderData();
 
   let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, 
-    parsed_about, parsed_carousel, parsed_contact_form, parsed_product_registration_form, parsed_filter_changes;
+    parsed_about, parsed_carousel, parsed_contact_form, parsed_product_registration_form, parsed_filter_changes, 
+    parsed_filterclub, parsed_filterclubsupportinfo, parsed_textwithbutton;
   
   if(faq) {
     parsed_faq = JSON.parse(faq?.value);
+  }
+
+  if(filterclub) {
+    parsed_filterclub = JSON.parse(filterclub?.value);
+  }
+
+  if(supportinfo) {
+    parsed_filterclubsupportinfo = JSON.parse(supportinfo?.value);
+  }
+
+  if(textwithbutton) {    
+    parsed_textwithbutton = JSON.parse(textwithbutton?.value);
   }
 
   if(about) {
@@ -209,7 +252,8 @@ export default function Page() {
     <>
       {page.handle == 'faq' && (<Faq data={parsed_faq} />)}
       {page.handle == 'about-us' && (<About data={parsed_about} />)}
-      {page.handle == 'melissani-club' && (<FilterClub hero={parsed_hero} data={parsed_faq}  temperature={parsed_temperature} />)}
+      {page.handle == 'melissani-club' && (<FilterClub hero={parsed_hero} data={parsed_faq} supportinfo={parsed_filterclubsupportinfo} 
+      filterclub={parsed_filterclub}  temperature={parsed_temperature} textwithbutton={parsed_textwithbutton} />)}
       {page.handle == 'purifier' && (
         <Purifier installation={parsed_installation} hero={parsed_hero} temperature={parsed_temperature} volume={parsed_volume} video_section={parsed_video_section}/>
       )}
@@ -246,7 +290,10 @@ const PAGE_QUERY = `#graphql
           { namespace: "contact", key: "contact_form" },
           { namespace: "global", key: "carousel" },
           { namespace: "about", key: "filter_changes" },
-          { namespace: "product_registration", key: "product_registration_form" }
+          { namespace: "product_registration", key: "product_registration_form" },
+          { namespace: "filterclub", key: "image_with_block_overlay" },
+          { namespace: "filterclub", key: "filter_club_support_info" },
+          { namespace: "filterclub", key: "text_with_button" }
         ]
       ) {
         value

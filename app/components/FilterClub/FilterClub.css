@@ -18,6 +18,16 @@
 .filter_club_faq .custom_content{
     border-top: 0;
 }
+.filter_club_faq .filter_club_main_heading{
+    font-size: 32px;
+    line-height: 41px;
+    color: #000000;
+}
+.filter_club_faq [data-testid="flowbite-accordion"] button, 
+.filter_club_faq [data-testid="flowbite-accordion"] .custom_content{
+    padding-left: 0;
+    padding-right: 0;
+}
 .filter_club_faq svg[data-testid="flowbite-accordion-arrow"] {
     border-radius: 50%;
     stroke-width: 0;
@@ -29,18 +39,49 @@
 .filterclub_learnmore_sec .warrentyIcon_section{
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 25%;
+    transform: translate(-80%, 10%);
 }
-
-@media(min-width:1200px){
-    .filterclub_learnmore_sec .text-section{
-        padding: 0 90px;
-    }
+.filterclub_learnmore_sec .warrentyIcon_section img{
+    width: 100px;
+}
+.filter_club_faq .accordion_heading h2{
+    font-family: 'Avenir';
+    font-weight: 500;
+}
+.filter_club_faq .custom_content p{
+    font-family: 'Avenir';
+    font-weight: 400;
+}
+.filter_club_faq{
+    padding: 2em 1em;
+}
+@media(min-width:768px){
     .filterclub_learnmore_sec .warrentyIcon_section{
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+    .filterclub_learnmore_sec .warrentyIcon_section img{
+        width: 100px;
+    }
+    .filterclub_learnmore_sec .text-section{
+        padding: 3.5em 2em;
+    }
+}
+@media(min-width:1200px){
+    .filterclub_learnmore_sec .text-section{
+        padding: 0 90px;
+    }
+    .filterclub_learnmore_sec .warrentyIcon_section img{
+        width: inherit;
+    }
+    .filter_club_faq .filter_club_main_heading{
+        font-size: 52px;
+        line-height: 67px;
+    }
+    .filter_club_faq{
+        padding: 4em 6em;
     }
 }
