@@ -25,18 +25,21 @@ import {
   AddToCartButton,
   ProductHeader,
   ImageCarousel,
-  QuantityAdjust
+  QuantityAdjust,
+  Specifications
 } from '~/components';
 import invariant from 'tiny-invariant';
 import clsx from 'clsx';
 import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 import ProductHeaderStyles from '~/components/ProductHeader/ProductHeader.css';
 import ImageCarouselStyles from '~/components/ImageCarousel/ImageCarousel.css';
+import SpecificationStyles from '~/components/Specifications/Specifications.css';
 
 export const links = () => {
   return [
     {rel: 'stylesheet', href: ProductHeaderStyles},
-    {rel: 'stylesheet', href: ImageCarouselStyles}
+    {rel: 'stylesheet', href: ImageCarouselStyles},
+    {rel: 'stylesheet', href: SpecificationStyles}
   ]
 }
 
@@ -134,7 +137,7 @@ export default function Product() {
   return (
     <>
       <Section className="product-section" padding="x" className="px-0">
-        {/* <ProductHeader title={title} data={parsed_product_details}/> */}
+        <ProductHeader title={title} data={parsed_product_details.productHeader}/>
         <div className="grid items-start md:gap-6 lg:gap-10 md:grid-cols-2 lg:grid-cols-2">
           <ImageCarousel data={media.nodes} className="w-screen md:w-full lg:col-span-1" />
           <div className="sticky md:-mb-nav md:top-nav md:-translate-y-nav md:h-screen md:pt-nav hiddenScroll md:overflow-y-scroll">
@@ -162,6 +165,8 @@ export default function Product() {
             </section>
           </div>
         </div>
+        <ImageCarousel boxContents={parsed_product_details.boxContents[0]} className="w-screen md:w-full lg:col-span-1" />
+        <Specifications data={parsed_product_details.Specifications} />
       </Section>
       <Suspense fallback={<Skeleton className="h-32" />}>
         <Await

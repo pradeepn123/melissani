@@ -1,0 +1,88 @@
+/* Begin: Specifications */
+.specifications-section {
+    padding: 2em 0;
+}
+
+.specification-heading {
+    font-family: 'Peachi-Bold';
+    font-size: 52px;
+    line-height: 77px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+    padding-bottom: 0.5em;
+}
+
+.specification-content {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5em;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 2em 0;
+}
+
+.specification-text {
+    display: flex;
+    flex-direction: column;
+    column-gap: 4em;
+}
+
+.specification-text .spec-wrap {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
+
+.specification-text .spec-title {
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+}
+
+.specification-text .spec-description {
+    font-family: 'Montserrat';
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+}
+
+/* End: Specifications */
+
+/* Begin: Media Query */
+@media screen and (max-width: 540px) {
+    .specifications-section {
+        padding: 2em;
+    }
+    .specification-heading {
+        font-size: 39px;
+        line-height: 57.6px;
+    }
+
+    .specification-content {
+        flex-direction: column;
+    }
+
+    .specification-text .spec-title {
+        font-size: 12px;
+        line-height: 16.39px;
+    }
+
+    .specification-text .spec-description {
+        font-size: 18px;
+        line-height: 24.59px;
+    }
+    .column-three .spec-wrap:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+/* End: Media Query */
