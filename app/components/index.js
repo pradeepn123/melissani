@@ -51,5 +51,7 @@ export { ProductForm } from './ProductDescription/ProductForm';
 export { ProductDescription } from './ProductDescription/ProductDescription';
 export { ProductOptions } from './ProductDescription/ProductOptions';
 export { ProductOptionLink } from './ProductDescription/ProductOptionLink';
+export { FooterContact } from './FooterContact/FooterContact';
+
 // Sue me
 export * from './Icon';

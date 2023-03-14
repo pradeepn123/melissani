@@ -27,7 +27,6 @@ export function Contact({data}) {
 
     function submitForm(event) {
         event.preventDefault();
-        console.log("selected fields>", inputField)
     }
     return (
         <section className='contact-section h-full'>

@@ -16,7 +16,7 @@ export function About({data}) {
                     </div>
                 ))}
             </div>
-        </section>       
+        </section>
       </>
     );
 }
