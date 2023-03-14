@@ -34,12 +34,14 @@ import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 import ProductHeaderStyles from '~/components/ProductHeader/ProductHeader.css';
 import ImageCarouselStyles from '~/components/ImageCarousel/ImageCarousel.css';
 import SpecificationStyles from '~/components/Specifications/Specifications.css';
+import ProductHandleStyles from '../../../styles/productHandle.css';
 
 export const links = () => {
   return [
     {rel: 'stylesheet', href: ProductHeaderStyles},
     {rel: 'stylesheet', href: ImageCarouselStyles},
-    {rel: 'stylesheet', href: SpecificationStyles}
+    {rel: 'stylesheet', href: SpecificationStyles},
+    {rel: 'styleSheet', href: ProductHandleStyles}
   ]
 }
 
@@ -137,11 +139,10 @@ export default function Product() {
   return (
     <>
       <Section className="product-section" padding="x" className="px-0">
-        <ProductHeader title={title} data={parsed_product_details.productHeader}/>
-        <div className="grid items-start md:gap-6 lg:gap-10 md:grid-cols-2 lg:grid-cols-2">
-          <ImageCarousel data={media.nodes} className="w-screen md:w-full lg:col-span-1" />
-          <div className="sticky md:-mb-nav md:top-nav md:-translate-y-nav md:h-screen md:pt-nav hiddenScroll md:overflow-y-scroll">
-            <section className="flex flex-col w-full max-w-xl gap-8 p-6 md:mx-auto md:max-w-sm md:px-0">
+      {parsed_product_details?.productHeader && <ProductHeader title={title} data={parsed_product_details.productHeader}/>}
+        <div className="product-content">
+          <ImageCarousel data={media.nodes} className="w-screen md:w-full lg:col-span-1 product-image-carousel" />
+          <div className="product-content-description">
               <div className="product-form-wrapper">
                 <div className="grid gap-2">
                   <Heading as="h1" className="whitespace-normal product-title font-secondary">
@@ -157,18 +158,17 @@ export default function Product() {
                 </div>
                 <ProductForm />
                 <div className="grid gap-4 py-4">
-                  {parsed_product_details.productDescription && (
+                  {parsed_product_details?.productDescription && (
                     <div className="desc-list" dangerouslySetInnerHTML={{ __html: parsed_product_details.productDescription}}></div>
                   )}
                 </div>
               </div>
-            </section>
           </div>
         </div>
-        <ImageCarousel boxContents={parsed_product_details.boxContents[0]} className="w-screen md:w-full lg:col-span-1" />
-        <Specifications data={parsed_product_details.Specifications} />
+        {parsed_product_details?.boxContents && <ImageCarousel boxContents={parsed_product_details.boxContents[0]} className="w-screen md:w-full lg:col-span-1 box-content-image-carousel" />}
+        {parsed_product_details?.Specifications && <Specifications data={parsed_product_details.Specifications} />}
       </Section>
-      <Suspense fallback={<Skeleton className="h-32" />}>
+      {/* <Suspense fallback={<Skeleton className="h-32" />}>
         <Await
           errorElement="There was a problem loading related products"
           resolve={recommended}
@@ -177,7 +177,7 @@ export default function Product() {
             <ProductSwimlane title="Related Products" products={products} />
           )}
         </Await>
-      </Suspense>
+      </Suspense> */}
     </>
   );
 }
@@ -248,7 +248,7 @@ export function ProductForm() {
         {selectedVariant && (
           <div className="grid gap-4 add-to-cart-wrapper">
             <QuantityAdjust quantity={quantity} setQuantity={setQuantity} />
-            <AddToCartButton
+            <AddToCartButton className="cart-btn"
               lines={[
                 {
                   merchandiseId: selectedVariant.id,

@@ -1,6 +1,6 @@
 /* Begin: Specifications */
 .specifications-section {
-    padding: 2em 0;
+    padding: 2em 4.5em;
 }
 
 .specification-heading {
@@ -16,7 +16,7 @@
 .specification-content {
     display: flex;
     flex-direction: row;
-    column-gap: 5em;
+    column-gap: 98px;
     border-top: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
     padding: 2em 0;
@@ -32,11 +32,11 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 }
 
 .specification-text .spec-title {
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     font-weight: 300;
     line-height: 22px;
@@ -46,7 +46,7 @@
 }
 
 .specification-text .spec-description {
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-size: 24px;
     font-weight: 500;
     line-height: 33px;

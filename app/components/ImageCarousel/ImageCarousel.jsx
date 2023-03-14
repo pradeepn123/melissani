@@ -1,9 +1,6 @@
 import Flickity from 'react-flickity-component'
 
 export function ImageCarousel({ data, className, boxContents }) {
-    console.log("img car..", boxContents)
-    // const boxContent = boxContents[0];
-    // console.log("boxContents..", boxContent)
 
     return (
         <>
@@ -27,9 +24,9 @@ export function ImageCarousel({ data, className, boxContents }) {
 
                     <Flickity
                         className="box-content-flickity"
-                        pageDots="true"
                         prevNextButtons="false"
                         groupCells="100%"
+                        fade="true"
                         >
                         {boxContents.content.map((contentItem, contentIndex) =>
                             <div className="slider" key={contentIndex}>
@@ -44,6 +41,7 @@ export function ImageCarousel({ data, className, boxContents }) {
                 <Flickity
                     pageDots="true"
                     prevNextButtons="true"
+                    fade
                     >
                     {data && data.map((item, index) =>
                         <div className="slider" key={index}>

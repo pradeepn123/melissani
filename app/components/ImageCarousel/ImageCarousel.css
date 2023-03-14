@@ -1,8 +1,16 @@
 .image-carousel {
     border: 1px solid #DDDDDD;
-    width: 100%;
 }
-
+.product-image-carousel {
+    width: 57% !important;
+} 
+.box-content-image-carousel {
+    width: 100% !important;
+    border: none;
+}
+.product-image-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider img {
+    transform: scale(0.85);
+}
 /* Begin: Flickity */
 .flickity-enabled {
     outline: none;
@@ -99,7 +107,7 @@
 }
 
 .content-text {
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     font-weight: 500;
     line-height: 27px;
@@ -209,6 +217,9 @@
     .content-text {
         font-size: 16px;
         line-height: 22px;
+    }
+    .product-image-carousel {
+        width: 100% !important;
     }
 }
 
