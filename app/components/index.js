@@ -47,6 +47,9 @@ export { ImageWithBlockOverlay } from './ImageWithBlockOverlay/ImageWithBlockOve
 export { FilterClubSupportInfo } from './FilterClubSupportInfo/FilterClubSupportInfo';
 export { TextWithButton } from './TextWithButton/TextWithButton';
 export { Specifications } from './Specifications/Specifications';
-
+export { ProductForm } from './ProductDescription/ProductForm';
+export { ProductDescription } from './ProductDescription/ProductDescription';
+export { ProductOptions } from './ProductDescription/ProductOptions';
+export { ProductOptionLink } from './ProductDescription/ProductOptionLink';
 // Sue me
 export * from './Icon';

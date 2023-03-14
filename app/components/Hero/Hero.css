@@ -65,12 +65,6 @@
 .shop-btn:hover {
     color: #1B2943;
     background-color: white;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 15px;
-    padding: 16px 28px;
-    letter-spacing: 0em;
-    text-align: left;
 }
 
 
@@ -85,7 +79,6 @@
 
 .club-btn:hover {
     background-color: #1B2943;
-    border: #1B2943;
     color: #ffff;
 }
 
@@ -290,6 +283,7 @@
     }
 
     .shop-btn,
+    .club-btn,
     .hero-shop-btn,
     .learn-more-btn {
         font-size: 11px;
@@ -381,6 +375,7 @@
     }
 
     .shop-btn,
+    .club-btn,
     .hero-shop-btn,
     .learn-more-btn {
         font-size: 17px;
