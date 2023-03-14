@@ -10,7 +10,8 @@ import {
   Section,
   ImageCarousel,
   Specifications,
-  ProductDescription
+  ProductDescription,
+  ProductHeader
 } from '~/components';
 import invariant from 'tiny-invariant';
 import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
