@@ -145,7 +145,7 @@ export default function Product() {
           <div className="product-content-description">
               <div className="product-form-wrapper">
                 <div className="grid gap-2">
-                  <Heading as="h1" className="whitespace-normal product-title font-secondary">
+                  <Heading as="h1" className="whitespace-normal product-title">
                     {title}
                   </Heading>
                   {selectedVariant && <div className="product-price font-tertiary">

@@ -1,24 +1,3 @@
-
-@font-face {
-  font-family: 'Peachi-Bold';
-  font-display: swap;
-  font-weight: 700;
-  src: url('https://cdn.shopify.com/s/files/1/0684/3023/3888/files/Peachi-Bold.otf?v=1677652635') format('opentype');
-}
-
-@font-face {
-  font-family: 'Peachi-Light';
-  font-display: swap;
-  font-weight: 400;
-  font-style: italic;
-  src: url('https://cdn.shopify.com/s/files/1/0684/3023/3888/files/Peachi-Light.otf?v=1677652631') format('opentype') ;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto:wght@300;400;500;700;900&display=swap') ;
-}
-
 /* Begin: Common Styles */
 body {
   letter-spacing: 0.5px;
