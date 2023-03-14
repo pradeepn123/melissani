@@ -45,5 +45,7 @@ export { QuantityAdjust } from './QuantityAdjust';
 export { ImageWithBlockOverlay } from './ImageWithBlockOverlay/ImageWithBlockOverlay';
 export { FilterClubSupportInfo } from './FilterClubSupportInfo/FilterClubSupportInfo';
 export { TextWithButton } from './TextWithButton/TextWithButton';
+export { Specifications } from './Specifications/Specifications';
+
 // Sue me
 export * from './Icon';
