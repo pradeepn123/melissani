@@ -42,6 +42,7 @@ export { Filter } from './Filter/Filter';
 export { ProductHeader } from './ProductHeader/ProductHeader';
 export { ImageCarousel } from './ImageCarousel/ImageCarousel';
 export { QuantityAdjust } from './QuantityAdjust';
+export { StickyBarBottom } from './StickyBarBottom';
 export { ImageWithBlockOverlay } from './ImageWithBlockOverlay/ImageWithBlockOverlay';
 export { FilterClubSupportInfo } from './FilterClubSupportInfo/FilterClubSupportInfo';
 export { TextWithButton } from './TextWithButton/TextWithButton';

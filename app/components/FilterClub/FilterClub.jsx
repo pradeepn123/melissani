@@ -3,15 +3,16 @@ import {
     ImageWithBlockOverlay,
     ImageWithText,
     FilterClubSupportInfo,
-    TextWithButton
+    TextWithButton,
+    StickyBarBottom
 } from '~/components';
 import { FaqAccordion } from '../Faq/FaqAccordion';
   
-  export function FilterClub({hero, filterclub, supportinfo, textwithbutton, data, temperature}) {
+  export function FilterClub({hero, filterclub, supportinfo, textwithbutton, stickybarbottom, data, temperature}) {
       return (
         <>
             {hero && (
-                <Hero data={hero} height="full" top loading="eager" />
+                <Hero data={hero} height="full" id="filter_membership_sticky" top loading="eager" />
             )}
             
             {filterclub && (
@@ -38,6 +39,11 @@ import { FaqAccordion } from '../Faq/FaqAccordion';
                     </div>
                 </>
             ))}
+                        
+            {stickybarbottom && ( 
+                <StickyBarBottom stickybarbottom={stickybarbottom}/>
+            )}
+            
         </>
       )
   }

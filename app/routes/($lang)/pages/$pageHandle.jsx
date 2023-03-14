@@ -143,6 +143,12 @@ export async function loader({request, params, context}) {
     }
   })
 
+  const sticky_bar_bottom = (page.handle == 'melissani-club') && page.metafields.find(item => {
+    if(item !== null){
+      return item.key == "sticky_bar_bottom"
+    }
+  })
+
   return json(
     {
       page, 
@@ -159,7 +165,8 @@ export async function loader({request, params, context}) {
       filter_changes,
       filterclub,
       supportinfo,
-      textwithbutton
+      textwithbutton,
+      sticky_bar_bottom
     },
     {
       headers: {
@@ -186,11 +193,12 @@ export default function Page() {
     filterclub,
     supportinfo,
     textwithbutton,
+    sticky_bar_bottom,
   } = useLoaderData();
 
   let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, 
     parsed_about, parsed_carousel, parsed_contact_form, parsed_product_registration_form, parsed_filter_changes, 
-    parsed_filterclub, parsed_filterclubsupportinfo, parsed_textwithbutton;
+    parsed_filterclub, parsed_filterclubsupportinfo, parsed_textwithbutton, parsed_sticky_bar_bottom;
   
   if(faq) {
     parsed_faq = JSON.parse(faq?.value);
@@ -214,6 +222,10 @@ export default function Page() {
 
   if(hero) {
     parsed_hero = JSON.parse(hero?.value);
+  }
+  
+  if(sticky_bar_bottom) {
+    parsed_sticky_bar_bottom = JSON.parse(sticky_bar_bottom?.value);
   }
 
   if(installation) {
@@ -253,7 +265,7 @@ export default function Page() {
       {page.handle == 'faq' && (<Faq data={parsed_faq} />)}
       {page.handle == 'about-us' && (<About data={parsed_about} />)}
       {page.handle == 'melissani-club' && (<FilterClub hero={parsed_hero} data={parsed_faq} supportinfo={parsed_filterclubsupportinfo} 
-      filterclub={parsed_filterclub}  temperature={parsed_temperature} textwithbutton={parsed_textwithbutton} />)}
+      filterclub={parsed_filterclub}  temperature={parsed_temperature} textwithbutton={parsed_textwithbutton} stickybarbottom={parsed_sticky_bar_bottom} />)}
       {page.handle == 'purifier' && (
         <Purifier installation={parsed_installation} hero={parsed_hero} temperature={parsed_temperature} volume={parsed_volume} video_section={parsed_video_section}/>
       )}
@@ -293,7 +305,8 @@ const PAGE_QUERY = `#graphql
           { namespace: "product_registration", key: "product_registration_form" },
           { namespace: "filterclub", key: "image_with_block_overlay" },
           { namespace: "filterclub", key: "filter_club_support_info" },
-          { namespace: "filterclub", key: "text_with_button" }
+          { namespace: "filterclub", key: "text_with_button" },
+          { namespace: "global", key: "sticky_bar_bottom" }
         ]
       ) {
         value

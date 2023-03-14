@@ -24,7 +24,7 @@
 
 @media(min-width:1200px){
     .text_with_button_info .text_with_button_info_inner{
-        padding: 8em 2em;
+        padding: 8em 6em;
     }
     .text_with_button_info .text_with_button_info_inner h2{
         font-size: 48px;

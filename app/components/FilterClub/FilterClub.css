@@ -27,6 +27,7 @@
 .filter_club_faq [data-testid="flowbite-accordion"] .custom_content{
     padding-left: 0;
     padding-right: 0;
+    padding-bottom: 10px;
 }
 .filter_club_faq svg[data-testid="flowbite-accordion-arrow"] {
     border-radius: 50%;
@@ -46,11 +47,11 @@
     width: 100px;
 }
 .filter_club_faq .accordion_heading h2{
-    font-family: 'Avenir';
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
 }
 .filter_club_faq .custom_content p{
-    font-family: 'Avenir';
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
 .filter_club_faq{
