@@ -2,7 +2,7 @@ export function TextWithButton({textwithbutton}) {
     return (
         <section>
             <div className="text_with_button_info">
-                <div className="container mx-auto">
+                <div className="mx-auto">
                     <div className="text_with_button_info_inner">
                         <h2>{textwithbutton.heading}</h2>
                         <h3>{textwithbutton.subheading}</h3>

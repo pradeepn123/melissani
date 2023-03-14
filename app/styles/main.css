@@ -231,3 +231,26 @@ font-family: 'Peachi-Light';
 }
 
 /* End: Media Query */
+
+/* Sticky bar css here */
+.stickybar_main_section{
+    position: fixed;
+    bottom: 0;
+    background: #fff;    
+    width: 100%;
+    z-index: 99;
+    padding: 1em 0;
+}
+.stickybar_main_section .stickybar_main_section_inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.stickybar_main_section .stickybar_main_section_inner .sticky_image_wrapper{
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+}
+.stickybar_main_section .stickybar_main_section_inner .sticky_image_wrapper img{
+    width: 80px;
+}
