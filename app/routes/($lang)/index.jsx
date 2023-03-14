@@ -10,7 +10,8 @@ import {
   VideoPlayer,
   ImageCenterWithText,
   SecondaryHero,
-  VolumeControlProperty
+  VolumeControlProperty,
+  FooterContact
 }from '~/components';
 import { PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
 import { getHeroPlaceholder } from '~/lib/placeholders';
@@ -24,6 +25,7 @@ import HeroStyles from '~/components/Hero/Hero.css';
 import VolumeControlPropertyStyles from '~/components/VolumeControlProperty/VolumeControlProperty.css';
 import ImageCenterWithTextStyles from '~/components/ImageCenterWithText/ImageCenterWithText.css';
 import SecondaryHeroStyles from '~/components/SecondaryHero/SecondaryHero.css';
+import FooterContactStyles from '~/components/FooterContact/FooterContact.css';
 
 export const links = () => {
   return [
@@ -35,7 +37,8 @@ export const links = () => {
     {rel: 'stylesheet', href: HeroStyles},
     {rel: 'stylesheet', href: VolumeControlPropertyStyles},
     {rel: 'stylesheet', href: ImageCenterWithTextStyles},
-    {rel: 'stylesheet', href: SecondaryHeroStyles}
+    {rel: 'stylesheet', href: SecondaryHeroStyles},
+    {rel: 'stylesheet', href: FooterContactStyles}
   ]
 }
 export async function loader({ params, context }) {
@@ -102,6 +105,10 @@ export async function loader({ params, context }) {
     return item.key == "footer_banner"
   })
 
+  const footerContact = page.metafields.find(item => {
+    return item.key == "footer_contact"
+  })
+
   let featuredProductsHandles = page.metafields.find(item => {
     return item.key == "featured_products_handle"
   })
@@ -126,6 +133,7 @@ export async function loader({ params, context }) {
     reviews: JSON.parse(reviews?.value),
     learnMore: JSON.parse(learnMore?.value),
     footerBanner: JSON.parse(footerBanner?.value),
+    footerContact: JSON.parse(footerContact?.value),
     featuredProducts: featuredProducts,
     // These different queries are separated to illustrate how 3rd party content
     // fetching can be optimized for both above and below the fold.
@@ -149,7 +157,8 @@ export default function Homepage() {
     volume,
     reviews,
     learnMore,
-    footerBanner
+    footerBanner,
+    footerContact
   } = useLoaderData();
 
   // TODO: skeletons vs placeholders
@@ -206,6 +215,8 @@ export default function Homepage() {
       {/* {learnMore && ( <ImageWithText learnMore={learnMore} className="flex md:flex-row"/>)} */}
 
       {/* {footerBanner && (<SecondaryHero data={footerBanner} />)} */}
+
+      {footerContact && (<FooterContact data={footerContact} />)}
       
     </>
   );
@@ -229,7 +240,8 @@ const PAGE_QUERY = `#graphql
           { namespace: "home", key: "reviews" }
           { namespace: "home", key: "learn_more" }
           { namespace: "home", key: "footer_banner" }
-          { namespace: "home", key: "featured_products_handle" }
+          { namespace: "home", key: "featured_products_handle" },
+          { namespace: "global", key: "footer_contact" }
         ]
       ) {
         value

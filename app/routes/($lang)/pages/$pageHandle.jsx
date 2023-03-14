@@ -1,7 +1,7 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
-import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration, Filter} from '~/components';
+import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration, Filter, FooterContact} from '~/components';
 import FaqStyles from '~/components/Faq/Faq.css';
 import AboutUsStyles from '~/components/About/About.css';
 import FilterClubStyles from '~/components/FilterClub/FilterClub.css';
@@ -16,6 +16,7 @@ import VideoPlayerStyles from '~/components/VideoPlayer/VideoPlayer.css';
 import ContactStyles from '~/components/Contact/Contact.css';
 import ProductRegistrationStyles from '~/components/ProductRegistration/ProductRegistration.css';
 import CarouselStyles from '~/components/Carousel/Carousel.css';
+import FooterContactStyles from '~/components/FooterContact/FooterContact.css';
 
 export const links = () => {
   return [
@@ -32,7 +33,8 @@ export const links = () => {
     {rel: 'stylesheet', href: FilterClubStyles},
     {rel: 'stylesheet', href: ContactStyles},
     {rel: 'stylesheet', href: ProductRegistrationStyles},
-    {rel: 'stylesheet', href: CarouselStyles}
+    {rel: 'stylesheet', href: CarouselStyles},
+    {rel: 'stylesheet', href: FooterContactStyles}
   ]
 }
 
@@ -149,6 +151,12 @@ export async function loader({request, params, context}) {
     }
   })
 
+  const footer_contact = (page.handle == 'about-us' || page.handle == 'faq') && page.metafields.find(item => {
+    if(item !== null) {
+      return item.key == "footer_contact"
+    }
+  })
+
   return json(
     {
       page, 
@@ -166,7 +174,8 @@ export async function loader({request, params, context}) {
       filterclub,
       supportinfo,
       textwithbutton,
-      sticky_bar_bottom
+      sticky_bar_bottom,
+      footer_contact
     },
     {
       headers: {
@@ -194,11 +203,12 @@ export default function Page() {
     supportinfo,
     textwithbutton,
     sticky_bar_bottom,
+    footer_contact
   } = useLoaderData();
 
   let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, 
     parsed_about, parsed_carousel, parsed_contact_form, parsed_product_registration_form, parsed_filter_changes, 
-    parsed_filterclub, parsed_filterclubsupportinfo, parsed_textwithbutton, parsed_sticky_bar_bottom;
+    parsed_filterclub, parsed_filterclubsupportinfo, parsed_textwithbutton, parsed_sticky_bar_bottom, parsed_footer_contact;
   
   if(faq) {
     parsed_faq = JSON.parse(faq?.value);
@@ -260,10 +270,18 @@ export default function Page() {
     parsed_filter_changes = JSON.parse(filter_changes?.value);
   }
 
+  if(footer_contact) {
+    parsed_footer_contact = JSON.parse(footer_contact?.value);
+  }
+
   return (
     <>
-      {page.handle == 'faq' && (<Faq data={parsed_faq} />)}
-      {page.handle == 'about-us' && (<About data={parsed_about} />)}
+      {page.handle == 'faq' && (<>
+        <Faq data={parsed_faq} /><FooterContact data={parsed_footer_contact} />
+      </>)}
+      {page.handle == 'about-us' && (<>
+        <About data={parsed_about} /><FooterContact data={parsed_footer_contact} />
+      </>)}
       {page.handle == 'melissani-club' && (<FilterClub hero={parsed_hero} data={parsed_faq} supportinfo={parsed_filterclubsupportinfo} 
       filterclub={parsed_filterclub}  temperature={parsed_temperature} textwithbutton={parsed_textwithbutton} stickybarbottom={parsed_sticky_bar_bottom} />)}
       {page.handle == 'purifier' && (
@@ -307,6 +325,7 @@ const PAGE_QUERY = `#graphql
           { namespace: "filterclub", key: "filter_club_support_info" },
           { namespace: "filterclub", key: "text_with_button" },
           { namespace: "global", key: "sticky_bar_bottom" }
+          { namespace: "global", key: "footer_contact" }
         ]
       ) {
         value

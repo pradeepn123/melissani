@@ -225,26 +225,6 @@ function Footer({menu, metafields}) {
       role="contentinfo"
       className={`footer-wrapper w-full bg-white overflow-hidden`}
     >
-      <div className="footer-image-section w-full pt-8 px-6 lg:pt-16 md:px-8 lg:px-12 md:flex">
-        <div className="footer-text flex item-center flex-col md:w-6/12">
-          <p>
-            {footerMetafields.heading}
-            <span className='footer-subHeading leading-tight font-tertiary'>{footerMetafields.subHeading}</span>
-          </p>
-          <div className="footer-contact-wrapper flex mt-7">
-            {footerMetafields.contact.map((item, index) => (
-              <div key={`footer-${index}`} className="footer-contact-icons mr-7">
-                <a href={item.link}>
-                  <img src={item.icon} />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="footer-image md:w-6/12">
-          <img src={footerMetafields.image} />
-        </div>
-      </div>
       <div className={`bg-white flex md:justify-around text-center flex-col md:flex-row px-9 pt-9 pb-2`}>
         <FooterMenu menu={menu} />
       </div>
