@@ -43,7 +43,7 @@
 .image_with_block_sec_inner .card__header{
     padding: 2em;
 }
-.image_with_block_sec_inner:hover .card_overlay {
+.image_with_block_sec_inner.active .card_overlay {
     transform: translateY(0);
     background-color: #1B2943;
     color: #ffffff;    
@@ -51,7 +51,7 @@
 .right_rotate_arrow_icon{
     transition: .2s ease-in-out;
 }
-.image_with_block_sec_inner:hover .right_rotate_arrow_icon{
+.image_with_block_sec_inner.active .right_rotate_arrow_icon{
     transform: rotate(268deg);
     transition: .2s ease-in-out;
 }

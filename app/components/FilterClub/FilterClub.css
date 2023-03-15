@@ -57,6 +57,16 @@
 .filter_club_faq{
     padding: 2em 1em;
 }
+#filter_membership_hero .hero-text .hero-banner-title{
+    color: #000000;
+}
+#filter_membership_hero .hero-text .hero-banner-subtitle{
+    color: #000000;
+}
+#filter_membership_hero .hero-text img{
+    margin-bottom: 16px;
+}
+
 @media(min-width:768px){
     .filterclub_learnmore_sec .warrentyIcon_section{
         position: absolute;

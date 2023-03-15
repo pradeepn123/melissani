@@ -12,7 +12,7 @@ import { FaqAccordion } from '../Faq/FaqAccordion';
       return (
         <>
             {hero && (
-                <Hero data={hero} height="full" id="filter_membership_sticky" top loading="eager" />
+                <Hero data={hero} height="full" id="filter_membership_hero" top loading="eager" />
             )}
             
             {filterclub && (
@@ -39,7 +39,7 @@ import { FaqAccordion } from '../Faq/FaqAccordion';
                     </div>
                 </>
             ))}
-                        
+
             {stickybarbottom && ( 
                 <StickyBarBottom stickybarbottom={stickybarbottom}/>
             )}
