@@ -93,7 +93,51 @@ font-family: 'Peachi-Light';
   top: 32%;
 }
 /* End: Menu Cart Drawer Section */
+
+/* Sticky bar css here */
+.stickybar_main_section{
+    position: fixed;
+    bottom: 0;
+    background: #fff;    
+    width: 100%;
+    z-index: 9;
+    padding: 1em;
+    border: 1px solid #E8E8E8;
+}
+.stickybar_main_section .stickybar_main_section_inner{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.stickybar_main_section .stickybar_main_section_inner .sticky_image_wrapper{
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+}
+.stickybar_main_section .stickybar_main_section_inner .sticky_image_wrapper h2{
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 700;
+}
+.stickybar_main_section .stickybar_main_section_inner .sticky_image_wrapper img{
+    width: 80px;
+}
+.stickybar_main_section .stickybar_main_section_inner .sticky_button{
+    width: 100%;
+}
+.stickybar_main_section .stickybar_main_section_inner .sticky_button button{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+}
+/* End: Sticky bar css here */
+
 /* End: Common Styles */
+
 
 /* Begin: Media Query */
 @media screen and (max-width:640px) {
@@ -112,15 +156,22 @@ font-family: 'Peachi-Light';
 }
 
 @media screen and (min-width: 1200px) {
-  .footer-wrapper .footer-text p {
-    font-size: 52px;
-    line-height: 56px;
-  }
-
-  .footer-wrapper .footer-text p span {
-    padding-top: 20px;
-    font-size: 32px;
-  }
+    .footer-wrapper .footer-text p {
+        font-size: 52px;
+        line-height: 56px;
+    }
+    .footer-wrapper .footer-text p span {
+        padding-top: 20px;
+        font-size: 32px;
+    }
+    .stickybar_main_section .stickybar_main_section_inner .sticky_image_wrapper h2{
+        font-size: 32px;
+        line-height: 30px;
+        font-weight: 700;
+    }
+    .stickybar_main_section{
+        padding: 1em 0;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -164,93 +215,83 @@ font-family: 'Peachi-Light';
 }
 
 @media screen and (min-width: 768px) {
-  .forward-nav-icon {
-    opacity: 0;
-    display: inline-block;
-    transform: translateY(25%);
-    margin-left: 2rem;
-    transition: all 0.4s;
-  }
+    .stickybar_main_section .stickybar_main_section_inner .sticky_button{
+        width: inherit;
+    }
+    .stickybar_main_section .stickybar_main_section_inner .sticky_button button{
+        width: inherit;
+    }
+    .stickybar_main_section .stickybar_main_section_inner{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }    
+    .forward-nav-icon {
+        opacity: 0;
+        display: inline-block;
+        transform: translateY(25%);
+        margin-left: 2rem;
+        transition: all 0.4s;
+    }
 
-  .menu-drawer-container {
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-  }
+    .menu-drawer-container {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
 
-  .footer-social-media {
-    position: absolute;
-    bottom: 5%;
-    padding-left: 3rem;
-  }
+    .footer-social-media {
+        position: absolute;
+        bottom: 5%;
+        padding-left: 3rem;
+    }
 
-  .menu-drawer-cart {
-    width: unset;
-    height: unset;
-    top: 32%;
-    margin-right: 0.75rem;
-  }
+    .menu-drawer-cart {
+        width: unset;
+        height: unset;
+        top: 32%;
+        margin-right: 0.75rem;
+    }
 
-  .menu-drawer-account {
-    margin: 1rem;
-  }
-  .forward-nav-icon {
-    opacity: 0;
-    display: inline-block;
-    transform: translateY(25%);
-    margin-left: 2rem;
-    transition: all 0.4s;
-  }
-  .test {
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-  }
+    .menu-drawer-account {
+        margin: 1rem;
+    }
+    .forward-nav-icon {
+        opacity: 0;
+        display: inline-block;
+        transform: translateY(25%);
+        margin-left: 2rem;
+        transition: all 0.4s;
+    }
+    .test {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
 
-  .footer-social-media {
-    position: absolute;
-    bottom: 5%;
-    padding-left: 3rem;
-  }
+    .footer-social-media {
+        position: absolute;
+        bottom: 5%;
+        padding-left: 3rem;
+    }
 
-  .footer-wrapper .footer-text p {
-    font-size: 34px;
-    line-height: 44px;
-    letter-spacing: 0em;
-  }
+    .footer-wrapper .footer-text p {
+        font-size: 34px;
+        line-height: 44px;
+        letter-spacing: 0em;
+    }
 
   .footer-wrapper .footer-text p span {
-    font-size: 24px;
-    line-height: 26px;
-    margin-top: 1rem;
+        font-size: 24px;
+        line-height: 26px;
+        margin-top: 1rem;
   }
 }
 
 /* End: Media Query */
 
-/* Sticky bar css here */
-.stickybar_main_section{
-    position: fixed;
-    bottom: 0;
-    background: #fff;    
-    width: 100%;
-    z-index: 99;
-    padding: 1em 0;
-}
-.stickybar_main_section .stickybar_main_section_inner{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.stickybar_main_section .stickybar_main_section_inner .sticky_image_wrapper{
-    display: flex;
-    align-items: center;
-    column-gap: 1em;
-}
-.stickybar_main_section .stickybar_main_section_inner .sticky_image_wrapper img{
-    width: 80px;
-}

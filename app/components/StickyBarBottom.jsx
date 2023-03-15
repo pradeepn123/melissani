@@ -30,7 +30,7 @@ export function StickyBarBottom({stickybarbottom}) {
                 <div className="container mx-auto">
                     <div className="stickybar_main_section_inner">
                         <div className="sticky_image_wrapper">
-                            <img src={stickybarbottom.image} />
+                            <img className='hidden md:block' src={stickybarbottom.image} alt="" />
                             <h2>{stickybarbottom.heading}</h2>
                         </div>
                         <div className="sticky_button">
