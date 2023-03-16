@@ -51,10 +51,48 @@
     padding: 4px;
     border: 1.5px solid #1376BC;
 }
+.tabs_with_icons .accordion_heading h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    flex: 1 0 80%;
+}
+.tabs_with_icons .custom_content p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.tabs_with_icons [data-testid="flowbite-accordion"] button, 
+.tabs_with_icons [data-testid="flowbite-accordion"] .custom_content{
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 10px;
+}
+.tabs_with_icons [data-testid="flowbite-accordion"] button{
+    padding: 18px 0;
+}
+
+.tabs_with_icons svg[data-testid="flowbite-accordion-arrow"] {
+    border-radius: 50%;
+    stroke-width: 0;
+    padding: 4px;
+    flex: 0 0 10%;
+    border: 2px solid #1B2943;
+    height: 100%;
+}
+
 
 /* End: Faq Section */
 
 /* Begin: Media Query */
+@media screen and (min-width:768px) {
+    .tabs_with_icons [data-testid="flowbite-accordion"] button{
+        padding: 22px 0;
+    }
+    .tabs_with_icons svg[data-testid="flowbite-accordion-arrow"] {
+        flex: 0 0 6%;
+    }
+}
 @media screen and (min-width:1200px) {
     .main_content_heading{
         width: 30%;
