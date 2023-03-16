@@ -248,7 +248,6 @@ ul.filter-club-list {
     }
 }
 
-
 @media screen and (max-width: 767px) {
     .gb_bg_color .right_text_block .right_text_heading {
         font-size: 52px;
@@ -340,7 +339,6 @@ ul.filter-club-list {
     }
 }
 
-
 @media (max-width:640px){
     .learn-more{
         flex-direction: column-reverse;
@@ -422,7 +420,6 @@ ul.filter-club-list {
         width: 100%;
     }
 }
-
 
 @media (min-width: 320px) and (max-width: 425px) {
     .filter-club-img {
@@ -565,6 +562,10 @@ ul.filter-club-list {
         flex:1 0 50%;
     }
 
+    .text-section {
+        padding: 3em 1em;
+    }
+
     .contaminants-list{
         font-size: 20px;
         font-weight: 510;
@@ -700,7 +701,7 @@ ul.filter-club-list {
     }
     .filter-club-img {
         width: 50%;
-        padding: 0 0 2em 3em;
+        padding: 5em 0 2em 3em;
     }
     .filter-club-description {
         width: 70%;
@@ -805,7 +806,7 @@ ul.filter-club-list {
     }
     .filter-club-img {
         width: 50%;
-        padding: 0 0 2em 10em;
+        padding: 7em 0 2em 10em;
     }
     .filter-club-section {
         padding: 6em 6em 4em;
@@ -827,14 +828,6 @@ ul.filter-club-list {
     }
     .filter-club-img img {
         padding: 0 0 5em 0em;
-    }
-
-    .filter-club-section {
-        padding: 2em 2em 0em 6em;
-    }
-    
-    .filter-club-section {
-        padding: 2em 2em 0em 6em;
     }
     .text-section-description {
         padding: 0 8em 0 0;

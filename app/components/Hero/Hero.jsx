@@ -22,7 +22,7 @@ export function Hero({ data, id }) {
             </Link>}
             {data?.learnMoreBtnText && <Link
               to={data.learnMoreBtnLink}>
-              <Button variant='inline' className="font-medium mx-10">
+              <Button variant='inline' className="font-medium mx-10 fs-17 hero-learn-more-btn">
                 {data.learnMoreBtnText}
               </Button>
             </Link>}
@@ -47,7 +47,7 @@ export function Hero({ data, id }) {
             {data?.learnMoreBtnText && <>
               <Link
                 to={data.learnMoreBtnLink}>
-                <Button className="font-medium" variant='inline'>
+                <Button className="font-medium fs-17" variant='inline'>
                   {data.learnMoreBtnText}
                 </Button>
               </Link>
