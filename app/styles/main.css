@@ -16,6 +16,30 @@ font-family: 'Peachi-Light';
   font-family: 'Montserrat', sans-serif;
 }
 
+.common-btn-line-height {
+  line-height: 23px;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-800 {
+  font-weight: 800;
+}
+
+.mt-25 {
+  margin-top: 25px;
+}
+
+.fs-17 {
+  font-size: 17px;
+}
+
 /* Begin: Footer Section */
 .footer-wrapper {
   padding: 0;

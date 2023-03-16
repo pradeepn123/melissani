@@ -83,7 +83,7 @@ export function SingleProductCard({
         </div>
       </Link>
       <div className="grid gap-1 product-card">
-        <Text className="flex gap-4 w-full">
+        <Text className="flex gap-4 w-full justify-center items-center">
           <Money withoutTrailingZeros data={price} className="price" />
           {isDiscounted(price, compareAtPrice) && (
             <CompareAtPrice
@@ -104,19 +104,19 @@ export function SingleProductCard({
             ]}
             disabled={!availableForSale ? true : false}
             variant={availableForSale ? "primary" : "secondary"}
-            className="mt-2 add-to-cart-btn w-full uppercase font-bold"
+            className="add-to-cart-btn w-full uppercase font-bold mt-25"
             analytics={{
               products: [productAnalytics],
               totalValue: parseFloat(productAnalytics.price),
             }}
           >
-            <Text as="span" className="flex items-center justify-center gap-2">
-              {availableForSale ? 'Add to Cart' : 'Sold Out'}
+            <Text as="span" className="flex items-center justify-center gap-2 normal-case font-tertiary fw-500">
+              {availableForSale ? 'Buy now' : 'Sold Out'}
             </Text>
           </AddToCartButton>
         )}
         {learnMore && <Link to={`/products/${product.handle}`}>
-            Learn More
+            Learn more
         </Link>}
       </div>
     </div>
@@ -127,12 +127,12 @@ function CompareAtPrice({data, className}) {
   const {currencyNarrowSymbol, withoutTrailingZerosAndCurrency} =
     useMoney(data);
 
-  const styles = clsx('strike', className);
+  const styles = clsx('strike', 'font-tertiary', className);
 
   return (
     <span className={styles}>
-      {currencyNarrowSymbol}
-      {withoutTrailingZerosAndCurrency}
+        {currencyNarrowSymbol}
+        {withoutTrailingZerosAndCurrency}
     </span>
   );
 }

@@ -38,18 +38,17 @@
     padding: 0 5em 0 1em;
 }
 .discover-heading {
-    width: 90%;
-    font-family: 'Peachi-Bold';
     font-size: 52px;
-    font-weight: 700;
     line-height: 70px;
-    letter-spacing: 0em;
+    max-width: 523px;
+    font-family: 'Peachi-Bold';
+    font-weight: 700;
     text-align: left;
     color: #000;
-    
 }
 
 .discover-description {
+    font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 36px;
@@ -75,9 +74,9 @@
     margin: 0 auto;
 }
 .discover-icon-text {
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
-    width: 90%;
-    margin-left: 10px;
+    max-width: 108px;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -94,7 +93,7 @@
     font-family: 'Peachi-Bold';
     font-size: 52px;
     font-weight: 300;
-    line-height: 62px;
+    line-height: 70px;
     letter-spacing: 0em;
     text-align: left;
     color: #000;
@@ -135,14 +134,15 @@ ul.filter-club-list {
 .filter-club-btns {
     display: flex;
     align-items: center;
+    column-gap: 2em;
 }
 
 .filter-club-anouncement {
+    font-family: 'Montserrat', sans-serif;
     padding: 1em;
     background-color: #e1e9eb;
     font-size: 24px;
-    font-weight: 500;
-    line-height: 29px;
+    line-height: 32.78px;
     letter-spacing: 0em;
     text-align: center;
     color: #1b2943;
@@ -199,7 +199,6 @@ ul.filter-club-list {
     text-align: left;
     color: #000;
     padding: 0 3em 0 0;
-    /* width: 82%; */
 }
 .text-section-icons {
     display: grid;
@@ -232,51 +231,50 @@ ul.filter-club-list {
 /* End: Temperature Section */
 
 /* Begin: Media Query */
-@media screen and (max-width: 425px) {
-    .filter-club-img {
-        padding: 5em 0 2em 5em;
-    }
-
-    .filter-club-title {
-        font-style: normal;
-        font-weight: 700;
-        font-size: 28px;
-        line-height: 34px;
-    }
-
-    .filter-club-description {
-        font-style: normal;
-        font-weight: 510;
+@media screen and (max-width: 1024px) {
+    .discover-description {
         font-size: 16px;
-        line-height: 24px;
+        line-height: 32px;
     }
-    .filter-club-list-icon svg {
-        width: 48px;
-        height: 48px;
+    .discover-icons {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-
-    .filter-club-list-text {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 21px;
-        letter-spacing: 0em;
-        text-align: left;
+    .discover-icon-text {
+        width: 100%;
     }
-    .subscribe-btn button, .filter-club-learn-more-btn {
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 19px;
+    .discover-icons .discover-icon img {
+        width: 82px;
+        height: 82px;
     }
 }
 
-@media (max-width: 540px) {
+
+@media screen and (max-width: 767px) {
+    .gb_bg_color .right_text_block .right_text_heading {
+        font-size: 52px;
+        font-weight: 300;
+    }
+
+    .discover-main-section, .text-main-section {
+        display: block;
+    }
+
+    .volume-main-section {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
     .discover-section {
         width: 100%;
-        padding: 0 2em 3em 1em;
+        padding: 3em 1em;
     }
     .discover-heading {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 41px;
+        letter-spacing: 0em;
+        text-align: left;
         width: 100%;
-        padding: 2em 0 0 0;
     }
 
     .discover-description {
@@ -285,21 +283,63 @@ ul.filter-club-list {
     }
 
     .discover-icons {
-        margin-top: 1em 0 0;
         grid-template-columns: 1fr 1fr;
-        grid-row-gap: 1em;
+        grid-row-gap: 2em;
+        display: grid;
+        margin-top: 1em;
+    }
+
+    .discover-icons .discover-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 0.5em;
+    }
+
+    .filter-club-list-icon img {
+        width: 70.29px;
+        height: 70.29px;
     }
 
     .discover-icon-text {
+        font-size: 12px;
+        line-height: 14px;
+        max-width: 90px;
+    }
+
+    .filter-club-section {
+        width: 100%;
+        padding: 1em 2em 1em;
+    }
+
+    .filter-club-img {
+        padding: 5em 0 5em 5em;
+    }
+
+    .filter-club-btns {
+        display: flex;
+        column-gap: 0;
+        flex-direction: row;
+        width: 100%;
+        column-gap: 2em;
+    }
+
+    .subscribe-btn button{
+        width: 100%;
+        text-align: center;
+    }
+
+    .filter-club-learn-more-btn {
+        text-align: center;
+    }
+
+    .filter-club-anouncement {
         font-size: 16px;
         line-height: 24px;
-        padding-left: 1em;
-        padding-right: 1em;
-    }
-    .filter-club-description {
-        width: 100%;
     }
 }
+
 
 @media (max-width:640px){
     .learn-more{
@@ -334,96 +374,86 @@ ul.filter-club-list {
     }
 }
 
-@media screen and (max-width: 767px) {
-    .gb_bg_color .right_text_block .right_text_heading {
-        font-size: 52px;
-        font-weight: 300;
-    }
-
-    .discover-main-section, .text-main-section {
-        display: block;
-    }
-
-    .volume-main-section {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
+@media (max-width: 540px) {
     .discover-section {
         width: 100%;
-        padding: 0 5em 3em 2em;
+        padding: 3em 1em;
     }
-
-    .discover-icons, .discover-icons .discover-icon:nth-of-type(2) img {
-        margin-top: 0;
-    }
-
-    .discover-icons {
-        margin-top: 1em 0 0;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
-    .discover-icons{
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .discover-icon{
-        flex: 1 1 50%;
-    }
-
-    .filter-club-section {
+    .discover-heading {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 41px;
+        letter-spacing: 0em;
+        text-align: left;
         width: 100%;
-        padding: 1em 2em 1em;
     }
 
-    .filter-club-img {
-        padding: 5em 0 5em 5em;
-    }
-
-    .filter-club-btns {
-        display: flex;
-        column-gap: 0;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        row-gap: 2em;
-    }
-
-    .subscribe-btn button{
-        width: 100%;
-        text-align: center;
-    }
-
-    .filter-club-learn-more-btn {
-        text-align: center;
-    }
-
-    .filter-club-anouncement {
+    .discover-description {
         font-size: 16px;
         line-height: 24px;
     }
-}
 
-@media screen and (max-width: 1024px) {
-    .discover-description {
-        font-size: 16px;
-        line-height: 32px;
-    }
     .discover-icons {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 2em;
+        display: grid;
+        margin-top: 1em;
     }
+
+    .discover-icons .discover-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 0.5em;
+    }
+
+    .filter-club-list-icon img {
+        width: 70.29px;
+        height: 70.29px;
+    }
+
     .discover-icon-text {
         font-size: 12px;
-        line-height: 18px;
-        margin-left: 2px;
-        width: 100%;
-    }
-    .discover-icons .discover-icon img {
-        width: 82px;
-        height: 82px;
+        line-height: 14px;
     }
 
+    .filter-club-description {
+        width: 100%;
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 425px) {
+    .filter-club-img {
+        padding: 5em 0 2em 5em;
+    }
+
+    .filter-club-title {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 41.28px;
+    }
+
+    .filter-club-description {
+        font-style: normal;
+        font-weight: 510;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .filter-club-list-icon img {
+        width: 37px;
+        height: 37px;
+    }
+
+    .filter-club-list-text {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
 }
 
 @media screen and (min-width: 320px) {
@@ -448,16 +478,6 @@ ul.filter-club-list {
 
     .learn-more-btn {
         font-size: 14px;
-    }
-
-    .discover-heading{
-        font-size: 24px;
-        line-height: 2.5rem;
-        max-width: 12rem;
-    }
-
-    .discover-section {
-        padding: 0 16px 3em 16px;
     }
     
     .text-section {
@@ -496,34 +516,18 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 360px) {
-    .discover-section {
-        padding: 0 1em 3em;
-    }
-    .discover-icon-text {
-        padding-left: 1em;
-        padding-right: 2em;
-        margin-left: 10px;
-    }
     .learn-more-btn {
         font-size: 16px;
     }
 }
 
 @media screen and (min-width: 375px) {
-    .discover-icon-text {
-        padding-left: 1em;
-        padding-right: 3em;
-        margin-left: 17px;
-    }
     .learn-more-btn {
         font-size: 17px;
     }
 }
 
 @media screen and (min-width: 390px) {
-    .discover-section {
-        padding: 0 1em 3em 1em;
-    }
     .learn-more-btn {
         font-size: 18px;
     }
@@ -545,23 +549,8 @@ ul.filter-club-list {
         font-size: 14px;
     }
 
-    .discover-icon-text {
-        padding-left: 1em;
-        padding-right: 4em;
-        margin-left: 28px;
-    }
     .learn-more-btn {
         font-size: 19px;
-    }
-
-    .discover-heading{
-        font-size: 30px;
-        line-height: 2.75rem;
-        max-width: 18rem;
-    }
-
-    .discover-section{
-        padding: 0 2em 3em;
     }
 }
 
@@ -585,8 +574,14 @@ ul.filter-club-list {
     }
 
     .discover-section {
-        padding: 10px 26px 14px 8px;
+        padding: 0 1em;
     }
+
+    .discover-heading {
+        font-size: 42px;
+        line-height: 60px;
+    }
+
     .discover-description {
         font-size: 14px;
         line-height: 20px;
@@ -605,18 +600,16 @@ ul.filter-club-list {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        text-align: center;
     }
-    .discover-icon:nth-of-type(3) {
-        margin-top: -12px;
-    }
+
     .discover-icons .discover-icon img {
         width: 72px;
         height: 72px;
     }
     .discover-icon-text {
-        padding-left: 1em;
-        padding-right: 3em;
-        margin-left: 10px;
         font-size: 8px;
         line-height: 12px;
         width: 100%;
@@ -648,11 +641,6 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 820px) {
-    .discover-section {
-        padding: 0px 12em 1em 12px;
-        /* padding: 0 2em 1em 0; */
-    }
-
     .discover-description {
         font-size: 12px;
         line-height: 22px;
@@ -661,7 +649,7 @@ ul.filter-club-list {
         margin-top: 0;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-column-gap: 0;
+        grid-column-gap: 1em;
         padding: 0;
         margin-left: -1em;
         justify-content: center;
@@ -674,27 +662,17 @@ ul.filter-club-list {
         margin: 0 auto;
     }
     .discover-icon-text {
-        padding-left: 1em;
-        padding-right: 3em;
-        margin-left: 12px;
         font-size: 10px;
         line-height: 14px;
         width: 100%;
     }
-    .discover-icons .discover-icon:nth-of-type(2) img {
-        padding: 0;
-    }
-    .discover-icons .discover-icon:nth-of-type(3) img {
-        margin-top: 0;
-        padding: 0;
-    }
 }
 
 @media screen and (min-width: 912px) {
-    .discover-icons .discover-icon:nth-of-type(2) img,
-    .discover-icons .discover-icon:nth-of-type(3) img {
-        margin-top: 12px;
-        padding: 0;
+    .discover-icons .discover-icon img {
+        width: 84px;
+        height: 84px;
+        margin: 0 auto;
     }
 }
 
@@ -704,27 +682,17 @@ ul.filter-club-list {
     }
 
     .discover-section {
-        padding: 0 7em 0em 6px;
+        padding: 0 6em 0em 6px;
     }
 
     .discover-icon-text {
-        font-size: 9px;
-    }
-    .discover-heading{
-        font-size: 40px;
-        font-weight: 700;
-        line-height: 56px;
+        font-size: 12px;
+        line-height: 20px;
     }
 
     .discover-description {
         font-size: 16px;
         line-height: 24px;
-    }
-    .discover-icons .discover-icon:nth-of-type(2) img {
-        margin-top: 0;
-    }
-    .discover-icons .discover-icon:nth-of-type(3) img {
-        margin-top: 12px;
     }
     .filter-club-section {
         padding: 6em 0em 4em 3em;
@@ -732,7 +700,7 @@ ul.filter-club-list {
     }
     .filter-club-img {
         width: 50%;
-        padding: 5em 0 2em 3em;
+        padding: 0 0 2em 3em;
     }
     .filter-club-description {
         width: 70%;
@@ -774,39 +742,29 @@ ul.filter-club-list {
 
 @media screen and (min-width: 1280px) {
     .discover-heading {
-        font-size: 47px;
-        line-height: 58px;
+        font-size: 52px;
+        line-height: 70px;
+        max-width: 523px;
     }
     .discover-description {
-        font-size: 22px;
-        line-height: 34px;
-    }
-    
-    .discover-icons {
-        margin-top: -10px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-column-gap: 0;
-        padding: 0;
-        margin-left: -1em;
-        justify-content: center;
-    }
-    .discover-icons .discover-icon img {
-        width: 92px;
-        height: 92px;
-        margin: 0 auto;
-    }
-    .discover-icon:nth-of-type(3) {
-        margin-top: 0;
-    }
-    .discover-icons .discover-icon:nth-of-type(2) img,
-    .discover-icons .discover-icon:nth-of-type(3) img {
-        padding: 0;
-        margin-top: 0;
+        font-size: 20px;
+        line-height: 36px;
     }
     .discover-icon-text {
-        font-size: 13px;
-        line-height: 15px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .discover-icons {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .discover-icons .discover-icon img {
+        width: 94px;
+        height: 94px;
+        margin: 0 auto;
     }
     .filter-club-section {
         padding: 6em 2em 4em 6em;
@@ -817,7 +775,7 @@ ul.filter-club-list {
     }
     .filter-club-img {
         width: 50%;
-        padding: 5em 0 2em 6em;
+        padding: 0 0 2em 6em;
     }
     .text-section-title {
         font-size: 52px;
@@ -842,22 +800,12 @@ ul.filter-club-list {
 
 @media screen and (min-width: 1440px) {
     .discover-icon-text {
-        font-size: 14px;
+        font-size: 16px;
         line-height: 24px;
-        margin-left: 15px;
-    }
-    .discover-icon-text:nth-of-type(2) {
-        padding-left: 28px
-    }
-    .discover-icons .discover-icon:nth-of-type(2) img {
-        margin-top: 20px;
-    }
-    .discover-icons .discover-icon:nth-of-type(3) img {
-        margin-top: 0;
     }
     .filter-club-img {
         width: 50%;
-        padding: 7em 0 2em 10em;
+        padding: 0 0 2em 10em;
     }
     .filter-club-section {
         padding: 6em 6em 4em;
@@ -873,16 +821,12 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 1536px) {
-    .discover-icons .discover-icon:nth-of-type(2) img,
-    .discover-icons .discover-icon:nth-of-type(3) img {
-        margin-top: 0;
-    }
     .filter-club-section {
         padding: 2em 12em 0 6em;
         width: 40%;
     }
     .filter-club-img img {
-        padding: 8em 0 5em 0em;
+        padding: 0 0 5em 0em;
     }
 
     .filter-club-section {
@@ -898,12 +842,6 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 1600px) {
-    .discover-icons .discover-icon:nth-of-type(2) img {
-        margin-top: 20px;
-    }
-    .discover-icons .discover-icon:nth-of-type(3) img {
-        margin-top: 0;
-    }
     .learn-more-container{
         padding-top: 7rem;
     }
@@ -922,12 +860,6 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 1900px) {
-    .discover-icons .discover-icon:nth-of-type(2) img {
-        margin-top: 20px;
-    }
-    .discover-icons .discover-icon:nth-of-type(3) img {
-        margin-top: 0;
-    }
     .learn-more-container{
         padding-top: 10rem;
     }

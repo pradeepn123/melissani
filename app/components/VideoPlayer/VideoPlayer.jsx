@@ -21,8 +21,8 @@ export class VideoPlayer extends React.Component {
                 {onPlay && <>
                     {data.id == "external_video_url" ?
                     <>
-                        {data.host == "vimeo" && 
-                            <iframe src={data.autoPlay == true ? `${data.videoSrc}&autoplay=1` : `${data.videoSrc}`} frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>
+                        {data.host == "vimeo" &&
+                            <iframe src={data.autoPlay == true ? `${data.videoSrc}?autoplay=1` : `${data.videoSrc}`} frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>
                         }
                         {data.host == "youtube" && 
                             <>{data.autoPlay == true ? 

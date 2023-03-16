@@ -33,7 +33,7 @@ export function FilterClubTextSection({ filterClub }) {
         <div className="filter-club-learn-more-btn">
             <Link
                 to={filterClub.learnMoreBtnLink}>
-                <Button variant='inline' className="font-medium">
+                <Button variant='inline' className="font-medium fs-17">
                     {filterClub.learnMoreBtnText}
                 </Button>
             </Link>

@@ -1,119 +1,137 @@
 /* Begin: Installation Section */
-.installation-para {
-    font-family: 'Peachi-Light';
-    font-size: 32px;
-    font-weight: 300;
-    line-height: 47px;
-    letter-spacing: -0.005em;
-    text-align: left;   
-}
 
 .installation-header{
+    font-family: 'Peachi-Bold';
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 62px;
+    letter-spacing: 0em;
     text-align: left;
+    max-width: 400px;
+    transform: translate(15%, -40%);
 }
+
+.installation-para {
+    font-family: 'Peachi-Light';
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 30px;
+    letter-spacing: inherit;
+    text-align: left;
+    letter-spacing: -0.005em;
+    transform: translate(55%, -32%);
+    max-width: 418px;
+}
+
 /* End: Installation Section */
 
-/* Begin: Media Query */
-@media (min-width:320px) and (max-width:512px) {
+/* Begin Media Query */
+
+@media screen and (max-width: 1800px) {
     .installation-header {
-        font-size: 30px;
-        padding: 32px;
-        padding-bottom: 10px;
+        transform: translate(45%, -40%);
     }
-
     .installation-para {
-        font-size: 20px;
-        font-weight: 300;
-        line-height: 31px;
-        padding: 32px;
-        padding-top: 0;
+        transform: translate(70%, -35%);
     }
 }
 
-@media screen and (min-width: 425px) {
-    .installation-para {
-        padding: 32px;
-        padding-top: 0;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .installation-para {
-        padding: unset;
-    }
-}
-
-@media (min-width:767px) and (max-width:1023px) {
+@media screen and (max-width: 1680px) {
     .installation-header {
-        padding-left: 3rem;
-        max-width: 17rem;
-        transform: translate(10px, -45px);
+        transform: translate(40%, -40%)
     }
-
     .installation-para {
-        max-width: 15rem;
-        transform: translate(54%, -49%);
-        font-family: 'Peachi-Light';
-        font-size: 20px;
-        font-weight: 300;
-        line-height: 30px;
-        letter-spacing: -0.005em;
-        text-align: left;
+        transform: translate(60%, -35%);
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1600px) {
     .installation-header {
-        transform: translate(14%, -50%);
-        
-    }
-
-    .installation-para {
-        transform: translate(53%, -69%);
+        transform: translate(35%, -40%)
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (max-width: 1440px) {
     .installation-header {
-        transform: translate(24%, -51%);
+        transform: translate(20%, -40%);
     }
-
     .installation-para {
-        transform: translate(63%, -85%);
+        transform: translate(50%, -35%);
     }
 }
 
-@media screen and (min-width: 1440px) {
-    .installation-para {
-        transform: translate(66%, -58%);
-    }
-}
-
-@media screen and (min-width: 1536px) {
-    .installation-para {
-        transform: translate(59%, -58%);
-    }
-}
-
-@media screen and (min-width: 1600px) {
-    .installation-para {
-        transform: translate(78%, -70%);
-    }
-}
-
-@media screen and (min-width: 1900px) {
-    .installation-para {
-        transform: translate(77%, -93%);
-        max-width: 30rem;
-        font-size: 1.75rem;
-        line-height: 2.25rem;
-    }
-
+@media screen and (max-width: 1280px) {
     .installation-header {
-        font-size: 4rem;
-        max-width: 30rem;
-        transform: translate(24%, -63%);
+        transform: translate(15%, -40%);
+    }
+    .installation-para {
+        transform: translate(42%, -35%);
     }
 }
 
-/* Begin: Media Query */
+@media screen and (max-width: 1024px) {
+    .installation-header {
+        font-size: 42px;
+        line-height: 52px;
+        transform: translate(10%, -40%);
+    }
+    .installation-para {
+        transform: translate(40%, -30%);
+        font-size: 16px;
+        line-height: 20px;
+        max-width: 340px;
+    }
+}
+
+@media screen and (max-width: 912px) {
+    .installation-header {
+        transform: translate(2%, -40%);
+    }
+    .installation-para {
+        transform: translate(40%, -25%);
+        font-size: 16px;
+        line-height: 20px;
+        max-width: 318px;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .installation-header {
+        font-size: 32px;
+        line-height: 42px;
+        transform: translate(8%, -40%);
+    }
+    .installation-para {
+        transform: translate(35%, -30%);
+        font-size: 14px;
+        line-height: 20px;
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .installation-para {
+        transform: translate(35%, -30%);
+        font-size: 14px;
+        line-height: 20px;
+        max-width: 290px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .installation-header {
+        display: block;
+        transform: translate(0, 0);
+        padding: 1.5em 0 0 .5em;
+        max-width: 100%;
+    }
+    .installation-para {
+        display: block;
+        transform: translate(0, 0);
+        padding: .5em 1em 2.5em 1em;
+        font-size: 16px;
+        line-height: 24px;
+        max-width: 100%;
+    }
+}
+/* End: Media Query */

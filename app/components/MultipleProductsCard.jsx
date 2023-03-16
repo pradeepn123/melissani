@@ -66,7 +66,7 @@ export function MultipleProductsCard({
                         className="w-full overflow-hidden text-center"
                         as="h3"
                     >
-                        {selectedProduct.title}
+                        M1 Filters
                     </Text>
                     <div className="card-image bg-primary/5">
                         {image && (
@@ -113,19 +113,19 @@ export function MultipleProductsCard({
                         ]}
                         disabled={!availableForSale ? true : false}
                         variant={availableForSale ? "primary" : "secondary"}
-                        className="mt-2 add-to-cart-btn w-full uppercase font-bold"
+                        className="add-to-cart-btn w-full uppercase font-bold mt-25"
                         analytics={{
                             products: [productAnalytics],
                             totalValue: parseFloat(productAnalytics.price),
                         }}
                     >
-                        <Text as="span" className="flex items-center justify-center gap-2">
-                            {availableForSale ? 'Add to Cart' : 'Sold Out'}
+                        <Text as="span" className="flex items-center justify-center gap-2 normal-case font-tertiary fw-500">
+                            {availableForSale ? 'Buy now' : 'Sold Out'}
                         </Text>
                     </AddToCartButton>
                 )}
                 {learnMore && <Link to={`/products/${selectedProduct.handle}`}>
-                    Learn More
+                    Learn more
                 </Link>}
             </div>
         </div>

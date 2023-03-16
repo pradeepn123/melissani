@@ -41,7 +41,7 @@
         display: grid;
         grid-template-columns: auto auto;
         grid-column-gap: 1em;
-        padding: 2em 3em;
+        padding: 3.5em 3em;
         grid-row-gap: 2em;
     }
 
@@ -56,6 +56,18 @@
         letter-spacing: 0em;
         text-align: center;
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .key-feature-text {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .key-feature-text {
+        width: 80%;
     }
 }
 
@@ -115,8 +127,11 @@
 
 @media screen and (min-width: 1440px) {
     .key-features-section {
-        grid-column-gap: 1em;
+        grid-column-gap: 3em;
         padding: 4em 2em;
+    }
+    .key-feature-text {
+        width: 75%;
     }
 }
 

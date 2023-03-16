@@ -28,3 +28,12 @@
 }
 
 /* End: Video Section */
+
+/* Begin: Media Query */
+@media screen and (max-width: 540px) {
+    .video-player-wrapper svg.play-icon {
+        width: 75px;
+        height: 75px;
+    }
+}
+/* End: Media Query */
