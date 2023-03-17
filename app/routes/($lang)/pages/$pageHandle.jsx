@@ -151,6 +151,12 @@ export async function loader({request, params, context}) {
     }
   })
 
+  const filterclubwarrenty = (page.handle == 'melissani-club') && page.metafields.find(item => {
+    if(item !== null) {
+      return item.key == "filter_club_warrenty"
+    }
+  })
+
   const footer_contact = (page.handle == 'about-us' || page.handle == 'faq') && page.metafields.find(item => {
     if(item !== null) {
       return item.key == "footer_contact"
@@ -171,6 +177,7 @@ export async function loader({request, params, context}) {
       contact_form,
       product_registration_form,
       filter_changes,
+      filterclubwarrenty,
       filterclub,
       supportinfo,
       textwithbutton,
@@ -203,12 +210,13 @@ export default function Page() {
     supportinfo,
     textwithbutton,
     sticky_bar_bottom,
+    filterclubwarrenty,
     footer_contact
   } = useLoaderData();
 
   let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, 
     parsed_about, parsed_carousel, parsed_contact_form, parsed_product_registration_form, parsed_filter_changes, 
-    parsed_filterclub, parsed_filterclubsupportinfo, parsed_textwithbutton, parsed_sticky_bar_bottom, parsed_footer_contact;
+    parsed_filterclub, parsed_filterclubsupportinfo, parsed_textwithbutton, parsed_filterclubwarrenty, parsed_sticky_bar_bottom, parsed_footer_contact;
   
   if(faq) {
     parsed_faq = JSON.parse(faq?.value);
@@ -244,6 +252,10 @@ export default function Page() {
 
   if(temperature) {
     parsed_temperature = JSON.parse(temperature?.value);
+  }
+
+  if(filterclubwarrenty) {
+    parsed_filterclubwarrenty = JSON.parse(filterclubwarrenty?.value);
   }
 
   if(volume) {
@@ -283,7 +295,7 @@ export default function Page() {
         <About data={parsed_about} /><FooterContact data={parsed_footer_contact} />
       </>)}
       {page.handle == 'melissani-club' && (<FilterClub hero={parsed_hero} data={parsed_faq} supportinfo={parsed_filterclubsupportinfo} 
-      filterclub={parsed_filterclub}  temperature={parsed_temperature} textwithbutton={parsed_textwithbutton} stickybarbottom={parsed_sticky_bar_bottom} />)}
+      filterclub={parsed_filterclub}  filterclubwarrenty={parsed_filterclubwarrenty} textwithbutton={parsed_textwithbutton} stickybarbottom={parsed_sticky_bar_bottom} />)}
       {page.handle == 'purifier' && (
         <Purifier installation={parsed_installation} hero={parsed_hero} temperature={parsed_temperature} volume={parsed_volume} video_section={parsed_video_section}/>
       )}
@@ -322,6 +334,7 @@ const PAGE_QUERY = `#graphql
           { namespace: "about", key: "filter_changes" },
           { namespace: "product_registration", key: "product_registration_form" },
           { namespace: "filterclub", key: "image_with_block_overlay" },
+          { namespace: "filterclub", key: "filter_club_warrenty" },
           { namespace: "filterclub", key: "filter_club_support_info" },
           { namespace: "filterclub", key: "text_with_button" },
           { namespace: "global", key: "sticky_bar_bottom" }

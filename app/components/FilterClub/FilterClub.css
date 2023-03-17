@@ -29,13 +29,17 @@
     padding-right: 0;
     padding-bottom: 10px;
 }
+.filter_club_faq [data-testid="flowbite-accordion"] button{
+    padding: 18px 0;
+}
+
 .filter_club_faq svg[data-testid="flowbite-accordion-arrow"] {
     border-radius: 50%;
     stroke-width: 0;
-    width: 40px;
-    height: 40px;
     padding: 4px;
-    border: 1.5px solid #1376BC;
+    flex: 0 0 10%;
+    border: 2px solid #1B2943;
+    height: 100%;
 }
 .filterclub_learnmore_sec .warrentyIcon_section{
     position: absolute;
@@ -49,14 +53,17 @@
 .filter_club_faq .accordion_heading h2{
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
+    flex: 1 0 80%;
 }
 .filter_club_faq .custom_content p{
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
+    text-align: justify;
 }
 .filter_club_faq{
     padding: 2em 1em;
 }
+
 #filter_membership_hero .hero-text .hero-banner-title{
     color: #000000;
 }
@@ -67,7 +74,29 @@
     margin-bottom: 16px;
 }
 
+.filter_club_faq .filterclub_extra_information{
+    margin-top: 20px;
+}
+.filter_club_faq .filterclub_extra_information p{
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+}
+.filter_club_faq .filterclub_extra_information a{
+    font-size: 15px;
+    line-height: 18px;
+    text-decoration: underline;
+    font-family: 'Montserrat', sans-serif;
+}
+
 @media(min-width:768px){
+    .filter_club_faq [data-testid="flowbite-accordion"] button{
+        padding: 22px 0;
+    }
+    .filter_club_faq svg[data-testid="flowbite-accordion-arrow"] {
+        flex: 0 0 6%;
+    }
     .filterclub_learnmore_sec .warrentyIcon_section{
         position: absolute;
         top: 50%;
@@ -82,6 +111,30 @@
     }
 }
 @media(min-width:1200px){
+    .filter_club_faq [data-testid="flowbite-accordion"] button{
+        padding: 30px 0;
+    }
+    .filter_club_faq .filterclub_extra_information p{
+        font-size: 24px;
+        line-height: 36px;
+    }
+    .filter_club_faq svg[data-testid="flowbite-accordion-arrow"] {
+        border-radius: 50%;
+        stroke-width: 0;
+        padding: 4px;
+        flex: 0 0 5%;
+        border: 2px solid #1B2943;
+        height: 100%;
+    }
+    .filter_club_faq .custom_content p{
+        text-align: inherit;
+    }
+    .filter_club_faq [data-testid=flowbite-accordion] .custom_content {
+        width: calc(100% - 100px);
+    }
+    .filter_club_faq .filterclub_extra_information{
+        margin-top: 40px;
+    }
     .filterclub_learnmore_sec .text-section{
         padding: 0 90px;
     }
