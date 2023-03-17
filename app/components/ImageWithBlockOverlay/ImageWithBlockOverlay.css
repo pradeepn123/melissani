@@ -4,6 +4,7 @@
     display: block;
     height: 100%;
     overflow: hidden;
+    cursor: pointer;
 }
 .image_with_block_sec_inner .card_overlay__first{
     position: absolute;

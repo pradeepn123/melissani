@@ -117,7 +117,6 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
     <>
     <nav className="grid gap-4 p-6 sm:gap-6 sm:px-12 pt-5">
       <div className="mb-6">
-
         {/* Top level menu items */}
         {(menu?.items || []).map((item) => (
           <span key={item.id} className="block menu-span mb-4">
@@ -132,13 +131,12 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
               </Text>
             </Link>
           </span>
-        ))
-        }
+        ))}
       </div>
 
       {/* Bottom level menu items */}
       { (footerMenu?.items || []).map((item) => (
-          <span key={item.id} className="block">
+          <span key={item.id} className="block secondary_menu_drawer">
             <Link
               to={item.to}
               target={item.target}
@@ -153,18 +151,18 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
       }
 
       {/* Social Media Links  */}
+      <div className="footer-social-media">
+        {footerMetafields.social.map((item, index) => (
+          <span key={`footer-social-${index}`} className="social-links mr-4">
+            <a href={item.link}>
+              <img className='inline-block' src={item.icon} />
+            </a>
+          </span>
+        ))}
+      </div>
 
-    </nav >
-     <div className="footer-social-media">
-     {footerMetafields.social.map((item, index) => (
-         <span key={`footer-social-${index}`} className="social-links mr-4">
-           <a href={item.link}>
-             <img className='inline-block' src={item.icon} />
-           </a>
-         </span>
-       ))}
-     </div>
-     </>
+    </nav>
+    </>
   );
 }
 

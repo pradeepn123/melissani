@@ -62,7 +62,7 @@
 .tabs_with_icons .custom_content p{
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    text-align: justify;
+    width: calc(100% - 10%);
 }
 .tabs_with_icons [data-testid="flowbite-accordion"] button, 
 .tabs_with_icons [data-testid="flowbite-accordion"] .custom_content{
@@ -111,10 +111,8 @@
     }
     .main_content_heading{
         font-size: 52px;
-    }
-    .main_content_heading{
-        width: 30%;
-    }
+        width: 36%;
+    }    
     .tabs_with_icons svg[data-testid="flowbite-accordion-arrow"] {
         flex: 0 0 5%;
     }

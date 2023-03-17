@@ -10,7 +10,7 @@ export function FooterContact({data}) {
             {data?.contact.map((item, index) => (
               <div key={`footer-${index}`} className="footer-contact-icons mr-7">
                 <a href={item.link}>
-                  <img src={item.icon} />
+                  <img src={item.icon} width="85" alt="" />
                 </a>
               </div>
             ))}
