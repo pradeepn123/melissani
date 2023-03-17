@@ -1,28 +1,31 @@
 /* Begin: Faq Section */
-.main_content_heading{        
-    font-size: 52px;
+.main_content_heading{
+    font-size: 32px;
     color: #000;
     line-height: 1.2;
 }
-
 .faq_section_wrapper .icon_with_text img{
     width: 80px;
     height: 80px;
 }
-
 .tabs_with_icons button[aria-selected="false"]{
-    margin-bottom: 3.5rem;
+    margin: 1rem 1.5rem;
     border: 1px solid #CACACA;
     border-radius: 10px;
     width: 156px;
     height: 156px;
+    display: inline-block;
+    white-space: break-spaces;
 }
 .tabs_with_icons button[aria-selected="true"]{
-    margin-bottom: 3.5rem;
-    border: 2px solid #1376BC;
+    margin: 1rem 1.5rem;
+    border: 2px solid #CACACA;
     border-radius: 10px;
     width: 156px;
     height: 156px;
+    display: inline-block;
+    white-space: break-spaces;
+    word-wrap: break-word;
 }
 .tabs_with_icons .p-4[role="tabpanel"]{
     padding: 0;
@@ -61,7 +64,6 @@
     font-weight: 400;
     text-align: justify;
 }
-
 .tabs_with_icons [data-testid="flowbite-accordion"] button, 
 .tabs_with_icons [data-testid="flowbite-accordion"] .custom_content{
     padding-left: 0;
@@ -71,17 +73,27 @@
 .tabs_with_icons [data-testid="flowbite-accordion"] button{
     padding: 18px 0;
 }
-
 .tabs_with_icons svg[data-testid="flowbite-accordion-arrow"] {
     border-radius: 50%;
     stroke-width: 0;
     padding: 4px;
     flex: 0 0 10%;
-    border: 2px solid #1B2943;
+    border: 1.5px solid #1B2943;
     height: 100%;
 }
-
-
+.tabs_with_icons .tab__title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    color: #1B2943;
+}
+.tabs_with_icons button:first-child{
+    margin-left: 0;
+}
+.tabs_with_icons button:last-child{
+    margin-right: 0;
+}
 /* End: Faq Section */
 
 /* Begin: Media Query */
@@ -94,8 +106,41 @@
     }
 }
 @media screen and (min-width:1200px) {
+    .tabs_with_icons .tab__title{
+        font-size: 18px;
+    }
+    .main_content_heading{
+        font-size: 52px;
+    }
     .main_content_heading{
         width: 30%;
+    }
+    .tabs_with_icons svg[data-testid="flowbite-accordion-arrow"] {
+        flex: 0 0 5%;
+    }
+    .tabs_with_icons button[aria-selected="false"]{
+        margin-bottom: 3.5rem
+    }
+    .tabs_with_icons button[aria-selected="true"]{
+        margin-bottom: 3.5rem
+    }
+    .faq_section_wrapper .icon_with_text{
+        margin-top: -8px;
+    }
+}
+@media screen and (max-width:1439px){
+    .tabs_with_icons[role="tablist"]{
+        display: block;
+        overflow: scroll;
+        max-width: 86vw;
+        white-space: nowrap;
+        padding-bottom: 1rem;
+    }
+    .tabs_with_icons button:first-child{
+        margin-left: 0;
+    }
+    .tabs_with_icons button:last-child{
+        margin-right: 0;
     }
 }
 /* End: Media Query */
