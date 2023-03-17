@@ -94,7 +94,7 @@ export function ProductRegistration({data}) {
                 </form>
                 <p className="warranty-text font-tertiary">
                     {data.warranty_text}
-                    <span className="learn-more-text">
+                    <span className="learn-more-text learn_more_text cursor-pointer">
                         <a href={data.learn_more_link}>
                             {data.learn_more_text}
                         </a>
