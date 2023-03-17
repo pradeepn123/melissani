@@ -2,7 +2,8 @@
 
 .contact-section {
     background-color: #e1e9eb;
-    padding-top: 4em;
+    padding-top: 5em;
+    padding-bottom: 5em;
 }
 
 .card {
@@ -78,9 +79,6 @@
 }
 
 @media screen and (min-width:1440px) {
-    .contact-section {
-        height: 100vh;
-    }
     .card {
         margin: 0 25em;
     }
