@@ -51,16 +51,17 @@ export function Drawer({isHome, openCart, open, onClose, openFrom = 'right', chi
                 leaveTo={offScreen[openFrom]}
               >
                 <Dialog.Panel className="drawer-dialog-panel w-screen max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl text-left align-middle transition-all transform shadow-xl h-screen-dynamic bg-contrast" onClick={onClose}>
-                  <header className='menuDrawer-nav sticky top-0 flex px-6 h-nav sm:px-8 md:px-12 justify-end relative'>
+                  <header className='menuDrawer-nav sticky top-0 flex px-4 h-nav gap-x-4 sm:px-8 md:px-8 items-center justify-end relative'>
+                    <Link to="/account/login" 
+                    className="menu-drawer-account relative items-center justify-center w-8 flex"  onClick={onClose}>
+                      <img src={account} />
+                    </Link>
+
                     <span className="menu-drawer-cart">
                       <CartCount
                       className="menu-drawer-cart mr-4 absolute top-1/2" isHome={isHome} openCart={openCart}/>
                     </span>
 
-                    <Link to="/account/login" 
-                    className="menu-drawer-account relative items-center justify-center w-8 flex"  onClick={onClose}>
-                      <img src={account} />
-                    </Link>
                     <button
                       type="button"
                       className="menu-cart-icon m-4"

@@ -99,10 +99,6 @@ font-family: 'Peachi-Light';
   position: relative;
 }
 
-.menuDrawer-Headermenu:hover .forward-nav-icon {
-  opacity: 1;
-}
-
 .menuDrawer-Foootermenu:hover {
   color: #1376bc;
 }
@@ -111,11 +107,6 @@ font-family: 'Peachi-Light';
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.menu-drawer-cart {
-  position: relative;
-  margin-right: 1rem;
-  top: 32%;
-}
 /* End: Menu Cart Drawer Section */
 
 /* Sticky bar css here */
@@ -160,6 +151,37 @@ font-family: 'Peachi-Light';
 }
 /* End: Sticky bar css here */
 
+.menu-drawer-container .menuDrawer-Headermenu{
+    font-size: 32px;
+}
+.menu-drawer-container .menu-span:first-child a{
+    margin-top: 32px;
+}
+.menu-drawer-container .secondary_menu_drawer a span{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+}
+.menu-drawer-container .secondary_menu_drawer:hover a span,
+.menu-drawer-container .secondary_menu_drawer:hover a{
+    color: #666666;
+}
+.menu-drawer-container .menu-span a{
+    margin-bottom: 32px;
+    display: block;
+}
+.menu-drawer-container .menuDrawer-Headermenu{
+    display: flex;
+    align-items: center;
+}
+.menu-drawer-container .menuDrawer-Headermenu .forward-nav-icon{
+    margin-left: 18px;
+    opacity: 0;
+}
+.menu-drawer-container .menuDrawer-Headermenu .forward-nav-icon svg path{
+    stroke: #000000;
+}
+
 /* End: Common Styles */
 
 
@@ -171,15 +193,27 @@ font-family: 'Peachi-Light';
     letter-spacing: 0em;
     
   }
-
   .footer-wrapper .footer-text p span {
     font-size: 20px;
     line-height: 26px;
     margin-top: 1rem;
   }
+  .menuDrawer-nav{
+    height: 4rem;
+  }
 }
 
 @media screen and (min-width: 1200px) {
+    .menu-drawer-container .menu-span:hover a span{
+        font-weight: 600;
+        color: #000000;
+    }
+    .menu-drawer-container .menuDrawer-Headermenu:hover .forward-nav-icon{
+        opacity: 1;
+    }
+    .menu-drawer-container .menuDrawer-Headermenu{
+        font-size: 36px;
+    }
     .footer-wrapper .footer-text p {
         font-size: 52px;
         line-height: 56px;
@@ -216,20 +250,11 @@ font-family: 'Peachi-Light';
 
   .footer-social-media {
     position: absolute;
-    bottom: 0;
-    padding-left: 1.5rem;
-  }
-
-  .menu-drawer-cart {
-    width: 1rem;
-    height: 1rem;
-    position: relative;
-    margin-right: 2.75rem;
-    top: 18%;
+    bottom: 0; 
   }
 
   .menu-cart-icon {
-    margin: 0.75rem;
+    margin: 0;
   }
 
   /* .menuDrawer-nav {
@@ -239,6 +264,9 @@ font-family: 'Peachi-Light';
 }
 
 @media screen and (min-width: 768px) {
+    .menu-drawer-container .menu-span:hover a span{        
+        color: #000000;
+    }
     .stickybar_main_section .stickybar_main_section_inner .sticky_button{
         width: inherit;
     }
@@ -250,13 +278,6 @@ font-family: 'Peachi-Light';
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-    }    
-    .forward-nav-icon {
-        opacity: 0;
-        display: inline-block;
-        transform: translateY(25%);
-        margin-left: 2rem;
-        transition: all 0.4s;
     }
 
     .menu-drawer-container {
@@ -269,26 +290,7 @@ font-family: 'Peachi-Light';
 
     .footer-social-media {
         position: absolute;
-        bottom: 5%;
-        padding-left: 3rem;
-    }
-
-    .menu-drawer-cart {
-        width: unset;
-        height: unset;
-        top: 32%;
-        margin-right: 0.75rem;
-    }
-
-    .menu-drawer-account {
-        margin: 1rem;
-    }
-    .forward-nav-icon {
-        opacity: 0;
-        display: inline-block;
-        transform: translateY(25%);
-        margin-left: 2rem;
-        transition: all 0.4s;
+        bottom: 5%;        
     }
     .test {
         height: 90vh;
@@ -296,13 +298,7 @@ font-family: 'Peachi-Light';
         flex-direction: column;
         justify-content: space-between;
         position: relative;
-    }
-
-    .footer-social-media {
-        position: absolute;
-        bottom: 5%;
-        padding-left: 3rem;
-    }
+    }   
 
     .footer-wrapper .footer-text p {
         font-size: 34px;

@@ -29,9 +29,9 @@ export function IconMenu(props) {
 
 export function IconClose(props) {
   return (
-    <span>
-    <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fillRule="evenodd" clipRule="evenodd" d="M12.2482 13.432L20.9375 22.1213L23.0588 20L14.3695 11.3107L23.0588 2.62132L20.9375 0.499999L12.2482 9.18934L3.05882 0L0.9375 2.12132L10.1268 11.3107L0.937501 20.5L3.05882 22.6213L12.2482 13.432Z" fill="#1376BC" />
+    <span>    
+    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5725 17.6938L27.9395 30.0608L30.0608 27.9395L17.6938 15.5725L29.4907 3.77568L27.3693 1.65436L15.5725 13.4512L3.06077 0.939453L0.939453 3.06077L13.4512 15.5725L1.19933 27.8244L3.32065 29.9457L15.5725 17.6938Z" fill="#1B2943"/>
     </svg>
   </span>
   );
