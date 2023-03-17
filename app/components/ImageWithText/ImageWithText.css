@@ -733,9 +733,15 @@ ul.filter-club-list {
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1400px) {
     .gb_bg_color .right_text_block .right_text_heading {
         font-size: 52px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .gb_bg_color .right_text_block .right_text_heading {
+        font-size: 45px;
         font-weight: 300;
         line-height: 51px;
     }
