@@ -24,6 +24,11 @@
     padding: 60px 0 60px 30px;
   }
   
+  .footer-contact-icons img {
+    height: 85px;
+    width: 85px;
+  }
+
   .footer-bottom {
     font-style: normal;
     font-weight: 400;
@@ -53,6 +58,11 @@
       line-height: 26px;
       margin-top: 1rem;
     }
+
+    .footer-contact-icons img {
+      height: 64px;
+      width: 64px;
+    }
   }
   
   @media screen and (min-width: 1200px) {
@@ -71,6 +81,10 @@
     .footer-image-section .footer-image {
       display: flex;
       align-items: flex-end;
+    }
+    .footer-contact-icons img {
+      height: 75px;
+      width: 75px;
     }
   }
   
