@@ -79,18 +79,12 @@
 }
 
 @media screen and (min-width:1440px) {
-    .contact-section {
-        height: 130vh;
-    }
     .card {
         margin: 0 25em;
     }
 }
 
 @media screen and (min-width:1536px) {
-    .contact-section {
-        height: 96vh;
-    }
     .card {
         margin: 0 30em;
     }
