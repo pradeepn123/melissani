@@ -8,7 +8,7 @@ export function ProductSwimlane({...props}) {
           {products.length == 1 && <SingleProductCard
             product={products[0]}
             key={products[0].id}
-            className="product-card-wrapper"
+            className="product-card-wrapper single-product-card-wrapper"
             showLabel={false}
             quickAdd={true}
             learnMore={true}
@@ -17,7 +17,7 @@ export function ProductSwimlane({...props}) {
           {products.length > 1 && <MultipleProductsCard
             products={products}
             key={`product-${index}`}
-            className="product-card-wrapper"
+            className="product-card-wrapper multiple-product-card-wrapper"
             showLabel={false}
             quickAdd={true}
             learnMore={true}

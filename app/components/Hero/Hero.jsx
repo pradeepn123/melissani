@@ -14,20 +14,18 @@ export function Hero({ data, id }) {
       )} id={id}>
         <div className="hero-text">
           <div dangerouslySetInnerHTML={{ __html: data.rawHtml}}></div>
-          
-          {data?.cta && <Link
-            to="/products/">
-            <Button variant='primary' className="hero-shop-btn font-medium">
-            {data.cta}
-            </Button>
-          </Link>}
-          {data?.learnMoreBtnText && <Link
-            to={data.learnMoreBtnLink}>
-            <Button variant='inline' className="hero-learn-more-btn font-medium">
-              {data.learnMoreBtnText}
-            </Button>
-          </Link>}
-          
+            {data?.cta && <Link
+              to="/products/">
+              <Button variant='primary' className="font-medium">
+              {data.cta}
+              </Button>
+            </Link>}
+            {data?.learnMoreBtnText && <Link
+              to={data.learnMoreBtnLink}>
+              <Button variant='inline' className="font-medium mx-10 fs-17 hero-learn-more-btn">
+                {data.learnMoreBtnText}
+              </Button>
+            </Link>}
         </div>
         <div className="hero-image-wrapper">
           <img src={data?.banner_image} className="hero-image"/>
@@ -41,7 +39,7 @@ export function Hero({ data, id }) {
             {data?.cta && <>
               <Link
                 to="/products/">
-                <Button className="shop-btn font-medium" variant="primary">
+                <Button className="font-medium" variant="primary">
                   {data.cta}
                 </Button>
               </Link>
@@ -49,7 +47,7 @@ export function Hero({ data, id }) {
             {data?.learnMoreBtnText && <>
               <Link
                 to={data.learnMoreBtnLink}>
-                <Button className="hero-learn-more-btn font-medium" variant='inline'>
+                <Button className="font-medium fs-17" variant='inline'>
                   {data.learnMoreBtnText}
                 </Button>
               </Link>

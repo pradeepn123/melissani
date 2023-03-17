@@ -67,7 +67,6 @@
     background-color: white;
 }
 
-
 .hero-learn-more-btn {
     font-size: 17px;
     letter-spacing: 0em;
@@ -130,6 +129,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        column-gap: 2em;
     }
 
     .hero-banner-title {
@@ -242,7 +242,7 @@
     .club-btn,
     .hero-shop-btn,
     .learn-more-btn {
-        font-size: 20px;
+        font-size: 17px;
     }
 }
 
@@ -254,8 +254,8 @@
 @media screen and (min-width: 768px) {
     .hero-text {
         top: 40%;
-        left: 36%;
-        width: 32%;
+        left: 47%;
+        width: 42%;
     }
 
     .hero-banner-title {
@@ -266,6 +266,7 @@
     .hero-banner-subtitle {
         font-size: 18px;
         line-height: 26px;
+        margin-bottom: 0.7em;
     }
 
     .hero-mobile-image-wrapper {
@@ -296,18 +297,14 @@
 
 @media screen and (min-width: 820px) {
     .hero-text {
-        top: 41%;
-        left: 38%;
-        width: 35%;
+        top: 51%;
+        left: 45%;
+        width: 40%;
     }
 
     .hero-banner-title {
         font-size: 32px;
         line-height: 38.8px;
-    }
-
-    .hero-banner-subtitle {
-        margin-bottom: 0.7em;
     }
 }
 
@@ -379,6 +376,18 @@
     .hero-shop-btn,
     .learn-more-btn {
         font-size: 17px;
+        line-height: 23px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .hero-banner-title {
+        font-size: 64px;
+        line-height: 76.8px;
+    }
+    .hero-banner-subtitle {
+        font-size: 36px;
+        line-height: 46.8px;
     }
 }
 
