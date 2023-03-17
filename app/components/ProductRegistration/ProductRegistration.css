@@ -129,7 +129,7 @@
 }
 @media screen and (min-width:1440px) {
     .product-registration-section {
-        height: 104vh;
+        height: 117vh;
         padding-top: 5em;
         padding-bottom: 5em;
     }
@@ -141,6 +141,10 @@
 @media screen and (min-width:1536px) {
     .card {
         margin: 0 28em;
+    }
+    .product-registration-section {
+        height: 95vh;
+        padding-top: 6em;
     }
 }
 

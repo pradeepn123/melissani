@@ -88,6 +88,9 @@
 }
 
 @media screen and (min-width:1536px) {
+    .contact-section {
+        height: 96vh;
+    }
     .card {
         margin: 0 30em;
     }
