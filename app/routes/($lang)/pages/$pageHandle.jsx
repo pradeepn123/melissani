@@ -5,6 +5,7 @@ import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration, Filter, 
 import FaqStyles from '~/components/Faq/Faq.css';
 import AboutUsStyles from '~/components/About/About.css';
 import FilterClubStyles from '~/components/FilterClub/FilterClub.css';
+import BackgroundImgWithTextStyles from '~/components/BackgroundImgWithText/BackgroundImgWithText.css';
 import PurifierStyles from '~/components/Purifier/Purifier.css';
 import HeroStyles from '~/components/Hero/Hero.css';
 import ImageCenterWithTextStyles from '~/components/ImageCenterWithText/ImageCenterWithText.css';
@@ -31,6 +32,7 @@ export const links = () => {
     {rel: 'stylesheet', href: VideoPlayerStyles},
     {rel: 'stylesheet', href: AboutUsStyles},
     {rel: 'stylesheet', href: FilterClubStyles},
+    {rel: 'stylesheet', href: BackgroundImgWithTextStyles},
     {rel: 'stylesheet', href: ContactStyles},
     {rel: 'stylesheet', href: ProductRegistrationStyles},
     {rel: 'stylesheet', href: CarouselStyles},
@@ -89,7 +91,7 @@ export async function loader({request, params, context}) {
     if(item !== null){
       return item.key == "about_us"
     }
-  })
+  }) 
 
   const hero = (page.handle == 'purifier' ||  page.handle == 'melissani-club' || page.handle == "melissani-m1-filter") && page.metafields.find(item => {
     if(item !== null) {
@@ -145,6 +147,12 @@ export async function loader({request, params, context}) {
     }
   })
 
+  const filterreplacementcycle = (page.handle == "melissani-m1-filter") && page.metafields.find(item => {
+    if(item !== null) {
+      return item.key == "filter_replacement_cycle"
+    }
+  })
+
   const sticky_bar_bottom = (page.handle == 'melissani-club') && page.metafields.find(item => {
     if(item !== null){
       return item.key == "sticky_bar_bottom"
@@ -179,6 +187,7 @@ export async function loader({request, params, context}) {
       filter_changes,
       filterclubwarrenty,
       filterclub,
+      filterreplacementcycle,
       supportinfo,
       textwithbutton,
       sticky_bar_bottom,
@@ -207,6 +216,7 @@ export default function Page() {
     product_registration_form,
     filter_changes,
     filterclub,
+    filterreplacementcycle,
     supportinfo,
     textwithbutton,
     sticky_bar_bottom,
@@ -216,7 +226,7 @@ export default function Page() {
 
   let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, 
     parsed_about, parsed_carousel, parsed_contact_form, parsed_product_registration_form, parsed_filter_changes, 
-    parsed_filterclub, parsed_filterclubsupportinfo, parsed_textwithbutton, parsed_filterclubwarrenty, parsed_sticky_bar_bottom, parsed_footer_contact;
+    parsed_filterclub, parsed_filterclubsupportinfo, parsed_textwithbutton, parsed_filterreplacementcycle, parsed_filterclubwarrenty, parsed_sticky_bar_bottom, parsed_footer_contact;
   
   if(faq) {
     parsed_faq = JSON.parse(faq?.value);
@@ -224,6 +234,10 @@ export default function Page() {
 
   if(filterclub) {
     parsed_filterclub = JSON.parse(filterclub?.value);
+  }
+
+  if(filterreplacementcycle) {
+    parsed_filterreplacementcycle = JSON.parse(filterreplacementcycle?.value);
   }
 
   if(supportinfo) {
@@ -302,7 +316,7 @@ export default function Page() {
       {page.handle == 'contact' && (<Contact data={parsed_contact_form} />)}
       {page.handle == 'product-registration' && (<ProductRegistration data={parsed_product_registration_form} />)}
       {page.handle == 'melissani-m1-filter' && (
-        <Filter hero={parsed_hero} carousel={parsed_carousel} filter_changes={parsed_filter_changes} video_section={parsed_video_section} />
+        <Filter hero={parsed_hero} carousel={parsed_carousel} filterreplacementcycle={parsed_filterreplacementcycle} filter_changes={parsed_filter_changes} video_section={parsed_video_section} />
       )}
     </>
   );
@@ -332,6 +346,7 @@ const PAGE_QUERY = `#graphql
           { namespace: "contact", key: "contact_form" },
           { namespace: "global", key: "carousel" },
           { namespace: "about", key: "filter_changes" },
+          { namespace: "filter", key: "filter_replacement_cycle" },
           { namespace: "product_registration", key: "product_registration_form" },
           { namespace: "filterclub", key: "image_with_block_overlay" },
           { namespace: "filterclub", key: "filter_club_warrenty" },

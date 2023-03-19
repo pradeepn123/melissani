@@ -1,0 +1,90 @@
+.background_image_section {
+    position: relative;
+}
+.background_image_section .text_wrapper_section{
+    position: relative;    
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 1rem;
+}
+.background_image_section .text_wrapper_section .text_wrapper_section_inner{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.background_image_section .text_wrapper_section .text_wrapper_section_inner h2{
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    color: #000000;
+    margin-bottom: 16px;
+}
+.background_image_section .text_wrapper_section .text_wrapper_section_inner p{
+    font-weight: 500;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    color: #000000;
+    margin-bottom: 16px;
+}
+.background_image_section .text_wrapper_section .text_wrapper_section_inner .block_icon_text__wrapper li{
+    color: #000000;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #000000;
+    padding: 1em 0;
+    column-gap: 1em;
+}
+.background_image_section .text_wrapper_section .text_wrapper_section_inner .block_icon_text__wrapper li h3{
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+.background_image_section .text_wrapper_section .text_wrapper_section_inner .block_icon_text__wrapper li .month_label{
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #000000;
+    border-radius: 4rem;
+    padding: 8px 16px;
+    text-transform: uppercase;
+}
+
+@media(min-width:1200px){
+    .background_image_section .text_wrapper_section .text_wrapper_section_inner .block_icon_text__wrapper li .month_label{
+        font-size: 16px;
+    }
+    .background_image_section .text_wrapper_section .text_wrapper_section_inner .block_icon_text__wrapper li h3{
+        font-size: 26px;        
+    }
+    .background_image_section .text_wrapper_section .text_wrapper_section_inner h2{
+        color: #ffffff;
+    }
+    .background_image_section .text_wrapper_section .text_wrapper_section_inner p{
+        color: #ffffff;
+    }
+    .background_image_section .text_wrapper_section .text_wrapper_section_inner .block_icon_text__wrapper li{
+        color: #ffffff;
+        padding: 1.5em 0;
+        column-gap: 2em;
+        border-bottom: 1px solid #E9E9E9;
+    }
+    .background_image_section .text_wrapper_section .text_wrapper_section_inner .block_icon_text__wrapper li .month_label{
+        border: 1px solid #ffffff;
+    }
+    .background_image_section .text_wrapper_section{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        padding: 4rem;
+    }    
+    .background_image_section .text_wrapper_section .text_wrapper_section_inner h2{
+        font-size: 64px;
+        line-height: 77px;
+    }
+    .background_image_section .text_wrapper_section .text_wrapper_section_inner p{        
+        font-size: 20px;
+        line-height: 30px;
+    }
+}

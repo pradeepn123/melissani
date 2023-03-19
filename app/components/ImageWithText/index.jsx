@@ -8,7 +8,6 @@ import {VolumeTextSection} from './VolumeTextSection';
 import {Link} from '../Link';
 
 export function ImageWithText({ goodbye, alignment, filterClub, discover, className, learnMore, temperature, volume, filterclubwarrenty }) {
-  const membershipText = filterClub?.membershipText[0].text.split(" ");
   return <>
   <section className={`w-full gap-4 md:gap-8 items-center ${goodbye ? "xl:flex gb_bg_color" : ""} ${className && className}`}>
     {goodbye && <>
@@ -92,10 +91,9 @@ export function ImageWithText({ goodbye, alignment, filterClub, discover, classN
       </>
     }
   </section>
-  {filterClub && 
-  
-    <div className="filter-club-anouncement" dangerouslySetInnerHTML={{ __html: filterClub.membershipText[0].text}}>
-    </div>
-  }
+  {filterClub?.membershipText?.length > 0 && <div
+    className="filter-club-anouncement"
+    dangerouslySetInnerHTML={{ __html: filterClub?.membershipText[0].text}}
+  ></div>}
   </>
 }
