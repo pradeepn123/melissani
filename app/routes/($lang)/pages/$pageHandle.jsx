@@ -10,6 +10,7 @@ import PurifierStyles from '~/components/Purifier/Purifier.css';
 import HeroStyles from '~/components/Hero/Hero.css';
 import ImageCenterWithTextStyles from '~/components/ImageCenterWithText/ImageCenterWithText.css';
 import ImageWithTextStyles from '~/components/ImageWithText/ImageWithText.css';
+import TextCarouselStyles from '~/components/TextCarousel/TextCarousel.css';
 import ImageWithBlockOverlayStyles from '~/components/ImageWithBlockOverlay/ImageWithBlockOverlay.css';
 import TextWithButtonStyles from '~/components/TextWithButton/TextWithButton.css';
 import FilterClubSupportInfoStyles from '~/components/FilterClubSupportInfo/FilterClubSupportInfo.css';
@@ -32,6 +33,7 @@ export const links = () => {
     {rel: 'stylesheet', href: VideoPlayerStyles},
     {rel: 'stylesheet', href: AboutUsStyles},
     {rel: 'stylesheet', href: FilterClubStyles},
+    {rel: 'stylesheet', href: TextCarouselStyles},
     {rel: 'stylesheet', href: BackgroundImgWithTextStyles},
     {rel: 'stylesheet', href: ContactStyles},
     {rel: 'stylesheet', href: ProductRegistrationStyles},
@@ -135,7 +137,7 @@ export async function loader({request, params, context}) {
     }
   })
 
-  const carousel = page.handle == 'melissani-m1-filter' && page.metafields.find(item => {
+  const carousel = (page.handle == 'purifier'|| page.handle == 'melissani-m1-filter') && page.metafields.find(item => {
     if(item !== null) {
       return item.key == "carousel"
     }
@@ -311,7 +313,7 @@ export default function Page() {
       {page.handle == 'melissani-club' && (<FilterClub hero={parsed_hero} data={parsed_faq} supportinfo={parsed_filterclubsupportinfo} 
       filterclub={parsed_filterclub}  filterclubwarrenty={parsed_filterclubwarrenty} textwithbutton={parsed_textwithbutton} stickybarbottom={parsed_sticky_bar_bottom} />)}
       {page.handle == 'purifier' && (
-        <Purifier installation={parsed_installation} hero={parsed_hero} temperature={parsed_temperature} volume={parsed_volume} video_section={parsed_video_section}/>
+        <Purifier installation={parsed_installation} hero={parsed_hero} temperature={parsed_temperature} volume={parsed_volume} video_section={parsed_video_section} carousel={parsed_carousel}/>
       )}
       {page.handle == 'contact' && (<Contact data={parsed_contact_form} />)}
       {page.handle == 'product-registration' && (<ProductRegistration data={parsed_product_registration_form} />)}

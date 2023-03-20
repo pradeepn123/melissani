@@ -1,0 +1,78 @@
+import {useEffect, useState} from 'react';
+
+
+var interval = null;
+export function TextCarousel ({data}) {
+
+    const [slideIndex, setSlideIndex] = useState(1)
+
+    const showSlides = (n) => {
+        var i;
+        var slides = document.getElementsByClassName("slideBlocks");
+        var dots = document.getElementsByClassName("dot");
+
+        if (n > slides.length) {
+            if (interval) {
+                clearInterval(interval)
+            }
+            return setSlideIndex(1)
+        }
+
+        if (n < 1) {
+            if (interval) {
+                clearInterval(interval)
+            }
+            return setSlideIndex(slides.length)
+        }
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex - 1].className += " active";
+        if (interval) {
+            clearInterval(interval)
+        }
+        interval = setInterval(function(){ 
+            setSlideIndex(slideIndex + 1)
+        }, 4000)
+    }
+
+    useEffect(() => {
+        showSlides(slideIndex)
+    }, [slideIndex])
+    
+    return <section className="main_purifier_carousel">
+        <div className="container mx-auto">
+            <div className="main_purifier_carousel_inner_wrap">
+                <div className="flex flex-col-reverse xl:flex-row">
+                    <div className="puri_slider xl:w-6/12 slideshow-container">
+                        <ul>
+                            {data && data.map((item, index) => <li
+                                key={`slideshow-container-${index}`}
+                                className="dot"
+                                onClick={() => setSlideIndex(index + 1)}
+                            >
+                                <span>{item.heading}</span>
+                            </li>)}
+                        </ul>
+                    </div>
+
+                    <div className="sliderThumbnail xl:w-6/12 dot-container">
+                        {data && data.map((item, index) => <div
+                            className="slideBlocks"
+                            key={`dot-container-${index}`}
+                        >
+                            <h2>{item.subHeading}</h2>
+                            <p>{item.description}</p>
+                        </div>)}
+                    </div>                        
+                </div>
+            </div>
+        </div>
+    </section>
+}

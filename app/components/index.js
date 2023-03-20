@@ -41,6 +41,7 @@ export { ProductRegistration } from './ProductRegistration/ProductRegistration';
 export { Filter } from './Filter/Filter';
 export { ProductHeader } from './ProductHeader/ProductHeader';
 export { ImageCarousel } from './ImageCarousel/ImageCarousel';
+export { TextCarousel } from './TextCarousel/TextCarousel';
 export { BackgroundImgWithText } from './BackgroundImgWithText/BackgroundImgWithText';
 export { QuantityAdjust } from './QuantityAdjust';
 export { StickyBarBottom } from './StickyBarBottom';
