@@ -123,7 +123,7 @@ export default function Product() {
 
   return (
     <>
-      <Section className="product-section" padding="x" className="px-0">
+      <Section className="product-section px-0">
         {parsedProductDetails?.productHeader && <ProductHeader title={title} data={parsedProductDetails.productHeader}/>}
         <div className="product-content">
           <ImageCarousel data={media.nodes} className="w-screen md:w-full lg:col-span-1 product-image-carousel" />

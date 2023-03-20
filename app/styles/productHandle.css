@@ -1,9 +1,14 @@
 /* Begin: Product Handle */
+.product-section {
+  padding: 0;
+}
 .product-content {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     column-gap: 6em;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 /* Begin: Product Form Section */
 .product-content-description {

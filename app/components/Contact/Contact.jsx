@@ -25,16 +25,13 @@ export function Contact({data}) {
         setInputField({ ...inputField, [event.target.name]: event.target.value });
     }
 
-    function submitForm(event) {
-        event.preventDefault();
-    }
     return (
         <section className='contact-section h-full'>
             <div className="card grid">
                 <h1 className="card-title font-primary">
                     {data.title}
                 </h1>
-                <form className="form" id="contact-form">
+                <form className="form" id="contact-form" action="/contact">
                     <div className="grid md:grid-cols-2 md:gap-6">
                     {data.form_fields && data.form_fields[0]?.name.map((field_value, field_index) =>
                         (<div className="relative z-0 w-full mb-6 group" key={field_index}>
@@ -71,7 +68,7 @@ export function Contact({data}) {
                             </div>}
                         </div>
                     ))}
-                    <Button type="submit" variant='primary' className='font-medium w-full submit-btn' onSubmit={submitForm}>{data.button_text}</Button>
+                    <Button type="submit" variant='primary' className='font-medium w-full submit-btn' >{data.button_text}</Button>
                 </form>
             </div>
         </section>
