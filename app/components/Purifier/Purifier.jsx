@@ -2,10 +2,11 @@ import {
   Hero,
   ImageCenterWithText,
   ImageWithText,
-  VideoPlayer
+  VideoPlayer,
+  TextCarousel
 } from '~/components';
 
-export function Purifier({installation, hero, temperature, volume, video_section}) {
+export function Purifier({installation, hero, temperature, volume, video_section, carousel}) {
     return (
       <>
         {hero && (
@@ -23,6 +24,9 @@ export function Purifier({installation, hero, temperature, volume, video_section
         {video_section && (
           <VideoPlayer data={video_section} />
         )}
+        {carousel && (
+          <TextCarousel data={carousel} className="purifier-carousel" height="full" top loading="eager" />
+        )}        
       </>
     )
 }

@@ -2,10 +2,11 @@ import {
   Hero,
   ImageWithText,
   VideoPlayer,
-  Carousel
+  Carousel,
+  BackgroundImgWithText
 } from '~/components';
 
-export function Filter({hero, carousel, filter_changes, video_section}) {
+export function Filter({hero, carousel, filter_changes, filterreplacementcycle, video_section}) {
   return (
     <>
       {hero && (
@@ -19,6 +20,11 @@ export function Filter({hero, carousel, filter_changes, video_section}) {
       {filter_changes && (
         <Hero data={filter_changes} id="filter-changes-hero" height="full" top loading="eager" />
       )}
+
+      {filterreplacementcycle && (
+        <BackgroundImgWithText filterreplacementcycle={filterreplacementcycle} className="md:flex filter-club-flex filter_replacement_cycle"/>
+      )}
+
       {video_section && (
         <VideoPlayer data={video_section} />
       )} 

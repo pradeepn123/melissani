@@ -90,6 +90,27 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+
+@media(max-width:425px){
+    .filterclub_learnmore_sec .warrentyIcon_section{
+        transform: translate(-80%, 10%);
+    }
+}
+@media(max-width:375px){
+    .filterclub_learnmore_sec .warrentyIcon_section{
+        transform: translate(-80%, -25%);
+    }
+}
+@media(max-width:320px){
+    .filterclub_learnmore_sec .warrentyIcon_section{
+        transform: translate(-70%, -80%);
+    }
+}
+@media (min-width:321px) and (max-width: 360px){
+    .filterclub_learnmore_sec .warrentyIcon_section {
+        transform: translate(-75%, -50%);
+    }
+}
 @media(min-width:768px){
     .filter_club_faq [data-testid="flowbite-accordion"] button{
         padding: 22px 0;
