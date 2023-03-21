@@ -23,6 +23,9 @@ export function StickyBarBottom({stickybarbottom}) {
         } else {
             body.classList.remove("sticky-footer-attached")
         }
+        return () => {
+            body.classList.remove("sticky-footer-attached")
+        }
     }, [isSticky])
 
     return(
