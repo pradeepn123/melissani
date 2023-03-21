@@ -37,11 +37,17 @@ export const MEDIA_FRAGMENT = `#graphql
 `;
 
 export const PRODUCT_CARD_FRAGMENT = `#graphql
+  ${MEDIA_FRAGMENT}
   fragment ProductCard on Product {
     id
     title
     publishedAt
     handle
+    media(first: 20) {
+      nodes {
+        ...Media
+      }
+    }
     variants(first: 1) {
       nodes {
         id

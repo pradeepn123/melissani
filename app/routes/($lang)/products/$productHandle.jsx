@@ -37,7 +37,7 @@ const seo = ({data}) => {
   return {
     title: data?.product?.seo?.title ?? data?.product?.title,
     media: media?.image,
-    description: data?.product?.seo?.description ?? data?.product?.description,
+    // description: data?.product?.seo?.description ?? data?.product?.description,
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Product',
@@ -126,7 +126,7 @@ export default function Product() {
       <Section className="product-section px-0">
         {parsedProductDetails?.productHeader && <ProductHeader title={title} data={parsedProductDetails.productHeader}/>}
         <div className="product-content">
-          <ImageCarousel data={media.nodes} className="w-screen md:w-full lg:col-span-1 product-image-carousel" />
+          <ImageCarousel data={media.nodes.filter(media => media.alt != "featured-homepage")} className="w-screen md:w-full lg:col-span-1 product-image-carousel" />
           <div className="product-content-description">
             <ProductDescription isSubscriptionProduct={isSubscriptionProduct} title={title} 
             selectedVariant={selectedVariant} parsedProductDetails={parsedProductDetails} />

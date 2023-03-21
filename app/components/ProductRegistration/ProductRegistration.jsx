@@ -31,7 +31,6 @@ export function ProductRegistration({data}) {
 
     function submitForm(event) {
         event.preventDefault();
-        console.log("selected fields>", inputField)
     }
 
     function GetFieldObject(field_value){

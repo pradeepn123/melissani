@@ -35,7 +35,11 @@ export function MultipleProductsCard({
 
     if (!firstVariant) return null;
     const {image, price, compareAtPrice, availableForSale} = firstVariant;
-    
+
+    let featuredImage = selectedProduct.media.nodes.find((media) => media.alt == "featured-homepage")?.image
+    if (!featuredImage) {
+        featuredImage = image
+    }
     if (label) {
         cardLabel = label;
     } else if (isDiscounted(price, compareAtPrice)) {
@@ -80,8 +84,10 @@ export function MultipleProductsCard({
                                 width: 320,
                                 height: 400,
                                 }}
-                                data={image}
-                                alt={image.altText || `Picture of ${selectedProduct.title}`}
+                                // data={image}
+                                // alt={image.altText || `Picture of ${selectedProduct.title}`}
+                                data={featuredImage}
+                                alt={`Picture of ${selectedProduct.title}`}
                                 loading={loading}
                             />
                         )}
