@@ -155,7 +155,7 @@ export async function loader({request, params, context}) {
     }
   })
 
-  const sticky_bar_bottom = (page.handle == 'melissani-club') && page.metafields.find(item => {
+  const sticky_bar_bottom = (page.handle == 'purifier' || page.handle == 'melissani-m1-filter' || page.handle == 'melissani-club') && page.metafields.find(item => {
     if(item !== null){
       return item.key == "sticky_bar_bottom"
     }
@@ -313,12 +313,14 @@ export default function Page() {
       {page.handle == 'melissani-club' && (<FilterClub hero={parsed_hero} data={parsed_faq} supportinfo={parsed_filterclubsupportinfo} 
       filterclub={parsed_filterclub}  filterclubwarrenty={parsed_filterclubwarrenty} textwithbutton={parsed_textwithbutton} stickybarbottom={parsed_sticky_bar_bottom} />)}
       {page.handle == 'purifier' && (
-        <Purifier installation={parsed_installation} hero={parsed_hero} temperature={parsed_temperature} volume={parsed_volume} video_section={parsed_video_section} carousel={parsed_carousel}/>
+        <Purifier installation={parsed_installation} hero={parsed_hero} temperature={parsed_temperature} volume={parsed_volume} 
+        video_section={parsed_video_section} carousel={parsed_carousel} stickybarbottom={parsed_sticky_bar_bottom}/>
       )}
       {page.handle == 'contact' && (<Contact data={parsed_contact_form} />)}
       {page.handle == 'product-registration' && (<ProductRegistration data={parsed_product_registration_form} />)}
       {page.handle == 'melissani-m1-filter' && (
-        <Filter hero={parsed_hero} carousel={parsed_carousel} filterreplacementcycle={parsed_filterreplacementcycle} filter_changes={parsed_filter_changes} video_section={parsed_video_section} />
+        <Filter hero={parsed_hero} carousel={parsed_carousel} filterreplacementcycle={parsed_filterreplacementcycle} filter_changes={parsed_filter_changes} 
+        video_section={parsed_video_section} stickybarbottom={parsed_sticky_bar_bottom}/>
       )}
     </>
   );

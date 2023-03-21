@@ -3,10 +3,12 @@ import {
   ImageCenterWithText,
   ImageWithText,
   VideoPlayer,
-  TextCarousel
+  TextCarousel,
+  StickyBarBottom
 } from '~/components';
 
-export function Purifier({installation, hero, temperature, volume, video_section, carousel}) {
+export function Purifier({installation, hero, temperature, volume, video_section, carousel, stickybarbottom}) {
+      
     return (
       <>
         {hero && (
@@ -27,6 +29,9 @@ export function Purifier({installation, hero, temperature, volume, video_section
         {carousel && (
           <TextCarousel data={carousel} className="purifier-carousel" height="full" top loading="eager" />
         )}        
+        {stickybarbottom && (
+          <StickyBarBottom stickybarbottom={stickybarbottom}/>
+        )}
       </>
     )
 }

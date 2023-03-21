@@ -110,6 +110,9 @@ font-family: 'Peachi-Light';
 /* End: Menu Cart Drawer Section */
 
 /* Sticky bar css here */
+.sticky-footer-attached {
+    padding-bottom: 8rem;
+}
 .stickybar_main_section{
     position: fixed;
     bottom: 0;
@@ -117,7 +120,16 @@ font-family: 'Peachi-Light';
     width: 100%;
     z-index: 9;
     padding: 1em;
+    transition: transform .5s ease, visibility .5s ease;
     border: 1px solid #E8E8E8;
+}
+.stickybar_main_section.is-hidden{
+    visibility: hidden;
+    transform: translateY(calc(100% + 30px));
+}
+.stickybar_main_section.is-shown{
+    transform: translateY(0);
+    visibility: visible;
 }
 .stickybar_main_section .stickybar_main_section_inner{
     display: flex;
@@ -168,15 +180,23 @@ font-family: 'Peachi-Light';
 }
 .menu-drawer-container .menu-span a{
     margin-bottom: 32px;
-    display: block;
+    display: block;    
 }
 .menu-drawer-container .menuDrawer-Headermenu{
     display: flex;
     align-items: center;
+    font-weight: 400;    
 }
 .menu-drawer-container .menuDrawer-Headermenu .forward-nav-icon{
     margin-left: 18px;
     opacity: 0;
+    position: relative;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+.menu-drawer-container .menuDrawer-Headermenu .forward-nav-icon svg{
+    width: 40px;
 }
 .menu-drawer-container .menuDrawer-Headermenu .forward-nav-icon svg path{
     stroke: #000000;
@@ -209,12 +229,12 @@ font-family: 'Peachi-Light';
 }
 
 @media screen and (min-width: 1200px) {
-    .menu-drawer-container .menu-span:hover a span{
-        font-weight: 600;
-        color: #000000;
+    .menu-drawer-container .menu-span:hover a span{        
+        color: #666;
     }
     .menu-drawer-container .menuDrawer-Headermenu:hover .forward-nav-icon{
         opacity: 1;
+        transition: opacity 0.5s all ease;
     }
     .menu-drawer-container .menuDrawer-Headermenu{
         font-size: 36px;
@@ -234,7 +254,7 @@ font-family: 'Peachi-Light';
     }
     .stickybar_main_section{
         padding: 1em 0;
-    }
+    }    
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -270,7 +290,9 @@ font-family: 'Peachi-Light';
 
 @media screen and (min-width: 768px) {
     .menu-drawer-container .menu-span:hover a span{        
-        color: #000000;
+        color: #666;
+        opacity: 1;
+        right: 0;
     }
     .stickybar_main_section .stickybar_main_section_inner .sticky_button{
         width: inherit;
