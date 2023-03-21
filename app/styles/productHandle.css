@@ -47,7 +47,9 @@
     display: block;
     position: sticky;
     top: 0;
+    border: unset;
   }
+
   .media-gallery .product__media-sticky .flickity-prev-next-button{
     width: 35px;
     height: 35px;
@@ -62,6 +64,10 @@
 
   .product-content-description {
     width: 100%;
+  }
+
+  .product-content-description > div {
+    max-width: 100%;
   }
 
   .flickity-prev-next-button, .flickity-prev-next-button {
@@ -97,94 +103,101 @@
 
 /* Begin: Product Form Section */
   
-  .product-form-wrapper .product-title {
-    font-family: 'Peachi-Medium';
-    font-size: 32px;
-    line-height: 41px;
-    color: #000;
-  }
+.product-form-wrapper .product-title {
+  font-family: 'Peachi-Medium';
+  font-size: 32px;
+  line-height: 41px;
+  color: #000;
+}
   
-  .product-form-wrapper .product-price {
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 30px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #717070;
-  }
+.product-form-wrapper .product-price {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #717070;
+}
 
-  .product-form-wrapper .add-to-cart-wrapper {
-    grid-template-columns: auto auto;
-    margin: 20px 0 30px;
-  }
+.product-form-wrapper .add-to-cart-wrapper {
+  grid-template-columns: auto auto;
+  margin: 20px 0 30px;
+}
   
-  .product-form-wrapper .add-to-cart-wrapper .quantity-selector {
-    border: 1px solid #000;
-    justify-content: space-between;
-  }
+.product-form-wrapper .add-to-cart-wrapper .quantity-selector {
+  border: 1px solid #000;
+  justify-content: space-between;
+}
   
-  .product-form-wrapper .desc-list ul {
-    list-style: disc;
-    margin-left: 15px;
-  }
+.product-form-wrapper .desc-list ul {
+  list-style: disc;
+  margin-left: 15px;
+}
   
-  .product-form-wrapper .desc-list ul li {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #000;
-  }
+.product-form-wrapper .desc-list ul li {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000;
+}
   
-  .product-form-wrapper .desc-list ul li:not(:last-child) {
-    margin-bottom: 20px;
-  }
+.product-form-wrapper .desc-list ul li:not(:last-child) {
+  margin-bottom: 20px;
+}
   /* End: Product Form Section */
   
-  /* Begin: Media Query */
-  @media screen and (max-width: 320px) {
-    .cart-btn {
-      padding: .5em;
-    }
+/* Begin: Media Query */
+@media screen and (max-width: 320px) {
+  .cart-btn {
+    padding: .5em;
+  }
+}
+
+@media screen and (max-width: 540px) {
+
+  .product-form-wrapper .product-title {
+    font-size: 24px;
+    line-height: 31px;
   }
 
-  @media screen and (max-width: 540px) {
-
-    .product-form-wrapper .product-title {
-      font-size: 24px;
-      line-height: 31px;
-    }
-
-    .product-form-wrapper .product-price {
-      font-size: 20px;
-      line-height: 24px;
-    }
-    .cart-btn span.text-copy {
-      font-size: 16px;
-    }
+  .product-form-wrapper .product-price {
+    font-size: 20px;
+    line-height: 24px;
   }
-
-  @media screen and (max-width: 820px) {
-
-    .cart-btn {
-      padding: 5px;
-    }
-    .cart-btn span.text-copy {
-      font-size: 12px;
-    }
+  .cart-btn span.text-copy {
+    font-size: 16px;
   }
+}
 
-  @media screen and (max-width: 1024px) {
+@media screen and (max-width: 820px) {
+  .cart-btn {
+    padding: 5px;
+  }
+  .cart-btn span.text-copy {
+    font-size: 12px;
+  }
+}
 
-    .cart-btn {
-      padding: 0.75em;
-    }
+@media screen and (max-width: 1024px) {
+  .cart-btn {
+    padding: 0.75em;
   }
-  @media(min-width:1200px){
-    .media-gallery .product__media-sticky .flickity-prev-next-button{
-      width: 45px;
-      height: 45px;
-      padding: 13.5px;
-    }
+}
+
+@media(min-width:1200px){
+  .media-gallery .product__media-sticky .flickity-prev-next-button{
+    width: 45px;
+    height: 45px;
+    padding: 13.5px;
   }
-  /* End: Media Query */
-  /* End: Product Handle */
+}
+/* End: Media Query */
+/* End: Product Handle */
+
+.subscriptopn-product-form-wrapper {
+  padding: 1rem 1.2rem;
+}
+
+.subscription-form .subscription-title {
+
+}

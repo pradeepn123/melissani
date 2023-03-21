@@ -126,6 +126,8 @@ export default function Product() {
     parsedProductDetails = JSON.parse(productDetails?.value);
   }
 
+  debugger;
+
   return (
     <>
       <Section className="product-section px-0">
