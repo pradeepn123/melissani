@@ -24,7 +24,7 @@
 
 .product-name .product-subtitle {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     column-gap: 1em;
     margin-top: 1em;
 }
@@ -210,7 +210,12 @@
         font-size: 7px;
     } */
 }
+@media screen and (min-width: 1200px) {
+    .product-name .product-subtitle{
+        flex-direction: row
+    }
 
+}
 @media screen and (max-width: 768px) {
     .product-subtitle .subtitle {
         font-size: 8px;
@@ -243,8 +248,7 @@
         line-height: 39px;
     }
 
-    .product-name .product-subtitle {
-        flex-direction: column;
+    .product-name .product-subtitle {        
         row-gap: 1em;
         margin-top: 0;
     }
