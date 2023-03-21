@@ -37,7 +37,7 @@ const seo = ({data}) => {
   return {
     title: data?.product?.seo?.title ?? data?.product?.title,
     media: media?.image,
-    // description: data?.product?.seo?.description ?? data?.product?.description,
+    description: data?.product?.seo?.description ?? data?.product?.description,
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Product',

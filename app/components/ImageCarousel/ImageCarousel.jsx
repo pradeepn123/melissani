@@ -39,7 +39,6 @@ export function ImageCarousel({ data, className, boxContents }) {
                 <Flickity
                     pageDots="true"
                     prevNextButtons="true"
-                    freeScroll="true"
                     >
                     {data && data.map((item, index) =>
                         <div className="slider" key={index}>

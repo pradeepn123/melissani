@@ -84,8 +84,6 @@ export function MultipleProductsCard({
                                 width: 320,
                                 height: 400,
                                 }}
-                                // data={image}
-                                // alt={image.altText || `Picture of ${selectedProduct.title}`}
                                 data={featuredImage}
                                 alt={`Picture of ${selectedProduct.title}`}
                                 loading={loading}
