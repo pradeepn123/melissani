@@ -168,6 +168,7 @@
     }
     .learn-more-btn {
         font-size: 10px;
+        line-height: 1.2;
     }
     .product-key-features {
         /* flex: 1 0 60%;
