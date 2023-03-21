@@ -79,13 +79,13 @@
     left: 0 !important;
     opacity: 0;
     z-index: -1;
+    transition: opacity 0.3s ease-in-out;
 }
 .product-image-carousel .flickity-enabled .flickity-viewport {
     transform: scale(0.85);
 }
 
-.product-image-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider.is-selected {
-    transition: opacity 0.3s ease-in-out;
+.product-image-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider.is-selected {    
     opacity: 1;
     z-index: 0
 }
