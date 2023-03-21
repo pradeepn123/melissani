@@ -1,7 +1,6 @@
 import Flickity from 'react-flickity-component'
 
 export function ImageCarousel({ data, className, boxContents }) {
-
     return (
         <>
             <section className={`image-carousel md:grid-flow-row hiddenScroll md:p-0 md:overflow-x-auto md:grid-cols-1 ${className}`}>
@@ -21,12 +20,11 @@ export function ImageCarousel({ data, className, boxContents }) {
                             </div>
                         )}
                     </div>
-
+                    
                     <Flickity
                         className="box-content-flickity"
                         prevNextButtons="false"
                         groupCells="100%"
-                        fade="true"
                         >
                         {boxContents.content.map((contentItem, contentIndex) =>
                             <div className="slider" key={contentIndex}>
@@ -41,7 +39,7 @@ export function ImageCarousel({ data, className, boxContents }) {
                 <Flickity
                     pageDots="true"
                     prevNextButtons="true"
-                    fade
+                    freeScroll="true"
                     >
                     {data && data.map((item, index) =>
                         <div className="slider" key={index}>

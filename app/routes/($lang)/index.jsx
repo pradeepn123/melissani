@@ -13,7 +13,7 @@ import {
   VolumeControlProperty,
   FooterContact
 }from '~/components';
-import { PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
+import { PRODUCT_CARD_FRAGMENT, MEDIA_FRAGMENT } from '~/data/fragments';
 import { getHeroPlaceholder } from '~/lib/placeholders';
 import { AnalyticsPageType } from '@shopify/hydrogen';
 import ImageWithTextStyles from '~/components/ImageWithText/ImageWithText.css';

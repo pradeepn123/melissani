@@ -19,10 +19,13 @@ export function SingleProductCard({
   if (!cardProduct?.variants?.nodes?.length) return null;
 
   const firstVariant = flattenConnection(product.variants)[0];
+  let featuredImage = product.media.nodes.find((media) => media.alt == "featured-homepage")?.image
 
   if (!firstVariant) return null;
   const {image, price, compareAtPrice, availableForSale} = firstVariant;
-
+  if (!featuredImage) {
+    featuredImage = image
+  }
   if (label) {
     cardLabel = label;
   } else if (isDiscounted(price, compareAtPrice)) {
@@ -67,8 +70,8 @@ export function SingleProductCard({
                   width: 320,
                   height: 400,
                 }}
-                data={image}
-                alt={image.altText || `Picture of ${product.title}`}
+                data={featuredImage}
+                alt={`Picture of ${product.title}`}
                 loading={loading}
               />
             )}

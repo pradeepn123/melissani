@@ -7,6 +7,7 @@ import {ProductGrid} from '~/components/ProductGrid';
 import {PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 
 const seo = ({data}) => ({
+  
   title: data?.collection?.seo?.title,
   description: data?.collection?.seo?.description,
   titleTemplate: '%s | Collection',
@@ -18,7 +19,6 @@ const seo = ({data}) => ({
     altText: data?.collection?.image?.altText,
   },
 });
-
 export const handle = {
   seo,
 };
