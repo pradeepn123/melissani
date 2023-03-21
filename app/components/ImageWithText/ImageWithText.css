@@ -28,6 +28,7 @@
     text-align: left;
     
 }
+
 /* End: Contaminants Section */
 
 /* Begin: Discover Section */
@@ -373,6 +374,10 @@ ul.filter-club-list {
 }
 
 @media (max-width: 540px) {
+    .right_text_block ul li img{
+        width: 45px;
+        height: 45px;
+    }
     .discover-section {
         width: 100%;
         padding: 3em 1em;
