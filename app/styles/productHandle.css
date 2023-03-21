@@ -75,7 +75,7 @@
     vertical-align: top;
     position: relative;
     list-style-type: circle;
-    bottom: 1rem;
+    bottom: 2rem;
   }
   /* white circles */
   .media-gallery .flickity-page-dots .dot {
