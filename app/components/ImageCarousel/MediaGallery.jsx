@@ -5,10 +5,9 @@ export function MediaGallery({ data }) {
     return <section className="media-gallery">
         <div className="product__media-sticky image-carousel">
             <Flickity
+                options={{initialIndex: 2}}
                 pageDots="true"
                 prevNextButtons="true"
-                fade
-                reloadOnUpdate
             >
                 {data && data.map((item, index) => <div
                     className="slider"
