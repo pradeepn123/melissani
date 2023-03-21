@@ -1,33 +1,38 @@
 import {defer} from '@shopify/remix-oxygen';
+
 import {
   useLoaderData
 } from '@remix-run/react';
+
 import {
   AnalyticsPageType,
   flattenConnection,
 } from '@shopify/hydrogen';
+
 import {
   Section,
   ImageCarousel,
   Specifications,
   ProductDescription,
-  ProductHeader
+  ProductHeader,
+  MediaGallery
 } from '~/components';
+
 import invariant from 'tiny-invariant';
+
 import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 import ProductHeaderStyles from '~/components/ProductHeader/ProductHeader.css';
 import ImageCarouselStyles from '~/components/ImageCarousel/ImageCarousel.css';
 import SpecificationStyles from '~/components/Specifications/Specifications.css';
 import ProductHandleStyles from '../../../styles/productHandle.css';
 
-export const links = () => {
-  return [
-    {rel: 'stylesheet', href: ProductHeaderStyles},
-    {rel: 'stylesheet', href: ImageCarouselStyles},
-    {rel: 'stylesheet', href: SpecificationStyles},
-    {rel: 'styleSheet', href: ProductHandleStyles}
-  ]
-}
+
+export const links = () => [
+  {rel: 'stylesheet', href: ProductHeaderStyles},
+  {rel: 'stylesheet', href: ImageCarouselStyles},
+  {rel: 'stylesheet', href: SpecificationStyles},
+  {rel: 'styleSheet', href: ProductHandleStyles}
+]
 
 const seo = ({data}) => {
   const media = flattenConnection(data.product.media).find(
@@ -124,16 +129,34 @@ export default function Product() {
   return (
     <>
       <Section className="product-section px-0">
-        {parsedProductDetails?.productHeader && <ProductHeader title={title} data={parsedProductDetails.productHeader}/>}
+        {parsedProductDetails?.productHeader && <ProductHeader
+          title={title}
+          data={parsedProductDetails.productHeader}
+        />}
+
         <div className="product-content">
-          <ImageCarousel data={media.nodes.filter(media => media.alt != "featured-homepage")} className="w-screen md:w-full lg:col-span-1 product-image-carousel" />
+          <MediaGallery
+            data={media.nodes.filter(media => media.alt != "featured-homepage")}
+          />
+
           <div className="product-content-description">
-            <ProductDescription isSubscriptionProduct={isSubscriptionProduct} title={title} 
-            selectedVariant={selectedVariant} parsedProductDetails={parsedProductDetails} />
+            <ProductDescription
+              isSubscriptionProduct={isSubscriptionProduct}
+              title={title}
+              selectedVariant={selectedVariant}
+              parsedProductDetails={parsedProductDetails}
+            />
           </div>
         </div>
-        {parsedProductDetails?.boxContents && <ImageCarousel boxContents={parsedProductDetails.boxContents[0]} className="w-screen md:w-full lg:col-span-1 box-content-image-carousel" />}
-        {parsedProductDetails?.Specifications && <Specifications data={parsedProductDetails.Specifications} />}
+
+        {parsedProductDetails?.boxContents && <ImageCarousel
+          boxContents={parsedProductDetails.boxContents[0]}
+          className="w-screen md:w-full lg:col-span-1 box-content-image-carousel"
+        />}
+
+        {parsedProductDetails?.Specifications && <Specifications
+          data={parsedProductDetails.Specifications}
+        />}
       </Section>
     </>
   );
