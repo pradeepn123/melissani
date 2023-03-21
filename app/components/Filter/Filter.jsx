@@ -3,10 +3,11 @@ import {
   ImageWithText,
   VideoPlayer,
   Carousel,
-  BackgroundImgWithText
+  BackgroundImgWithText,
+  StickyBarBottom
 } from '~/components';
 
-export function Filter({hero, carousel, filter_changes, filterreplacementcycle, video_section}) {
+export function Filter({hero, carousel, filter_changes, filterreplacementcycle, video_section, stickybarbottom}) {
   return (
     <>
       {hero && (
@@ -28,6 +29,9 @@ export function Filter({hero, carousel, filter_changes, filterreplacementcycle, 
       {video_section && (
         <VideoPlayer data={video_section} />
       )} 
+      {stickybarbottom && (
+        <StickyBarBottom stickybarbottom={stickybarbottom}/>
+      )}
     </>
   )
 }

@@ -20,7 +20,7 @@
     position: relative;
 }
 .main_purifier_carousel .main_purifier_carousel_inner_wrap .puri_slider ul li:before{
-    width: 50%;
+    width: 100%;
     content: '';
     border-bottom: 1px solid #D9D9D9;
     position: absolute; 
@@ -60,6 +60,11 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+@media(min-width:768px){
+    .main_purifier_carousel .main_purifier_carousel_inner_wrap .puri_slider ul li:before{
+        width: 60%;
+    }
+}
 @media(min-width:1200px){
     .main_purifier_carousel{
         padding: 8rem 0;
