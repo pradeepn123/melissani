@@ -5,7 +5,7 @@ export function MediaGallery({ data }) {
     return <section className="media-gallery">
         <div className="product__media-sticky image-carousel">
             <Flickity
-                options={{initialIndex: 2}}
+                options={{}}
                 pageDots="true"
                 prevNextButtons="true"
             >

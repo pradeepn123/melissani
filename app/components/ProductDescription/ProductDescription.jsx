@@ -7,6 +7,8 @@ import {
   ProductForm
 } from '~/components';
 
+import SubscriptionProductForm from './SubscriptionProductForm';
+
 
 export function ProductDescription ({
     isSubscriptionProduct,
@@ -15,8 +17,8 @@ export function ProductDescription ({
     parsedProductDetails
 }) {
     return <div>
-        {isSubscriptionProduct ? <div>
-            
+        {isSubscriptionProduct ? <div className="subscriptopn-product-form-wrapper">
+            <SubscriptionProductForm parsedProductDetails={parsedProductDetails} />
         </div> : <div
             className="product-form-wrapper"
         >
