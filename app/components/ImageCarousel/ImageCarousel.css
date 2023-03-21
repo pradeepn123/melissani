@@ -193,6 +193,11 @@
     } 
 }
 
+ol.flickity-page-dots > li.dot::marker {
+    display: none;
+    color: transparent;
+}
+
 @media screen and (max-width: 540px) {
     .image-carousel {
         border: none;
