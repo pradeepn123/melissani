@@ -14,8 +14,6 @@ import {
 export function ProductForm() {
   const {product, analytics} = useLoaderData();
 
-  console.log(product)
-
   const [currentSearchParams] = useSearchParams();
   const transition = useTransition();
   const [quantity, setQuantity] = useState(1);

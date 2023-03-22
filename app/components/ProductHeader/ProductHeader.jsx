@@ -1,5 +1,6 @@
 import { Button, Link } from '~/components';
 
+
 export function ProductHeader({ title, data }) {
 
     return (

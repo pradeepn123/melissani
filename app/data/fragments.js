@@ -36,6 +36,7 @@ export const MEDIA_FRAGMENT = `#graphql
   }
 `;
 
+
 export const PRODUCT_CARD_FRAGMENT = `#graphql
   ${MEDIA_FRAGMENT}
   fragment ProductCard on Product {
@@ -46,6 +47,28 @@ export const PRODUCT_CARD_FRAGMENT = `#graphql
     media(first: 20) {
       nodes {
         ...Media
+      }
+    }
+    requiresSellingPlan
+    sellingPlanGroups(first: 1) {
+      edges {
+        node {
+          name
+          options {
+            name
+            values
+          }
+          sellingPlans(first: 10) {
+            edges {
+              node {
+                id
+                name
+                description
+                recurringDeliveries
+              }
+            }
+          }
+        }
       }
     }
     variants(first: 1) {

@@ -14,11 +14,15 @@ export function ProductDescription ({
     isSubscriptionProduct,
     title,
     selectedVariant,
-    parsedProductDetails
+    parsedProductDetails,
+    products
 }) {
     return <div>
-        {isSubscriptionProduct ? <div className="subscriptopn-product-form-wrapper">
-            <SubscriptionProductForm parsedProductDetails={parsedProductDetails} />
+        {isSubscriptionProduct ? <div className="subscriptipn-product-form-wrapper">
+            <SubscriptionProductForm
+                parsedProductDetails={parsedProductDetails}
+                products={products}
+            />
         </div> : <div
             className="product-form-wrapper"
         >
