@@ -5,34 +5,39 @@ export function AccountAddressBook({customer, addresses}) {
   return (
     <>
       <div className="grid w-full gap-4 p-4 py-6 md:gap-8 md:p-8 lg:p-12">
-        <h3 className="font-bold text-lead">Address Book</h3>
-        <div className='account_address_book'>
-          {!addresses?.length && (
-            <Text className="mb-1" width="narrow" as="p" size="copy">
-              You haven&apos;t saved any addresses yet.
-            </Text>
-          )}
-          <div className="w-48 custom_btn">
-            <Button
-              to="address/add"
-              className="mt-2 text-sm w-full mb-6"
-              variant="secondary"
-            >
-              Add an Address
-            </Button>
-          </div>
-          {Boolean(addresses?.length) && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {customer.defaultAddress && (
-                <Address address={customer.defaultAddress} defaultAddress />
-              )}
-              {addresses
-                .filter((address) => address.id !== customer.defaultAddress?.id)
-                .map((address) => (
-                  <Address key={address.id} address={address} />
-                ))}
+        <div className="" id="AccountAddressBook">
+          <div className="heading_btn">
+            <h3 className="font-bold text-lead">Address Book</h3>
+            <div className="w-48 custom_btn">
+              <Button
+                to="address/add"
+                className="mt-2 text-sm w-full mb-6"
+                variant="secondary"
+              >
+                Add an Address
+              </Button>
             </div>
-          )}
+          </div>
+          <div className='account_address_book'>
+            {!addresses?.length && (
+              <Text className="mb-1" width="narrow" as="p" size="copy">
+                You haven&apos;t saved any addresses yet.
+              </Text>
+            )}
+            
+            {Boolean(addresses?.length) && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {customer.defaultAddress && (
+                  <Address address={customer.defaultAddress} defaultAddress />
+                )}
+                {addresses
+                  .filter((address) => address.id !== customer.defaultAddress?.id)
+                  .map((address) => (
+                    <Address key={address.id} address={address} />
+                  ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </>

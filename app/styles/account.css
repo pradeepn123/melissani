@@ -1,9 +1,15 @@
 .account_heading{
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: space-between;
     background: #F9F9F9;
+    row-gap: 0.5em;
     padding: 20px 1rem;
+}
+.account_heading button.inline-block,
+.account_heading a span{
+    color: #000000;
 }
 
 .empty_orders{
@@ -20,15 +26,81 @@
     padding-right: 1.5rem;
 }
 
+
+.account_main_content{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+.account_sidebar {
+    flex: 1 0 30%;
+}
+.account_sidebar ul{
+    margin: 0;
+    background: #fff;
+    border: 1px solid #E6E6F1;
+    border-radius: 4px;
+    position: sticky;
+    top: 12%;
+}
+.account_sidebar ul li{
+    display: block;    
+    /* border-left: 2px solid #6EC59F; */
+    list-style: none;
+    padding: 30px;
+    border-bottom: 1px solid #F2F2F3;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.account_details { 
+    flex: 1 0 70%;
+}
+.heading_btn{
+    display: flex;
+    justify-content: space-between;    
+    align-items: flex-start;
+    flex-direction: column;
+}
+.heading_btn .custom_btn a{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
 /* account address book css */
 .account_address_book .custom_btn a{
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
+.account_det_pd{
+    padding: 0 1rem;
+}
+
 
 /* Begin: Media Query */
+@media(min-width:768px){
+
+}
 @media(min-width:1200px){
+    .account_det_pd{
+        padding: 0 3rem;
+    }
+    
+    .heading_btn{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+    }
+    .account_main_content{
+        display: flex;
+        flex-direction: row;
+        padding: 1rem 2rem;
+        margin-top: 1rem;
+    }
     .account_heading{ 
+        flex-direction: row;
+        align-items: center;
         padding: 20px 2rem;
     }
 }

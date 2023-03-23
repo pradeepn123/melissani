@@ -21,9 +21,9 @@ export const Button = forwardRef(
       'inline-block rounded-full text-center py-3 px-9';
 
     const variants = {
-      primary: `${baseButtonClasses} border border-primary bg-primary text-contrast rounded-full font-tertiary common-btn-line-height fs-17 primary-btn`,
-      secondary: `${baseButtonClasses} border-2 border-primary bg-contrast text-primary rounded-full font-tertiary common-btn-line-height fs-17 fw-500 secondary-btn`,
-      inline: 'leading-none pb-1 underline font-tertiary font-base common-btn-line-height inline-btn',
+      primary: `${baseButtonClasses} border border-primary bg-primary text-contrast rounded-full font-tertiary common-btn-line-height fs-17`,
+      secondary: `${baseButtonClasses} border border-primary bg-contrast text-primary rounded-full font-tertiary common-btn-line-height fs-17`,
+      inline: 'leading-none pb-1 underline font-tertiary font-base common-btn-line-height',
     };
 
     const widths = {

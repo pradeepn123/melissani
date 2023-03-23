@@ -1,4 +1,8 @@
 /* Begin: Common Styles */
+html{
+    scroll-behavior: smooth;
+}
+
 body {
   letter-spacing: 0.5px;
   font-family: 'Peachi-Bold', 'Peachi-Light';
