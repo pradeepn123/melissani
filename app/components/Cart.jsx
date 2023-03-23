@@ -39,8 +39,7 @@ export function CartDetails({layout, cart}) {
       <CartLines lines={cart?.lines} layout={layout} />
       {!isZeroCost && (
         <CartSummary cost={cart.cost} layout={layout}>
-          <CartDiscounts discountCodes={cart.discountCodes} />
-          <CartCheckoutActions checkoutUrl={cart.checkoutUrl} />
+          <CartCheckoutActions cost={cart.cost} checkoutUrl={cart.checkoutUrl} />
         </CartSummary>
       )}
     </div>
@@ -139,14 +138,16 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
   );
 }
 
-function CartCheckoutActions({checkoutUrl}) {
+function CartCheckoutActions({cost, checkoutUrl}) {
   if (!checkoutUrl) return null;
 
   return (
     <div className="flex flex-col mt-2">
       <a href={checkoutUrl} target="_self">
-        <Button as="span" width="full">
-          Continue to Checkout
+        <Button variant="primary" as="span" width="full" className="flex items-center justify-center">
+          Checkout - {cost?.subtotalAmount?.amount ? (
+            <Money data={cost?.subtotalAmount} />
+          ) : ('')}
         </Button>
       </a>
       {/* @todo: <CartShopPayButton cart={cart} /> */}
@@ -156,19 +157,16 @@ function CartCheckoutActions({checkoutUrl}) {
 
 function CartSummary({cost, layout, children = null}) {
   const summary = {
-    drawer: 'grid gap-4 p-6 border-t md:px-12',
+    drawer: 'grid gap-4 cart-summary-footer',
     page: 'sticky top-nav grid gap-6 p-4 md:px-6 md:translate-y-4 bg-primary/5 rounded w-full',
   };
 
   return (
     <section aria-labelledby="summary-heading" className={summary[layout]}>
-      <h2 id="summary-heading" className="sr-only">
-        Order summary
-      </h2>
       <dl className="grid">
-        <div className="flex items-center justify-between font-medium">
-          <Text as="dt">Subtotal</Text>
-          <Text as="dd" data-test="subtotal">
+        <div className="flex items-center justify-between">
+          <Text as="dt" className="font-primary cart-footer-subtotal">Subtotal</Text>
+          <Text as="dd" data-test="subtotal" className="font-tertiary cart-footer-total">
             {cost?.subtotalAmount?.amount ? (
               <Money data={cost?.subtotalAmount} />
             ) : (
@@ -190,7 +188,7 @@ function CartLineItem({line}) {
   if (typeof quantity === 'undefined' || !merchandise?.product) return null;
 
   return (
-    <li key={id} className="flex gap-4">
+    <li key={id} className="flex gap-6">
       <div className="flex-shrink">
         {merchandise.image && (
           <div className="cart-product-img-wrapper">
