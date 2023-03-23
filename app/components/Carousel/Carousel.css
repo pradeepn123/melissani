@@ -70,22 +70,22 @@
 }
 
 /* Fade effect */
-.home-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider{
+.flickity-enabled .flickity-viewport .flickity-slider .slider{
     transform: none !important;
 }
 
-.home-carousel .flickity-enabled .flickity-viewport .flickity-slider {
+.flickity-enabled .flickity-viewport .flickity-slider {
     transform: none !important;
 }
 
-.home-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider {
+.flickity-enabled .flickity-viewport .flickity-slider .slider {
     left: 0 !important;
     opacity: 0;
     z-index: -1;
     transition: opacity .5s ease-in-out;
 }
 
-.home-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider.is-selected {        
+.flickity-enabled .flickity-viewport .flickity-slider .slider.is-selected {        
     opacity: 1;
     z-index: 0;
 }
