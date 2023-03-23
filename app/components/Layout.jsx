@@ -71,15 +71,35 @@ function Header({logo, menu,footerMenu,metafields}) {
 
   return (
     <>
-      <CartDrawer isOpen={isCartOpen} onClose={closeCart} isHome={isHome} openCart={openCart}/>
-      {menu && (
-        <MenuDrawer isOpen={isMenuOpen} onClose={closeMenu} menu={menu} footerMenu={footerMenu} isHome={isHome} openCart={openCart} metafields={metafields}/>
-      )}
+      <CartDrawer 
+        isOpen={isCartOpen}
+        onClose={closeCart}
+        isHome={isHome}
+        openCart={openCart}
+      />
+      {menu && <MenuDrawer
+        isOpen={isMenuOpen}
+        onClose={closeMenu}
+        menu={menu}
+        footerMenu={footerMenu}
+        isHome={isHome}
+        openCart={() => {
+          closeMenu()
+          openCart()
+        }}
+        metafields={metafields}
+      />}
       <MobileHeader
         isHome={isHome}
         logo={logo}
-        openCart={openCart}
-        openMenu={openMenu}
+        openCart={() => {
+          closeMenu()
+          openCart()
+        }}
+        openMenu={() => {
+          closeCart()
+          openMenu()
+        }}
       />
     </>
   );
@@ -89,7 +109,14 @@ function CartDrawer({isOpen, onClose,isHome, openCart }) {
   const [root] = useMatches();
 
   return (
-    <Drawer open={isOpen} onClose={onClose} isHome={isHome} openCart={openCart} heading="Cart" openFrom="right">
+    <Drawer
+      open={isOpen}
+      onClose={onClose}
+      isHome={isHome}
+      openCart={openCart}
+      heading="Cart"
+      openFrom="right"
+    >
       <div className="grid">
         <Suspense fallback={<CartLoading />}>
           <Await resolve={root.data?.cart}>
@@ -103,7 +130,14 @@ function CartDrawer({isOpen, onClose,isHome, openCart }) {
 
 export function MenuDrawer({isOpen, onClose, menu,footerMenu,metafields,isHome,openCart}) {
   return (
-    <Drawer open={isOpen} onClose={onClose} isHome={isHome} openCart={openCart}  openFrom="right" heading="Menu">
+    <Drawer
+      open={isOpen}
+      onClose={onClose}
+      isHome={isHome}
+      openCart={openCart}
+      openFrom="right"
+      heading="Menu"
+    >
     <div className="menu-drawer-container">
       <MenuMobileNav menu={menu} onClose={onClose} footerMenu={footerMenu} metafields={metafields} />
       </div>
