@@ -115,6 +115,7 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
   const currentLines = cartLines ? flattenConnection(cartLines) : [];
   const scrollRef = useRef(null);
   const {y} = useScroll(scrollRef);
+  const filterClubLineItems = currentLines.filter(line => line.attributes.length !== 0);
 
   const className = clsx([
     y > 0 ? 'border-t' : '',
