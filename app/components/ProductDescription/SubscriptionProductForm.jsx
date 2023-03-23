@@ -7,32 +7,31 @@ import { Heading, QuantityAdjust, AddToCartButton, Text } from '~/components';
 
 
 const SubscriptionProductForm = (props) => {
-    const { product } = useLoaderData();
-
-    const [isSubscriptionSelected, setIsSubscriptionSelected] = useState(true)
+    const [isSubscriptionSelected, setIsSubscriptionSelected] = useState(false)
+    const [subscriptionProducts, setSubscriptionProducts] = useState([])
     const [oneTimeProducts, setOneTimeProducts] = useState([])
     const [price, setPrice] = useState(0)
     const [variantLineItems, setVariantLineItems] = useState([])
 
-    const subscriptionProducts = props.products.filter((p) => {
-        return props.parsedProductDetails.linkedProducts.subscription.includes(p.handle)
-    }).map((item) => {
-        return {
-            merchandiseId: item.variants.nodes[0].id,
-            sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
-            quantity: 1,
-            attributes: [{
-                key: 'bundleId',
-                value: new Date().getTime().toString()
-            }, {
-                key: 'bundeType',
-                value: 'filter-club'
-            }]
-        }
-    })
-
     useEffect(() => {
-        setVariantLineItems(subscriptionProducts)
+        const bundleId = new Date().getTime().toString()
+        const subscriptionItems = props.products.filter((p) => {
+            return props.parsedProductDetails.linkedProducts.subscription.includes(p.handle)
+        }).map((item) => {
+            return {
+                merchandiseId: item.variants.nodes[0].id,
+                sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
+                quantity: 1,
+                attributes: [{
+                    key: 'bundleId',
+                    value: bundleId
+                }, {
+                    key: 'bundeType',
+                    value: 'filter-club'
+                }]
+            }
+        })
+        setSubscriptionProducts(subscriptionItems)
         const oneTimeProducts = props.products.filter((p) => props.parsedProductDetails.linkedProducts.default.includes(p.handle))
         setOneTimeProducts(oneTimeProducts.map(oneTimeProduct => {
             oneTimeProduct.quantity = 0
@@ -42,6 +41,7 @@ const SubscriptionProductForm = (props) => {
             const firstVariant = lineProduct.variants.nodes[0];
             return acc + parseFloat(firstVariant.price?.amount)
         }, 0))
+        setIsSubscriptionSelected(true)
     }, [])
 
     useEffect(() => {
