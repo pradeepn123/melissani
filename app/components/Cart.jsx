@@ -115,7 +115,25 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
   const currentLines = cartLines ? flattenConnection(cartLines) : [];
   const scrollRef = useRef(null);
   const {y} = useScroll(scrollRef);
-  const filterClubLineItems = currentLines.filter(line => line.attributes.length !== 0);
+
+  const bundleIds = Array.from(new Set(currentLines.map(line => {
+    const bundleAttr = line.attributes.find((attribute) => attribute.key == "Bundle Id" )
+    if (bundleAttr) {
+      return bundleAttr.value
+    }
+  }).filter((bundleId) => bundleId)))
+
+  const filterClubLineItems = bundleIds.map((bundleId) => {
+    return currentLines.filter((line) => {
+      return line.attributes.find((attribute) => attribute.key == "Bundle Id" && attribute.value == bundleId)
+    })
+  })
+
+  const oneTimeLineItems = currentLines.filter(line => {
+    return !line.attributes.find((attribute) => attribute.key == "Bundle Id" )
+  })
+
+  console.log(currentLines)
 
   const className = clsx([
     y > 0 ? 'border-t' : '',
@@ -131,8 +149,11 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
       className={className}
     >
       <ul className="grid gap-6 md:gap-10">
-        {currentLines.map((line) => (
+        {oneTimeLineItems.map((line) => (
           <CartLineItem key={line.id} line={line} />
+        ))}
+        {filterClubLineItems.map((lines, index) => (
+          <SubsctiptionLineItem key={`subscription-${index}`} lines={lines} />
         ))}
       </ul>
     </section>
@@ -179,6 +200,42 @@ function CartSummary({cost, layout, children = null}) {
       {children}
     </section>
   );
+}
+
+
+function SubsctiptionLineItem({lines}) {
+  const image = lines[0].merchandise.image
+  image.url = "https://cdn.shopify.com/s/files/1/0684/3023/3888/files/Group_6534.png?v=1679597450"
+
+  return <li className="flex gap-6">
+      <div className="flex-shrink">
+        <div className="cart-product-img-wrapper">
+          <Image
+            data={image}
+            className="cart-product-img"
+          />
+        </div>
+      </div>
+      <div className="flex justify-between items-center flex-grow">
+        <div className="grid gap-2">
+          <Heading as="h3" size="copy" className="font-primary cart-product-title">
+            Filter Club Membership
+          </Heading>
+
+          <div className="grid pb-2">
+            <Text className="font-tertiary cart-product-price">
+              <SubscriptionLinesPrice lines={lines} as="span" />
+            </Text>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="flex justify-start text-copy">
+              <SubscriptionLineQuantityAdjust lines={lines} />
+            </div>
+            <ItemRemoveButton lineIds={lines.map(line => line.id)} />
+          </div>
+        </div>
+      </div>
+    </li>
 }
 
 function CartLineItem({line}) {
@@ -297,6 +354,54 @@ function CartLineQuantityAdjust({line}) {
   );
 }
 
+function SubscriptionLineQuantityAdjust({lines}) {
+
+  const quantity = lines[0].quantity
+  const prevQuantity = Number(Math.max(0, quantity - 1).toFixed(0));
+  const nextQuantity = Number((quantity + 1).toFixed(0));
+
+  const prevLineToUpdate = lines.map(line => {
+    return {id: line.id, quantity: prevQuantity, attributes: line.attributes}
+  })
+
+  const nextLineToUpdate = lines.map(line => {
+    return {id: line.id, quantity: nextQuantity, attributes: line.attributes}
+  })
+
+  return (
+    <>
+      <div className="flex items-center quantity-selector-wrapper">
+        <UpdateCartButton lines={prevLineToUpdate}>
+          <button
+            name="decrease-quantity"
+            aria-label="Decrease quantity"
+            className="quantity-selector-btn transition text-primary/50 hover:text-primary disabled:text-primary/10"
+            value={prevQuantity}
+            disabled={quantity <= 1}
+          >
+            <span>&#8722;</span>
+          </button>
+        </UpdateCartButton>
+
+        <div className="px-2 text-center cart-product-quantity" data-test="item-quantity">
+          {quantity}
+        </div>
+
+        <UpdateCartButton lines={nextLineToUpdate}>
+          <button
+            className="quantity-selector-btn transition text-primary/50 hover:text-primary"
+            name="increase-quantity"
+            value={nextQuantity}
+            aria-label="Increase quantity"
+          >
+            <span>&#43;</span>
+          </button>
+        </UpdateCartButton>
+      </div>
+    </>
+  );
+}
+
 function UpdateCartButton({children, lines}) {
   const fetcher = useFetcher();
 
@@ -324,6 +429,15 @@ function CartLinePrice({line, priceType = 'regular', ...passthroughProps}) {
   return <Money withoutTrailingZeros {...passthroughProps} data={moneyV2} />;
 }
 
+function SubscriptionLinesPrice({lines, priceType = 'regular', ...passthroughProps}) {
+
+  const moneyV2 = {amount: lines.reduce((acc, line) => {
+    return acc + parseFloat(line.merchandise.compareAtPrice.amount)
+  }, 0).toFixed(2), currencyCode: 'USD'}
+
+  return <Money withoutTrailingZeros {...passthroughProps} data={moneyV2} />;
+}
+
 export function CartEmpty({hidden = false, layout = 'drawer', onClose}) {
   const scrollRef = useRef(null);
   const {y} = useScroll(scrollRef);
@@ -340,24 +454,17 @@ export function CartEmpty({hidden = false, layout = 'drawer', onClose}) {
   };
 
   return (
-    <div ref={scrollRef} className={container[layout]} hidden={hidden}>
+    <div ref={scrollRef} className={`${container[layout]} ${hidden ? '' : 'empty-cart'}`} hidden={hidden}>
       <section className="grid gap-6">
         <Text format>
           Looks like you haven&rsquo;t added anything yet, let&rsquo;s get you
           started!
         </Text>
         <div>
-          <Button onClick={onClose}>Continue shopping</Button>
+          <Button onClick={onClose}>
+            Continue shopping
+          </Button>
         </div>
-      </section>
-      <section className="grid gap-8 pt-16">
-        <FeaturedProducts
-          count={4}
-          heading="Shop Best Sellers"
-          layout={layout}
-          onClose={onClose}
-          sortKey="BEST_SELLING"
-        />
       </section>
     </div>
   );

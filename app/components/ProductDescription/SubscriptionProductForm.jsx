@@ -7,7 +7,7 @@ import { Heading, QuantityAdjust, AddToCartButton, Text } from '~/components';
 
 
 const SubscriptionProductForm = (props) => {
-    const [isSubscriptionSelected, setIsSubscriptionSelected] = useState(false)
+    const [isSubscriptionSelected, setIsSubscriptionSelected] = useState(null)
     const [subscriptionProducts, setSubscriptionProducts] = useState([])
     const [oneTimeProducts, setOneTimeProducts] = useState([])
     const [price, setPrice] = useState(0)
@@ -23,11 +23,11 @@ const SubscriptionProductForm = (props) => {
                 sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
                 quantity: 1,
                 attributes: [{
-                    key: 'bundleId',
+                    key: 'Bundle Id',
                     value: bundleId
                 }, {
-                    key: 'bundeType',
-                    value: 'filter-club'
+                    key: 'Bundle Type',
+                    value: 'Filter Club'
                 }]
             }
         })
@@ -83,6 +83,24 @@ const SubscriptionProductForm = (props) => {
                 quantity: oneTimeProduct.quantity
             }
         }).filter((productVariant) => productVariant.quantity > 0))
+    }
+
+    const handleSubmitButtonClick = (event) => {
+        if (isSubscriptionSelected) {
+            const bundleId = new Date().getTime().toString()
+            const updatedSubscriptionItems = subscriptionProducts.map((subscriptionItem) => {
+                subscriptionItem.attributes = [{
+                    key: 'Bundle Id',
+                    value: bundleId
+                }, {
+                    key: 'Bundle Type',
+                    value: 'Filter Club'
+                }]
+                return subscriptionItem
+            })
+            setSubscriptionProducts(updatedSubscriptionItems)
+            setVariantLineItems(updatedSubscriptionItems)
+        }
     }
 
     return <div className="subscription-form">
@@ -212,6 +230,7 @@ const SubscriptionProductForm = (props) => {
               lines={variantLineItems}
               data-test="add-to-cart"
               disabled={variantLineItems.length < 1}
+              onClick={handleSubmitButtonClick}
             >
                 <Text
                   as="span"

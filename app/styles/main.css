@@ -445,3 +445,8 @@ body {
 
 /* End: Media Query */
 
+.empty-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
