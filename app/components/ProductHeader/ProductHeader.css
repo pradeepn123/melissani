@@ -102,6 +102,7 @@
     }
     .product-name .product-subtitle {
         margin-top: 0;
+        row-gap: 0.4rem;
     }
     .product-subtitle .subtitle {
         font-size: 14px;
@@ -134,6 +135,7 @@
     }
     .product-name .product-title {
         font-size: 30px;
+        line-height: 1.2;
     }
     .product-subtitle .subtitle {
         font-size: 10px;
@@ -158,6 +160,7 @@
     }
     .product-name .product-title {
         font-size: 30px;
+        line-height: 1.2;
     }
     .product-name .product-subtitle {
         column-gap: 0;
