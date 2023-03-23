@@ -58,7 +58,7 @@
 .filter_club_faq .custom_content p{
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    text-align: justify;
+    width: 90%;
 }
 .filter_club_faq{
     padding: 2em 1em;
@@ -149,6 +149,7 @@
     }
     .filter_club_faq .custom_content p{
         text-align: inherit;
+        width: inherit;
     }
     .filter_club_faq [data-testid=flowbite-accordion] .custom_content {
         width: calc(100% - 100px);
