@@ -41,13 +41,15 @@
 }
 
 .learn-more-btn {
-    padding-top: 0.3rem;
-    padding-bottom: .3rem;
-    padding-right: 2em;
-    padding-left: 2em;
+    padding: 0.3rem 2em;
     font-size: 12px;
+    font-weight: 500;
+    border: 1px solid;
 }
 
+.learn-more-btn:hover {
+    padding: 0.3rem 2em;
+}
 .product-key-features {
     border-left: 1px solid #DDDDDD;
     display: flex;
