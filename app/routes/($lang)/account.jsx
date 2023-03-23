@@ -125,7 +125,7 @@ function Account({customer, orders, heading, addresses, featuredData}) {
             <a href="#AccountAddressBook"><li>Address Book</li></a>
           </ul>
         </div>
-        <div className="account_details">          
+        <div className="account_details mt-6 lg:mt-0">          
           <AccountDetails customer={customer} />
           {orders && <AccountOrderHistory orders={orders} />}
           <AccountAddressBook addresses={addresses} customer={customer} />
