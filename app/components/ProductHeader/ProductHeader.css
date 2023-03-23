@@ -127,9 +127,6 @@
     .product-key-features {
         flex: 1 0 65%;
         padding-left: 2em;
-        /* margin-left: 2em; */
-        /* padding-left: 0; */
-
     }
     .key-feature {
         justify-content: center;
