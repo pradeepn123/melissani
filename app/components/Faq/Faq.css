@@ -94,33 +94,73 @@
 .tabs_with_icons button:last-child{
     margin-right: 0;
 }
+
+
+.accordion-main .accordion-item {
+    padding: 6px 0;
+    border-bottom: 1px solid #D3D3D3;
+}
+.accordion-main .accordion-title {
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.accordion-main .accordion-item .accordion-title svg{
+    transition: all .3s ease-in-out;
+    flex: 1 0 10%;
+}
+.accordion-main .accordion-item.accordion-open .accordion-title svg{
+    transform: rotate(180deg);
+    transition: all .3s ease-in-out;
+}
+.accordion-main .accordion-title h5 {
+    margin: 0;
+    flex: 1 0 90%;
+}
+.accordion-main .accordion-body {
+    overflow: hidden;    
+    padding: 0;
+    height: 0;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    visibility: hidden;
+}
+.accordion-main .accordion-item.accordion-open .accordion-body {
+    visibility: visible;
+    height: auto;
+    opacity: 1;
+    padding: 10px 0;
+}
+
 /* End: Faq Section */
 
 /* Begin: Media Query */
 @media screen and (min-width:768px) {
+    .accordion-main .accordion-item.accordion-open .accordion-body {
+        padding: 20px 0;
+    }
+    .accordion-main .accordion-item {
+        padding: 16px 0;
+    }
+    .accordion-main .accordion-title{
+        font-size: 30px;
+        align-items: flex-start;
+    }
     .tabs_with_icons [data-testid="flowbite-accordion"] button{
         padding: 22px 0;
-    }
-    .tabs_with_icons svg[data-testid="flowbite-accordion-arrow"] {
-        flex: 0 0 6%;
-    }
+    } 
 }
-@media screen and (min-width:1200px) {
+@media screen and (min-width:1200px) {    
     .tabs_with_icons .tab__title{
         font-size: 18px;
     }
     .main_content_heading{
         font-size: 52px;
         width: 36%;
-    }    
-    .tabs_with_icons svg[data-testid="flowbite-accordion-arrow"] {
-        flex: 0 0 5%;
-    }
-    .tabs_with_icons button[aria-selected="false"]{
-        margin-bottom: 3.5rem
-    }
-    .tabs_with_icons button[aria-selected="true"]{
-        margin-bottom: 3.5rem
     }
     .faq_section_wrapper .icon_with_text{
         margin-top: -8px;
@@ -142,3 +182,4 @@
     }
 }
 /* End: Media Query */
+
