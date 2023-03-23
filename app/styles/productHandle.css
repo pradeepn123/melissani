@@ -9,8 +9,8 @@
   justify-content: flex-start;
   column-gap: 5%;
   row-gap: 2rem;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .media-gallery {
@@ -33,6 +33,13 @@
   border-radius: 10px;
 }
 
+.product-form-wrapper .product-price span{  
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #717070;
+}
 label.product-form-wrapper {
   display: block;
   cursor: pointer;
@@ -58,6 +65,15 @@ label.product-form-wrapper {
   font-size: 18px;
   color: #000;
   margin-bottom: 0.5rem;
+}
+
+.additional-information .filter_club_benefits{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+  cursor: pointer;
 }
 
 .include-benifits {
@@ -137,15 +153,6 @@ label.product-form-wrapper {
   line-height: 41px;
   color: #000;
 }
-  
-.product-form-wrapper .product-price {
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 30px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #717070;
-}
 
 .product-form-wrapper .add-to-cart-wrapper {
   grid-template-columns: auto auto;
@@ -213,6 +220,13 @@ label.product-form-wrapper {
 }
 
 @media(min-width:1200px){
+  .subscriptipn-product-form-wrapper {
+    padding: 1rem 1.2rem;
+  }
+  .product-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
   .media-gallery .product__media-sticky .flickity-prev-next-button{
     width: 45px;
     height: 45px;
@@ -223,7 +237,7 @@ label.product-form-wrapper {
 /* End: Product Handle */
 
 .subscriptipn-product-form-wrapper {
-  padding: 1rem 1.2rem;
+  padding: 1rem 0.5rem;
 }
 
 .subscription-form .subscription-title {
@@ -246,29 +260,42 @@ label.product-form-wrapper {
   margin-top: 1rem;
 }
 
+.subscription-add-to-cart button[disabled]{
+  opacity: 0.7;
+}
+
 .one-time-product-row {
-  display: flex;
+  display: grid;
   align-items: center;
+  grid-template-columns: 0.5fr 1fr 1.5fr;
   border: 1px solid #DDDDDD;
   padding: 1rem 0;
 }
 
 .one-time-product-row .image-wrapper {
-  height: 64px;
+  position: relative;
+  padding-bottom: 100%;
 }
 
 .one-time-product-row .image-wrapper img {
   object-fit: contain;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
 }
 
-.one-time-product-row .product-price {
+.one-time-product-row .product-price span{
   font-size: 16px;
+  line-height: 1.2;
 }
 
 .one-time-product-row .onetime-product-title {
   font-size: 1rem;
-  font-family: Montserrat, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
 }
 
@@ -277,8 +304,18 @@ label.product-form-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
-
+.one-time-product-row .quantity-field .quantity-selector{
+  height: 100%;
+  border: 1px solid #000;
+}
+.one-time-product-row .quantity-field .text-black{
+  font-family: 'Montserrat', sans-serif;
+}
 .subscription-add-to-cart {
   margin: 1.5rem auto;
+}
+.subscription-add-to-cart .cart-btn span.text-copy{
+  font-size: 16px;
 }
