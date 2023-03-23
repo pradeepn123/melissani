@@ -24,9 +24,20 @@
     padding: 60px 0 60px 30px;
   }
   
+  .footer-contact-icons {
+    background-color: #fff;
+    padding: 23px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
   .footer-contact-icons img {
-    height: 85px;
-    width: 85px;
+    height: 40px;
+    width: 40px;
+  }
+
+  .footer-contact-icons img:hover {
+    transform: scale(1.1);
   }
 
   .footer-bottom {
@@ -59,9 +70,13 @@
       margin-top: 1rem;
     }
 
+    .footer-contact-icons {
+      padding: 17px;
+    }
+
     .footer-contact-icons img {
-      height: 64px;
-      width: 64px;
+      height: 30px;
+      width: 30px;
     }
   }
   
@@ -82,9 +97,14 @@
       display: flex;
       align-items: flex-end;
     }
+
+    .footer-contact-icons {
+      padding: 17px;
+    }
+
     .footer-contact-icons img {
-      height: 75px;
-      width: 75px;
+      height: 30px;
+      width: 30px;
     }
   }
   
