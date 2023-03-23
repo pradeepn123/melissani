@@ -40,6 +40,20 @@ font-family: 'Peachi-Light';
   font-size: 17px;
 }
 
+.primary-btn:hover {
+  background-color: #394E75;
+}
+
+.secondary-btn:hover {
+  border: 1px solid #1B2943;
+  font-weight: 300;
+  padding: 0.75rem 2.32rem;
+}
+
+.inline-btn:hover {
+  opacity: 0.7;
+}
+
 /* Begin: Footer Section */
 .footer-wrapper {
   padding: 0;
