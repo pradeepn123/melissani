@@ -140,8 +140,7 @@ const SubscriptionProductForm = (props) => {
             id="onetime-input"
             value="onetime"
             checked={!isSubscriptionSelected}
-            onChange={handleInputChange}
-            onChange={handleInputChange}
+            onChange={handleInputChange}         
         />
         <label className="product-form-wrapper mt-8" htmlFor="onetime-input">
             <div className="grid gap-2">

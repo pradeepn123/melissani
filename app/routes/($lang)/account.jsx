@@ -101,51 +101,67 @@ export default function Authenticated() {
 
 function Account({customer, orders, heading, addresses, featuredData}) {
   return (
-    <>      
+    <>
       <div className='account_heading'>
         <h1 className='whitespace-pre-wrap max-w-prose-narrow font-bold text-heading inline-block'>
           {heading}
         </h1>          
-        <Form method="post" action={usePrefixPathWithLocale('/account/logout')}>          
+        <Form method="post" action={usePrefixPathWithLocale('/account/logout')}>
           <Button
-            type="submit" className="text-primary/50"              
+            type="submit" className="text-primary/50"
             variant="secondary"
           >
             Sign out
           </Button>
         </Form>
       </div>
-      {orders && <AccountOrderHistory orders={orders} />}
-      <AccountDetails customer={customer} />
-      <AccountAddressBook addresses={addresses} customer={customer} />
-      {!orders.length && (
-        <Suspense>
-          <Await
-            resolve={featuredData}
-            errorElement="There was a problem loading featured products."
-          >
-            {(data) => (
-              <>
-                {/* <FeaturedCollections
-                  title="Popular Collections"
-                  collections={data.featuredCollections}
-                /> */}
-                {/* <ProductSwimlane products={data.featuredProducts} /> */}
-              </>
-            )}
-          </Await>
-        </Suspense>
-      )}
+
+      <div className="account_main_content">
+        <div className="account_sidebar">
+          <ul>
+            <a href="#AccountDetails"><li>Account Details</li></a>
+            <a href="#AccountOrderHistory"><li>Order History</li></a>
+            <a href="#"><li>Manage Subscription</li></a>
+            <a href="#AccountAddressBook"><li>Address Book</li></a>
+          </ul>
+        </div>
+        <div className="account_details mt-6 lg:mt-0">          
+          <AccountDetails customer={customer} />
+          {orders && <AccountOrderHistory orders={orders} />}
+          <AccountAddressBook addresses={addresses} customer={customer} />
+          {!orders.length && (
+            <Suspense>
+              <Await
+                resolve={featuredData}
+                errorElement="There was a problem loading featured products."
+              >
+                {(data) => (
+                  <>
+                    {/* <FeaturedCollections
+                      title="Popular Collections"
+                      collections={data.featuredCollections}
+                    /> */}
+                    {/* <ProductSwimlane products={data.featuredProducts} /> */}
+                  </>
+                )}
+              </Await>
+            </Suspense>
+          )}
+        </div>
+      </div>
+      
     </>
   );
 }
 
 function AccountOrderHistory({orders}) {
   return (
-    <div className="mt-6">
-      <div className="grid w-full gap-4 p-4 py-6 md:gap-8 md:p-8 lg:p-12">
-        <h2 className="font-bold text-lead">Order History</h2>
-        {orders?.length ? <Orders orders={orders} /> : <EmptyOrders />}
+    <div className="" id="AccountOrderHistory">
+      <div className="mt-2">
+        <div className="grid w-full gap-4 p-4 py-6 md:gap-8 md:p-8 lg:p-12">
+          <h2 className="font-bold text-lead">Order History</h2>
+          {orders?.length ? <Orders orders={orders} /> : <EmptyOrders />}
+        </div>
       </div>
     </div>
   );
