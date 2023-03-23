@@ -20,7 +20,7 @@ import {
 
 import invariant from 'tiny-invariant';
 
-import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
+import { MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
 import ProductHeaderStyles from '~/components/ProductHeader/ProductHeader.css';
 import ImageCarouselStyles from '~/components/ImageCarousel/ImageCarousel.css';
 import SpecificationStyles from '~/components/Specifications/Specifications.css';
@@ -77,6 +77,8 @@ export async function loader({params, request, context}) {
     },
   });
 
+  const { products } = await context.storefront.query(LIST_PRODUCTS_QUERY);
+
   if (!product?.id) {
     throw new Response(null, {status: 404});
   }
@@ -109,12 +111,13 @@ export async function loader({params, request, context}) {
       products: [productAnalytics],
       totalValue: parseFloat(selectedVariant.price.amount),
     },
+    products,
     productDetails
   });
 }
 
 export default function Product() {
-  const {product, recommended, productDetails} = useLoaderData();
+  const {product, recommended, productDetails, products} = useLoaderData();
   const {media, title} = product;
   let parsedProductDetails;
   const firstVariant = product.variants.nodes[0];
@@ -125,8 +128,6 @@ export default function Product() {
   if(productDetails) {
     parsedProductDetails = JSON.parse(productDetails?.value);
   }
-
-  debugger;
 
   return (
     <>
@@ -147,6 +148,7 @@ export default function Product() {
               title={title}
               selectedVariant={selectedVariant}
               parsedProductDetails={parsedProductDetails}
+              products={products.nodes}
             />
           </div>
         </div>
@@ -269,6 +271,18 @@ const RECOMMENDED_PRODUCTS_QUERY = `#graphql
       ...ProductCard
     }
     additional: products(first: $count, sortKey: BEST_SELLING) {
+      nodes {
+        ...ProductCard
+      }
+    }
+  }
+`;
+
+export const LIST_PRODUCTS_QUERY = `#graphql
+  ${PRODUCT_CARD_FRAGMENT}
+  query listProducts($country: CountryCode, $language: LanguageCode)
+  @inContext(country: $country, language: $language) {
+    products(first: 50) {
       nodes {
         ...ProductCard
       }

@@ -24,13 +24,18 @@
 }
 
 .product-content-description > div {
-  max-width: 420px;
+  max-width: 445px;
 }
 
 .product-form-wrapper {
   border: 1px solid #DDDDDD;
   padding: 1rem 1.2rem;
   border-radius: 10px;
+}
+
+label.product-form-wrapper {
+  display: block;
+  cursor: pointer;
 }
 
 .media-gallery .flickity-page-dots {
@@ -42,11 +47,34 @@
   background: #DBE3E9;
 }
 
+.product-description {
+  color: #4B4B4B;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.product-information {
+  font-family: 'Peachi-Medium';
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.include-benifits {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.include-benifits span {
+  font-weight: 100;
+}
+
 @media (min-width: 768px) {
   .product__media-sticky {
     display: block;
     position: sticky;
-    top: 0;
+    top: 100px;
     border: unset;
   }
 
@@ -194,10 +222,63 @@
 /* End: Media Query */
 /* End: Product Handle */
 
-.subscriptopn-product-form-wrapper {
+.subscriptipn-product-form-wrapper {
   padding: 1rem 1.2rem;
 }
 
 .subscription-form .subscription-title {
+  margin: 1rem auto;
+}
 
+.subscription-form input[name="subscription-form"] {
+  display: none;
+}
+
+.subscription-form input[name="subscription-form"]:checked + label.product-form-wrapper {
+  border: 1px solid #1B2943;
+  cursor: initial;
+}
+
+.subscription-form .content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  margin-top: 1rem;
+}
+
+.one-time-product-row {
+  display: flex;
+  align-items: center;
+  border: 1px solid #DDDDDD;
+  padding: 1rem 0;
+}
+
+.one-time-product-row .image-wrapper {
+  height: 64px;
+}
+
+.one-time-product-row .image-wrapper img {
+  object-fit: contain;
+  height: 100%;
+}
+
+.one-time-product-row .product-price {
+  font-size: 16px;
+}
+
+.one-time-product-row .onetime-product-title {
+  font-size: 1rem;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+}
+
+.one-time-product-row .quantity-field {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subscription-add-to-cart {
+  margin: 1.5rem auto;
 }

@@ -1,7 +1,8 @@
 import {useState, useEffect} from 'react';
 import {flattenConnection, Image, Money, useMoney} from '@shopify/hydrogen';
 import {Text, Link, AddToCartButton} from '~/components';
-import {isDiscounted, isNewArrival, deepCopy} from '~/lib/utils';
+import { isDiscounted, isNewArrival, deepCopy } from '~/lib/utils';
+
 
 export function MultipleProductsCard({
   products,
@@ -13,6 +14,8 @@ export function MultipleProductsCard({
   showLabel,
   learnMore
 }) {
+
+    const baseProduct = products[0]
 
     const [selectedProduct, setSelectedProduct] = useState(deepCopy(products[0]))
     const [selectedProductHandle, setSelectedProductHandle] = useState(deepCopy(products[0].handle));
@@ -62,7 +65,7 @@ export function MultipleProductsCard({
         <div className={`flex flex-col ${className}`}>
             <Link
                 onClick={onClick}
-                to={`/products/${selectedProduct.handle}`}
+                to={`/products/melissani-m1-filter`}
                 prefetch="intent"
             >
                 <div className={'grid gap-4 product-card'}>
