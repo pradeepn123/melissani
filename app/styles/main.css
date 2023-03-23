@@ -50,6 +50,10 @@ font-family: 'Peachi-Light';
   padding: 0.75rem 2.32rem;
 }
 
+.inline-btn:hover {
+  opacity: 0.7;
+}
+
 /* Begin: Footer Section */
 .footer-wrapper {
   padding: 0;
