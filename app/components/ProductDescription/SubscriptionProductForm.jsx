@@ -1,33 +1,36 @@
 import { useState, useEffect } from 'react';
-import { Money } from '@shopify/hydrogen';
+import { Money, flattenConnection, Image } from '@shopify/hydrogen';
 
 import { useLoaderData } from '@remix-run/react';
 
-import { Heading } from '~/components';
+import { Heading, QuantityAdjust, AddToCartButton, Text } from '~/components';
 
 
 const SubscriptionProductForm = (props) => {
     const { product } = useLoaderData();
 
     const [isSubscriptionSelected, setIsSubscriptionSelected] = useState(true)
-    const [lineItems, setLineItems] = useState(null)
+    const [oneTimeProducts, setOneTimeProducts] = useState([])
     const [price, setPrice] = useState(0)
+    const [variantLineItems, setVariantLineItems] = useState([])
 
-    const oneTimeProducts = props.products.filter((p) => {
-        return props.parsedProductDetails.linkedProducts.default.includes(p.handle)
+    const subscriptionProducts = props.products.filter((p) => {
+        return props.parsedProductDetails.linkedProducts.subscription.includes(p.handle)
+    }).map((item) => {
+        return {
+            merchandiseId: item.variants.nodes[0].id,
+            sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
+            quantity: 1
+        }
     })
 
     useEffect(() => {
-        const subscriptionProducts = props.products.filter((p) => {
-            return props.parsedProductDetails.linkedProducts.subscription.includes(p.handle)
-        }).map((item) => {
-            return {
-                id: item.id,
-                sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
-                quantity: 1
-            }
-        })
-        setLineItems(subscriptionProducts)
+        setVariantLineItems(subscriptionProducts)
+        const oneTimeProducts = props.products.filter((p) => props.parsedProductDetails.linkedProducts.default.includes(p.handle))
+        setOneTimeProducts(oneTimeProducts.map(oneTimeProduct => {
+            oneTimeProduct.quantity = 0
+            return oneTimeProduct
+        }))
         setPrice(oneTimeProducts.reduce((acc, lineProduct) => {
             const firstVariant = lineProduct.variants.nodes[0];
             return acc + parseFloat(firstVariant.price?.amount)
@@ -36,10 +39,19 @@ const SubscriptionProductForm = (props) => {
 
     useEffect(() => {
         // UpdateLineItems
+        if (isSubscriptionSelected) {
+            setVariantLineItems(subscriptionProducts)
+        } else{
+            setVariantLineItems(oneTimeProducts.map((oneTimeProduct) => {
+                return {
+                    merchandiseId: oneTimeProduct.variants.nodes[0].id,
+                    quantity: oneTimeProduct.quantity
+                }
+            }).filter((productVariant) => productVariant.quantity > 0))
+        }
     }, [isSubscriptionSelected])
 
     const handleInputChange = event => {
-        debugger;
         const isSubscription = event.target.value == "subscription"
         setIsSubscriptionSelected(isSubscription)
         const content = event.target.closest(".subscription-form").querySelector(".content")
@@ -49,6 +61,24 @@ const SubscriptionProductForm = (props) => {
             content.style.maxHeight = null
         }
     }
+
+    const updateQuantity = (handle, quantity) => {
+        const updateOneTimeProducts = oneTimeProducts.map((oneTimeProduct) => {
+            if (handle == oneTimeProduct.handle) {
+                oneTimeProduct.quantity = quantity
+            }
+            return oneTimeProduct
+        })
+        setOneTimeProducts(updateOneTimeProducts)
+        setVariantLineItems(updateOneTimeProducts.map((oneTimeProduct) => {
+            return {
+                merchandiseId: oneTimeProduct.variants.nodes[0].id,
+                quantity: oneTimeProduct.quantity
+            }
+        }).filter((productVariant) => productVariant.quantity > 0))
+    }
+
+    console.log(variantLineItems)
 
     return <div className="subscription-form">
         <p className="subscription-title font-tertiary">
@@ -123,11 +153,64 @@ const SubscriptionProductForm = (props) => {
                 </div>
             </div>
             <div className="content">
-                {oneTimeProducts.map((oneTimeProduct) => <div key={`one-time-product-${oneTimeProduct.handle}`}>
-                    
-                </div>)}
+                {oneTimeProducts.map((oneTimeProduct) => {
+                    let featuredImage = oneTimeProduct.media.nodes[0]?.image
+                    return <div
+                        key={`one-time-product-${oneTimeProduct.handle}`}
+                        className="grid gap-2 py-2"
+                    >
+                        <div className="one-time-product-row">
+                            <div className="image-wrapper">
+                                <Image
+                                    className="w-full fadeIn"
+                                    widths={[128]}
+                                    sizes="128px"
+                                    loaderOptions={{
+                                        crop: 'center',
+                                        scale: 2,
+                                        width: 128,
+                                    }}
+                                    data={featuredImage}
+                                    alt={`Picture of ${oneTimeProduct.title}`}
+                                />
+                            </div>
+                            <div>
+                                <Heading as="h3" className="whitespace-normal onetime-product-title">
+                                    {oneTimeProduct.productType}
+                                </Heading>
+                                <div className="product-price font-tertiary">
+                                    <Money
+                                        withoutTrailingZeros
+                                        data={oneTimeProduct?.variants.nodes[0]?.price}
+                                        as="span"
+                                    />
+                                </div>
+                            </div>
+                            <div className="quantity-field">
+                                <QuantityAdjust
+                                    quantity={oneTimeProduct.quantity}
+                                    setQuantity={quantity => updateQuantity(oneTimeProduct.handle, quantity)}
+                                    minDisabled={oneTimeProduct.quantity < 1}
+                                />
+                            </div>
+                        </div>
+                </div>})}
             </div>
         </label>
+        <div className="subscription-add-to-cart">
+            <AddToCartButton className="cart-btn"
+              lines={variantLineItems}
+              data-test="add-to-cart"
+              disabled={variantLineItems.length < 1}
+            >
+                <Text
+                  as="span"
+                  className="flex items-center justify-center gap-2"
+                >
+                    <span>Add to Cart</span>
+                </Text>
+            </AddToCartButton>
+        </div>
     </div>
 }
 

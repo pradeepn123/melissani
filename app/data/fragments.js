@@ -49,6 +49,7 @@ export const PRODUCT_CARD_FRAGMENT = `#graphql
         ...Media
       }
     }
+    productType
     requiresSellingPlan
     sellingPlanGroups(first: 1) {
       edges {

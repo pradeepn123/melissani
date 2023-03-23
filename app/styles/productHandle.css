@@ -74,7 +74,7 @@ label.product-form-wrapper {
   .product__media-sticky {
     display: block;
     position: sticky;
-    top: 0;
+    top: 100px;
     border: unset;
   }
 
@@ -236,10 +236,45 @@ label.product-form-wrapper {
 
 .subscription-form input[name="subscription-form"]:checked + label.product-form-wrapper {
   border: 1px solid #1B2943;
+  cursor: initial;
 }
 
 .subscription-form .content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+  margin-top: 1rem;
+}
+
+.one-time-product-row {
+  display: flex;
+  align-items: center;
+  border: 1px solid #DDDDDD;
+  padding: 1rem 0;
+}
+
+.one-time-product-row .image-wrapper {
+  height: 64px;
+}
+
+.one-time-product-row .image-wrapper img {
+  object-fit: contain;
+  height: 100%;
+}
+
+.one-time-product-row .product-price {
+  font-size: 16px;
+}
+
+.one-time-product-row .onetime-product-title {
+  font-size: 1rem;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+}
+
+.one-time-product-row .quantity-field {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
