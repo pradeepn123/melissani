@@ -5,7 +5,7 @@ body {
 }
 
 .font-secondary{
-font-family: 'Peachi-Light';
+  font-family: 'Peachi-Light';
 }
 
 .font-primary{
@@ -202,8 +202,71 @@ font-family: 'Peachi-Light';
     stroke: #000000;
 }
 
+.cart-heading-wrapper {
+  display: flex;
+  align-items: center;
+}
 
+.cart-heading {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 77px;
+  text-transform: uppercase;
+  color: #000000;
+}
 
+.cart-count {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding-left: 8px;
+}
+
+.cart-lines-wrapper {
+  padding: 50px 40px;
+}
+
+.cart-lines-wrapper .cart-product-img-wrapper {
+  width: 160px;
+  height: 195px;
+  background-color: #FAFAFA;
+  display: flex;
+  align-items: center;
+}
+
+.cart-lines-wrapper .cart-product-title {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+  color: #000;
+}
+
+.cart-lines-wrapper .cart-product-price {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.cart-lines-wrapper .quantity-selector-btn {
+  width: 48px;
+  height: 48px;
+  color: #000;
+}
+
+.cart-lines-wrapper .quantity-selector-wrapper {
+  border: 1px solid #000;
+}
+
+.cart-lines-wrapper .cart-product-quantity {
+  width: 50px;
+}
+
+.cart-lines-wrapper .cart-delete-btn {
+  width: 50px;
+  height: 50px;
+  color: #000;
+}
 
 
 
