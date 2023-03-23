@@ -278,3 +278,7 @@ label.product-form-wrapper {
   align-items: center;
   justify-content: center;
 }
+
+.subscription-add-to-cart {
+  margin: 1.5rem auto;
+}

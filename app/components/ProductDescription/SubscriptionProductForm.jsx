@@ -20,7 +20,14 @@ const SubscriptionProductForm = (props) => {
         return {
             merchandiseId: item.variants.nodes[0].id,
             sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
-            quantity: 1
+            quantity: 1,
+            attributes: [{
+                key: 'bundleId',
+                value: new Date().getTime().toString()
+            }, {
+                key: 'bundeType',
+                value: 'filter-club'
+            }]
         }
     })
 
@@ -77,8 +84,6 @@ const SubscriptionProductForm = (props) => {
             }
         }).filter((productVariant) => productVariant.quantity > 0))
     }
-
-    console.log(variantLineItems)
 
     return <div className="subscription-form">
         <p className="subscription-title font-tertiary">
