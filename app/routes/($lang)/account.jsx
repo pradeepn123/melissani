@@ -23,6 +23,12 @@ import {flattenConnection} from '@shopify/hydrogen';
 import {getFeaturedData} from './featured-products';
 import {doLogout} from './account/__private/logout';
 import {usePrefixPathWithLocale} from '~/lib/utils';
+import accountStyles from '../../styles/account.css';
+
+
+export const links = () => [
+  {rel: 'stylesheet', href: accountStyles}
+]
 
 export async function loader({request, context, params}) {
   const {pathname} = new URL(request.url);
@@ -43,7 +49,7 @@ export async function loader({request, context, params}) {
 
   const heading = customer
     ? customer.firstName
-      ? `Welcome, ${customer.firstName}.`
+      ? `Welcome, ${customer.firstName}`
       : `Welcome to your account.`
     : 'Account Details';
 
@@ -95,14 +101,20 @@ export default function Authenticated() {
 
 function Account({customer, orders, heading, addresses, featuredData}) {
   return (
-    <>
-      <PageHeader heading={heading}>
-        <Form method="post" action={usePrefixPathWithLocale('/account/logout')}>
-          <button type="submit" className="text-primary/50">
+    <>      
+      <div className='account_heading'>
+        <h1 className='whitespace-pre-wrap max-w-prose-narrow font-bold text-heading inline-block'>
+          {heading}
+        </h1>          
+        <Form method="post" action={usePrefixPathWithLocale('/account/logout')}>          
+          <Button
+            type="submit" className="text-primary/50"              
+            variant="secondary"
+          >
             Sign out
-          </button>
+          </Button>
         </Form>
-      </PageHeader>
+      </div>
       {orders && <AccountOrderHistory orders={orders} />}
       <AccountDetails customer={customer} />
       <AccountAddressBook addresses={addresses} customer={customer} />
@@ -114,11 +126,11 @@ function Account({customer, orders, heading, addresses, featuredData}) {
           >
             {(data) => (
               <>
-                <FeaturedCollections
+                {/* <FeaturedCollections
                   title="Popular Collections"
                   collections={data.featuredCollections}
-                />
-                <ProductSwimlane products={data.featuredProducts} />
+                /> */}
+                {/* <ProductSwimlane products={data.featuredProducts} /> */}
               </>
             )}
           </Await>
@@ -141,7 +153,7 @@ function AccountOrderHistory({orders}) {
 
 function EmptyOrders() {
   return (
-    <div>
+    <div className='empty_orders'>
       <Text className="mb-1" size="fine" width="narrow" as="p">
         You haven&apos;t placed any orders yet.
       </Text>
