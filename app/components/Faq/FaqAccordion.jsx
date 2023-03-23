@@ -3,7 +3,7 @@ import {useEffect, useState, useRef} from 'react';
 export function FaqAccordion({ item }) {
     const accordionMain = useRef(null);
     useEffect(() => {
-        var acc = accordionMain.current.getElementsByClassName("accordion-title");
+        var acc = accordionMain.current.querySelectorAll(".accordion-title");
         for (var i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function() {
                 for (let li of acc) {
