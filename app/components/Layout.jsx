@@ -110,6 +110,7 @@ function CartDrawer({isOpen, onClose,isHome, openCart }) {
 
   return (
     <Drawer
+      isCartDrawer={isOpen}
       open={isOpen}
       onClose={onClose}
       isHome={isHome}

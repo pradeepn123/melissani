@@ -39,8 +39,7 @@ export function CartDetails({layout, cart}) {
       <CartLines lines={cart?.lines} layout={layout} />
       {!isZeroCost && (
         <CartSummary cost={cart.cost} layout={layout}>
-          <CartDiscounts discountCodes={cart.discountCodes} />
-          <CartCheckoutActions checkoutUrl={cart.checkoutUrl} />
+          <CartCheckoutActions cost={cart.cost} checkoutUrl={cart.checkoutUrl} />
         </CartSummary>
       )}
     </div>
@@ -121,7 +120,7 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
     y > 0 ? 'border-t' : '',
     layout === 'page'
       ? 'flex-grow md:translate-y-4'
-      : 'px-6 pb-6 sm-max:pt-2 overflow-auto transition md:px-12',
+      : 'overflow-auto transition cart-lines-wrapper',
   ]);
 
   return (
@@ -139,14 +138,16 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
   );
 }
 
-function CartCheckoutActions({checkoutUrl}) {
+function CartCheckoutActions({cost, checkoutUrl}) {
   if (!checkoutUrl) return null;
 
   return (
     <div className="flex flex-col mt-2">
       <a href={checkoutUrl} target="_self">
-        <Button as="span" width="full">
-          Continue to Checkout
+        <Button variant="primary" as="span" width="full" className="flex items-center justify-center">
+          Checkout - {cost?.subtotalAmount?.amount ? (
+            <Money data={cost?.subtotalAmount} />
+          ) : ('')}
         </Button>
       </a>
       {/* @todo: <CartShopPayButton cart={cart} /> */}
@@ -156,19 +157,16 @@ function CartCheckoutActions({checkoutUrl}) {
 
 function CartSummary({cost, layout, children = null}) {
   const summary = {
-    drawer: 'grid gap-4 p-6 border-t md:px-12',
+    drawer: 'grid gap-4 cart-summary-footer',
     page: 'sticky top-nav grid gap-6 p-4 md:px-6 md:translate-y-4 bg-primary/5 rounded w-full',
   };
 
   return (
     <section aria-labelledby="summary-heading" className={summary[layout]}>
-      <h2 id="summary-heading" className="sr-only">
-        Order summary
-      </h2>
       <dl className="grid">
-        <div className="flex items-center justify-between font-medium">
-          <Text as="dt">Subtotal</Text>
-          <Text as="dd" data-test="subtotal">
+        <div className="flex items-center justify-between">
+          <Text as="dt" className="font-primary cart-footer-subtotal">Subtotal</Text>
+          <Text as="dd" data-test="subtotal" className="font-tertiary cart-footer-total">
             {cost?.subtotalAmount?.amount ? (
               <Money data={cost?.subtotalAmount} />
             ) : (
@@ -190,24 +188,24 @@ function CartLineItem({line}) {
   if (typeof quantity === 'undefined' || !merchandise?.product) return null;
 
   return (
-    <li key={id} className="flex gap-4">
+    <li key={id} className="flex gap-6">
       <div className="flex-shrink">
         {merchandise.image && (
-          <Image
-            width={220}
-            height={220}
-            data={merchandise.image}
-            className="object-cover object-center w-24 h-24 border rounded md:w-28 md:h-28"
-            alt={merchandise.title}
-          />
+          <div className="cart-product-img-wrapper">
+            <Image
+              data={merchandise.image}
+              className="cart-product-img"
+              alt={merchandise.title}
+            />
+          </div>
         )}
       </div>
 
-      <div className="flex justify-between flex-grow">
+      <div className="flex justify-between items-center flex-grow">
         <div className="grid gap-2">
-          <Heading as="h3" size="copy">
+          <Heading as="h3" size="copy" className="font-primary cart-product-title">
             {merchandise?.product?.handle ? (
-              <Link to={`/products/${merchandise.product.handle}`}>
+              <Link to={`/products/${merchandise.product.handle}`} >
                 {merchandise?.product?.title || ''}
               </Link>
             ) : (
@@ -216,11 +214,9 @@ function CartLineItem({line}) {
           </Heading>
 
           <div className="grid pb-2">
-            {(merchandise?.selectedOptions || []).map((option) => (
-              <Text color="subtle" key={option.name}>
-                {option.name}: {option.value}
-              </Text>
-            ))}
+            <Text className="font-tertiary cart-product-price">
+              <CartLinePrice line={line} as="span" />
+            </Text>
           </div>
 
           <div className="flex items-center gap-2">
@@ -230,9 +226,6 @@ function CartLineItem({line}) {
             <ItemRemoveButton lineIds={[id]} />
           </div>
         </div>
-        <Text>
-          <CartLinePrice line={line} as="span" />
-        </Text>
       </div>
     </li>
   );
@@ -250,11 +243,11 @@ function ItemRemoveButton({lineIds}) {
       />
       <input type="hidden" name="linesIds" value={JSON.stringify(lineIds)} />
       <button
-        className="flex items-center justify-center w-10 h-10 border rounded"
+        className="flex items-center justify-center cart-delete-btn"
         type="submit"
       >
         <span className="sr-only">Remove</span>
-        <IconRemove aria-hidden="true" />
+        <IconRemove aria-hidden="true" className="w-6 h-6" />
       </button>
     </fetcher.Form>
   );
@@ -271,12 +264,12 @@ function CartLineQuantityAdjust({line}) {
       <label htmlFor={`quantity-${lineId}`} className="sr-only">
         Quantity, {quantity}
       </label>
-      <div className="flex items-center border rounded">
+      <div className="flex items-center quantity-selector-wrapper">
         <UpdateCartButton lines={[{id: lineId, quantity: prevQuantity}]}>
           <button
             name="decrease-quantity"
             aria-label="Decrease quantity"
-            className="w-10 h-10 transition text-primary/50 hover:text-primary disabled:text-primary/10"
+            className="quantity-selector-btn transition text-primary/50 hover:text-primary disabled:text-primary/10"
             value={prevQuantity}
             disabled={quantity <= 1}
           >
@@ -284,13 +277,13 @@ function CartLineQuantityAdjust({line}) {
           </button>
         </UpdateCartButton>
 
-        <div className="px-2 text-center" data-test="item-quantity">
+        <div className="px-2 text-center cart-product-quantity" data-test="item-quantity">
           {quantity}
         </div>
 
         <UpdateCartButton lines={[{id: lineId, quantity: nextQuantity}]}>
           <button
-            className="w-10 h-10 transition text-primary/50 hover:text-primary"
+            className="quantity-selector-btn transition text-primary/50 hover:text-primary"
             name="increase-quantity"
             value={nextQuantity}
             aria-label="Increase quantity"
