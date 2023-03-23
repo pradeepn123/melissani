@@ -27,6 +27,7 @@
     flex-direction: column;
     column-gap: 1em;
     margin-top: 1em;
+    row-gap: 0.5em;
 }
 
 .product-subtitle .subtitle {
@@ -126,9 +127,7 @@
     }
     .product-key-features {
         flex: 1 0 65%;
-        margin-left: 2em;
-        padding-left: 0;
-
+        padding-left: 2em;
     }
     .key-feature {
         justify-content: center;

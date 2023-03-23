@@ -1,12 +1,13 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 
 export function FaqAccordion({ item }) {
-    useEffect(() => {        
-        var acc = document.getElementsByClassName("accordion-title");
+    const accordionMain = useRef(null);
+    useEffect(() => {
+        var acc = accordionMain.current.querySelectorAll(".accordion-title");
         for (var i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function() {
                 for (let li of acc) {
-                    li.parentNode.classList.remove('accordion-open');                    
+                    li.parentNode.classList.remove('accordion-open');
                 }                
                 this.parentNode.classList.add('accordion-open');
           });
@@ -15,7 +16,7 @@ export function FaqAccordion({ item }) {
 
     return (
         <>        
-            <div className="accordion-main xl:w-8/12 pt-6 xl:pt-8">
+            <div className="accordion-main xl:w-8/12 pt-6 xl:pt-8" ref={accordionMain}>
                 {(item?.contentinfo || []).map((content, index) => (
                 <div className="accordion-item" key={`faq-${index}`}>
                     <div className="accordion-title py-4 accordion_heading md:text-3xl text-lg md:font-text-28 font-bold text-[#000000]">
