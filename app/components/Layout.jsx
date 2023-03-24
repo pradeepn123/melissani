@@ -250,50 +250,55 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
   const footerMetafields = JSON.parse(metafields.footer.value)
   return (
     <>
-    <nav className="grid gap-4 p-6 sm:gap-6 sm:px-12 pt-5">
-      <div className="mb-6">
-        {/* Top level menu items */}
-        {(menu?.items || []).map((item) => (
-          <span key={item.id} className="block menu-span mb-4">
-            <Link
-              to={item.to}
-              target={item.target}
-              onClick={onClose}
-            >
-              <Text as="span" size="copy" className='menuDrawer-Headermenu text-black md:text-4xl md:font-medium font-tertiary'>
-                {item.title}
-                <span className='forward-nav-icon'><ForwardNav /></span>
-              </Text>
-            </Link>
-          </span>
-        ))}
+    <nav className="flex flex-col justify-between custom_nav_height gap-4 p-6 sm:gap-6 sm:px-12 pt-5">
+      <div className="menu_nav_items">
+        <div className="mb-8">
+          {/* Top level menu items */}
+          {(menu?.items || []).map((item) => (
+            <span key={item.id} className="block menu-span mb-4">
+              <Link
+                to={item.to}
+                target={item.target}
+                onClick={onClose}
+              >
+                <Text as="span" size="copy" className='menuDrawer-Headermenu text-black md:text-4xl md:font-medium font-tertiary'>
+                  {item.title}
+                  <span className='forward-nav-icon'><ForwardNav /></span>
+                </Text>
+              </Link>
+            </span>
+          ))}
+        </div>
+
+        {/* Bottom level menu items */}
+        <div className="pt-6">
+          { (footerMenu?.items || []).map((item) => (
+              <span key={item.id} className="block secondary_menu_drawer">
+                <Link
+                  to={item.to}
+                  target={item.target}
+                  onClick={onClose}
+                >
+                  <Text as="span" size="copy" className='menuDrawer-Foootermenu text-black md:font-normal font-tertiary'>
+                    {item.title}
+                  </Text>
+                </Link>
+              </span>
+            ))
+          }
+        </div>
       </div>
-
-      {/* Bottom level menu items */}
-      { (footerMenu?.items || []).map((item) => (
-          <span key={item.id} className="block secondary_menu_drawer">
-            <Link
-              to={item.to}
-              target={item.target}
-              onClick={onClose}
-            >
-              <Text as="span" size="copy" className='menuDrawer-Foootermenu text-black md:font-normal font-tertiary'>
-                {item.title}
-              </Text>
-            </Link>
-          </span>
-        ))
-      }
-
-      {/* Social Media Links  */}
-      <div className="footer-social-media">
-        {footerMetafields.social.map((item, index) => (
-          <span key={`footer-social-${index}`} className="social-links mr-4">
-            <a href={item.link}>
-              <img className='inline-block' src={item.icon} />
-            </a>
-          </span>
-        ))}
+      <div className="menu_nav_items_social_media">
+        {/* Social Media Links  */}
+        <div className="footer-social-media">
+          {footerMetafields.social.map((item, index) => (
+            <span key={`footer-social-${index}`} className="social-links mr-4">
+              <a href={item.link}>
+                <img className='inline-block' src={item.icon} />
+              </a>
+            </span>
+          ))}
+        </div>
       </div>
 
     </nav>

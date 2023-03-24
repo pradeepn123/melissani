@@ -30,7 +30,7 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct}) {
     }, [isSticky])
 
     if (isSubscriptionProduct) {
-        return <div className="lg:hidden" id='js_stickybar_main_section'>
+        return <div className="md:hidden" id='js_stickybar_main_section'>
             <div className="stickybar_main_section">
                 <div className="container mx-auto">
                     <div className="stickybar_main_section_inner">

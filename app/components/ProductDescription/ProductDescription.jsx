@@ -18,7 +18,7 @@ export function ProductDescription ({
     products
 }) {
     return <div>
-        {isSubscriptionProduct ? <div className="subscriptipn-product-form-wrapper">
+        {isSubscriptionProduct ? <div className="hidden md:block subscriptipn-product-form-wrapper">
             <SubscriptionProductForm
                 parsedProductDetails={parsedProductDetails}
                 products={products}
