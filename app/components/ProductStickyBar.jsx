@@ -34,7 +34,9 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct}) {
             <div className="stickybar_main_section">
                 <div className="container mx-auto">
                     <div className="stickybar_main_section_inner">
-                        <p class="subscription-title font-tertiary">Purchase options</p>
+                        <p className="subscription-title font-tertiary">
+                            Purchase options
+                        </p>
                         <div className="sticky_secondary_button w-full">                     
                             <Button className="rounded-full w-full text-center py-3 px-9 border border-primary bg-contrast text-primary">Filter Club Membership</Button>                         
                         </div>

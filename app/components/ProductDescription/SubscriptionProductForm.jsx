@@ -1,9 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Money, flattenConnection, Image } from '@shopify/hydrogen';
 
 import { useLoaderData } from '@remix-run/react';
 
-import { Heading, QuantityAdjust, AddToCartButton, Text } from '~/components';
+import {
+    Heading,
+    QuantityAdjust,
+    AddToCartButton,
+    Text,
+    RequestContext
+} from '~/components';
 
 
 const SubscriptionProductForm = (props) => {
@@ -12,6 +18,7 @@ const SubscriptionProductForm = (props) => {
     const [oneTimeProducts, setOneTimeProducts] = useState([])
     const [price, setPrice] = useState(0)
     const [variantLineItems, setVariantLineItems] = useState([])
+    const context = useContext(RequestContext)
 
     useEffect(() => {
         const bundleId = new Date().getTime().toString()
@@ -103,6 +110,13 @@ const SubscriptionProductForm = (props) => {
         }
     }
 
+    const openMembershipBenifitsDrawer = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        context.openFilterClubModal()
+        return false
+    }
+
     return <div className="subscription-form">
         <p className="subscription-title font-tertiary">
             Purchase options
@@ -112,7 +126,7 @@ const SubscriptionProductForm = (props) => {
             name="subscription-form"
             id="subscription-input"
             value="subscription"
-            checked={isSubscriptionSelected}
+            defaultChecked={isSubscriptionSelected}
             onChange={handleInputChange}
         />
         <label className="product-form-wrapper" htmlFor="subscription-input">
@@ -142,7 +156,10 @@ const SubscriptionProductForm = (props) => {
                     </Heading>
                     <p className="font-tertiary include-benifits">PAC & CF Filter <span>/ Every 6 months</span></p>
                     <p className="font-tertiary include-benifits">RO Filter <span>/ Every 12 months</span></p>
-                    <p className="font-tertiary include-benifits filter_club_benefits">
+                    <p
+                        className="font-tertiary include-benifits filter_club_benefits"
+                        onClick={openMembershipBenifitsDrawer}
+                    >
                         Filter club benefits
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="9" cy="9" r="8.48283" stroke="#1B2943" strokeWidth="1.03433"/>
@@ -157,7 +174,7 @@ const SubscriptionProductForm = (props) => {
             name="subscription-form"
             id="onetime-input"
             value="onetime"
-            checked={!isSubscriptionSelected}
+            defaultChecked={!isSubscriptionSelected}
             onChange={handleInputChange}         
         />
         <label className="product-form-wrapper mt-8" htmlFor="onetime-input">
