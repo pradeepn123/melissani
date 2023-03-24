@@ -34,10 +34,12 @@
   .footer-contact-icons img {
     height: 40px;
     width: 40px;
+    transition: all .2s ease-in-out;
   }
 
-  .footer-contact-icons img:hover {
+  .footer-contact-icons:hover img{
     transform: scale(1.1);
+    transition: all .2s ease-in-out;
   }
 
   .footer-bottom {

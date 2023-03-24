@@ -15,7 +15,7 @@ export function Hero({ data, id }) {
         <div className="hero-text">
           <div dangerouslySetInnerHTML={{ __html: data.rawHtml}}></div>
             {data?.cta && <Link
-              to="/products/">
+              to={data.subscribeBtnLink}>
               <Button variant='primary' className="font-medium">
               {data.cta}
               </Button>
@@ -38,7 +38,7 @@ export function Hero({ data, id }) {
           <div className="mobile-button-wrapper">
             {data?.cta && <>
               <Link
-                to="/products/">
+                to={data.subscribeBtnLink}>
                 <Button className="font-medium" variant="primary">
                   {data.cta}
                 </Button>

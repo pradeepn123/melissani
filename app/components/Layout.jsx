@@ -220,7 +220,7 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
 
       <div className="flex items-center justify-end w-full gap-5">
 
-        <Link to="/products/" className="hidden lg:block">
+        <Link to="products/melissani-m1-countertop-ro-system-water-purifier" className="hidden lg:block">
           <Button variant='primary' className='font-medium'> Shop Now</Button>
         </Link>
 
