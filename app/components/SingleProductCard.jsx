@@ -118,7 +118,7 @@ export function SingleProductCard({
             </Text>
           </AddToCartButton>
         )}
-        {learnMore && <Link to={`/products/${product.handle}`}>
+        {learnMore && <Link to="/pages/purifier">
             Learn more
         </Link>}
       </div>
