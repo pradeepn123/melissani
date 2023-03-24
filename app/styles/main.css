@@ -319,6 +319,53 @@ body {
   color: #000;
 }
 
+.icon-wrapper {
+  width: 25px;
+  height: 25px;
+  border: 1.37911px solid #1B2943;
+  margin-right: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-filter-club-icons {
+  margin-bottom: 20px;
+}
+
+.cart-filter-club-icons p{
+  font-weight: 500;
+  font-size: 12.8717px;
+  line-height: 22px;
+  color: #1B2943;
+}
+
+.cart-filter-club-icons button:not(:last-child) {
+  margin-right: 20px;
+}
+
+.filter-club-text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000;
+}
+
+.cart-shipment-info {
+  border-top: 1px solid #D8D8D8;
+  padding: 12px 0;
+  margin-top: 24px;
+}
+
+.cart-shipment-info p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #737373;
+}
+
+
 /* End Cart Drawer */
 
 
@@ -417,6 +464,12 @@ body {
     width: 120vw;
     height: 120vh;
   }
+
+  .drawer-bottom-dialog-panel {
+    width: 120vw;
+    height: 50vh;
+  }
+
   .menu-drawer-container {
     height: 100vh;
   }

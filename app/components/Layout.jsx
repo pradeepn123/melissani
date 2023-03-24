@@ -2,6 +2,7 @@ import {useIsHomePath} from '~/lib/utils';
 import {
   Drawer,
   useDrawer,
+  DrawerFromBottom,
   Text,
   Button,
   Heading,
@@ -25,17 +26,26 @@ import account from '../../public/account.svg';
 
 export function Layout({children, layout}) {
   const {
-    isOpen: isFilterClubModalOpen,
-    openDrawer: openFilterClubModal,
-    closeDrawer: closeFilterClubModal
+    isOpen: isFilterClubRightModalOpen,
+    openDrawer: openFilterClubRightModal,
+    closeDrawer: closeFilterClubRightModal
+  } = useDrawer();
+
+  const {
+    isOpen: isFilterClubBottomModalOpen,
+    openDrawer: openFilterClubBottomModal,
+    closeDrawer: closeFilterClubBottomModal
   } = useDrawer();
 
   return (
     <RequestContext.Provider
       value={{
-        isFilterClubModalOpen: isFilterClubModalOpen,
-        openFilterClubModal: openFilterClubModal,
-        closeFilterClubModal: closeFilterClubModal
+        isFilterClubRightModalOpen: isFilterClubRightModalOpen,
+        openFilterClubRightModal: openFilterClubRightModal,
+        closeFilterClubRightModal: closeFilterClubRightModal,
+        isFilterClubBottomModalOpen: isFilterClubBottomModalOpen,
+        openFilterClubBottomModal: openFilterClubBottomModal,
+        closeFilterClubBottomModal: closeFilterClubBottomModal
       }}
     >
       <div className="flex flex-col min-h-screen">
@@ -115,22 +125,26 @@ function Header({logo, menu,footerMenu,metafields}) {
           openMenu()
         }}
       />
-      <FilterClubModal 
-        isOpen={context.isFilterClubModalOpen} 
-        openFilterClubModal={context.openFilterClubModal}
-        closeFilterClubModal={context.closeFilterClubModal}
+      <FilterClubRightModal 
+        isOpen={context.isFilterClubRightModalOpen} 
+        openFilterClubRightModal={context.openFilterClubRightModal}
+        closeFilterClubRightModal={context.closeFilterClubRightModal}
+      />
+      <FilterClubBottomModal 
+        isOpen={context.isFilterClubBottomModalOpen} 
+        openFilterClubaBottomModal={context.openFilterClubBottomModal}
+        closeFilterClubBottomModal={context.closeFilterClubBottomModal}
       />
     </>
   );
 }
 
-function FilterClubModal({isOpen, openFilterClubModal, closeFilterClubModal}) {
-
+function FilterClubRightModal({isOpen, openFilterClubRightModal, closeFilterClubRightModal}) {
   return <Drawer
     open={isOpen}
-    onClose={closeFilterClubModal}
+    onClose={closeFilterClubRightModal}
     isHome={false}
-    openMenu={openFilterClubModal}
+    openMenu={openFilterClubRightModal}
     openFrom="right"
     heading="Filter Club Membership"
     isFilterClubModal={true}
@@ -156,6 +170,39 @@ function FilterClubModal({isOpen, openFilterClubModal, closeFilterClubModal}) {
       </section>
     </div>
   </Drawer>
+}
+
+function FilterClubBottomModal({isOpen, openFilterClubBottomModal, closeFilterClubBottomModal}) {
+  return <DrawerFromBottom
+    open={isOpen}
+    onClose={closeFilterClubBottomModal}
+    isHome={false}
+    openMenu={openFilterClubBottomModal}
+    openFrom="right"
+    heading="Filter Club Membership"
+    isFilterClubModal={true}
+  >
+    <div className="grid grid-cols-1 h-screen-no-nav grid-rows-[1fr_auto]">
+      <div className="filter-club-membership-benefits">
+          <ul className='px-4 sm:px-8 md:px-8'>
+            <li>10% Discount on filters</li>
+            <li>1 year extended warranty</li>
+            <li>Free Shipping</li>
+            <li>Automated delivery</li>
+            <li>Contact us to customise</li>
+            <li>Lifetime phone support</li>
+            <li>Pay on shipment</li>
+          </ul>
+      </div>
+      <section aria-labelledby="summary-heading" className="grid gap-4 cart-summary-footer">
+        <dl className="grid">          
+          <Button variant='primary' className="font-medium">
+            Subscribe
+          </Button>
+        </dl>
+      </section>
+    </div>
+  </DrawerFromBottom>
 }
 
 function CartDrawer({isOpen, isHome, onClose, openCart }) {
