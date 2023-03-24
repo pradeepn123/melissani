@@ -48,7 +48,7 @@ export function Layout({children, layout}) {
         closeFilterClubBottomModal: closeFilterClubBottomModal
       }}
     >
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col">
         <div className="">
           <a href="#mainContent" className="sr-only">
             Skip to content
