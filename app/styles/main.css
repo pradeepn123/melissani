@@ -260,12 +260,12 @@ svg:focus {
 }
 
 .cart-lines-wrapper {
-  padding: 50px 40px;
+  padding: 50px 1rem;
 }
 
 .cart-lines-wrapper .cart-product-img-wrapper {
-  width: 160px;
-  height: 195px;
+  width: 112px;
+  height: 137px;
   background-color: #FAFAFA;
   display: flex;
   align-items: center;
@@ -273,8 +273,8 @@ svg:focus {
 
 .cart-lines-wrapper .cart-product-title {
   font-weight: 700;
-  font-size: 28px;
-  line-height: 36px;
+  font-size: 20px;
+  line-height: 1.2;
   color: #000;
 }
 
@@ -307,6 +307,7 @@ svg:focus {
 .cart-summary-footer {
   padding: 20px 40px;
   border-top: 1px solid #D8D8D8;
+  background-color: #ffffff;
 }
 
 .cart-footer-subtotal {
@@ -428,6 +429,17 @@ svg:focus {
 }
 
 @media screen and (min-width: 1200px) {
+    .cart-lines-wrapper .cart-product-img-wrapper {
+        width: 160px;
+        height: 195px;        
+    }
+    .cart-lines-wrapper .cart-product-title{
+        font-size: 28px;
+        line-height: 36px;
+    }
+    .cart-lines-wrapper {
+        padding: 50px 40px;
+    }
     .filter-club-membership-benefits ul {
         margin: 40px 0;
     }
