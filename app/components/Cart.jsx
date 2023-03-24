@@ -8,7 +8,8 @@ import {
   IconRemove,
   Text,
   Link,
-  RequestContext
+  RequestContext,
+  CartClubMembership
 } from '~/components';
 import {getInputStyleClasses} from '~/lib/utils';
 import {useFetcher} from '@remix-run/react';
@@ -37,9 +38,12 @@ export function CartDetails({layout, cart}) {
   return (
     <div className={container[layout]}>
       <CartLines lines={cart?.lines} layout={layout} />
-      <CartSummary cost={cart.cost} layout={layout}>
-        <CartCheckoutActions cost={cart.cost} checkoutUrl={cart.checkoutUrl} />
-      </CartSummary>
+      <CartClubMembership />
+      {!isZeroCost && (
+        <CartSummary cost={cart.cost} layout={layout}>
+          <CartCheckoutActions cost={cart.cost} checkoutUrl={cart.checkoutUrl} />
+        </CartSummary>
+      )}
     </div>
   );
 }

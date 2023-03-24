@@ -17,6 +17,7 @@ import {NotFound} from './components/NotFound';
 import styles from './styles/app.css';
 import customStyles from './styles/main.css';
 import customFonts from './styles/custom-font.css';
+import cartClubMembershipStyles from './components/CartClubMembership/CartClubMembership.css'
 import favicon from '../public/favicon.svg';
 
 import {DEFAULT_LOCALE, parseMenu} from './lib/utils';
@@ -40,6 +41,7 @@ export const links = () => {
     {rel: 'stylesheet', href: styles},
     {rel: 'stylesheet', href: customStyles},
     {rel: 'stylesheet', href: customFonts},
+    {rel: 'stylesheet', href: cartClubMembershipStyles},
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',

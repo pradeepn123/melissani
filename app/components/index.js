@@ -58,6 +58,6 @@ export { ProductOptionLink } from './ProductDescription/ProductOptionLink';
 export { FooterContact } from './FooterContact/FooterContact';
 export { RequestContext } from './MelissaniContext';
 export { DrawerFromBottom, useDrawerFromBottom } from './DrawerFromBottom';
-
+export { CartClubMembership } from './CartClubMembership/CartClubMembership';
 // Sue me
 export * from './Icon';
