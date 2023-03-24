@@ -1,4 +1,15 @@
 /* Begin: Installation Section */
+.desktop-convenience-section {
+    display: block;
+}
+
+.desktop-convenience-section img{
+    width: 100%;
+}
+
+.mobile-convenience-section {
+    display: none;
+}
 
 .installation-header{
     font-family: 'Peachi-Bold';
@@ -108,7 +119,14 @@
         max-width: 300px;
     }
 }
-
+@media screen and (max-width: 767px) {
+    .mobile-convenience-section {
+        display: block;
+    }
+    .desktop-convenience-section {
+        display: none;
+    }
+}
 @media screen and (max-width: 768px) {
     .installation-para {
         transform: translate(35%, -30%);
@@ -118,7 +136,7 @@
     }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 767px) {
     .installation-header {
         display: block;
         transform: translate(0, 0);
