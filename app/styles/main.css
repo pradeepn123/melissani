@@ -322,6 +322,31 @@ body {
 /* End Cart Drawer */
 
 
+
+.filter-club-membership-benefits ul {
+    margin: 20px 0;
+}
+.filter-club-membership-benefits ul li {
+    padding: 10px 0;
+    position: relative;
+    padding-left: 28px;
+    color: #161616;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+.filter-club-membership-benefits ul li:before {
+    content: '';
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTEiIHZpZXdCb3g9IjAgMCAxNCAxMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEgNS41TDQuNSA5TDEyLjUgMSIgc3Ryb2tlPSIjMUIyOTQzIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8L3N2Zz4K');
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 0;
+    top: 45%;
+    background-repeat: no-repeat;
+}
+
+
 /* End: Common Styles */
 
 
@@ -344,6 +369,14 @@ body {
 }
 
 @media screen and (min-width: 1200px) {
+    .filter-club-membership-benefits ul {
+        margin: 40px 0;
+    }
+    .filter-club-membership-benefits ul li {
+        font-size: 24px;
+        padding: 20px 0;
+        padding-left: 32px;
+    }
     .menu-drawer-container .menu-span:hover a span{        
         color: #666;
     }
@@ -461,8 +494,4 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.filter-club-membership-benefits {
-  
 }

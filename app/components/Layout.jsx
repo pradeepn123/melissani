@@ -137,12 +137,21 @@ function FilterClubModal({isOpen, openFilterClubModal, closeFilterClubModal}) {
   >
     <div className="grid grid-cols-1 h-screen-no-nav grid-rows-[1fr_auto]">
       <div className="filter-club-membership-benefits">
+          <ul className='px-4 sm:px-8 md:px-8'>
+            <li>10% Discount on filters</li>
+            <li>1 year extended warranty</li>
+            <li>Free Shipping</li>
+            <li>Automated delivery</li>
+            <li>Contact us to customise</li>
+            <li>Lifetime phone support</li>
+            <li>Pay on shipment</li>
+          </ul>
       </div>
       <section aria-labelledby="summary-heading" className="grid gap-4 cart-summary-footer">
-        <dl className="grid">
-          <div className="flex items-center justify-between">
-           Add To Cart
-          </div>
+        <dl className="grid">          
+          <Button variant='primary' className="font-medium">
+            Subscribe
+          </Button>
         </dl>
       </section>
     </div>
