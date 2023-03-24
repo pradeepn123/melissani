@@ -15,7 +15,8 @@ import {
   Specifications,
   ProductDescription,
   ProductHeader,
-  MediaGallery
+  MediaGallery,
+  ProductStickyBar
 } from '~/components';
 
 import invariant from 'tiny-invariant';
@@ -161,6 +162,12 @@ export default function Product() {
         {parsedProductDetails?.Specifications && <Specifications
           data={parsedProductDetails.Specifications}
         />}
+        <ProductStickyBar
+          title={title}
+          price={selectedVariant?.price}
+          media={media.nodes.find(media => media.alt == "featured-homepage")}
+          isSubscriptionProduct={isSubscriptionProduct}
+        />
       </Section>
     </>
   );

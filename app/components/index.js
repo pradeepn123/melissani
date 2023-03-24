@@ -46,6 +46,7 @@ export { TextCarousel } from './TextCarousel/TextCarousel';
 export { BackgroundImgWithText } from './BackgroundImgWithText/BackgroundImgWithText';
 export { QuantityAdjust } from './QuantityAdjust';
 export { StickyBarBottom } from './StickyBarBottom';
+export { ProductStickyBar } from './ProductStickyBar';
 export { ImageWithBlockOverlay } from './ImageWithBlockOverlay/ImageWithBlockOverlay';
 export { FilterClubSupportInfo } from './FilterClubSupportInfo/FilterClubSupportInfo';
 export { TextWithButton } from './TextWithButton/TextWithButton';
