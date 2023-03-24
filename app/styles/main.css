@@ -179,6 +179,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     width: 100%;
 }
+.stickybar_main_section .stickybar_main_section_inner .sticky_button button:hover {
+    background-color: #394E75;
+}
 /* End: Sticky bar css here */
 
 .menu-drawer-container .menuDrawer-Headermenu{
