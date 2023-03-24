@@ -57,6 +57,7 @@ export { ProductOptions } from './ProductDescription/ProductOptions';
 export { ProductOptionLink } from './ProductDescription/ProductOptionLink';
 export { FooterContact } from './FooterContact/FooterContact';
 export { RequestContext } from './MelissaniContext';
+export { DrawerFromBottom, useDrawerFromBottom } from './DrawerFromBottom';
 
 // Sue me
 export * from './Icon';

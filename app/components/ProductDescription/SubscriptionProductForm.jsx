@@ -113,7 +113,7 @@ const SubscriptionProductForm = (props) => {
     const openMembershipBenifitsDrawer = (e) => {
         e.preventDefault()
         e.stopPropagation()
-        context.openFilterClubModal()
+        context.openFilterClubRightModal()
         return false
     }
 
