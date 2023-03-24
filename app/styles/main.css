@@ -44,6 +44,10 @@ body {
   font-size: 17px;
 }
 
+svg:focus {
+    outline: none;
+}
+
 .primary-btn:hover {
   background-color: #394E75;
 }
@@ -188,7 +192,7 @@ body {
     font-size: 32px;
 }
 .menu-drawer-container .menu-span:first-child a{
-    margin-top: 32px;
+    margin-top: 16px;
 }
 .menu-drawer-container .secondary_menu_drawer a span{
     font-weight: 500;
@@ -200,8 +204,8 @@ body {
     color: #666666;
 }
 .menu-drawer-container .menu-span a{
-    margin-bottom: 32px;
-    display: block;    
+    margin-bottom: 16px;
+    display: block;
 }
 .menu-drawer-container .menuDrawer-Headermenu{
     display: flex;
@@ -368,7 +372,9 @@ body {
 
 /* End Cart Drawer */
 
-
+.filter-club-membership-benefits{
+    overflow-y: auto;
+}
 
 .filter-club-membership-benefits ul {
     margin: 20px 0;
@@ -393,6 +399,12 @@ body {
     background-repeat: no-repeat;
 }
 
+.custom_nav_height{
+    height: calc(100% - 10%);
+}
+.menu_nav_items .secondary_menu_drawer{
+    margin-bottom: 20px;
+}
 
 /* End: Common Styles */
 
@@ -423,6 +435,12 @@ body {
         font-size: 24px;
         padding: 20px 0;
         padding-left: 32px;
+    }
+    .menu-drawer-container .menu-span:first-child a{
+        margin-top: 32px;
+    }
+    .menu-drawer-container .menu-span a{
+        margin-bottom: 32px;        
     }
     .menu-drawer-container .menu-span:hover a span{        
         color: #666;
@@ -474,11 +492,6 @@ body {
     height: 100vh;
   }
 
-  .footer-social-media {
-    position: absolute;
-    bottom: 0; 
-  }
-
   .menu-cart-icon {
     margin: 0;
   }
@@ -490,6 +503,9 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+    .custom_nav_height{
+        height: 100%;
+    }
     .menu-drawer-container .menu-span:hover a span{        
         color: #666;
         opacity: 1;
@@ -516,10 +532,6 @@ body {
         position: relative;
     }
 
-    .footer-social-media {
-        position: absolute;
-        bottom: 5%;        
-    }
     .test {
         height: 90vh;
         display: flex;
