@@ -29,7 +29,7 @@
 }
 
 .club-membership-container {
-    padding: 0 2em;
+    padding: 0 1em;
     display: flex;
     flex-direction: column;
     row-gap: 1em;
@@ -98,7 +98,7 @@
 .club-membership-price {
     font-family: 'Montserrat', sans-serif;
     column-gap: 0.25em;
-    display: flex;
+    display: flex;    
 } 
 
 .club-membership-price .price {
@@ -152,6 +152,9 @@ p.club-membership-bottom-text {
 
 
 @media screen and (max-width: 767px) {
+    .club-membership-price{
+        margin-bottom: 24px;
+    }
     .subscription_filter_club_member{
         display: grid;
         grid-template-columns: 0.6fr 1fr;
@@ -167,6 +170,12 @@ p.club-membership-bottom-text {
     }
 }
 @media(min-width:1200px){
+    .club-membership-price, .club-membership-benefits{
+        grid-column: span 3;
+    }    
+    .club-membership-container {
+        padding: 0 2rem;
+    }
     .club-membership-right-content {        
         margin: auto;
         justify-content: center;
