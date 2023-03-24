@@ -56,6 +56,7 @@ export { ProductDescription } from './ProductDescription/ProductDescription';
 export { ProductOptions } from './ProductDescription/ProductOptions';
 export { ProductOptionLink } from './ProductDescription/ProductOptionLink';
 export { FooterContact } from './FooterContact/FooterContact';
+export { RequestContext } from './MelissaniContext';
 
 // Sue me
 export * from './Icon';

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import {useRef} from 'react';
+import {useRef, useContext} from 'react';
 import {useScroll} from 'react-use';
 import {flattenConnection, Image, Money} from '@shopify/hydrogen';
 import {
@@ -8,7 +8,7 @@ import {
   IconRemove,
   Text,
   Link,
-  FeaturedProducts,
+  RequestContext
 } from '~/components';
 import {getInputStyleClasses} from '~/lib/utils';
 import {useFetcher} from '@remix-run/react';
@@ -204,8 +204,11 @@ function CartSummary({cost, layout, children = null}) {
 
 
 function SubsctiptionLineItem({lines}) {
+  const context = useContext(RequestContext)
   const image = lines[0].merchandise.image
   image.url = "https://cdn.shopify.com/s/files/1/0684/3023/3888/files/Group_6534.png?v=1679597450"
+
+  console.log("open: ", context.openDrawer)
 
   return <li className="flex gap-6">
       <div className="flex-shrink">
@@ -227,6 +230,35 @@ function SubsctiptionLineItem({lines}) {
               <SubscriptionLinesPrice lines={lines} as="span" />
             </Text>
           </div>
+
+          <div className="grid pb-2">
+            <Text className="font-tertiary">
+              Filters ship based on the <strong>Optimum service cycle</strong>
+            </Text>
+            <Text className="font-tertiary">
+              First charge and shipment date is <strong>Thu Aug 2 2023</strong>
+            </Text>
+          </div>
+
+          <div className="flex items-center">
+            <div className="flex items-center">
+              <div className="icon-wrapper">
+                <svg width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L5.5 5.5L10 1" stroke="#1B2943" stroke-width="2"/>
+                </svg>
+              </div>
+              <p className="font-tertiary">What's included?</p>
+            </div>
+            <button className="flex items-center" onClick={context.openDrawer}>
+              <div className="icon-wrapper">
+                <svg width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L5.5 5.5L10 1" stroke="#1B2943" stroke-width="2"/>
+                </svg>
+              </div>
+              <p className="font-tertiary">Filter Club Benefits</p>
+            </button>
+          </div>
+
           <div className="flex items-center gap-2">
             <div className="flex justify-start text-copy">
               <SubscriptionLineQuantityAdjust lines={lines} />
