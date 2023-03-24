@@ -300,4 +300,9 @@
         font-size: 12px;
         line-height: 18px;
     }
+    .key-features-inner::-webkit-scrollbar{
+        width: 6px;
+        height: 0;
+        background-color: #F5F5F5;
+    }
 }

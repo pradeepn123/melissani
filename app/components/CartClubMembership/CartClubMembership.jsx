@@ -8,19 +8,16 @@ export function CartClubMembership({data}){
             <div className="club-membership-container">
                 <span class="label label-default add-on-label">Add-on</span>
                 <div className="club-membership-content">
-                    <div className="club-membership-left-content">
+                    <div className="club-membership-left-content col-span-3 md:col-span-1 order-1">
                         <h3>Filter Club Membership</h3>
                         <p>
                             Save 10% on Melissani M1 Filters. Filters ship based on the optimum service cycle.
-                        </p>
-                        
+                        </p>                        
                     </div>
-                    <div className="club-membership-right-content">
+                    <div className="club-membership-right-content order-3 md:order-2">
                         <Button variant="secondary" className="club-membership-add-btn">+ADD</Button>
                     </div>
-                </div>
-                <div className="club-membership-price-benefits">
-                    <div className="club-membership-price">
+                    <div className="club-membership-price col-span-3 md:col-span-1 order-2 md:order-3">
                         <span className="price">
                             $49.99
                         </span>
@@ -28,13 +25,13 @@ export function CartClubMembership({data}){
                             $44.99
                         </span>
                     </div>
-                    <div className="club-membership-benefits">
+                    <div className="club-membership-benefits order-4">
                         <QuestionIcon className="cart-question-icon"/>
                         <p className="club-membership-benefits-text">
                             Filter Club Benefits
                         </p>
                     </div>
-                </div>
+                </div>                
                 <hr />
                 <p className="club-membership-bottom-text">
                     Join our filter club for free! Get charged only when we ship your product after 6 months.
