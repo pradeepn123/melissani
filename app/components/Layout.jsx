@@ -11,10 +11,11 @@ import {
   Cart,
   CartLoading,
   Link,
+  RequestContext
 } from '~/components';
 import { useParams, Await, useMatches } from '@remix-run/react';
 import { Disclosure } from '@headlessui/react';
-import { Suspense, useEffect, useMemo } from 'react';
+import { Suspense, useEffect, useContext } from 'react';
 import { useCartFetchers } from '~/hooks/useCartFetchers';
 import { ForwardNav } from '~/components';
 import {CartCount} from '~/components/CartCount'
@@ -23,8 +24,20 @@ import logo from '../../public/logo.svg';
 import account from '../../public/account.svg';
 
 export function Layout({children, layout}) {
+  const {
+    isOpen: isFilterClubModalOpen,
+    openDrawer: openFilterClubModal,
+    closeDrawer: closeFilterClubModal,
+  } = useDrawer();
+
   return (
-    <>
+    <RequestContext.Provider
+      value={{
+        isOpen: isFilterClubModalOpen,
+        openDrawer: openFilterClubModal,
+        closeDrawer: closeFilterClubModal
+      }}
+    >
       <div className="flex flex-col min-h-screen">
         <div className="">
           <a href="#mainContent" className="sr-only">
@@ -42,12 +55,13 @@ export function Layout({children, layout}) {
         </main>
       </div>
       <Footer menu={layout?.footerMenu} metafields={layout?.metafields} />
-    </>
+    </RequestContext.Provider>
   );
 }
 
 function Header({logo, menu,footerMenu,metafields}) {
   const isHome = useIsHomePath();
+  const context = useContext(RequestContext)
 
   const {
     isOpen: isCartOpen,
@@ -101,11 +115,30 @@ function Header({logo, menu,footerMenu,metafields}) {
           openMenu()
         }}
       />
+      <FilterClubModal 
+        isOpen={context.isOpen} 
+        openFilterClubModal={context.openDrawer}
+        closeFilterClubModal={context.closeDrawer}
+      />
     </>
   );
 }
 
-function CartDrawer({isOpen, onClose,isHome, openCart }) {
+function FilterClubModal({isOpen, openFilterClubModal, closeFilterClubModal}) {
+
+  return <Drawer
+    open={isOpen}
+    onClose={closeFilterClubModal}
+    isHome={false}
+    openMenu={openFilterClubModal}
+    openFrom="right"
+    heading="Filter Club Membership"
+  >
+    <p>sdgsgd</p>
+  </Drawer>
+}
+
+function CartDrawer({isOpen, isHome, onClose, openCart }) {
   const [root] = useMatches();
 
   return (
