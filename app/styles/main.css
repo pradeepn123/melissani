@@ -51,7 +51,7 @@ body {
 .secondary-btn:hover {
   border: 1px solid #1B2943;
   font-weight: 300;
-  padding: 0.75rem 2.32rem;
+  padding: .75rem 2.26rem;
 }
 
 .inline-btn:hover {
@@ -178,6 +178,9 @@ body {
     line-height: 23px;
     font-family: 'Montserrat', sans-serif;
     width: 100%;
+}
+.stickybar_main_section .stickybar_main_section_inner .sticky_button button:hover {
+    background-color: #394E75;
 }
 /* End: Sticky bar css here */
 
