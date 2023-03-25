@@ -23,6 +23,7 @@ import favicon from '../public/favicon.svg';
 import {DEFAULT_LOCALE, parseMenu} from './lib/utils';
 import invariant from 'tiny-invariant';
 import {useAnalytics} from './hooks/useAnalytics';
+import { PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
 
 const seo = ({data, pathname}) => ({
   title: data?.layout?.shop?.name,
@@ -73,6 +74,7 @@ export async function loader({context}) {
       shopifySalesChannel: ShopifySalesChannel.hydrogen,
       shopId: layout.shop.id,
     },
+    products: getProducts(context)
   });
 }
 
@@ -312,6 +314,13 @@ const CART_QUERY = `#graphql
                 handle
                 title
                 id
+                productType
+                metafields(identifiers: [
+                  { namespace: "product", key: "product_details" }
+                ]) {
+                  value
+                  key
+                }
               }
               selectedOptions {
                 name
@@ -373,4 +382,21 @@ export async function getCart({storefront}, cartId) {
   });
 
   return cart;
+}
+
+export const LIST_PRODUCTS_QUERY = `#graphql
+  ${PRODUCT_CARD_FRAGMENT}
+  query listProducts($country: CountryCode, $language: LanguageCode)
+  @inContext(country: $country, language: $language) {
+    products(first: 50) {
+      nodes {
+        ...ProductCard
+      }
+    }
+  }
+`;
+
+export async function getProducts({storefront}) {
+  const { products } = await storefront.query(LIST_PRODUCTS_QUERY);
+  return products
 }

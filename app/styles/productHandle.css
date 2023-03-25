@@ -76,16 +76,6 @@ label.product-form-wrapper {
   cursor: pointer;
 }
 
-.include-benifits {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-}
-
-.include-benifits span {
-  font-weight: 100;
-}
-
 @media (min-width: 768px) {
   .product__media-sticky {
     display: block;

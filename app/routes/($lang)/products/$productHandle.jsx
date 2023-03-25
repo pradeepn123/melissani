@@ -163,6 +163,8 @@ export default function Product() {
           data={parsedProductDetails.Specifications}
         />}
         <ProductStickyBar
+          products={products}
+          selectedVariant={selectedVariant}
           title={title}
           price={selectedVariant?.price}
           media={media.nodes.find(media => media.alt == "featured-homepage")}

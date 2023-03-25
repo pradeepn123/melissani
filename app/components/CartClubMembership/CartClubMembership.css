@@ -37,11 +37,19 @@
 
 .club-membership-content {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 2fr 1fr;
     gap: 10px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;    
+}
+
+.club-membership-content.bottom {
+    grid-template-columns: 1fr 1fr;
+}
+
+.club-membership-content.bottom .club-membership-button {
+    display: none;
 }
 
 .club-membership-left-content {
@@ -155,11 +163,16 @@ p.club-membership-bottom-text {
     .club-membership-price{
         margin-bottom: 24px;
     }
-    .subscription_filter_club_member{
+    .subscription_filter_club_member {
         display: grid;
         grid-template-columns: 0.6fr 1fr;
         column-gap: 2rem;
     }
+
+    .subscription_filter_club_member.drawer {
+        grid-template-columns: 0.2fr 1fr;
+    }
+
     .subscription_filter_club_member .cart-filter-club-icons{
         grid-column: span 3;
     }
@@ -180,5 +193,18 @@ p.club-membership-bottom-text {
         margin: auto;
         justify-content: center;
         display: flex;
+    }
+}
+
+@media (max-width: 1023px) {
+    .club-membership-content:not(.bottom) {
+        display: block;
+    }
+    .club-membership-content:not(.bottom) .club-membership-right-content {
+        display: none;
+    }
+
+    .club-membership-content.bottom .club-membership-button {
+        display: block;
     }
 }

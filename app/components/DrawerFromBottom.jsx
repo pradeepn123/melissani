@@ -11,7 +11,7 @@ import { IconClose } from '~/components';
  * @param openFrom - bottom
  * @param children - react children node.
  */
-export function DrawerFromBottom({isHome, isCartDrawer, openCart, open, onClose, openFrom = 'bottom', children}) {
+export function DrawerFromBottom({open, onClose, openFrom = 'bottom', children, ...props}) {
   const offScreen = {
     right: 'translate-y-full',
     left: '-translate-y-full',
@@ -47,7 +47,15 @@ export function DrawerFromBottom({isHome, isCartDrawer, openCart, open, onClose,
                 leaveTo={offScreen[openFrom]}
               >
                 <Dialog.Panel className="drawer-dialog-panel drawer-bottom-dialog-panel w-screen max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl text-left align-middle transition-all transform shadow-xl h-screen-dynamic bg-contrast">
-                  <header className={`menuDrawer-nav sticky top-0 flex px-4 h-nav gap-x-4 sm:px-8 md:px-8 items-center relative ${isCartDrawer ? 'justify-between' : 'justify-end'}`}>
+                  <header className='drawer-header sticky top-0 flex px-4 h-nav gap-x-4 sm:px-8 md:px-8 items-center relative justify-between'>
+                    {props.heading && <div className="filter-club-membership">
+                      <div className="cart-heading">
+                        {props.heading}
+                      </div>
+                      {props.subHeading && <p>
+                        {props.subHeading}
+                      </p>}
+                    </div>}
                     <button
                       type="button"
                       className="menu-cart-icon m-4"
@@ -73,18 +81,25 @@ DrawerFromBottom.Title = Dialog.Title;
 
 export function useDrawerFromBottom(openDefault = false) {
   const [isOpen, setIsOpen] = useState(openDefault);
+  const [filterClubItems, setFilterClubItems] = useState([]);
 
-  function openDrawer() {
+  function openDrawer(items) {
+    if (items) {
+      setFilterClubItems(items)
+    }
+
     setIsOpen(true);
   }
 
   function closeDrawer() {
     setIsOpen(false);
+    setFilterClubItems([])
   }
 
   return {
     isOpen,
     openDrawer,
     closeDrawer,
+    filterClubItems
   };
 }

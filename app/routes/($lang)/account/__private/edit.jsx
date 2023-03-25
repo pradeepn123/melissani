@@ -257,4 +257,4 @@ const CUSTOMER_UPDATE_MUTATION = `#graphql
       }
     }
   }
-  `;
+`;
