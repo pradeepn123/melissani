@@ -12,7 +12,7 @@ import {
   CartClubMembership
 } from '~/components';
 import {getInputStyleClasses} from '~/lib/utils';
-import {useFetcher} from '@remix-run/react';
+import { useFetcher, Await, useMatches } from '@remix-run/react';
 import {CartAction} from '~/lib/type';
 
 export function Cart({layout, onClose, cart}) {
@@ -114,6 +114,8 @@ function UpdateDiscountForm({children}) {
 
 function CartLines({layout = 'drawer', lines: cartLines}) {
   const currentLines = cartLines ? flattenConnection(cartLines) : [];
+  const [root] = useMatches();
+
   const scrollRef = useRef(null);
   const {y} = useScroll(scrollRef);
 
@@ -161,7 +163,9 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
         </p>
       </div>}
     </section>
-    {filterClubLineItems == 0 && <CartClubMembership />}
+    {filterClubLineItems == 0 && <Await resolve={root.data?.products}>
+      {(products) => <CartClubMembership products={products.nodes} />}
+    </Await>}
   </>
 }
 
@@ -232,8 +236,13 @@ function SubsctiptionLineItem({lines}) {
           </Heading>
 
           <div className="grid pb-2">
-            <Text className="font-tertiary cart-product-price">
-              <SubscriptionLinesPrice lines={lines} as="span" />
+            <Text className="font-tertiary cart-product-price club-membership-price">
+              <span className="price">
+                <SubscriptionLinesCompareAtPrice lines={lines} as="span" />
+              </span>
+              <span className="offer-price">
+                <SubscriptionLinesPrice lines={lines} as="span" />
+              </span>
             </Text>
           </div>
 
@@ -485,10 +494,21 @@ function CartLinePrice({line, priceType = 'regular', ...passthroughProps}) {
   return <Money withoutTrailingZeros {...passthroughProps} data={moneyV2} />;
 }
 
-function SubscriptionLinesPrice({lines, priceType = 'regular', ...passthroughProps}) {
+const SubscriptionLinesPrice = ({lines, priceType = 'regular', ...passthroughProps}) => {
 
   const moneyV2 = {amount: lines.reduce((acc, line) => {
-    return acc + parseFloat(line.merchandise.compareAtPrice.amount)
+    const itemMetafield = JSON.parse(line.merchandise.product.metafields[0].value)
+    return acc + parseFloat(itemMetafield.price)
+  }, 0).toFixed(2), currencyCode: 'USD'}
+
+  return <Money withoutTrailingZeros {...passthroughProps} data={moneyV2} />;
+}
+
+const SubscriptionLinesCompareAtPrice = ({lines, priceType = 'regular', ...passthroughProps}) => {
+
+  const moneyV2 = {amount: lines.reduce((acc, line) => {
+    const itemMetafield = JSON.parse(line.merchandise.product.metafields[0].value)
+    return acc + parseFloat(itemMetafield.compareAtPrice)
   }, 0).toFixed(2), currencyCode: 'USD'}
 
   return <Money withoutTrailingZeros {...passthroughProps} data={moneyV2} />;

@@ -401,6 +401,34 @@ svg:focus {
   background-repeat: no-repeat;
 }
 
+.filter-club-membership-benefits-small {
+    overflow-y: auto;
+}
+
+.filter-club-membership-benefits-small ul {
+  margin: 20px 0;
+}
+.filter-club-membership-benefits-small ul li {
+  padding: 10px 0;
+  position: relative;
+  padding-left: 28px;
+  color: #161616;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.filter-club-membership-benefits-small ul li:before {
+  content: '';
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTEiIHZpZXdCb3g9IjAgMCAxNCAxMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEgNS41TDQuNSA5TDEyLjUgMSIgc3Ryb2tlPSIjMUIyOTQzIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8L3N2Zz4K');
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  left: 0;
+  top: 45%;
+  background-repeat: no-repeat;
+}
+
 .filter-club-modal-items ul {
   margin: 20px 0;
 }
@@ -611,4 +639,9 @@ svg:focus {
 .drawer-header {
   border-bottom: 1px solid #D8D8D8;
   height: auto;
+  padding: 0.5rem 2rem;
+}
+
+.drawer-header .cart-heading {
+  font-size: 28px;
 }

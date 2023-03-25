@@ -96,5 +96,13 @@ export const PRODUCT_CARD_FRAGMENT = `#graphql
         }
       }
     }
+    metafields(
+      identifiers: [
+        { namespace: "product", key: "product_details" }
+      ]
+    ) {
+      value
+      key
+    }
   }
 `;
