@@ -30,11 +30,21 @@ export function CartCount({ isHome, openCart, isCartDrawer }) {
               return !line.attributes.find((attribute) => attribute.key == "Bundle Id" )
             })
 
+            let quantity = oneTimeLineItems.reduce((acc, lineItem) => {
+              return acc + lineItem.quantity
+            }, 0)
+
+            if (filterClubLineItems.length > 0) {
+              quantity += filterClubLineItems.reduce((acc, lineItems) => {
+                return acc + lineItems[0].quantity
+              }, 0)
+            }
+
             return isCartDrawer ? 
-              <span>{filterClubLineItems.length + oneTimeLineItems.length}</span> :
+              <span>{quantity}</span> :
               <Badge
                 openCart={openCart}
-                count={filterClubLineItems.length + oneTimeLineItems.length || 0}
+                count={quantity}
               />
           }}
         </Await>

@@ -169,6 +169,7 @@ export default function Product() {
           price={selectedVariant?.price}
           media={media.nodes.find(media => media.alt == "featured-homepage")}
           isSubscriptionProduct={isSubscriptionProduct}
+          parsedProductDetails={parsedProductDetails}
         />
       </Section>
     </>

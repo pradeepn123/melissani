@@ -645,3 +645,11 @@ svg:focus {
 .drawer-header .cart-heading {
   font-size: 28px;
 }
+
+.drawer-header.px-4 {
+  padding: 0.5rem 1rem;
+}
+
+.one-time-products-wrapper {
+  padding: 0.5rem 1rem;
+}

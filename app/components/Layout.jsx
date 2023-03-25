@@ -1,4 +1,10 @@
-import {useIsHomePath} from '~/lib/utils';
+import { Suspense, useEffect, useContext, useState } from 'react';
+import { useParams, Await, useMatches, useFetchers } from '@remix-run/react';
+import { Disclosure } from '@headlessui/react';
+
+
+import { Image, Money } from '@shopify/hydrogen';
+
 import {
   Drawer,
   useDrawer,
@@ -13,16 +19,15 @@ import {
   Cart,
   CartLoading,
   Link,
-  RequestContext
+  RequestContext,
+  AddToCartButton,
+  QuantityAdjust,
+  ForwardNav
 } from '~/components';
-import { useParams, Await, useMatches } from '@remix-run/react';
-import { Disclosure } from '@headlessui/react';
-import { Suspense, useEffect, useContext } from 'react';
-import { useCartFetchers } from '~/hooks/useCartFetchers';
-import { ForwardNav } from '~/components';
-import {CartCount} from '~/components/CartCount'
 
-import { Image } from '@shopify/hydrogen';
+import { useCartFetchers } from '~/hooks/useCartFetchers';
+import { CartCount } from '~/components/CartCount'
+import {useIsHomePath} from '~/lib/utils';
 
 import logo from '../../public/logo.svg';
 import account from '../../public/account.svg';
@@ -44,8 +49,27 @@ export function Layout({children, layout}) {
     isOpen: isFilterClubItemsModalOpen,
     openDrawer: openFilterClubItemsModal,
     closeDrawer: closeFilterClubItemsModal,
-    filterClubItems: filterClubItems
+    items: filterClubItems
   } = useDrawerFromBottom();
+
+  const {
+    isOpen: isNoSubscriptionModalOpen,
+    openDrawer: openNoSubscriptionModalOpen,
+    closeDrawer: closeNoSubscriptionModalOpen,
+    items: oneTimeProducts,
+    setItems: setOneTimeProducts
+  } = useDrawerFromBottom();
+
+  const fetchers = useFetchers();
+  const addToCartFetchers = useCartFetchers('ADD_TO_CART');
+
+  useEffect(() => {
+    const isIdeal = fetchers.find((fetcher) => fetcher.state == "idle")
+    if (isIdeal && addToCartFetchers.length == 0) {
+      closeNoSubscriptionModalOpen()
+      closeFilterClubRightModal()
+    }
+  }, [fetchers.length > 0 && addToCartFetchers.length == 0 && (isNoSubscriptionModalOpen || isFilterClubRightModalOpen)])
 
   return (
     <RequestContext.Provider
@@ -59,12 +83,21 @@ export function Layout({children, layout}) {
         isFilterClubItemsModalOpen: isFilterClubItemsModalOpen,
         openFilterClubItemsModal: openFilterClubItemsModal,
         closeFilterClubItemsModal: closeFilterClubItemsModal,
-        filterClubItems: filterClubItems
+        filterClubItems: filterClubItems,
+
+        isNoSubscriptionModalOpen: isNoSubscriptionModalOpen,
+        openNoSubscriptionModalOpen: openNoSubscriptionModalOpen,
+        closeNoSubscriptionModalOpen: closeNoSubscriptionModalOpen,
+        oneTimeProducts: oneTimeProducts,
+        setOneTimeProducts: setOneTimeProducts
       }}
     >
       <div className="flex flex-col">
         <div className="">
-          <a href="#mainContent" className="sr-only">
+          <a
+            href="#mainContent"
+            className="sr-only"
+          >
             Skip to content
           </a>
         </div>
@@ -74,11 +107,18 @@ export function Layout({children, layout}) {
           footerMenu={layout?.footerMenu}
           metafields={layout?.metafields}
         />
-        <main role="main" id="mainContent" className="flex-grow">
+        <main
+          role="main"
+          id="mainContent"
+          className="flex-grow"
+        >
           {children}
         </main>
       </div>
-      <Footer menu={layout?.footerMenu} metafields={layout?.metafields} />
+      <Footer
+        menu={layout?.footerMenu}
+        metafields={layout?.metafields}
+      />
     </RequestContext.Provider>
   );
 }
@@ -156,11 +196,20 @@ function Header({logo, menu, footerMenu, metafields}) {
         onClose={context.closeFilterClubItemsModal}
         filterClubItems={context.filterClubItems}
       />
+      <NoSubscriptionModal
+        isOpen={context.isNoSubscriptionModalOpen}
+        open={context.openNoSubscriptionModalOpen}
+        onClose={context.closeNoSubscriptionModalOpen}
+        oneTimeProducts={context.oneTimeProducts}
+        setOneTimeProducts={context.setOneTimeProducts}
+      />
     </>
   );
 }
 
 function FilterClubRightModal({isOpen, openFilterClubRightModal, closeFilterClubRightModal}) {
+  const [root] = useMatches();
+
   return <Drawer
     open={isOpen}
     onClose={closeFilterClubRightModal}
@@ -183,10 +232,37 @@ function FilterClubRightModal({isOpen, openFilterClubRightModal, closeFilterClub
           </ul>
       </div>
       <section aria-labelledby="summary-heading" className="grid gap-4 cart-summary-footer">
-        <dl className="grid">          
-          <Button variant='primary' className="font-medium">
-            Subscribe
-          </Button>
+        <dl className="grid">
+          <Await resolve={root.data?.products}>
+            {(products) => {
+              console.log(products)
+              const subscriptionProduct = products.nodes.find((product) => product.handle == "melissani-m1-filter")
+              const parsesMetafield = JSON.parse(subscriptionProduct.metafields[0].value)
+              const bundleId = new Date().getTime().toString()
+              const subscriptionProducts = parsesMetafield.linkedProducts.subscription.map((productHandle) => {
+                const item = products.nodes.find((product) => product.handle == productHandle)
+                return {
+                  merchandiseId: item.variants.nodes[0].id,
+                  sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
+                  quantity: 1,
+                  attributes: [{
+                    key: 'Bundle Id',
+                    value: bundleId
+                  }, {
+                    key: 'Bundle Type',
+                    value: 'Filter Club'
+                  }]
+                }
+              })
+              return <AddToCartButton
+                variant='primary'
+                className="font-medium"
+                lines={subscriptionProducts}
+              >
+                Subscribe
+              </AddToCartButton>
+            }}
+          </Await>
         </dl>
       </section>
     </div>
@@ -250,6 +326,121 @@ const FilterClubItemsModal = ({isOpen, open, onClose, filterClubItems}) => {
               </div>
             </li>)}
           </ul>
+      </div>
+    </div>
+  </DrawerFromBottom>
+}
+
+const NoSubscriptionModal = ({isOpen, open, onClose, oneTimeProducts, setOneTimeProducts}) => {
+  const [variantLineItems, setVariantLineItems] = useState([])
+  const [totalPrice, setTotalPrice] = useState(0.0)
+
+  useEffect(() => {
+    setVariantLineItems(oneTimeProducts.map(oneTimeProduct => {
+      console.log(oneTimeProducts)
+      return {
+        merchandiseId: oneTimeProduct.variants.nodes[0].id,
+        quantity: 0
+      }
+    }))    
+  }, [oneTimeProducts.length > 0])
+
+  const updateQuantity = (handle, quantity) => {
+    const updatedOneTimeProducts = oneTimeProducts.map((oneTimeProduct) => {
+      if (!oneTimeProduct.quantity) {
+        oneTimeProduct.quantity = 0
+      }
+
+      if (handle == oneTimeProduct.handle) {
+        oneTimeProduct.quantity = quantity
+      }
+
+      return oneTimeProduct
+    })
+
+    setTotalPrice(updatedOneTimeProducts.reduce((acc, lineProduct) => {
+      const firstVariant = lineProduct.variants.nodes[0];
+      return acc + parseFloat(firstVariant.price?.amount) * lineProduct.quantity
+    }, 0))
+
+    setOneTimeProducts(updatedOneTimeProducts)
+    setVariantLineItems(updatedOneTimeProducts.map((oneTimeProduct) => {
+      return {
+        merchandiseId: oneTimeProduct.variants.nodes[0].id,
+        quantity: oneTimeProduct.quantity
+      }
+    }).filter((productVariant) => productVariant.quantity > 0))
+  }
+
+  return <DrawerFromBottom
+    open={isOpen}
+    openMenu={open}
+    onClose={onClose}
+    openFrom="right"
+    heading="One-Time Purchase"
+  >
+    <div className="grid grid-cols-1 grid-rows-[1fr_auto]">
+      <div className="content one-time-products-wrapper">
+        {oneTimeProducts.map((oneTimeProduct) => {
+          let featuredImage = oneTimeProduct.media.nodes[0]?.image
+          let oneTimeProductQuantity = oneTimeProduct.quantity || 0
+          return <div
+            key={`one-time-product-${oneTimeProduct.handle}`}
+            className="grid gap-2 py-2"
+          >
+            <div className="one-time-product-row">
+              <div className="image-wrapper">
+                <Image
+                  className="w-full fadeIn"
+                  widths={[128]}
+                  sizes="128px"
+                  loaderOptions={{
+                    crop: 'center',
+                    scale: 2,
+                    width: 128
+                  }}
+                  data={featuredImage}
+                  alt={`Picture of ${oneTimeProduct.title}`}
+                />
+              </div>
+            <div>
+              <Heading as="h3" className="whitespace-normal onetime-product-title">
+                {oneTimeProduct.productType}
+              </Heading>
+              <div className="product-price font-tertiary">
+                <Money
+                  withoutTrailingZeros
+                  data={oneTimeProduct?.variants.nodes[0]?.price}
+                  as="span"
+                />
+              </div>
+            </div>
+            <div className="quantity-field">
+              <QuantityAdjust
+                quantity={oneTimeProductQuantity}
+                setQuantity={quantity => updateQuantity(oneTimeProduct.handle, quantity)}
+                minDisabled={oneTimeProduct.quantity < 1}
+              />
+            </div>
+          </div>
+        </div>})}
+      </div>
+      <div className="grid gap-4 p-4">
+        <AddToCartButton
+          variant='primary'
+          className="font-medium"
+          lines={variantLineItems}
+          disabled={variantLineItems.length == 0}
+        >
+          <Money
+            withoutTrailingZeros
+            data={{
+              amount: totalPrice.toFixed(2),
+              currencyCode: 'USD'
+            }}
+            as="span"
+          /> - {` Add to Cart`}
+        </AddToCartButton>
       </div>
     </div>
   </DrawerFromBottom>
