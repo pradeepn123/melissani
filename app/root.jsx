@@ -312,6 +312,7 @@ const CART_QUERY = `#graphql
                 handle
                 title
                 id
+                productType
               }
               selectedOptions {
                 name

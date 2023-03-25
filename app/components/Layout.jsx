@@ -3,6 +3,7 @@ import {
   Drawer,
   useDrawer,
   DrawerFromBottom,
+  useDrawerFromBottom,
   Text,
   Button,
   Heading,
@@ -21,6 +22,8 @@ import { useCartFetchers } from '~/hooks/useCartFetchers';
 import { ForwardNav } from '~/components';
 import {CartCount} from '~/components/CartCount'
 
+import { Image } from '@shopify/hydrogen';
+
 import logo from '../../public/logo.svg';
 import account from '../../public/account.svg';
 
@@ -32,10 +35,17 @@ export function Layout({children, layout}) {
   } = useDrawer();
 
   const {
-    isOpen: isFilterClubBottomModalOpen,
-    openDrawer: openFilterClubBottomModal,
-    closeDrawer: closeFilterClubBottomModal
+    isOpen: isFilterClubBenifitsBottomModalOpen,
+    openDrawer: openFilterClubBenifitsBottomModal,
+    closeDrawer: closeFilterClubBenifitsModal
   } = useDrawer();
+
+  const {
+    isOpen: isFilterClubItemsModalOpen,
+    openDrawer: openFilterClubItemsModal,
+    closeDrawer: closeFilterClubItemsModal,
+    filterClubItems: filterClubItems
+  } = useDrawerFromBottom();
 
   return (
     <RequestContext.Provider
@@ -43,9 +53,13 @@ export function Layout({children, layout}) {
         isFilterClubRightModalOpen: isFilterClubRightModalOpen,
         openFilterClubRightModal: openFilterClubRightModal,
         closeFilterClubRightModal: closeFilterClubRightModal,
-        isFilterClubBottomModalOpen: isFilterClubBottomModalOpen,
-        openFilterClubBottomModal: openFilterClubBottomModal,
-        closeFilterClubBottomModal: closeFilterClubBottomModal
+        isFilterClubBenifitsBottomModalOpen: isFilterClubBenifitsBottomModalOpen,
+        openFilterClubBenifitsBottomModal: openFilterClubBenifitsBottomModal,
+        closeFilterClubBenifitsModal: closeFilterClubBenifitsModal,
+        isFilterClubItemsModalOpen: isFilterClubItemsModalOpen,
+        openFilterClubItemsModal: openFilterClubItemsModal,
+        closeFilterClubItemsModal: closeFilterClubItemsModal,
+        filterClubItems: filterClubItems
       }}
     >
       <div className="flex flex-col">
@@ -69,9 +83,10 @@ export function Layout({children, layout}) {
   );
 }
 
-function Header({logo, menu,footerMenu,metafields}) {
+function Header({logo, menu, footerMenu, metafields}) {
   const isHome = useIsHomePath();
   const context = useContext(RequestContext)
+  const [root] = useMatches();
 
   const {
     isOpen: isCartOpen,
@@ -130,10 +145,16 @@ function Header({logo, menu,footerMenu,metafields}) {
         openFilterClubRightModal={context.openFilterClubRightModal}
         closeFilterClubRightModal={context.closeFilterClubRightModal}
       />
-      <FilterClubBottomModal 
-        isOpen={context.isFilterClubBottomModalOpen} 
-        openFilterClubaBottomModal={context.openFilterClubBottomModal}
-        closeFilterClubBottomModal={context.closeFilterClubBottomModal}
+      <FilterClubBenifitsBottomModal 
+        isOpen={context.isFilterClubBenifitsBottomModalOpen} 
+        open={context.openFilterClubBenifitsBottomModal}
+        onClose={context.closeFilterClubBenifitsModal}
+      />
+      <FilterClubItemsModal 
+        isOpen={context.isFilterClubItemsModalOpen} 
+        open={context.openFilterClubItemsModal}
+        onClose={context.closeFilterClubItemsModal}
+        filterClubItems={context.filterClubItems}
       />
     </>
   );
@@ -172,17 +193,16 @@ function FilterClubRightModal({isOpen, openFilterClubRightModal, closeFilterClub
   </Drawer>
 }
 
-function FilterClubBottomModal({isOpen, openFilterClubBottomModal, closeFilterClubBottomModal}) {
+const FilterClubBenifitsBottomModal = ({isOpen, open, onClose}) => {
   return <DrawerFromBottom
     open={isOpen}
-    onClose={closeFilterClubBottomModal}
-    isHome={false}
-    openMenu={openFilterClubBottomModal}
+    onClose={onClose}
+    openMenu={open}
     openFrom="right"
-    heading="Filter Club Membership"
-    isFilterClubModal={true}
+    heading="Filter Club"
+    subHeading="Membership Benefits"
   >
-    <div className="grid grid-cols-1 h-screen-no-nav grid-rows-[1fr_auto]">
+    <div className="grid grid-cols-1 grid-rows-[1fr_auto]">
       <div className="filter-club-membership-benefits">
           <ul className='px-4 sm:px-8 md:px-8'>
             <li>10% Discount on filters</li>
@@ -194,13 +214,43 @@ function FilterClubBottomModal({isOpen, openFilterClubBottomModal, closeFilterCl
             <li>Pay on shipment</li>
           </ul>
       </div>
-      <section aria-labelledby="summary-heading" className="grid gap-4 cart-summary-footer">
-        <dl className="grid">          
-          <Button variant='primary' className="font-medium">
-            Subscribe
-          </Button>
-        </dl>
-      </section>
+    </div>
+  </DrawerFromBottom>
+}
+
+const FilterClubItemsModal = ({isOpen, open, onClose, filterClubItems}) => {
+
+  return <DrawerFromBottom
+    open={isOpen}
+    openMenu={open}
+    onClose={onClose}
+    openFrom="right"
+    heading="Filter Club"
+    subHeading="What's included"
+  >
+    <div className="grid grid-cols-1 grid-rows-[1fr_auto]">
+      <div className="filter-club-modal-items">
+          <ul className='px-4 sm:px-8 md:px-8'>
+            {filterClubItems.map((line) => <li
+              className="flex gap-8 subscription_filter_club_member drawer"
+              key={line.id}
+            >
+              <div className="flex-shrink">
+                <div className="cart-product-img-wrapper">
+                  <Image
+                    data={line.merchandise.image}
+                    className="cart-product-img"
+                    />
+                </div>
+              </div>
+              <div className="flex items-center flex-grow include-benifits">
+                {line.quantity} X {line.merchandise.product.productType} / <span>
+                  {` Every ${line.merchandise.product.productType.includes("CR") ? "12" : "6"} months`}
+                </span>
+              </div>
+            </li>)}
+          </ul>
+      </div>
     </div>
   </DrawerFromBottom>
 }
@@ -314,7 +364,7 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
   return (
     <header
       role="banner"
-      className={'bg-contrast/80 text-primary flex items-center h-nav sticky bg-white z-40 top-0 justify-between w-full leading-none gap-4 py-8 md:py-6 px-4 md:px-8'}
+      className="bg-contrast/80 text-primary flex items-center h-nav sticky bg-white z-40 top-0 justify-between w-full leading-none gap-4 py-8 md:py-6 px-4 md:px-8"
     >
       <Link
         className="flex items-center leading-[3rem] md:leading-[4rem]"
@@ -322,23 +372,39 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
       >
         <img src={logo} />
       </Link>
-
       <div className="flex items-center justify-end w-full gap-5">
-
-        <Link to="products/melissani-m1-countertop-ro-system-water-purifier" className="hidden lg:block">
-          <Button variant='primary' className='font-medium'> Shop Now</Button>
+        <Link
+          to="products/melissani-m1-countertop-ro-system-water-purifier"
+          className="hidden lg:block"
+        >
+          <Button
+            variant='primary'
+            className='font-medium'
+          >
+            Shop Now
+          </Button>
         </Link>
-
-        <Link to="/pages/melissani-club/" className="hidden lg:block">
-          <Button variant="secondary" className='font-medium'> Filter Club </Button>
+        <Link
+          to="/pages/melissani-club/"
+          className="hidden lg:block"
+        >
+          <Button
+            variant="secondary"
+            className='font-medium'
+          >
+            Filter Club
+          </Button>
         </Link>
-
-        <Link to="/account" className="relative hidden items-center justify-center w-8 h-8 lg:flex">
+        <Link
+          to="/account"
+          className="relative hidden items-center justify-center w-8 h-8 lg:flex"
+        >
           <img src={account} />
         </Link>
-
-        <CartCount isHome={isHome} openCart={openCart} />
-
+        <CartCount
+          isHome={isHome}
+          openCart={openCart}
+        />
         <button
           onClick={openMenu}
           className="relative flex items-center justify-center w-8 h-8"

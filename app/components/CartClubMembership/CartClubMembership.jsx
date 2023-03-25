@@ -1,12 +1,13 @@
 import { CartClubMembershipIcon, QuestionIcon } from '~/components';
 import {Button} from '~/components';
 
+
 export function CartClubMembership({data}){
     return(
         <section className="cart-club-membership-section">
             <CartClubMembershipIcon className="cart-club-icon"/>
             <div className="club-membership-container">
-                <span class="label label-default add-on-label">Add-on</span>
+                <span className="label label-default add-on-label">Add-on</span>
                 <div className="club-membership-content">
                     <div className="club-membership-left-content col-span-3 md:col-span-1 order-1">
                         <h3>Filter Club Membership</h3>

@@ -155,11 +155,16 @@ p.club-membership-bottom-text {
     .club-membership-price{
         margin-bottom: 24px;
     }
-    .subscription_filter_club_member{
+    .subscription_filter_club_member {
         display: grid;
         grid-template-columns: 0.6fr 1fr;
         column-gap: 2rem;
     }
+
+    .subscription_filter_club_member.drawer {
+        grid-template-columns: 0.2fr 1fr;
+    }
+
     .subscription_filter_club_member .cart-filter-club-icons{
         grid-column: span 3;
     }
