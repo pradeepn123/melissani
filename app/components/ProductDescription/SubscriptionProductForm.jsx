@@ -16,15 +16,18 @@ const SubscriptionProductForm = (props) => {
     const [isSubscriptionSelected, setIsSubscriptionSelected] = useState(null)
     const [subscriptionProducts, setSubscriptionProducts] = useState([])
     const [oneTimeProducts, setOneTimeProducts] = useState([])
-    const [price, setPrice] = useState(0)
+    const [amount, setAmount] = useState({price: 0, compareAtPrice: 0})
     const [variantLineItems, setVariantLineItems] = useState([])
     const context = useContext(RequestContext)
 
     useEffect(() => {
         const bundleId = new Date().getTime().toString()
+        let filterClubPrice = 0
         const subscriptionItems = props.products.filter((p) => {
             return props.parsedProductDetails.linkedProducts.subscription.includes(p.handle)
         }).map((item) => {
+            const itemMetafield = JSON.parse(item.metafields[0].value)
+            filterClubPrice += itemMetafield.price
             return {
                 merchandiseId: item.variants.nodes[0].id,
                 sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
@@ -44,10 +47,10 @@ const SubscriptionProductForm = (props) => {
             oneTimeProduct.quantity = 0
             return oneTimeProduct
         }))
-        setPrice(oneTimeProducts.reduce((acc, lineProduct) => {
+        setAmount({compareAtPrice: oneTimeProducts.reduce((acc, lineProduct) => {
             const firstVariant = lineProduct.variants.nodes[0];
             return acc + parseFloat(firstVariant.price?.amount)
-        }, 0))
+        }, 0), price: filterClubPrice})
         setIsSubscriptionSelected(true)
     }, [])
 
@@ -137,7 +140,7 @@ const SubscriptionProductForm = (props) => {
                 <div className="product-price font-tertiary">
                     <Money
                         data={{
-                            amount: price.toFixed(2),
+                            amount: amount.price.toFixed(2),
                             currencyCode: 'USD'
                         }}
                         as="span"
@@ -185,7 +188,7 @@ const SubscriptionProductForm = (props) => {
                 <div className="product-price font-tertiary">
                     <Money
                         data={{
-                            amount: price.toFixed(2),
+                            amount: amount.compareAtPrice.toFixed(2),
                             currencyCode: 'USD'
                         }}
                         as="span"
