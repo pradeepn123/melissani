@@ -76,8 +76,9 @@ export function Layout({children, layout}) {
     if (isIdeal && addToCartFetchers.length == 0) {
       closeNoSubscriptionModalOpen()
       closeFilterClubRightModal()
+      closeSubscriptionModalOpen()
     }
-  }, [fetchers.length > 0 && addToCartFetchers.length == 0 && (isNoSubscriptionModalOpen || isFilterClubRightModalOpen)])
+  }, [fetchers.length > 0 && addToCartFetchers.length == 0 && (isNoSubscriptionModalOpen || isFilterClubRightModalOpen || isSubscriptionModalOpen)])
 
   return (
     <RequestContext.Provider
@@ -278,10 +279,7 @@ function FilterClubRightModal({isOpen, openFilterClubRightModal, closeFilterClub
                   sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
                   quantity: 1,
                   attributes: [{
-                    key: 'Bundle Id',
-                    value: bundleId
-                  }, {
-                    key: 'Bundle Type',
+                    key: 'Bundle',
                     value: 'Filter Club'
                   }]
                 }
@@ -379,10 +377,7 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
       sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
       quantity: 1,
       attributes: [{
-        key: 'Bundle Id',
-        value: bundleId
-      }, {
-        key: 'Bundle Type',
+        key: 'Bundle',
         value: 'Filter Club'
       }]
     }

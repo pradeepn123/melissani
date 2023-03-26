@@ -14,7 +14,7 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
     const handleWindowScroll = () => {
         const stickybar = document.querySelector(".product-header");
         const rect = stickybar.getBoundingClientRect();
-        if (rect.bottom < 0) {
+        if ((rect.bottom - 90) < 0) {
             setIsSticky(true)
         } else {
             setIsSticky(false)

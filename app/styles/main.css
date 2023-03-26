@@ -133,7 +133,7 @@ svg:focus {
 
 /* Sticky bar css here */
 .sticky-footer-attached {
-    padding-bottom: 8rem;
+  padding-bottom: 11rem;
 }
 .stickybar_main_section{
     position: fixed;
@@ -594,16 +594,19 @@ svg:focus {
         height: 100%;
     }
     .menu-drawer-container .menu-span:hover a span{        
-        color: #666;
-        opacity: 1;
-        right: 0;
+      color: #666;
+      opacity: 1;
+      right: 0;
     }
+
     .stickybar_main_section .stickybar_main_section_inner .sticky_button{
-        width: inherit;
+      width: inherit;
     }
+
     .stickybar_main_section .stickybar_main_section_inner .sticky_button button{
-        width: inherit;
+      width: 200px;
     }
+
     .stickybar_main_section .stickybar_main_section_inner{
         display: flex;
         flex-direction: row;
@@ -690,4 +693,30 @@ svg:focus {
   letter-spacing: 0em;
   text-align: left;
   color: #717070;
+}
+
+.add-to-cart-generic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-to-cart-generic:disabled {
+  opacity: .8;
+  cursor: not-allowed;
+}
+
+.add-to-cart-generic .add-to-cart-loading-spin {
+  position: relative;
+}
+
+.add-to-cart-generic .add-to-cart-loading-spin svg {
+  height: 18px;
+  position: absolute;
+  top: -9px;
+  right: 0;
+}
+
+.checkout-btn span {
+  margin-left: 5px;
 }

@@ -21,7 +21,6 @@ const SubscriptionProductForm = (props) => {
     const context = useContext(RequestContext)
 
     useEffect(() => {
-        const bundleId = new Date().getTime().toString()
         let filterClubPrice = 0
         const subscriptionItems = props.products.filter((p) => {
             return props.parsedProductDetails.linkedProducts.subscription.includes(p.handle)
@@ -33,10 +32,7 @@ const SubscriptionProductForm = (props) => {
                 sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
                 quantity: 1,
                 attributes: [{
-                    key: 'Bundle Id',
-                    value: bundleId
-                }, {
-                    key: 'Bundle Type',
+                    key: 'Bundle',
                     value: 'Filter Club'
                 }]
             }
@@ -93,24 +89,6 @@ const SubscriptionProductForm = (props) => {
                 quantity: oneTimeProduct.quantity
             }
         }).filter((productVariant) => productVariant.quantity > 0))
-    }
-
-    const handleSubmitButtonClick = (event) => {
-        if (isSubscriptionSelected) {
-            const bundleId = new Date().getTime().toString()
-            const updatedSubscriptionItems = subscriptionProducts.map((subscriptionItem) => {
-                subscriptionItem.attributes = [{
-                    key: 'Bundle Id',
-                    value: bundleId
-                }, {
-                    key: 'Bundle Type',
-                    value: 'Filter Club'
-                }]
-                return subscriptionItem
-            })
-            setSubscriptionProducts(updatedSubscriptionItems)
-            setVariantLineItems(updatedSubscriptionItems)
-        }
     }
 
     const openMembershipBenifitsDrawer = (e) => {
@@ -250,7 +228,6 @@ const SubscriptionProductForm = (props) => {
               lines={variantLineItems}
               data-test="add-to-cart"
               disabled={variantLineItems.length < 1}
-              onClick={handleSubmitButtonClick}
             >
                 <Text
                   as="span"

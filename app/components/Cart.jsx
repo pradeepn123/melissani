@@ -119,21 +119,13 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
   const scrollRef = useRef(null);
   const {y} = useScroll(scrollRef);
 
-  const bundleIds = Array.from(new Set(currentLines.map(line => {
-    const bundleAttr = line.attributes.find((attribute) => attribute.key == "Bundle Id" )
-    if (bundleAttr) {
-      return bundleAttr.value
-    }
-  }).filter((bundleId) => bundleId)))
+  const filterClubLineItems = currentLines.filter((line) => {
 
-  const filterClubLineItems = bundleIds.map((bundleId) => {
-    return currentLines.filter((line) => {
-      return line.attributes.find((attribute) => attribute.key == "Bundle Id" && attribute.value == bundleId)
-    })
+    return line.attributes.find((attribute) => attribute.key == "Bundle" && attribute.value == "Filter Club")
   })
 
   const oneTimeLineItems = currentLines.filter(line => {
-    return !line.attributes.find((attribute) => attribute.key == "Bundle Id" )
+    return !line.attributes.find((attribute) => attribute.key == "Bundle" && attribute.value == "Filter Club")
   })
 
   const className = clsx([
@@ -153,9 +145,8 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
         {oneTimeLineItems.map((line) => (
           <CartLineItem key={line.id} line={line} />
         ))}
-        {filterClubLineItems.map((lines, index) => (
-          <SubsctiptionLineItem key={`subscription-${index}`} lines={lines} />
-        ))}
+
+        {filterClubLineItems.length > 0 && <SubsctiptionLineItem lines={filterClubLineItems} />}
       </ul>
       {filterClubLineItems.length > 0 && <div className="cart-shipment-info">
         <p className="font-tertiary">
@@ -175,10 +166,10 @@ function CartCheckoutActions({cost, checkoutUrl}) {
   return (
     <div className="flex flex-col mt-2">
       <a href={checkoutUrl} target="_self">
-        <Button variant="primary" as="span" width="full" className="flex items-center justify-center">
-          Checkout - {cost?.subtotalAmount?.amount ? (
-            <Money data={cost?.subtotalAmount} />
-          ) : ('')}
+        <Button variant="primary" as="span" width="full" className="flex items-center justify-center checkout-btn">
+          {"Checkout -  "} {cost?.subtotalAmount?.amount ? (
+            <Money data={cost?.subtotalAmount} as="span"/>
+          ) : (' ')}
         </Button>
       </a>
       {/* @todo: <CartShopPayButton cart={cart} /> */}
