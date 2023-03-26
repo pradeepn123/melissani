@@ -1,13 +1,15 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState, useContext } from 'react';
 import {
     Button,
-    AddToCartButton
+    AddToCartButton,
+    RequestContext
 } from '~/components';
 import {Money} from '@shopify/hydrogen';
 
 
 export function ProductStickyBar({title, media, price, isSubscriptionProduct, ...props}) {
     const [isSticky, setIsSticky] = useState(false);
+    const context = useContext(RequestContext)
 
     useEffect(() => {
         // const stickybar = document.querySelector(".product-content");
@@ -34,7 +36,13 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
     }, [isSticky])
 
     if (isSubscriptionProduct) {
-        // Handle Subscriptions line items here
+        // Handle Subscriptions line items here 
+        const oneTimeProducts = props.products.nodes.filter((p) => props.parsedProductDetails.linkedProducts.default.includes(p.handle))
+
+        const subscriptionItems = props.products.nodes.filter((p) => {
+            return props.parsedProductDetails.linkedProducts.subscription.includes(p.handle)
+        })
+
         return <div className="md:hidden" id='js_stickybar_main_section'>
             <div className="stickybar_main_section">
                 <div className="container mx-auto">
@@ -43,10 +51,20 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
                             Purchase options
                         </p>
                         <div className="sticky_secondary_button w-full">                     
-                            <Button className="rounded-full w-full text-center py-3 px-9 border border-primary bg-contrast text-primary">Filter Club Membership</Button>                         
+                            <Button
+                                className="rounded-full w-full text-center py-3 px-9 border border-primary bg-contrast text-primary"
+                                onClick={() => context.openSubscriptionModalOpen(subscriptionItems)}
+                            >
+                                Filter Club Membership
+                            </Button>                         
                         </div>
-                        <div className="sticky_button">                         
-                            <Button className="rounded-full text-center py-3 px-9 border border-primary bg-primary text-[#ffffff]">No Subscription</Button>                            
+                        <div className="sticky_button">   
+                            <Button
+                                className="rounded-full text-center py-3 px-9 border border-primary bg-primary text-[#ffffff]"
+                                onClick={() => context.openNoSubscriptionModalOpen(oneTimeProducts)}
+                            >
+                                No Subscription
+                            </Button>                            
                         </div>
                     </div>
                 </div>
