@@ -33,6 +33,7 @@ import logo from '../../public/logo.svg';
 import account from '../../public/account.svg';
 
 export function Layout({children, layout}) {
+  const [isAddingToCart, setIsAddingToCart] = useState(false)
   const {
     isOpen: isFilterClubRightModalOpen,
     openDrawer: openFilterClubRightModal,
@@ -100,7 +101,9 @@ export function Layout({children, layout}) {
         isSubscriptionModalOpen: isSubscriptionModalOpen,
         openSubscriptionModalOpen: openSubscriptionModalOpen,
         closeSubscriptionModalOpen: closeSubscriptionModalOpen,
-        subscriptionItems: subscriptionItems
+        subscriptionItems: subscriptionItems,
+        isAddingToCart: isAddingToCart,
+        setIsAddingToCart: setIsAddingToCart 
       }}
     >
       <div className="flex flex-col">
@@ -154,10 +157,21 @@ function Header({logo, menu, footerMenu, metafields}) {
   const addToCartFetchers = useCartFetchers('ADD_TO_CART');
 
   // toggle cart drawer when adding to cart
+//  useEffect(() => {
+//    if (isCartOpen || !addToCartFetchers.length) return;
+//    openCart();
+//  }, [addToCartFetchers, isCartOpen, openCart]);
+
   useEffect(() => {
-    if (isCartOpen || !addToCartFetchers.length) return;
-    openCart();
-  }, [addToCartFetchers, isCartOpen, openCart]);
+    if (addToCartFetchers.length > 0 && !context.isAddingToCart) {
+      context.setIsAddingToCart(true)
+    } else if (addToCartFetchers.length == 0 && context.isAddingToCart) {
+      context.setIsAddingToCart(false)
+      if (!isCartOpen) {
+        openCart();
+      }
+    }
+  }, [addToCartFetchers, context.isAddingToCart])
 
   return (
     <>
@@ -200,12 +214,14 @@ function Header({logo, menu, footerMenu, metafields}) {
         isOpen={context.isFilterClubBenifitsBottomModalOpen} 
         open={context.openFilterClubBenifitsBottomModal}
         onClose={context.closeFilterClubBenifitsModal}
+        isCartOpen={isCartOpen}
       />
       <FilterClubItemsModal 
         isOpen={context.isFilterClubItemsModalOpen} 
         open={context.openFilterClubItemsModal}
         onClose={context.closeFilterClubItemsModal}
         filterClubItems={context.filterClubItems}
+        isCartOpen={isCartOpen}
       />
       <NoSubscriptionModal
         isOpen={context.isNoSubscriptionModalOpen}
@@ -252,7 +268,6 @@ function FilterClubRightModal({isOpen, openFilterClubRightModal, closeFilterClub
         <dl className="grid">
           <Await resolve={root.data?.products}>
             {(products) => {
-              console.log(products)
               const subscriptionProduct = products.nodes.find((product) => product.handle == "melissani-m1-filter")
               const parsesMetafield = JSON.parse(subscriptionProduct.metafields[0].value)
               const bundleId = new Date().getTime().toString()
@@ -286,11 +301,12 @@ function FilterClubRightModal({isOpen, openFilterClubRightModal, closeFilterClub
   </Drawer>
 }
 
-const FilterClubBenifitsBottomModal = ({isOpen, open, onClose}) => {
+const FilterClubBenifitsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
   return <DrawerFromBottom
     open={isOpen}
     onClose={onClose}
     openMenu={open}
+    isCartOpen={isCartOpen}
     openFrom="right"
     heading="Filter Club"
     subHeading="Membership Benefits"
@@ -311,12 +327,13 @@ const FilterClubBenifitsBottomModal = ({isOpen, open, onClose}) => {
   </DrawerFromBottom>
 }
 
-const FilterClubItemsModal = ({isOpen, open, onClose, filterClubItems}) => {
+const FilterClubItemsModal = ({isOpen, open, onClose, filterClubItems, isCartOpen}) => {
 
   return <DrawerFromBottom
     open={isOpen}
     openMenu={open}
     onClose={onClose}
+    isCartOpen={isCartOpen}
     openFrom="right"
     heading="Filter Club"
     subHeading="What's included"
@@ -440,7 +457,6 @@ const NoSubscriptionModal = ({isOpen, open, onClose, oneTimeProducts, setOneTime
 
   useEffect(() => {
     setVariantLineItems(oneTimeProducts.map(oneTimeProduct => {
-      console.log(oneTimeProducts)
       return {
         merchandiseId: oneTimeProduct.variants.nodes[0].id,
         quantity: 0

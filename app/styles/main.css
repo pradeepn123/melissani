@@ -585,7 +585,7 @@ svg:focus {
 
 @media screen and (max-width: 1024px) {
     .drawer-bottom-dialog-panel {
-      min-height: 55vh;
+      min-height: 50vh;
     }
 }
 

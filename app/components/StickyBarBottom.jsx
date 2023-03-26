@@ -4,16 +4,21 @@ import {Button} from '~/components';
 export function StickyBarBottom({stickybarbottom}) {
     const [isSticky, setIsSticky] = useState(false);
 
-    useEffect(() => {
+    const handleWindowScroll = () => {
         const stickybar = document.querySelector(".hero");
-        window.addEventListener("scroll", function() {
-            const rect = stickybar.getBoundingClientRect();
-            if (rect.bottom < 0) {
-                setIsSticky(true)
-            } else {
-                setIsSticky(false)
-            }
-        });
+        const rect = stickybar.getBoundingClientRect();
+        if (rect.bottom < 0) {
+            setIsSticky(true)
+        } else {
+            setIsSticky(false)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleWindowScroll);
+        return () => {
+            window.removeEventListener("scroll", handleWindowScroll)
+        }
     }, []);
 
     useEffect(() => {
@@ -40,7 +45,9 @@ export function StickyBarBottom({stickybarbottom}) {
                             </div>
                             <div className="sticky_button">
                                 <a href={stickybarbottom.button_url}>
-                                    <Button className="rounded-full text-center py-3 px-9 border border-primary bg-primary text-[#ffffff]">{stickybarbottom.button_label}</Button>
+                                    <Button className="rounded-full text-center py-3 px-9 border border-primary bg-primary text-[#ffffff]">
+                                        {stickybarbottom.button_label}
+                                    </Button>
                                 </a>
                             </div>
                         </div>

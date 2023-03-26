@@ -21,6 +21,22 @@ export function DrawerFromBottom({open, onClose, openFrom = 'bottom', children, 
 
   const headerClass = `${props.subHeading ? 'border-bottom' : ''} drawer-header sticky top-0 flex px-4 h-nav gap-x-4 sm:px-8 md:px-8 items-center relative justify-between`
 
+  let panelClasses = [
+    "drawer-dialog-panel",
+    "drawer-bottom-dialog-panel",
+    "text-left",
+    "align-middle",
+    "transition-all",
+    "transform",
+    "shadow-xl",
+    "h-screen-dynamic",
+    "bg-contrast"
+  ]
+
+  if (props.isCartOpen) {
+    panelClasses = panelClasses.concat(["w-screen", "max-w-md", "lg:max-w-lg", "xl:max-w-xl", "2xl:max-w-3xl"])
+  }
+
   return (
     <Transition appear show={open} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={onClose}>
@@ -50,7 +66,7 @@ export function DrawerFromBottom({open, onClose, openFrom = 'bottom', children, 
                 leaveFrom="translate-y-0"
                 leaveTo={offScreen[openFrom]}
               >
-                <Dialog.Panel className="drawer-dialog-panel drawer-bottom-dialog-panel w-screen max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl text-left align-middle transition-all transform shadow-xl h-screen-dynamic bg-contrast">
+                <Dialog.Panel className={panelClasses.join(" ")}>
                   <header className={headerClass}>
                     {props.heading && <div className="filter-club-membership">
                       <div className="cart-heading">
@@ -96,8 +112,9 @@ export function useDrawerFromBottom(openDefault = false) {
   }
 
   function closeDrawer() {
-    setIsOpen(false);
-    setItems([])
+    setIsOpen((isOpen) => {
+      return false
+    });
   }
 
   return {
