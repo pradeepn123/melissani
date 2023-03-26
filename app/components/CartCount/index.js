@@ -11,7 +11,7 @@ export function CartCount({ isHome, openCart, isCartDrawer }) {
       <Suspense fallback={isCartDrawer ? <span>0</span> : <Badge count={0} dark={isHome} openCart={openCart} />}>
         <Await resolve={root.data?.cart}>
           {(cart) => {
-            const currentLines = cart.lines ? flattenConnection(cart.lines) : [];
+            const currentLines = cart?.lines ? flattenConnection(cart.lines) : [];
 
             const bundleIds = Array.from(new Set(currentLines.map(line => {
             const bundleAttr = line.attributes.find((attribute) => attribute.key == "Bundle Id" )
