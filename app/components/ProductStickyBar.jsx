@@ -11,16 +11,21 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
     const [isSticky, setIsSticky] = useState(false);
     const context = useContext(RequestContext)
 
+    const handleWindowScroll = () => {
+        const stickybar = document.querySelector(".product-header");
+        const rect = stickybar.getBoundingClientRect();
+        if (rect.bottom < 0) {
+            setIsSticky(true)
+        } else {
+            setIsSticky(false)
+        }
+    }
+
     useEffect(() => {
-        // const stickybar = document.querySelector(".product-content");
-        // window.addEventListener("scroll", function() {
-        //     const rect = stickybar.getBoundingClientRect();
-        //     if (rect.bottom < 0) {
-        //         setIsSticky(true)
-        //     } else {
-        //         setIsSticky(false)
-        //     }
-        // });
+        window.addEventListener("scroll", handleWindowScroll);
+        return () => {
+            window.removeEventListener("scroll", handleWindowScroll)
+        }
     }, []);
 
     useEffect(() => {
