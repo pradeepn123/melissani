@@ -1,6 +1,12 @@
-import {useFetcher, useMatches} from '@remix-run/react';
-import {Button} from '~/components';
+import { useContext } from 'react';
+import { useFetcher, useMatches } from '@remix-run/react';
+import {
+  Button,
+  RequestContext
+} from '~/components';
 import {CartAction} from '~/lib/type';
+import  { SpinnerLoading, SpinnerLoadingSecondary } from './Icon';
+
 
 export function AddToCartButton({
   children,
@@ -14,6 +20,11 @@ export function AddToCartButton({
   const [root] = useMatches();
   const selectedLocale = root?.data?.selectedLocale;
   const fetcher = useFetcher();
+  const context = useContext(RequestContext)
+
+  if (context.isAddingToCart) {
+    props.disabled = true
+  }
 
   return (
     <fetcher.Form action="/cart" method="post">
@@ -26,10 +37,18 @@ export function AddToCartButton({
         type="submit"
         width={width}
         variant={variant}
-        className={className}
+        className={`${className} add-to-cart-generic`}
         {...props}
       >
-        {children}
+        {context.isAddingToCart && className.includes("club-membership-add-btn") && <SpinnerLoadingSecondary
+          className="add-to-cart-loading-spin"
+        />}
+        {context.isAddingToCart && !className.includes("club-membership-add-btn") && <SpinnerLoading
+          className="add-to-cart-loading-spin"
+        />}
+        <span>
+          {children}
+        </span>
       </Button>
     </fetcher.Form>
   );

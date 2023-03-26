@@ -12,22 +12,12 @@ export function CartCount({ isHome, openCart, isCartDrawer }) {
         <Await resolve={root.data?.cart}>
           {(cart) => {
             const currentLines = cart?.lines ? flattenConnection(cart.lines) : [];
-
-            const bundleIds = Array.from(new Set(currentLines.map(line => {
-            const bundleAttr = line.attributes.find((attribute) => attribute.key == "Bundle Id" )
-              if (bundleAttr) {
-                return bundleAttr.value
-              }
-            }).filter((bundleId) => bundleId)))
-
-            const filterClubLineItems = bundleIds.map((bundleId) => {
-              return currentLines.filter((line) => {
-                return line.attributes.find((attribute) => attribute.key == "Bundle Id" && attribute.value == bundleId)
-              })
+            const filterClubLineItems = currentLines.filter((line) => {
+              return line.attributes.find((attribute) => attribute.key == "Bundle" && attribute.value == "Filter Club")
             })
 
             const oneTimeLineItems = currentLines.filter(line => {
-              return !line.attributes.find((attribute) => attribute.key == "Bundle Id" )
+              return !line.attributes.find((attribute) => attribute.key == "Bundle" && attribute.value == "Filter Club")
             })
 
             let quantity = oneTimeLineItems.reduce((acc, lineItem) => {
@@ -35,9 +25,7 @@ export function CartCount({ isHome, openCart, isCartDrawer }) {
             }, 0)
 
             if (filterClubLineItems.length > 0) {
-              quantity += filterClubLineItems.reduce((acc, lineItems) => {
-                return acc + lineItems[0].quantity
-              }, 0)
+              quantity += filterClubLineItems[0].quantity
             }
 
             return isCartDrawer ? 

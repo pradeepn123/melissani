@@ -34,6 +34,8 @@ import account from '../../public/account.svg';
 
 export function Layout({children, layout}) {
   const [isAddingToCart, setIsAddingToCart] = useState(false)
+  const [isCartUpdating, setIsCartUpdating] = useState(false)
+
   const {
     isOpen: isFilterClubRightModalOpen,
     openDrawer: openFilterClubRightModal,
@@ -76,8 +78,9 @@ export function Layout({children, layout}) {
     if (isIdeal && addToCartFetchers.length == 0) {
       closeNoSubscriptionModalOpen()
       closeFilterClubRightModal()
+      closeSubscriptionModalOpen()
     }
-  }, [fetchers.length > 0 && addToCartFetchers.length == 0 && (isNoSubscriptionModalOpen || isFilterClubRightModalOpen)])
+  }, [fetchers.length > 0 && addToCartFetchers.length == 0 && (isNoSubscriptionModalOpen || isFilterClubRightModalOpen || isSubscriptionModalOpen)])
 
   return (
     <RequestContext.Provider
@@ -103,7 +106,9 @@ export function Layout({children, layout}) {
         closeSubscriptionModalOpen: closeSubscriptionModalOpen,
         subscriptionItems: subscriptionItems,
         isAddingToCart: isAddingToCart,
-        setIsAddingToCart: setIsAddingToCart 
+        setIsAddingToCart: setIsAddingToCart,
+        isCartUpdating: isCartUpdating,
+        setIsCartUpdating: setIsCartUpdating
       }}
     >
       <div className="flex flex-col">
@@ -155,12 +160,23 @@ function Header({logo, menu, footerMenu, metafields}) {
   } = useDrawer();
 
   const addToCartFetchers = useCartFetchers('ADD_TO_CART');
+  const updateCartFetcher = useCartFetchers('UPDATE_CART')
+  const removeItemCartFetcher = useCartFetchers('REMOVE_FROM_CART')
 
   // toggle cart drawer when adding to cart
 //  useEffect(() => {
 //    if (isCartOpen || !addToCartFetchers.length) return;
 //    openCart();
 //  }, [addToCartFetchers, isCartOpen, openCart]);
+
+  useEffect(() => {
+    if ((updateCartFetcher.length > 0 || removeItemCartFetcher.length > 0) && !context.isCartUpdating && isCartOpen) {
+      context.setIsCartUpdating(true)
+    }
+    if (isCartOpen && context.isCartUpdating && (updateCartFetcher.length == 0 && removeItemCartFetcher.length == 0)) {
+      context.setIsCartUpdating(false)
+    }
+  }, [isCartOpen, updateCartFetcher, removeItemCartFetcher])
 
   useEffect(() => {
     if (addToCartFetchers.length > 0 && !context.isAddingToCart) {
@@ -278,10 +294,7 @@ function FilterClubRightModal({isOpen, openFilterClubRightModal, closeFilterClub
                   sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
                   quantity: 1,
                   attributes: [{
-                    key: 'Bundle Id',
-                    value: bundleId
-                  }, {
-                    key: 'Bundle Type',
+                    key: 'Bundle',
                     value: 'Filter Club'
                   }]
                 }
@@ -379,10 +392,7 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
       sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
       quantity: 1,
       attributes: [{
-        key: 'Bundle Id',
-        value: bundleId
-      }, {
-        key: 'Bundle Type',
+        key: 'Bundle',
         value: 'Filter Club'
       }]
     }

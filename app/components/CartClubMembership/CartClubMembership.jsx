@@ -31,10 +31,7 @@ export function CartClubMembership({products}) {
             sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
             quantity: 1,
             attributes: [{
-                key: 'Bundle Id',
-                value: bundleId
-            }, {
-                key: 'Bundle Type',
+                key: 'Bundle',
                 value: 'Filter Club'
             }]
         }
