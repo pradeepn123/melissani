@@ -36,8 +36,13 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
     }, [isSticky])
 
     if (isSubscriptionProduct) {
-        // Handle Subscriptions line items here
+        // Handle Subscriptions line items here 
         const oneTimeProducts = props.products.nodes.filter((p) => props.parsedProductDetails.linkedProducts.default.includes(p.handle))
+
+        const subscriptionItems = props.products.nodes.filter((p) => {
+            return props.parsedProductDetails.linkedProducts.subscription.includes(p.handle)
+        })
+
         return <div className="md:hidden" id='js_stickybar_main_section'>
             <div className="stickybar_main_section">
                 <div className="container mx-auto">
@@ -48,6 +53,7 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
                         <div className="sticky_secondary_button w-full">                     
                             <Button
                                 className="rounded-full w-full text-center py-3 px-9 border border-primary bg-contrast text-primary"
+                                onClick={() => context.openSubscriptionModalOpen(subscriptionItems)}
                             >
                                 Filter Club Membership
                             </Button>                         

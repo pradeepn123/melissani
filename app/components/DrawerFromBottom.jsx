@@ -1,6 +1,8 @@
 import {Fragment, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 
+import { Money } from '@shopify/hydrogen';
+
 import { IconClose } from '~/components';
 
 /**
@@ -16,6 +18,8 @@ export function DrawerFromBottom({open, onClose, openFrom = 'bottom', children, 
     right: 'translate-y-full',
     left: '-translate-y-full',
   };
+
+  const headerClass = `${props.subHeading ? 'border-bottom' : ''} drawer-header sticky top-0 flex px-4 h-nav gap-x-4 sm:px-8 md:px-8 items-center relative justify-between`
 
   return (
     <Transition appear show={open} as={Fragment}>
@@ -47,7 +51,7 @@ export function DrawerFromBottom({open, onClose, openFrom = 'bottom', children, 
                 leaveTo={offScreen[openFrom]}
               >
                 <Dialog.Panel className="drawer-dialog-panel drawer-bottom-dialog-panel w-screen max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl text-left align-middle transition-all transform shadow-xl h-screen-dynamic bg-contrast">
-                  <header className={`${props.subHeading ? 'drawer-header' : ''} sticky top-0 flex px-4 h-nav gap-x-4 sm:px-8 md:px-8 items-center relative justify-between`}>
+                  <header className={headerClass}>
                     {props.heading && <div className="filter-club-membership">
                       <div className="cart-heading">
                         {props.heading}

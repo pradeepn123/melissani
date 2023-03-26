@@ -310,6 +310,12 @@ svg:focus {
   background-color: #ffffff;
 }
 
+@media screen and (max-width: 1024px) {
+  .cart-summary-footer {
+    padding: 20px 15px;
+  }
+}
+
 .cart-footer-subtotal {
   font-weight: 700;
   font-size: 24px;
@@ -566,6 +572,23 @@ svg:focus {
     } */
 }
 
+.drawer-bottom-dialog-panel .menu-cart-icon {
+  border: 1px solid;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.drawer-bottom-dialog-panel .menu-cart-icon svg {
+  height: 15px;
+  width: 15px;
+}
+
+@media screen and (max-width: 1024px) {
+    .drawer-bottom-dialog-panel {
+      min-height: 55vh;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .custom_nav_height{
         height: 100%;
@@ -637,9 +660,12 @@ svg:focus {
 }
 
 .drawer-header {
-  border-bottom: 1px solid #D8D8D8;
   height: auto;
   padding: 0.5rem 2rem;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #D8D8D8;
 }
 
 .drawer-header .cart-heading {
@@ -652,4 +678,16 @@ svg:focus {
 
 .one-time-products-wrapper {
   padding: 0.5rem 1rem;
+}
+
+.filter-club-subscription-modal-content {
+  padding: 0 1.2rem;
+}
+
+.filter-club-subscription-modal-content .product-price span {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #717070;
 }
