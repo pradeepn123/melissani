@@ -9,19 +9,24 @@ import {
   Text,
   Link,
   RequestContext,
-  CartClubMembership
+  CartClubMembership,
+  CartLoading
 } from '~/components';
-import {getInputStyleClasses} from '~/lib/utils';
+import { getInputStyleClasses } from '~/lib/utils';
 import { useFetcher, Await, useMatches } from '@remix-run/react';
-import {CartAction} from '~/lib/type';
+import { CartAction } from '~/lib/type';
 
 export function Cart({layout, onClose, cart}) {
   const linesCount = Boolean(cart?.lines?.edges?.length || 0);
+  const context = useContext(RequestContext)
 
   return (
     <>
       <CartEmpty hidden={linesCount} onClose={onClose} layout={layout} />
       <CartDetails cart={cart} layout={layout} />
+      {context.isCartUpdating && <CartLoading
+        classNames="cart-updating-loader"
+      />}
     </>
   );
 }

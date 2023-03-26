@@ -720,3 +720,9 @@ svg:focus {
 .checkout-btn span {
   margin-left: 5px;
 }
+
+.cart-updating-loader {
+  position: absolute;
+  background-color: #FFF;
+  opacity: 0.5;
+}
