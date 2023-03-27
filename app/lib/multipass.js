@@ -77,10 +77,7 @@ export default class ShopifyMultipass {
     // Concatenate iv and cipher result
     var encrypted = iv.concat(cipherObject);
       
-     return encrypted;
-  
-    }
- 
-
+    return encrypted;
+  }
 }
 

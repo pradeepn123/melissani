@@ -1,7 +1,21 @@
 {
-  "name": "demo-store",
+  "name": "Melisani",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "license": "ISC",
+  "description": "Water Purifier",
+  "author": "hriks",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shop-trade/melissani.git"
+  },
+  "keywords": [
+    "frontend"
+  ],
+  "bugs": {
+    "url": "https://github.com/shop-trade/melissani/issues"
+  },
+  "homepage": "https://github.com/shop-trade/melissani#readme",
   "scripts": {
     "build": "npm run build:css && shopify hydrogen build",
     "build:css": "postcss styles --base styles --dir app/styles --env production",

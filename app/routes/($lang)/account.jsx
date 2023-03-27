@@ -51,14 +51,7 @@ export async function loader({request, context, params}) {
   var multipass = new ShopifyMultipass(context.env.MULTI_PASS_TOKEN);
 
   // Create your customer data hash
-  var customerData = { email: 'amit@shoptrade.co' };
-
-  // Generate a Shopify multipass URL to your shop
-  var url = multipass
-          .withRedirect('/account/')
-          .generateUrl(customerData, context.env.PUBLIC_STORE_DOMAIN);
-
-  console.log({url})
+  var customerData = { email: customer.email };
 
   const heading = customer
     ? customer.firstName
@@ -75,6 +68,9 @@ export async function loader({request, context, params}) {
     orders,
     addresses: flattenConnection(customer.addresses),
     featuredData: getFeaturedData(context.storefront),
+    multipass_url: multipass
+      .withRedirect('/tools/recurring/login/')
+      .generateUrl(customerData, context.env.PUBLIC_STORE_DOMAIN)
   });
 }
 
@@ -112,7 +108,7 @@ export default function Authenticated() {
   return <Account {...data} />;
 }
 
-function Account({customer, orders, heading, addresses, featuredData}) {
+function Account({customer, orders, heading, addresses, featuredData, multipass_url}) {
   return (
     <>
       <div className='account_heading'>
@@ -134,7 +130,9 @@ function Account({customer, orders, heading, addresses, featuredData}) {
           <ul>
             <a href="#AccountDetails"><li>Account Details</li></a>
             <a href="#AccountOrderHistory"><li>Order History</li></a>
-            <a href="#"><li>Manage Subscription</li></a>
+            <a href={multipass_url} target="__blank">
+              <li>Manage Subscription</li>
+            </a>
             <a href="#AccountAddressBook"><li>Address Book</li></a>
           </ul>
         </div>
