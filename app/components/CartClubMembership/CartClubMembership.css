@@ -197,9 +197,8 @@ p.club-membership-bottom-text {
     .club-membership-container {
         padding: 0 2rem;
     }
-    .club-membership-right-content {        
-        margin: auto;
-        justify-content: center;
+    .club-membership-right-content {
+        justify-content: flex-end;
         display: flex;
     }
 }

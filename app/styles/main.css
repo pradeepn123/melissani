@@ -308,7 +308,7 @@ svg:focus {
     padding-bottom: 1rem;
 }
 .cart-summary-footer {
-  padding: 20px 40px;
+  padding: 20px 2rem;
   border-top: 1px solid #D8D8D8;
   background-color: #ffffff;
 }
@@ -335,7 +335,7 @@ svg:focus {
 
 @media screen and (max-width: 1024px) {
   .cart-summary-footer {
-    padding: 20px 15px;
+    padding: 20px 1rem;
   }
 }
 
