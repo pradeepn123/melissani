@@ -313,6 +313,26 @@ svg:focus {
   background-color: #ffffff;
 }
 
+.page-title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 76.8px;
+  font-family: 'Peachi-Bold';
+  letter-spacing: 0em;
+  color: #000;
+  margin: auto;
+}
+
+.page-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000;
+}
+
 @media screen and (max-width: 1024px) {
   .cart-summary-footer {
     padding: 20px 15px;
@@ -558,6 +578,18 @@ svg:focus {
     .stickybar_main_section{
         padding: 1em 0;
     }    
+}
+
+@media screen and (max-width: 767px) {
+  .page-title {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .page-description {
+      font-size: 16px;
+      line-height: 24px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
