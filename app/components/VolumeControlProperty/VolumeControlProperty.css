@@ -3,50 +3,25 @@
 /* End: Volume Control Section */
 
 /* Begin: Media Query */
-@media screen and (min-width: 320px) {
+.main-header-volume-controller {
+    font-size: 32px;
+    width: 80%;
+    line-height: 1.2;
+}
+@media screen and (max-width: 320px) {
     .main-header-volume-controller {
-        font-size: 1.15rem;
+        width: 100%;
     }
 }
-
-@media screen and (min-width: 360px) {
-    .main-header-volume-controller {
-        font-size: 1.25rem;
-    }
-}
-
-@media screen and (min-width: 425px) {
-    .main-header-volume-controller {
-        font-size: 1.5rem;
-    }
-}
-
-@media screen and (min-width: 512px) {
-    .main-header-volume-controller {
-        font-size: 1.5rem;
-    }
-}
-
 @media screen and (min-width: 768px) {
-    .main-header-volume-controller {
-        font-size: 2rem;
+    .main-header-volume-controller {        
+        width: 20rem;
     }
 }
-
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
     .main-header-volume-controller {
-        font-size: 2.5rem;
-    }
-}
-
-@media screen and (min-width: 1280px) {
-    .main-header-volume-controller {
-        font-size: 2.85rem;
-    }
-}
-
-@media screen and (min-width: 1440px) {
-    .main-header-volume-controller {
+        font-size: 52px;
+        line-height: 1.2;
         width: 32rem;
     }
 }
