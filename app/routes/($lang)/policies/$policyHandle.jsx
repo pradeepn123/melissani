@@ -52,24 +52,15 @@ export default function Policies() {
       <Section
         padding="all"
         display="flex"
-        className="flex-col items-baseline w-full gap-8 md:flex-row"
+        className="flex-col items-baseline w-full gap-8 md:flex-col lg:px-28 lg:py-12"
       >
-        <PageHeader
-          heading={policy.title}
-          className="grid items-start flex-grow gap-4 md:sticky top-36 md:w-5/12"
-        >
-          <Button
-            className="justify-self-start"
-            variant="inline"
-            to={'/policies'}
-          >
-            &larr; Back to Policies
-          </Button>
-        </PageHeader>
-        <div className="flex-grow w-full md:w-7/12">
+        <h1 className="page-title grid items-start flex-grow gap-4 top-36">
+          {policy.title}
+        </h1>
+        <div className="flex-grow w-full">
           <div
             dangerouslySetInnerHTML={{__html: policy.body}}
-            className="prose dark:prose-invert"
+            className="page-description"
           />
         </div>
       </Section>
