@@ -24,6 +24,7 @@ import {getFeaturedData} from './featured-products';
 import {doLogout} from './account/__private/logout';
 import {usePrefixPathWithLocale} from '~/lib/utils';
 import accountStyles from '../../styles/account.css';
+import ShopifyMultipass from '../../lib/multipass.js';
 
 
 export const links = () => [
@@ -46,6 +47,18 @@ export async function loader({request, context, params}) {
   }
 
   const customer = await getCustomer(context, customerAccessToken);
+
+  var multipass = new ShopifyMultipass(context.env.MULTI_PASS_TOKEN);
+
+  // Create your customer data hash
+  var customerData = { email: 'amit@shoptrade.co' };
+
+  // Generate a Shopify multipass URL to your shop
+  var url = multipass
+          .withRedirect('/account/')
+          .generateUrl(customerData, context.env.PUBLIC_STORE_DOMAIN);
+
+  console.log({url})
 
   const heading = customer
     ? customer.firstName
