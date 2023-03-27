@@ -15,6 +15,10 @@
     text-align: left;
 }
 
+#home-hero .hero-text h1, #home-hero .hero-banner-subtitle{
+    color: #1B2943;
+}
+
 #purifier-hero .hero-text {
     top: 44%;
     left: 31.5%;
