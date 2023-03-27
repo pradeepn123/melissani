@@ -170,9 +170,8 @@ export function parseMenu(menu, customPrefixes = {}) {
     items: menu.items.map(parseItem(customPrefixes)),
   };
 }
-
 export const INPUT_STYLE_CLASSES =
-  'appearance-none rounded dark:bg-transparent border focus:border-primary/50 focus:ring-0 w-full py-2 px-3 text-primary/90 placeholder:text-primary/50 leading-tight focus:shadow-outline';
+  'block w-full p-4 text-gray-900 border border-gray-300 rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500 field-input font-tertiary';
 
 export const getInputStyleClasses = (isError) => {
   return `${INPUT_STYLE_CLASSES} ${

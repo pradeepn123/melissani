@@ -140,10 +140,9 @@ export default function EditAddress() {
 
   return (
     <>
-      <Text className="mt-4 mb-6" as="h3" size="lead">
+      <Text className="mt-0 mb-10 font-primary modal-title text-black" as="h3" size="lead">
         {isNewAddress ? 'Add address' : 'Edit address'}
       </Text>
-      <div className="max-w-lg">
         <Form method="post">
           <input
             type="hidden"
@@ -155,7 +154,7 @@ export default function EditAddress() {
               <p className="m-4 text-sm text-red-900">{actionData.formError}</p>
             </div>
           )}
-          <div className="mt-3">
+          <div className="mt-6">
             <input
               className={getInputStyleClasses()}
               id="firstName"
@@ -168,7 +167,7 @@ export default function EditAddress() {
               defaultValue={address?.firstName ?? ''}
             />
           </div>
-          <div className="mt-3">
+          <div className="mt-6">
             <input
               className={getInputStyleClasses()}
               id="lastName"
@@ -181,7 +180,7 @@ export default function EditAddress() {
               defaultValue={address?.lastName ?? ''}
             />
           </div>
-          <div className="mt-3">
+          <div className="mt-6">
             <input
               className={getInputStyleClasses()}
               id="company"
@@ -193,7 +192,7 @@ export default function EditAddress() {
               defaultValue={address?.company ?? ''}
             />
           </div>
-          <div className="mt-3">
+          <div className="mt-6">
             <input
               className={getInputStyleClasses()}
               id="address1"
@@ -206,7 +205,7 @@ export default function EditAddress() {
               defaultValue={address?.address1 ?? ''}
             />
           </div>
-          <div className="mt-3">
+          <div className="mt-6">
             <input
               className={getInputStyleClasses()}
               id="address2"
@@ -218,7 +217,7 @@ export default function EditAddress() {
               defaultValue={address?.address2 ?? ''}
             />
           </div>
-          <div className="mt-3">
+          <div className="mt-6">
             <input
               className={getInputStyleClasses()}
               id="city"
@@ -231,7 +230,7 @@ export default function EditAddress() {
               defaultValue={address?.city ?? ''}
             />
           </div>
-          <div className="mt-3">
+          <div className="mt-6">
             <input
               className={getInputStyleClasses()}
               id="province"
@@ -244,7 +243,7 @@ export default function EditAddress() {
               defaultValue={address?.province ?? ''}
             />
           </div>
-          <div className="mt-3">
+          <div className="mt-6">
             <input
               className={getInputStyleClasses()}
               id="zip"
@@ -257,7 +256,7 @@ export default function EditAddress() {
               defaultValue={address?.zip ?? ''}
             />
           </div>
-          <div className="mt-3">
+          <div className="mt-6">
             <input
               className={getInputStyleClasses()}
               id="country"
@@ -270,7 +269,7 @@ export default function EditAddress() {
               defaultValue={address?.country ?? ''}
             />
           </div>
-          <div className="mt-3">
+          <div className="mt-6">
             <input
               className={getInputStyleClasses()}
               id="phone"
@@ -291,23 +290,21 @@ export default function EditAddress() {
               className="border-gray-500 rounded-sm cursor-pointer border-1"
             />
             <label
-              className="inline-block ml-2 text-sm cursor-pointer"
+              className="inline-block ml-2 text-sm cursor-pointer checkbox-label"
               htmlFor="defaultAddress"
             >
               Set as default address
             </label>
           </div>
-          <div className="mt-8">
+          <div className="mt-6 flex gap-4">
             <Button
-              className="w-full rounded focus:shadow-outline"
+              className="w-full mt-2 rounded focus:shadow-outline"
               type="submit"
               variant="primary"
               disabled={transition.state !== 'idle'}
             >
               {transition.state !== 'idle' ? 'Saving' : 'Save'}
             </Button>
-          </div>
-          <div>
             <Button
               to=".."
               className="w-full mt-2 rounded focus:shadow-outline"
@@ -317,7 +314,6 @@ export default function EditAddress() {
             </Button>
           </div>
         </Form>
-      </div>
     </>
   );
 }

@@ -105,7 +105,7 @@ export default function AccountDetailsEdit() {
 
   return (
     <>
-      <Text className="mt-4 mb-6" as="h3" size="lead">
+      <Text className="mt-0 mb-10 font-primary modal-title text-black" as="h3" size="lead">
         Update your profile
       </Text>
       <Form method="post">
@@ -114,7 +114,7 @@ export default function AccountDetailsEdit() {
             <p className="m-4 text-sm text-red-900">{actionData.formError}</p>
           </div>
         )}
-        <div className="mt-3">
+        <div className="mt-6">
           <input
             className={getInputStyleClasses()}
             id="firstName"
@@ -126,7 +126,7 @@ export default function AccountDetailsEdit() {
             defaultValue={customer.firstName ?? ''}
           />
         </div>
-        <div className="mt-3">
+        <div className="mt-6">
           <input
             className={getInputStyleClasses()}
             id="lastName"
@@ -138,7 +138,7 @@ export default function AccountDetailsEdit() {
             defaultValue={customer.lastName ?? ''}
           />
         </div>
-        <div className="mt-3">
+        <div className="mt-6">
           <input
             className={getInputStyleClasses()}
             id="phone"
@@ -150,7 +150,7 @@ export default function AccountDetailsEdit() {
             defaultValue={customer.phone ?? ''}
           />
         </div>
-        <div className="mt-3">
+        <div className="mt-6">
           <input
             className={getInputStyleClasses(actionData?.fieldErrors?.email)}
             id="email"
@@ -168,7 +168,7 @@ export default function AccountDetailsEdit() {
             </p>
           )}
         </div>
-        <Text className="mb-6 mt-6" as="h3" size="lead">
+        <Text className="mb-6 mt-6 modal-title text-black" as="h3" size="lead">
           Change your password
         </Text>
         <Password
@@ -196,6 +196,7 @@ export default function AccountDetailsEdit() {
           color="subtle"
           className={clsx(
             'mt-1',
+            'font-tertiary',
             actionData?.fieldErrors?.newPassword && 'text-red-500',
           )}
         >
@@ -207,9 +208,9 @@ export default function AccountDetailsEdit() {
             {actionData.fieldErrors.newPassword2} &nbsp;
           </Text>
         )}
-        <div className="mt-6">
+        <div className="mt-6 flex gap-4">
           <Button
-            className="text-sm mb-2"
+            className="text-sm"
             variant="primary"
             width="full"
             type="submit"
@@ -217,9 +218,11 @@ export default function AccountDetailsEdit() {
           >
             {transition.state !== 'idle' ? 'Saving' : 'Save'}
           </Button>
-        </div>
-        <div className="mb-4">
-          <Button to=".." className="text-sm" variant="secondary" width="full">
+          <Button to=".."
+          className="text-sm"
+          variant="secondary"
+          width="full"
+          >
             Cancel
           </Button>
         </div>
@@ -230,7 +233,7 @@ export default function AccountDetailsEdit() {
 
 function Password({name, passwordError, label}) {
   return (
-    <div className="mt-3">
+    <div className="mt-6">
       <input
         className={getInputStyleClasses(passwordError)}
         id={name}
