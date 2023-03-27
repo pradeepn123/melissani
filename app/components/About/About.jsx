@@ -2,7 +2,7 @@ export function About({data}) {
     return (
       <>
         <section className='main_about_us_section relative'>
-            <div className="image_main_wrapper">
+            <div className="image_main_wrapper h-full">
                 <img className="w-full" src={data.image_url_desktop} alt=""/>
             </div>
             <div className="content_info_section mx-5 md:mx-10 px-5 md:px-10">

@@ -499,7 +499,7 @@ const SubscriptionLinesPrice = ({lines, priceType = 'regular', ...passthroughPro
     return acc + parseFloat(itemMetafield.price)
   }, 0).toFixed(2), currencyCode: 'USD'}
 
-  return <Money withoutTrailingZeros {...passthroughProps} data={moneyV2} />;
+  return <Money {...passthroughProps} data={moneyV2} />;
 }
 
 const SubscriptionLinesCompareAtPrice = ({lines, priceType = 'regular', ...passthroughProps}) => {
@@ -509,7 +509,7 @@ const SubscriptionLinesCompareAtPrice = ({lines, priceType = 'regular', ...passt
     return acc + parseFloat(itemMetafield.compareAtPrice)
   }, 0).toFixed(2), currencyCode: 'USD'}
 
-  return <Money withoutTrailingZeros {...passthroughProps} data={moneyV2} />;
+  return <Money {...passthroughProps} data={moneyV2} />;
 }
 
 export function CartEmpty({hidden = false, layout = 'drawer', onClose}) {

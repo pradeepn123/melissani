@@ -57,9 +57,7 @@ export function CartClubMembership({products}) {
                 <div className="club-membership-content">
                     <div className="club-membership-left-content col-span-3 md:col-span-1">
                         <h3>Filter Club Membership</h3>
-                        <p>
-                            Save 10% on Melissani M1 Filters. Filters ship based on the optimum service cycle.
-                        </p>                        
+                        <p>Save 10% on Melissani M1 Filters.<br/>Filters ship based on the optimum service cycle.</p>
                     </div>
                     <div className="club-membership-right-content">
                         <AddToCartButton
@@ -76,14 +74,12 @@ export function CartClubMembership({products}) {
                 </div>
                 <div className="club-membership-price col-span-3 md:col-span-1 ">
                     <span className="price">
-                        <Money
-                            withoutTrailingZeros
+                        <Money                            
                             data={{amount: price.compareAtPrice.toFixed(2), currencyCode: "USD"}}
                         />
                     </span>
                     <span className="offer-price">
-                        <Money
-                            withoutTrailingZeros
+                        <Money                            
                             data={{amount: price.amount.toFixed(2), currencyCode: "USD"}}
                         />
                     </span>
