@@ -31,16 +31,19 @@
   --color-shop-pay: #5a31f4;
   --shop-pay-button--width: 100%; /* Sets the width for the shop-pay-button web component */
   --height-nav: 3rem;
+  --height-cart-footer: 12rem;
   --screen-height: 100vh;
   --screen-height-dynamic: 100vh;
 
   @media (min-width: 32em) {
     --height-nav: 4rem;
+    --height-cart-footer: 12rem
   }
   @media (min-width: 48em) {
     --height-nav: 6rem;
     --font-size-heading: 2.25rem; /* text-4xl */
     --font-size-display: 3.75rem; /* text-6xl */
+    --height-cart-footer: 14rem
   }
   @supports (height: 100svh) {
     --screen-height: 100svh;

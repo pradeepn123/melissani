@@ -1,8 +1,4 @@
 /* Begin: Common Styles */
-html{
-    scroll-behavior: smooth;
-}
-
 body {
   letter-spacing: 0.5px;
   font-family: 'Peachi-Bold', 'Peachi-Light';
@@ -248,7 +244,11 @@ svg:focus {
 }
 
 .filter-club-membership .cart-heading {
-  line-height: unset;
+  line-height: 1;
+  font-size: 26px;
+}
+.filter-club-membership > p{
+    font-family: 'Montserrat', sans-serif;
 }
 
 .cart-count {
@@ -303,7 +303,10 @@ svg:focus {
   height: 50px;
   color: #000;
 }
-
+.h_footer_height{
+    height: calc(var(--screen-height, 100vh) - var(--height-cart-footer));
+    padding-bottom: 1rem;
+}
 .cart-summary-footer {
   padding: 20px 40px;
   border-top: 1px solid #D8D8D8;
@@ -469,6 +472,7 @@ svg:focus {
 
 
 /* Begin: Media Query */
+
 @media screen and (max-width:640px) {
   .footer-wrapper .footer-text p {
     font-size: 32px;
@@ -485,8 +489,24 @@ svg:focus {
     height: 4rem;
   }
 }
+@media(max-width:360px){
+    .cart-lines-wrapper .cart-product-img-wrapper {
+        width: 100px;
+        height: 106px;
+    }
+    .cart-lines-wrapper .quantity-selector-btn {
+        width: 30px;        
+    }
+}
 
 @media screen and (min-width: 1200px) {
+    .drawer-header .cart-heading {
+        font-size: 28px;
+    }
+    .filter-club-membership .cart-heading {
+        font-size: 32px;
+        line-height: inherit;
+    }
     .cart-lines-wrapper .cart-product-img-wrapper {
         width: 160px;
         height: 195px;        
@@ -575,14 +595,16 @@ svg:focus {
 .drawer-bottom-dialog-panel .menu-cart-icon {
   border: 1px solid;
   border-radius: 50%;
-  padding: 10px;
+  padding: 8px;
 }
 
 .drawer-bottom-dialog-panel .menu-cart-icon svg {
   height: 15px;
   width: 15px;
 }
-
+.drawer-bottom-dialog-panel .drawer-header .filter-club-membership .cart-heading{
+    text-transform: capitalize;
+}
 @media screen and (max-width: 1024px) {
     .drawer-bottom-dialog-panel {
       min-height: 50vh;
@@ -672,7 +694,7 @@ svg:focus {
 }
 
 .drawer-header .cart-heading {
-  font-size: 28px;
+  font-size: 26px;
 }
 
 .drawer-header.px-4 {

@@ -159,6 +159,7 @@ p.club-membership-bottom-text {
 }
 
 
+
 @media screen and (max-width: 767px) {
     .club-membership-price{
         margin-bottom: 24px;
@@ -180,6 +181,13 @@ p.club-membership-bottom-text {
         display: flex;
         flex-direction: row;
         column-gap: 2em;
+    }
+}
+@media screen and (max-width: 360px) {
+    .subscription_filter_club_member {
+        display: grid;
+        grid-template-columns: 0.6fr 1fr;
+        column-gap: 1rem;
     }
 }
 @media(min-width:1200px){

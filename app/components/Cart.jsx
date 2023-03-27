@@ -36,20 +36,19 @@ export function CartDetails({layout, cart}) {
   const isZeroCost = !cart || cart?.cost?.subtotalAmount?.amount === '0.0';
 
   const container = {
-    drawer: 'grid grid-cols-1 h-screen-no-nav grid-rows-[1fr_auto] overflow-auto',
+    drawer: 'grid grid-cols-1 h_footer_height grid-rows-[1fr_auto] overflow-auto',
     page: 'w-full pb-12 grid md:grid-cols-2 md:items-start gap-8 md:gap-8 lg:gap-12',
   };
 
-  return (
-    <div className={container[layout]}>
+  return <div className={container[layout]}>
       <CartLines lines={cart?.lines} layout={layout} />
-      {!isZeroCost && (
-        <CartSummary cost={cart.cost} layout={layout}>
-          <CartCheckoutActions cost={cart.cost} checkoutUrl={cart.checkoutUrl} />
-        </CartSummary>
-      )}
-    </div>
-  );
+  </div>
+}
+
+export function CartFooter({layout, cart}) {
+  return <CartSummary cost={cart.cost} layout={layout}>
+    <CartCheckoutActions cost={cart.cost} checkoutUrl={cart.checkoutUrl} />
+  </CartSummary>  
 }
 
 /**
@@ -146,7 +145,7 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
       aria-labelledby="cart-contents"
       className={className}
     >
-      <ul className="grid gap-6 md:gap-10">
+      <ul className="flex flex-col gap-6 md:gap-10">
         {oneTimeLineItems.map((line) => (
           <CartLineItem key={line.id} line={line} />
         ))}
@@ -307,7 +306,7 @@ function CartLineItem({line}) {
   if (typeof quantity === 'undefined' || !merchandise?.product) return null;
 
   return (
-    <li key={id} className="flex gap-8">
+    <li key={id} className="flex gap-4 sm:gap-6 md:gap-8">
       <div className="flex-shrink">
         {merchandise.image && (
           <div className="cart-product-img-wrapper">
