@@ -15,6 +15,7 @@ export function AddToCartButton({
   variant = 'primary',
   width = 'full',
   analytics,
+  isAddingToCart,
   ...props
 }) {
   const [root] = useMatches();
@@ -40,10 +41,10 @@ export function AddToCartButton({
         className={`${className} add-to-cart-generic`}
         {...props}
       >
-        {context.isAddingToCart && className.includes("club-membership-add-btn") && <SpinnerLoadingSecondary
+        {isAddingToCart && className.includes("club-membership-add-btn") && <SpinnerLoadingSecondary
           className="add-to-cart-loading-spin"
         />}
-        {context.isAddingToCart && !className.includes("club-membership-add-btn") && <SpinnerLoading
+        {isAddingToCart && !className.includes("club-membership-add-btn") && <SpinnerLoading
           className="add-to-cart-loading-spin"
         />}
         <span>

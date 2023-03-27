@@ -1,7 +1,10 @@
-import {useState, useEffect} from 'react';
-import {flattenConnection, Image, Money, useMoney} from '@shopify/hydrogen';
-import {Text, Link, AddToCartButton} from '~/components';
+import { useState, useEffect, useContext } from 'react';
+
+import { flattenConnection, Image, Money, useMoney } from '@shopify/hydrogen';
+import { Text, Link, AddToCartButton, RequestContext } from '~/components';
 import { isDiscounted, isNewArrival, deepCopy } from '~/lib/utils';
+
+import { useCartFetchers } from '~/hooks/useCartFetchers';
 
 
 export function MultipleProductsCard({
@@ -14,6 +17,8 @@ export function MultipleProductsCard({
   showLabel,
   learnMore
 }) {
+    const context = useContext(RequestContext)
+    const [isAddingToCart, setIsAddingToCart] = useState(false)
 
     const baseProduct = products[0]
 
@@ -27,9 +32,7 @@ export function MultipleProductsCard({
 
     let cardLabel;
 
-    const handleSelectionChange = (event) => {
-        setSelectedProductHandle(event.target.value)
-    }
+    const handleSelectionChange = (event) => setSelectedProductHandle(event.target.value)
 
     const cardProduct = selectedProduct?.variants ? selectedProduct : {};
     if (!cardProduct?.variants?.nodes?.length) return null;
@@ -60,6 +63,14 @@ export function MultipleProductsCard({
         price: firstVariant.price.amount,
         quantity: 1,
     };
+
+    const addToCartFetchers = useCartFetchers('ADD_TO_CART');
+    const handleAddToCartClick = () => setIsAddingToCart(true)
+    useEffect(() => {
+        if (addToCartFetchers.length == 0) {
+          setIsAddingToCart(false)
+        }
+    }, [isAddingToCart == true && context.isAddingToCart])
 
     return (
         <div className={`flex flex-col ${className}`}>
@@ -112,12 +123,10 @@ export function MultipleProductsCard({
             <div className="cta-wrapper flex items-center flex-col">
                 {quickAdd && (
                     <AddToCartButton
-                        lines={[
-                            {
-                                quantity: 1,
-                                merchandiseId: firstVariant.id,
-                            },
-                        ]}
+                        lines={[{
+                            quantity: 1,
+                            merchandiseId: firstVariant.id,
+                        }]}
                         disabled={!availableForSale ? true : false}
                         variant={availableForSale ? "primary" : "secondary"}
                         className="add-to-cart-btn w-full uppercase font-bold mt-25"
@@ -125,6 +134,8 @@ export function MultipleProductsCard({
                             products: [productAnalytics],
                             totalValue: parseFloat(productAnalytics.price),
                         }}
+                        onClick={handleAddToCartClick}
+                        isAddingToCart={isAddingToCart}
                     >
                         <Text as="span" className="flex items-center justify-center gap-2 normal-case font-tertiary fw-500">
                             {availableForSale ? 'Buy now' : 'Sold Out'}

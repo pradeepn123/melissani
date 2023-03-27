@@ -46,9 +46,12 @@ export function CartDetails({layout, cart}) {
 }
 
 export function CartFooter({layout, cart}) {
-  return <CartSummary cost={cart.cost} layout={layout}>
-    <CartCheckoutActions cost={cart.cost} checkoutUrl={cart.checkoutUrl} />
-  </CartSummary>  
+  const linesCount = Boolean(cart?.lines?.edges?.length || 0);
+  if (linesCount > 0) {
+    return <CartSummary cost={cart.cost} layout={layout}>
+      <CartCheckoutActions cost={cart.cost} checkoutUrl={cart.checkoutUrl} />
+    </CartSummary>
+  }
 }
 
 /**

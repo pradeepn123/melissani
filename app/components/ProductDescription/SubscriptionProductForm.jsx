@@ -11,6 +11,8 @@ import {
     RequestContext
 } from '~/components';
 
+import { useCartFetchers } from '~/hooks/useCartFetchers';
+
 
 const SubscriptionProductForm = (props) => {
     const [isSubscriptionSelected, setIsSubscriptionSelected] = useState(null)
@@ -18,6 +20,7 @@ const SubscriptionProductForm = (props) => {
     const [oneTimeProducts, setOneTimeProducts] = useState([])
     const [amount, setAmount] = useState({price: 0, compareAtPrice: 0})
     const [variantLineItems, setVariantLineItems] = useState([])
+    const [isAddingToCart, setIsAddingToCart] = useState(false)
     const context = useContext(RequestContext)
 
     useEffect(() => {
@@ -97,6 +100,14 @@ const SubscriptionProductForm = (props) => {
         context.openFilterClubRightModal()
         return false
     }
+
+    const addToCartFetchers = useCartFetchers('ADD_TO_CART');
+    const handleAddToCartClick = () => setIsAddingToCart(true)
+    useEffect(() => {
+      if (addToCartFetchers.length == 0) {
+        setIsAddingToCart(false)
+      }
+    }, [isAddingToCart == true && context.isAddingToCart])
 
     return <div className="subscription-form">
         <p className="subscription-title font-tertiary">
@@ -228,6 +239,8 @@ const SubscriptionProductForm = (props) => {
               lines={variantLineItems}
               data-test="add-to-cart"
               disabled={variantLineItems.length < 1}
+              isAddingToCart={isAddingToCart}
+              onClick={handleAddToCartClick}
             >
                 <Text
                   as="span"

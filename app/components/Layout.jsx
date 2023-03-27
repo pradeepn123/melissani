@@ -164,12 +164,6 @@ function Header({logo, menu, footerMenu, metafields}) {
   const updateCartFetcher = useCartFetchers('UPDATE_CART')
   const removeItemCartFetcher = useCartFetchers('REMOVE_FROM_CART')
 
-  // toggle cart drawer when adding to cart
-//  useEffect(() => {
-//    if (isCartOpen || !addToCartFetchers.length) return;
-//    openCart();
-//  }, [addToCartFetchers, isCartOpen, openCart]);
-
   useEffect(() => {
     if ((updateCartFetcher.length > 0 || removeItemCartFetcher.length > 0) && !context.isCartUpdating && isCartOpen) {
       context.setIsCartUpdating(true)
@@ -259,6 +253,17 @@ function Header({logo, menu, footerMenu, metafields}) {
 
 function FilterClubRightModal({isOpen, openFilterClubRightModal, closeFilterClubRightModal}) {
   const [root] = useMatches();
+  const context = useContext(RequestContext)
+
+  const [isAddingToCart, setIsAddingToCart] = useState(false)
+
+  const addToCartFetchers = useCartFetchers('ADD_TO_CART');
+  const handleAddToCartClick = () => setIsAddingToCart(true)
+  useEffect(() => {
+    if (addToCartFetchers.length == 0) {
+      setIsAddingToCart(false)
+    }
+  }, [isAddingToCart == true && context.isAddingToCart])
 
   return <Drawer
     open={isOpen}
@@ -304,6 +309,8 @@ function FilterClubRightModal({isOpen, openFilterClubRightModal, closeFilterClub
                 variant='primary'
                 className="font-medium"
                 lines={subscriptionProducts}
+                onClick={handleAddToCartClick}
+                isAddingToCart={isAddingToCart}
               >
                 Subscribe
               </AddToCartButton>
@@ -382,6 +389,7 @@ const FilterClubItemsModal = ({isOpen, open, onClose, filterClubItems, isCartOpe
 
 const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
   const context = useContext(RequestContext)
+  const [isAddingToCart, setIsAddingToCart] = useState(false)
 
   var filterClubPrice = 0
   const bundleId = new Date().getTime().toString()
@@ -398,6 +406,14 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
       }]
     }
   })
+
+  const addToCartFetchers = useCartFetchers('ADD_TO_CART');
+  const handleAddToCartClick = () => setIsAddingToCart(true)
+  useEffect(() => {
+    if (addToCartFetchers.length == 0) {
+      setIsAddingToCart(false)
+    }
+  }, [isAddingToCart == true && context.isAddingToCart])
 
   return <DrawerFromBottom
     open={isOpen}
@@ -448,6 +464,8 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
             variant='primary'
             className="font-medium"
             lines={lineItems}
+            onClick={handleAddToCartClick}
+            isAddingToCart={isAddingToCart}
           >
             <Money
               withoutTrailingZeros
@@ -463,6 +481,9 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
 }
 
 const NoSubscriptionModal = ({isOpen, open, onClose, oneTimeProducts, setOneTimeProducts}) => {
+  const context = useContext(RequestContext)
+  const [isAddingToCart, setIsAddingToCart] = useState(false)
+
   const [variantLineItems, setVariantLineItems] = useState([])
   const [totalPrice, setTotalPrice] = useState(0.0)
 
@@ -501,6 +522,14 @@ const NoSubscriptionModal = ({isOpen, open, onClose, oneTimeProducts, setOneTime
       }
     }).filter((productVariant) => productVariant.quantity > 0))
   }
+
+  const addToCartFetchers = useCartFetchers('ADD_TO_CART');
+  const handleAddToCartClick = () => setIsAddingToCart(true)
+  useEffect(() => {
+    if (addToCartFetchers.length == 0) {
+      setIsAddingToCart(false)
+    }
+  }, [isAddingToCart == true && context.isAddingToCart])
 
   return <DrawerFromBottom
     open={isOpen}
@@ -561,6 +590,8 @@ const NoSubscriptionModal = ({isOpen, open, onClose, oneTimeProducts, setOneTime
           className="font-medium"
           lines={variantLineItems}
           disabled={variantLineItems.length == 0}
+          isAddingToCart={isAddingToCart}
+          onClick={handleAddToCartClick}
         >
           <Money
             withoutTrailingZeros
