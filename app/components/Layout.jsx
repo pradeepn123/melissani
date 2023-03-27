@@ -364,7 +364,7 @@ const FilterClubItemsModal = ({isOpen, open, onClose, filterClubItems, isCartOpe
           <ul className='px-4 sm:px-8 md:px-8'>
             {filterClubItems.map((line) => <li
               className="flex gap-8 subscription_filter_club_member drawer"
-              key={line.id}
+              key={`filter-club-${line.id}`}
             >
               <div className="flex-shrink">
                 <div className="cart-product-img-wrapper">
