@@ -9,7 +9,7 @@
     background: #E1E9EB;
 }
 
-.key-feature-icon {
+.key-feature-icon img {
     width: 115px;
     height: 115px;
 }
@@ -45,9 +45,9 @@
         grid-row-gap: 2em;
     }
 
-    .key-feature-icon {
-        width: 72px;
-        height: 72px;
+    .key-feature-icon img {
+        width: 86.64px;
+        height: 86.64px;
     }
 
     .key-feature-text {
@@ -75,6 +75,7 @@
     .key-features-section {
         padding: 4em 2em;
         grid-column-gap: 1em;
+        grid-row-gap: 2em;
     }
 
     .key-feature-text {
