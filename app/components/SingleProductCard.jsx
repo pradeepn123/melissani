@@ -1,7 +1,12 @@
+import { useState, useEffect, useContext } from 'react';
+
 import clsx from 'clsx';
-import {flattenConnection, Image, Money, useMoney} from '@shopify/hydrogen';
-import {Text, Link, AddToCartButton} from '~/components';
-import {isDiscounted, isNewArrival} from '~/lib/utils';
+import { flattenConnection, Image, Money, useMoney } from '@shopify/hydrogen';
+import { Text, Link, AddToCartButton, RequestContext } from '~/components';
+import { isDiscounted, isNewArrival } from '~/lib/utils';
+
+import { useCartFetchers } from '~/hooks/useCartFetchers';
+
 
 export function SingleProductCard({
   product,
@@ -13,6 +18,9 @@ export function SingleProductCard({
   showLabel,
   learnMore
 }) {
+  const context = useContext(RequestContext)
+  const [isAddingToCart, setIsAddingToCart] = useState(false)
+
   let cardLabel;
 
   const cardProduct = product?.variants ? product : {};
@@ -43,6 +51,14 @@ export function SingleProductCard({
     price: firstVariant.price.amount,
     quantity: 1,
   };
+
+  const addToCartFetchers = useCartFetchers('ADD_TO_CART');
+  const handleAddToCartClick = () => setIsAddingToCart(true)
+  useEffect(() => {
+    if (addToCartFetchers.length == 0) {
+      setIsAddingToCart(false)
+    }
+  }, [isAddingToCart == true && context.isAddingToCart])
 
   return (
     <div className={`flex flex-col ${className}`}>
@@ -112,6 +128,8 @@ export function SingleProductCard({
               products: [productAnalytics],
               totalValue: parseFloat(productAnalytics.price),
             }}
+            isAddingToCart={isAddingToCart}
+            onClick={handleAddToCartClick}
           >
             <Text as="span" className="flex items-center justify-center gap-2 normal-case font-tertiary fw-500">
               {availableForSale ? 'Buy now' : 'Sold Out'}

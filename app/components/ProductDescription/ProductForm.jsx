@@ -1,22 +1,29 @@
-import {useMemo, useState} from 'react';
+import { useMemo, useState, useEffect, useContext } from 'react';
 import {
   useLoaderData,
   useSearchParams,
   useTransition,
 } from '@remix-run/react';
+
 import {
   Text,
   AddToCartButton,
   QuantityAdjust,
-  ProductOptions
+  ProductOptions,
+  RequestContext
 } from '~/components';
+
+import { useCartFetchers } from '~/hooks/useCartFetchers';
+
 
 export function ProductForm() {
   const {product, analytics} = useLoaderData();
+  const context = useContext(RequestContext)
 
   const [currentSearchParams] = useSearchParams();
   const transition = useTransition();
   const [quantity, setQuantity] = useState(1);
+  const [isAddingToCart, setIsAddingToCart] = useState(false)
 
   /**
    * We update `searchParams` with in-flight request data from `transition` (if available)
@@ -66,7 +73,15 @@ export function ProductForm() {
     ...analytics.products[0],
     quantity: 1,
   };
-  
+
+  const addToCartFetchers = useCartFetchers('ADD_TO_CART');
+  const handleAddToCartClick = () => setIsAddingToCart(true)
+  useEffect(() => {
+    if (addToCartFetchers.length == 0) {
+      setIsAddingToCart(false)
+    }
+  }, [isAddingToCart == true && context.isAddingToCart])
+
   return (
     <div className="grid gap-10">
       <div className="grid gap-4">
@@ -78,18 +93,18 @@ export function ProductForm() {
           <div className="grid gap-4 add-to-cart-wrapper">
             <QuantityAdjust quantity={quantity} setQuantity={setQuantity} />
             <AddToCartButton className="cart-btn"
-              lines={[
-                {
-                  merchandiseId: selectedVariant.id,
-                  quantity: quantity,
-                },
-              ]}
+              isAddingToCart={isAddingToCart}
+              lines={[{
+                merchandiseId: selectedVariant.id,
+                quantity: quantity,
+              }]}
               variant={isOutOfStock ? 'secondary' : 'primary'}
               data-test="add-to-cart"
               analytics={{
                 products: [productAnalytics],
-                totalValue: parseFloat(productAnalytics.price),
+                totalValue: parseFloat(productAnalytics.price)
               }}
+              onClick={handleAddToCartClick}
             >
               {isOutOfStock ? (
                 <Text>Sold out</Text>

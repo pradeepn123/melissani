@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 
 import { Money } from '@shopify/hydrogen';
 
@@ -10,9 +10,13 @@ import {
 } from '~/components';
 import {Button} from '~/components';
 
+import { useCartFetchers } from '~/hooks/useCartFetchers';
+
 
 export function CartClubMembership({products}) {
     const context = useContext(RequestContext)
+    const [isAddingToCart, setIsAddingToCart] = useState(false)
+
     const subscriptionProduct = products.find((product) => product.handle == "melissani-m1-filter")
     if (!subscriptionProduct.metafields.length) {
         return null;
@@ -37,6 +41,14 @@ export function CartClubMembership({products}) {
         }
     })
 
+    const addToCartFetchers = useCartFetchers('ADD_TO_CART');
+    const handleAddToCartClick = () => setIsAddingToCart(true)
+    useEffect(() => {
+      if (addToCartFetchers.length == 0) {
+        setIsAddingToCart(false)
+      }
+    }, [isAddingToCart == true && context.isAddingToCart])
+
     return(
         <section className="cart-club-membership-section">
             <CartClubMembershipIcon className="cart-club-icon"/>
@@ -55,6 +67,8 @@ export function CartClubMembership({products}) {
                             lines={subscriptionProducts}
                             variant="secondary"
                             data-test="add-to-cart"
+                            isAddingToCart={isAddingToCart}
+                            onClick={handleAddToCartClick}
                         >
                             +ADD
                         </AddToCartButton>
@@ -81,6 +95,8 @@ export function CartClubMembership({products}) {
                             lines={subscriptionProducts}
                             variant="secondary"
                             data-test="add-to-cart"
+                            isAddingToCart={isAddingToCart}
+                            onClick={handleAddToCartClick}
                         >
                             +ADD
                         </AddToCartButton>

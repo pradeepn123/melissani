@@ -4,11 +4,16 @@ import {
     AddToCartButton,
     RequestContext
 } from '~/components';
-import {Money} from '@shopify/hydrogen';
+
+import { Money } from '@shopify/hydrogen';
+
+import { useCartFetchers } from '~/hooks/useCartFetchers';
 
 
 export function ProductStickyBar({title, media, price, isSubscriptionProduct, ...props}) {
     const [isSticky, setIsSticky] = useState(false);
+    const [isAddingToCart, setIsAddingToCart] = useState(false)
+
     const context = useContext(RequestContext)
 
     const handleWindowScroll = () => {
@@ -39,6 +44,14 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
             body.classList.remove("sticky-footer-attached")
         }
     }, [isSticky])
+
+    const addToCartFetchers = useCartFetchers('ADD_TO_CART');
+    const handleAddToCartClick = () => setIsAddingToCart(true)
+    useEffect(() => {
+      if (addToCartFetchers.length == 0) {
+        setIsAddingToCart(false)
+      }
+    }, [isAddingToCart == true && context.isAddingToCart])
 
     if (isSubscriptionProduct) {
         // Handle Subscriptions line items here 
@@ -99,6 +112,8 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
                             className="rounded-full text-center py-3 px-9 border border-primary bg-primary text-[#ffffff]"
                             lines={[{merchandiseId: props.selectedVariant.id, quantity: 1}]}
                             data-test="add-to-cart"
+                            isAddingToCart={isAddingToCart}
+                            onClick={handleAddToCartClick}
                         >
                             Add to cart
                         </AddToCartButton>
