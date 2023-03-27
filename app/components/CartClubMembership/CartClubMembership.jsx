@@ -61,13 +61,13 @@ export function CartClubMembership({products}) {
                     </div>
                 </div>
                 <div className="club-membership-price col-span-3 md:col-span-1 ">
-                    <span className="price">
+                    <span className="offer-price">
                         <Money
                             withoutTrailingZeros
                             data={{amount: price.amount.toFixed(2), currencyCode: "USD"}}
                         />
                     </span>
-                    <span className="offer-price">
+                    <span className="price">
                         <Money
                             withoutTrailingZeros
                             data={{amount: price.compareAtPrice.toFixed(2), currencyCode: "USD"}}

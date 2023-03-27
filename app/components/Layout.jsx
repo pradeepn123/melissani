@@ -22,7 +22,8 @@ import {
   RequestContext,
   AddToCartButton,
   QuantityAdjust,
-  ForwardNav
+  ForwardNav,
+  CartFooter
 } from '~/components';
 
 import { useCartFetchers } from '~/hooks/useCartFetchers';
@@ -595,6 +596,9 @@ function CartDrawer({isOpen, isHome, onClose, openCart }) {
           </Await>
         </Suspense>
       </div>
+      <Await resolve={root.data?.cart}>
+        {(cart) => <CartFooter layout="drawer" cart={cart} />}
+      </Await>
     </Drawer>
   );
 }

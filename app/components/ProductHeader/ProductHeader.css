@@ -281,14 +281,16 @@
     .key-features-inner {
         display: -webkit-box;
         width: 145%;
-        overflow-x: scroll;
+        overflow-x: auto;
         height: 100%;
         padding: 1.5rem 0;
+        scroll-snap-type: x mandatory;
     }
 
     .key-feature {
         justify-content: flex-start;
         margin-right: -40px;
+        scroll-snap-align: start;
     }
 
     .key-feature .key-feature-icon img{
