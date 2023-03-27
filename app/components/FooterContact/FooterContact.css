@@ -21,7 +21,7 @@
   }
   
   .footer-image-section .footer-text {
-    padding: 60px 0 60px 30px;
+    padding: 8rem 0;
   }
   
   .footer-contact-icons {
@@ -58,18 +58,22 @@
 /* End: Footer Contact */
 
 /* Begin: Media Query */
+
 @media screen and (max-width:640px) {
+    .footer-image-section .footer-text {
+      padding: 12px 0;
+    }
     .footer-image-section .footer-text p {
       font-size: 32px;
       line-height: 44px;
-      letter-spacing: 0em;
-      
+      letter-spacing: 0em; 
     }
   
     .footer-image-section .footer-text p span {
       font-size: 20px;
       line-height: 26px;
       margin-top: 1rem;
+      width: 80%;
     }
 
     .footer-contact-icons {
