@@ -584,7 +584,7 @@ const NoSubscriptionModal = ({isOpen, open, onClose, oneTimeProducts, setOneTime
           </div>
         </div>})}
       </div>
-      <div className="grid gap-4 p-4">
+      <div className="grid gap-4 px-4 pt-4 pb-8">
         <AddToCartButton
           variant='primary'
           className="font-medium"
