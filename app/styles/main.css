@@ -488,6 +488,68 @@ svg:focus {
     margin-bottom: 20px;
 }
 
+.field-label {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #5E6366;
+}
+
+form .field-input {
+  color: #5E6366;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+form .field-input::placeholder {
+  font-family: var(--font-tertiary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #ABAFB1;
+}
+
+[type=checkbox], [type=checkbox]:not(:checked) {
+  color: transparent;
+  outline: none;
+}
+
+[type=checkbox]:focus {
+  outline-color: #1B2943;
+  --tw-ring-color: transparent;
+}
+
+[type=checkbox]:checked, [type=checkbox]:checked:hover, [type=checkbox]:checked:focus {
+  background-color: #1B2943;
+  outline-color: #1B2943;
+  color: #1B2943;
+}
+
+.checkbox-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  color: #2B2F32;
+  vertical-align: middle;
+}
+
+.modal-title {
+  font-size: 32px;
+}
+
+.text-lead {
+  line-height: 0.9;
+}
+
 /* End: Common Styles */
 
 
@@ -589,6 +651,15 @@ svg:focus {
   .page-description {
       font-size: 16px;
       line-height: 24px;
+  }
+
+  .modal-title {
+    font-size: 24px;
+  }
+
+  .modal-close svg {
+    width: 24px;
+    height: 24px;
   }
 }
 
