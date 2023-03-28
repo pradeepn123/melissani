@@ -1,6 +1,6 @@
 /* Begin: Specifications */
 .specifications-section {
-    padding: 2em 4.5em;
+    padding: 3em 4.5em;
 }
 
 .specification-heading {
@@ -18,7 +18,7 @@
     flex-direction: row;
     border-top: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
-    padding: 2em 0;
+    padding: 2.5em 0 2.3em 0;
 }
 
 .specification-text {
@@ -32,6 +32,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     margin-bottom: 2em;
+    row-gap: 0.5rem;
 }
 
 .specification-text .spec-title {
@@ -85,11 +86,17 @@
     }
 }
 
+@media screen and (max-width: 1024px) {
+    .specification-text .spec-description {
+        font-size: 18px;
+        line-height: 24.59px;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .specification-text:first-of-type {
-        margin-right: 98px;
+        margin-right: 68px;
     }
-
     .specification-text:nth-of-type(2) {
         margin-right: 20px;
     }
@@ -98,7 +105,13 @@
 @media screen and (min-width: 820px) {
     .specification-text:nth-of-type(2) {
         margin-right: 24px;
-    }    
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .specification-text:first-of-type {
+        margin-right: 98px;
+    }
 }
 
 @media screen and (min-width: 1536px) {

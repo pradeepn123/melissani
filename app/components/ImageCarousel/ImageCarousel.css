@@ -98,7 +98,7 @@
     flex-direction: column;
     justify-content: center;
     background-color: #F9F9F9;
-    padding-top: 4em;
+    padding-top: 3.1em;
 }
 
 .box-content-heading {
@@ -243,11 +243,14 @@ ol.flickity-page-dots > li.dot::marker {
         display: none;
         color: transparent;
     }
+    .box-content-section {
+        padding-top: 2rem;
+    }
     .box-contents {
         display: none;
     }
     .box-content-flickity {
-        padding-top: 4em;
+        padding-top: 4.1em;
         height: 590px;
     }
     .box-content-flickity .flickity-viewport .flickity-slider .slider:nth-child(2) img {
@@ -262,7 +265,7 @@ ol.flickity-page-dots > li.dot::marker {
     }
     .box-content-flickity .flickity-page-dots {
         display: flex;
-        column-gap: 2em;
+        column-gap: 1em;
         justify-content: center;
         vertical-align: top;
         bottom: -2em;
@@ -277,6 +280,8 @@ ol.flickity-page-dots > li.dot::marker {
     .content-text {
         font-size: 16px;
         line-height: 22px;
+        margin-bottom: 1.5rem;
+        margin-top: 2.25rem;
     }
     .product-image-carousel {
         width: 100% !important;
@@ -296,10 +301,25 @@ ol.flickity-page-dots > li.dot::marker {
         height: 505px !important;
         padding-top: 0;
         position: relative;
-        top: 7em;
+        top: 4.15em;
     }
     .box-content-flickity .flickity-page-dots {
         bottom: 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .box-content-flickity {
+        height: 470px !important;
+        padding-top: 0;
+    }
+
+    .box-content-flickity .flickity-viewport {
+        transform: scale(.9);
+        top: 1.25em;
+        height: 435px !important;
+        padding-top: 0;
+        position: relative;
     }
 }
 
