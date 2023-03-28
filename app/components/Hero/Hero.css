@@ -170,6 +170,11 @@
     }
 }
 
+@media screen and (max-width: 360px) {
+    .hero-banner-subtitle{
+        font-size: 20px;
+    }
+}
 @media screen and (min-width: 360px) {
     .mobile-heading-text {
         font-size: 26px;

@@ -213,7 +213,7 @@ function CartSummary({cost, layout, children = null}) {
 function SubsctiptionLineItem({lines}) {
   const context = useContext(RequestContext)
   const image = {...lines[0].merchandise.image}
-  image.url = "https://cdn.shopify.com/s/files/1/0684/3023/3888/files/Group_7192.png"
+  image.url = "https://cdn.shopify.com/s/files/1/0684/3023/3888/files/FILTER_CLUB_CART_IMAGE.png"
 
   const shipmentDate = new Date()
   shipmentDate.setMonth(shipmentDate.getMonth() + 6)

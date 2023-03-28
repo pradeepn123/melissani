@@ -719,7 +719,7 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
   return (
     <header
       role="banner"
-      className="bg-contrast/80 text-primary flex items-center h-nav sticky bg-white z-40 top-0 justify-between w-full leading-none gap-4 py-8 md:py-6 px-4 md:px-8"
+      className="bg-contrast/80 text-primary main_header flex items-center h-nav sticky bg-white z-40 top-0 justify-between w-full leading-none gap-4 py-8 md:py-6 px-4 md:px-8"
     >
       <Link
         className="flex items-center leading-[3rem] md:leading-[4rem]"

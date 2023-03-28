@@ -17,9 +17,9 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
     const context = useContext(RequestContext)
 
     const handleWindowScroll = () => {
-        const stickybar = document.querySelector(".product-header");
+        const stickybar = document.querySelector(".product-content");
         const rect = stickybar.getBoundingClientRect();
-        if ((rect.bottom - 90) < 0) {
+        if ((rect.bottom - 600) < 0) {
             setIsSticky(true)
         } else {
             setIsSticky(false)
@@ -35,13 +35,17 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
 
     useEffect(() => {
         const body = document.querySelector("body")
+        const header = document.querySelector(".main_header")
         if (isSticky) {
-            body.classList.add("sticky-footer-attached")
+            header.classList.add('is-hidden')
+            body.classList.add("sticky-product-footer-attached")
         } else {
-            body.classList.remove("sticky-footer-attached")
+            header.classList.remove('is-hidden')
+            body.classList.remove("sticky-product-footer-attached")
         }
         return () => {
-            body.classList.remove("sticky-footer-attached")
+            header.classList.remove('is-hidden')
+            body.classList.remove("sticky-product-footer-attached")
         }
     }, [isSticky])
 
@@ -62,7 +66,7 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
         })
 
         return <div className="md:hidden" id='js_stickybar_main_section'>
-            <div className="stickybar_main_section">
+            <div className={`stickybar_main_section ${isSticky == true ? 'is-shown' : 'is-hidden'}`}>
                 <div className="container mx-auto">
                     <div className="stickybar_main_section_inner">
                         <p className="subscription-title font-tertiary">
@@ -91,7 +95,7 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
     }
 
     return <div className="" id='js_stickybar_main_section'>
-        <div className="stickybar_main_section">
+        <div className={`stickybar_main_section ${isSticky == true ? 'is-shown' : 'is-hidden'}`}>
             <div className="container mx-auto">
                 <div className="stickybar_main_section_inner">
                     <div className="sticky_image_wrapper">
