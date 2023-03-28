@@ -16,6 +16,7 @@ import {NotFound} from './components/NotFound';
 
 import styles from './styles/app.css';
 import customStyles from './styles/main.css';
+import AosStyles from 'aos/dist/aos.css';
 import customFonts from './styles/custom-font.css';
 import cartClubMembershipStyles from './components/CartClubMembership/CartClubMembership.css'
 import favicon from '../public/favicon.svg';
@@ -41,6 +42,7 @@ export const links = () => {
   return [
     {rel: 'stylesheet', href: styles},
     {rel: 'stylesheet', href: customStyles},
+    {rel: 'stylesheet', href: AosStyles},
     {rel: 'stylesheet', href: customFonts},
     {rel: 'stylesheet', href: cartClubMembershipStyles},
     {

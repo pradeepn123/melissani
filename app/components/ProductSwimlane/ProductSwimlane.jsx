@@ -2,7 +2,7 @@ import {SingleProductCard, Section, MultipleProductsCard} from '~/components';
 
 export function ProductSwimlane({...props}) {
   return (
-    <Section className={props.className}>
+    <Section className={props.className} data-aos="fade-up">
       <div className={`swimlane hiddenScroll card-wrapper grid-cols-${props.count}`}>
         {props.products.map((products, index) => (<div key={index}>
           {products.length == 1 && <SingleProductCard

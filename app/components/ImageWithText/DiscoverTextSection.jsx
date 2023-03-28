@@ -1,6 +1,6 @@
 export function DiscoverTextSection({discover}) {
     return (
-        <div className="discover-section">
+        <div className="discover-section" data-aos="fade-up">
             <h2 className="discover-heading">
                 {discover.title}
             </h2>

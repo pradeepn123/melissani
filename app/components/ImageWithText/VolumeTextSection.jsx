@@ -1,6 +1,6 @@
 export function VolumeTextSection({data}) {
     return (
-        <div className="text-section" id="volume-control-section">
+        <div className="text-section" id="volume-control-section" data-aos="fade-up">
             <h2 className="text-section-heading text-section-title">
                 {data.title}
             </h2>
