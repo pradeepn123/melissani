@@ -103,6 +103,10 @@
         row-gap: 1.5em;
     }
 
+    #filter-changes-hero .mobile-heading-wrapper {
+        padding: 3em 1.5em;
+        row-gap: 0;
+    }
     .mobile-heading-text {
         font-style: normal;
         font-weight: 700;
@@ -168,6 +172,9 @@
     .hero-mobile-image-wrapper {
         display: block;
     }
+    #filter-hero .mobile-heading-wrapper .hero-banner-title {
+        font-size: 36px;
+    }
 }
 
 @media screen and (max-width: 360px) {
@@ -182,6 +189,9 @@
 
     .learn-more-btn {
         font-size: 16px;
+    }
+    #filter-hero .mobile-heading-wrapper .hero-banner-title {
+        font-size: 34px;
     }
 }
 
@@ -202,7 +212,9 @@
 }
 
 @media screen and (min-width: 412px) {
-
+    #filter-hero .mobile-heading-wrapper .hero-banner-title {
+        font-size: 40px;
+    }
     .learn-more-btn {
         font-size: 19px;
     }
@@ -335,6 +347,10 @@
         font-size: 64px;
         line-height: 76.8px;
     }
+    #filter-hero .hero-banner-title {
+        font-size: 54px;
+        line-height: 66.8px;
+    }
     .hero-banner-subtitle {
         font-size: 36px;
         line-height: 46.8px;
@@ -342,7 +358,7 @@
 }
 
 @media screen and (min-width: 1536px) {
-    .hero-banner-title {
+    .hero-banner-title, #filter-hero .hero-banner-title {
         font-size: 64px;
         line-height: 76.8px;
     }

@@ -4,8 +4,8 @@ export function BackgroundImgWithText({filterreplacementcycle}){
             <section>
                 <div className="background_image_section">
                     <div className="image_wrapper_section">
-                        <img className="xl:block hidden w-full" src={filterreplacementcycle.image} alt="" />
-                        <img className="block xl:hidden w-full" src={filterreplacementcycle.image_mobile} alt="" />
+                        <img className="desktop-img w-full" src={filterreplacementcycle.image} alt="" />
+                        <img className="mobile-img w-full" src={filterreplacementcycle.image_mobile} alt="" />
                     </div>
                     <div className="text_wrapper_section">
                         <div className="text_wrapper_section_inner">
