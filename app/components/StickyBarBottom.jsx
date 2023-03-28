@@ -23,12 +23,16 @@ export function StickyBarBottom({stickybarbottom}) {
 
     useEffect(() => {
         const body = document.querySelector("body")
+        const header = document.querySelector(".main_header")
         if (isSticky) {
+            header.classList.add('is-hidden')
             body.classList.add("sticky-footer-attached")
         } else {
+            header.classList.remove('is-hidden')
             body.classList.remove("sticky-footer-attached")
         }
         return () => {
+            header.classList.remove('is-hidden')
             body.classList.remove("sticky-footer-attached")
         }
     }, [isSticky])

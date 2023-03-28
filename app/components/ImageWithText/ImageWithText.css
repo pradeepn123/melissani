@@ -204,11 +204,12 @@ ul.filter-club-list {
 }
 .text-section-icons {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
     grid-column-gap: 0;
     padding: 0;
     margin: 2em 0 0;
     column-gap: 5em;
+    row-gap: 5em;
     justify-content: flex-start;
 }
 .text-section-icon {
@@ -491,11 +492,11 @@ ul.filter-club-list {
         width: 100%;
         display: flex;
         flex-direction: column;
-        padding: 3.5em 1em;
+        padding: 2.5em 1em;
     }
     .text-section-title {
-        font-size: 32px;
-        line-height: 41px;
+        font-size: 30px;
+        line-height: 40px;
     }
     .text-section-description {
         padding: 0;
@@ -516,7 +517,7 @@ ul.filter-club-list {
         transform: scale(0.75);
     }
     .text-section-icon-text {
-        font-size: 16px;
+        font-size: 22px;
         font-weight: 500;
         line-height: 18px;
     }
@@ -738,7 +739,7 @@ ul.filter-club-list {
         transform: scale(0.8);
     }
     .text-section-icon-text {
-        font-size: 20px;
+        font-size: 22px;
         line-height: 36px;
     }
 }

@@ -127,9 +127,20 @@ svg:focus {
 
 /* End: Menu Cart Drawer Section */
 
+/* Sticky header bar css here */
+.main_header{
+  transition: transform .5s ease, visibility .5s ease;
+}
+.main_header.is-hidden{
+  visibility: hidden;
+  transform: translateY(calc(-100%));
+}
 /* Sticky bar css here */
 .sticky-footer-attached {
-  padding-bottom: 11rem;
+  padding-bottom: 8rem;
+}
+.sticky-product-footer-attached {
+  padding-bottom: 6rem;
 }
 .stickybar_main_section{
     position: fixed;
@@ -638,7 +649,7 @@ form .field-input::placeholder {
         font-weight: 700;
     }
     .stickybar_main_section{
-        padding: 1em 0;
+        padding: 0.5em 0;
     }    
 }
 

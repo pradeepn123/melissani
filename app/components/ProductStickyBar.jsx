@@ -17,7 +17,7 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
     const context = useContext(RequestContext)
 
     const handleWindowScroll = () => {
-        const stickybar = document.querySelector(".product-header");
+        const stickybar = document.querySelector(".product-content");
         const rect = stickybar.getBoundingClientRect();
         if ((rect.bottom - 90) < 0) {
             setIsSticky(true)
@@ -35,13 +35,17 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
 
     useEffect(() => {
         const body = document.querySelector("body")
+        const header = document.querySelector(".main_header")
         if (isSticky) {
-            body.classList.add("sticky-footer-attached")
+            header.classList.add('is-hidden')
+            body.classList.add("sticky-product-footer-attached")
         } else {
-            body.classList.remove("sticky-footer-attached")
+            header.classList.remove('is-hidden')
+            body.classList.remove("sticky-product-footer-attached")
         }
         return () => {
-            body.classList.remove("sticky-footer-attached")
+            header.classList.remove('is-hidden')
+            body.classList.remove("sticky-product-footer-attached")
         }
     }, [isSticky])
 
