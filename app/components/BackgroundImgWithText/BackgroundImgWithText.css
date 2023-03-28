@@ -49,7 +49,20 @@
     text-transform: uppercase;
 }
 
+.background_image_section .desktop-img {
+    display: none;
+}
+.background_image_section .mobile-img {
+    display: block;
+}
+
 @media(min-width:1200px){
+    .background_image_section .desktop-img {
+        display: block;
+    }
+    .background_image_section .mobile-img {
+        display: none;
+    }
     .background_image_section .text_wrapper_section .text_wrapper_section_inner .block_icon_text__wrapper li .month_label{
         font-size: 16px;
     }
@@ -78,13 +91,29 @@
         width: 50%;
         height: 100%;
         padding: 4rem;
-    }    
-    .background_image_section .text_wrapper_section .text_wrapper_section_inner h2{
-        font-size: 64px;
-        line-height: 77px;
     }
     .background_image_section .text_wrapper_section .text_wrapper_section_inner p{        
         font-size: 20px;
         line-height: 30px;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+    .background_image_section .text_wrapper_section .text_wrapper_section_inner h2{
+        font-size: 50px;
+        line-height: 67px;
+    }
+}
+
+@media screen and (min-width: 1401px) {
+    .background_image_section .text_wrapper_section .text_wrapper_section_inner h2 {
+        font-size: 64px;
+        line-height: 77px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .background_image_section .text_wrapper_section .text_wrapper_section_inner .block_icon_text__wrapper li h3{
+        font-size: 18px;        
     }
 }
