@@ -46,7 +46,7 @@ export function TextCarousel ({data}) {
         showSlides(slideIndex)
     }, [slideIndex])
     
-    return <section className="main_purifier_carousel" id="purifier_learn_more">
+    return <section className="main_purifier_carousel" id="purifier_learn_more" data-aos="fade-up">
         <div className="container mx-auto">
             <div className="main_purifier_carousel_inner_wrap">
                 <div className="flex flex-col-reverse xl:flex-row">

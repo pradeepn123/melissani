@@ -7,7 +7,7 @@ export function BackgroundImgWithText({filterreplacementcycle}){
                         <img className="desktop-img w-full" src={filterreplacementcycle.image} alt="" />
                         <img className="mobile-img w-full" src={filterreplacementcycle.image_mobile} alt="" />
                     </div>
-                    <div className="text_wrapper_section">
+                    <div className="text_wrapper_section" data-aos="fade-up" data-aos-duration="2000">
                         <div className="text_wrapper_section_inner">
                             <h2>{filterreplacementcycle.heading}</h2>
                             <p>{filterreplacementcycle.description}</p>

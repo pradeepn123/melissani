@@ -33,7 +33,7 @@ import { FaqAccordion } from '../Faq/FaqAccordion';
 
             {(data?.tab_heading || []).map((item, index) => (
                 <>
-                    <div className='filter_club_faq w-full' key={`faq-${index}`}>
+                    <div className='filter_club_faq w-full' key={`faq-${index}`} data-aos="fade-up" data-aos-duration="3000">
                         <h2 className='filter_club_main_heading'>{item.text}</h2>
                         <FaqAccordion item={item} />
                         <div className="filterclub_extra_information">

@@ -2,7 +2,7 @@ import Flickity from 'react-flickity-component'
 
 export function Carousel({ data, className }) {
   return (
-    <section className={`${className ? 'carousel-wrapper ' + className : 'carousel-wrapper'}`} id={className}>
+    <section className={`${className ? 'carousel-wrapper ' + className : 'carousel-wrapper'}`} id={className} data-aos="fade-up">
         <Flickity
             pageDots="false">
             {data && data.map((item, index) =>

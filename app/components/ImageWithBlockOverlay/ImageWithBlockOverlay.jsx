@@ -17,7 +17,7 @@ export function ImageWithBlockOverlay({filterclub}) {
         
     return (
         <section>
-            <div className="image_with_block_sec" id='image_with_block_sec'>
+            <div className="image_with_block_sec" id='image_with_block_sec' data-aos="fade-up">
                 <div className="mx-auto">
                     <div className="flex flex-col xl:flex-row">
                     {(filterclub?.imagewithblockoverlay || []).map((content, index) => (
