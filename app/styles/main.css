@@ -244,6 +244,7 @@ svg:focus {
 .filter-club-membership {
   display: flex;
   flex-direction: column;
+  padding-top: 2rem;
 }
 
 .cart-heading {
@@ -710,6 +711,7 @@ form .field-input::placeholder {
   border: 1px solid;
   border-radius: 50%;
   padding: 8px;
+  margin-top: 1rem;
 }
 
 .drawer-bottom-dialog-panel .menu-cart-icon svg {
@@ -812,11 +814,11 @@ form .field-input::placeholder {
 }
 
 .drawer-header.px-4 {
-  padding: 0.5rem 1rem;
+  padding: 0 1.5rem .5rem 1.5rem;
 }
 
 .one-time-products-wrapper {
-  padding: 0.5rem 1rem;
+  padding: 0 1.5rem .5rem 1.5rem;
 }
 
 .filter-club-subscription-modal-content {

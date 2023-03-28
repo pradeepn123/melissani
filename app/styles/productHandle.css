@@ -184,7 +184,7 @@ label.product-form-wrapper {
 
 @media(min-width:1200px){
   .subscriptipn-product-form-wrapper {
-    padding: 1rem 1.2rem;
+    padding: 1rem 0;
   }
   .product-content {
     padding-left: 2rem;
@@ -251,8 +251,8 @@ label.product-form-wrapper {
 /* End: Media Query */
 /* End: Product Handle */
 
-.subscriptipn-product-form-wrapper {
-  padding: 1rem 0.5rem;
+.subscription-form .product-form-wrapper {
+  padding: 2rem;
 }
 
 .subscription-form .subscription-title {
@@ -299,14 +299,16 @@ label.product-form-wrapper {
 }
 
 .one-time-product-row .product-price span{
-  font-size: 16px;
-  line-height: 1.2;
+  font-size: 14px;
+  line-height: 1rem;
+  color: #717070;
 }
 
 .one-time-product-row .onetime-product-title {
   font-size: 1rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
+  color: #161616;
 }
 
 .one-time-product-row .quantity-field {
