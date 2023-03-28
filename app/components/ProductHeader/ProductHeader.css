@@ -266,6 +266,7 @@
 
     .learn-more-btn {
         font-size: 12px;
+        padding: .4rem 1.5em;
     }
 
     .product-key-features {
@@ -306,5 +307,11 @@
         width: 6px;
         height: 0;
         background-color: #F5F5F5;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .product-subtitle .subtitle {
+        line-height: 22px !important;
     }
 }

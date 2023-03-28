@@ -1,6 +1,7 @@
 /* Begin: Product Handle */
 .product-section {
   padding: 0;
+  gap: 1rem;
 }
 
 .product-content {
@@ -9,8 +10,8 @@
   justify-content: flex-start;
   column-gap: 5%;
   row-gap: 2rem;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
 }
 
 .media-gallery {
@@ -29,7 +30,8 @@
 
 .product-form-wrapper {
   border: 1px solid #DDDDDD;
-  padding: 1rem 1.2rem;
+  /* padding: 1rem 1.2rem; */
+  padding: 3.25rem 2.87rem;
   border-radius: 10px;
 }
 
@@ -117,7 +119,7 @@ label.product-form-wrapper {
 
   .media-gallery .flickity-page-dots {
     display: flex;
-    column-gap: 2em;
+    column-gap: 1em;
     justify-content: center;
     vertical-align: top;
     position: relative;
@@ -179,42 +181,6 @@ label.product-form-wrapper {
   /* End: Product Form Section */
   
 /* Begin: Media Query */
-@media screen and (max-width: 320px) {
-  .cart-btn {
-    padding: .5em;
-  }
-}
-
-@media screen and (max-width: 540px) {
-
-  .product-form-wrapper .product-title {
-    font-size: 24px;
-    line-height: 31px;
-  }
-
-  .product-form-wrapper .product-price {
-    font-size: 20px;
-    line-height: 24px;
-  }
-  .cart-btn span.text-copy {
-    font-size: 16px;
-  }
-}
-
-@media screen and (max-width: 820px) {
-  .cart-btn {
-    padding: 5px;
-  }
-  .cart-btn span.text-copy {
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .cart-btn {
-    padding: 0.75em;
-  }
-}
 
 @media(min-width:1200px){
   .subscriptipn-product-form-wrapper {
@@ -230,6 +196,58 @@ label.product-form-wrapper {
     padding: 13.5px;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .cart-btn {
+    padding: 0.75em;
+  }
+}
+
+@media screen and (max-width: 912px) {
+  .product-form-wrapper {
+    padding: 1rem 1.2rem;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .cart-btn {
+    padding: 5px;
+  }
+  .cart-btn span.text-copy {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+
+  .product-section {
+    gap: 2rem;
+  }
+
+  .product-form-wrapper {
+    padding: 27px 37px;
+  }
+
+  .product-form-wrapper .product-title {
+    font-size: 24px;
+    line-height: 31px;
+  }
+
+  .product-form-wrapper .product-price {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .cart-btn span.text-copy {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .cart-btn {
+    padding: .5em;
+  }
+}
+
 /* End: Media Query */
 /* End: Product Handle */
 
