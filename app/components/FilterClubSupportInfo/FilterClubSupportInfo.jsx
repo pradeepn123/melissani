@@ -1,6 +1,6 @@
 export function FilterClubSupportInfo({filterclubsupportinfo}) {
     return (
-        <section data-aos="fade-up">
+        <section>
             <div className="filter_club_support_info">
                 <div className="flex flex-col-reverse md:flex-row">
                     {(filterclubsupportinfo?.filterclubsupportinfo || []).map((info, index) => (

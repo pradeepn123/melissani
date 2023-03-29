@@ -1,6 +1,6 @@
 export function ImageCenterWithText({ installation, installationHeadingClassName, installationParaClassName }) {
     return (
-        <section data-aos="fade-up">
+        <section>
             <div className="desktop-convenience-section w-full">
                 <img src={installation.desktopImg} />
             </div>

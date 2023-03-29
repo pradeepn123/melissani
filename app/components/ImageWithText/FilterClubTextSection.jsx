@@ -2,7 +2,7 @@ import {Button, Link} from '~/components';
 
 export function FilterClubTextSection({ filterClub }) {
     return (
-        <div className="filter-club-section" data-aos="fade-up" data-aos-duration="2000">
+        <div className="filter-club-section">
             <h2 className="filter-club-title">
                 {filterClub.heading}
             </h2>

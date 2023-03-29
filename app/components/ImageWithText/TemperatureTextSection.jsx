@@ -1,7 +1,7 @@
 export function TemperatureTextSection({data}) {
     return (
         <>
-            <div className="text-section" data-aos="fade-up">
+            <div className="text-section">
                 <div className="warrentyIcon_section md:hidden block">
                     <img src={data.warrenty_icon} alt="" />
                 </div>

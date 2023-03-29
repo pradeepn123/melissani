@@ -1,7 +1,7 @@
 
 export function VolumeControlProperty({ volume }) {
     return (
-        <section data-aos="fade-up">
+        <section>
             <div className="relative">
                 <div className="check">
                     <h2

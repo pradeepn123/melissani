@@ -15,7 +15,7 @@ export class VideoPlayer extends React.Component {
         const { data } = this.props;
         const { onPlay } = this.state;
         return (
-            <div className="video-player-wrapper" data-aos="fade-up">
+            <div className="video-player-wrapper">
                 <img src={data.thumbnail} className={onPlay ? "video-thumbnail opacity-0" : "video-thumbnail"} />
                 {!onPlay && <IconPlay className="play-icon" onClick={this.handlePlay.bind(this)} />}
                 {onPlay && <>
