@@ -1,5 +1,6 @@
 import { IconPlay } from '~/components';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export class VideoPlayer extends React.Component {
     constructor(props) {
@@ -15,7 +16,17 @@ export class VideoPlayer extends React.Component {
         const { data } = this.props;
         const { onPlay } = this.state;
         return (
-            <div className="video-player-wrapper">
+            <motion.div 
+                initial={{ opacity: 0, transform: "translateY(60px)" }}
+                whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+                animate="visible"
+                transition={{
+                ease: "easeInOut",
+                duration: 0.8,
+                    x: { duration: 1 }
+                }}
+                exit={{ opacity: 0, transform: "translateY(60px)" }}
+                className="video-player-wrapper">
                 <img src={data.thumbnail} className={onPlay ? "video-thumbnail opacity-0" : "video-thumbnail"} />
                 {!onPlay && <IconPlay className="play-icon" onClick={this.handlePlay.bind(this)} />}
                 {onPlay && <>
@@ -39,7 +50,7 @@ export class VideoPlayer extends React.Component {
                         </video>}
                     </>}
                 </>}
-            </div>
+            </motion.div>
         );
     }
 }

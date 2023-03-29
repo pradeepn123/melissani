@@ -12,7 +12,10 @@
     left: 38%;
     transform: translate(-90%, -50%);
     width: 35%;
-    text-align: left;
+    text-align: left;    
+}
+
+#home-hero .hero-text{
     background: rgb(255, 255, 255, 80%);
     padding: 2rem;
 }

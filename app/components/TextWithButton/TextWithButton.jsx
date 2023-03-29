@@ -1,6 +1,18 @@
+import { motion } from 'framer-motion';
+
 export function TextWithButton({textwithbutton}) {
     return (
-        <section>
+        <motion.section
+            initial={{ opacity: 0, transform: "translateY(60px)" }}
+            whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+            animate="visible"
+            transition={{
+            ease: "easeInOut",
+            duration: 0.8,
+                x: { duration: 1 }
+            }}
+            exit={{ opacity: 0, transform: "translateY(60px)" }}
+        >
             <div className="text_with_button_info">
                 <div className="mx-auto">
                     <div className="text_with_button_info_inner">
@@ -12,6 +24,6 @@ export function TextWithButton({textwithbutton}) {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }

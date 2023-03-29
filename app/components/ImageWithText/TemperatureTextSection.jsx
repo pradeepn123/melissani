@@ -1,7 +1,20 @@
+import { motion } from 'framer-motion';
+
 export function TemperatureTextSection({data}) {
     return (
         <>
-            <div className="text-section">
+            <motion.div 
+                initial={{ opacity: 0, transform: "translateY(60px)" }}
+                whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+                animate="visible"
+                transition={{
+                ease: "easeInOut",
+                duration: 0.8,
+                    x: { duration: 1 }
+                }}
+                exit={{ opacity: 0, transform: "translateY(60px)" }}
+                className="text-section"
+            >
                 <div className="warrentyIcon_section md:hidden block">
                     <img src={data.warrenty_icon} alt="" />
                 </div>
@@ -21,7 +34,7 @@ export function TemperatureTextSection({data}) {
                         </div>
                     </div>))}
                 </div>
-            </div>
+            </motion.div>
             <div className="warrentyIcon_section hidden md:block">
                 <img src={data.warrenty_icon} alt="" />
             </div>

@@ -1,6 +1,18 @@
+import { motion } from 'framer-motion';
+
 export function FilterClubSupportInfo({filterclubsupportinfo}) {
     return (
-        <section>
+        <motion.section
+            initial={{ opacity: 0, transform: "translateY(60px)" }}
+            whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+            animate="visible"
+            transition={{
+            ease: "easeInOut",
+            duration: 0.8,
+                x: { duration: 1 }
+            }}
+            exit={{ opacity: 0, transform: "translateY(60px)" }}
+        >
             <div className="filter_club_support_info">
                 <div className="flex flex-col-reverse md:flex-row">
                     {(filterclubsupportinfo?.filterclubsupportinfo || []).map((info, index) => (
@@ -16,6 +28,6 @@ export function FilterClubSupportInfo({filterclubsupportinfo}) {
                     ))}
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }

@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-
+import { motion } from 'framer-motion';
 
 var interval = null;
 export function TextCarousel ({data}) {
@@ -46,33 +46,44 @@ export function TextCarousel ({data}) {
         showSlides(slideIndex)
     }, [slideIndex])
     
-    return <section className="main_purifier_carousel" id="purifier_learn_more">
-        <div className="container mx-auto">
-            <div className="main_purifier_carousel_inner_wrap">
-                <div className="flex flex-col-reverse xl:flex-row">
-                    <div className="puri_slider xl:w-6/12 slideshow-container">
-                        <ul>
-                            {data && data.map((item, index) => <li
-                                key={`slideshow-container-${index}`}
-                                className="dot"
-                                onClick={() => setSlideIndex(index + 1)}
-                            >
-                                <span>{item.heading}</span>
-                            </li>)}
-                        </ul>
-                    </div>
+    return <motion.section 
+            initial={{ opacity: 0, transform: "translateY(60px)" }}
+            whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+            animate="visible"
+            transition={{
+            ease: "easeInOut",
+            duration: 0.8,
+                x: { duration: 1 }
+            }}
+            exit={{ opacity: 0, transform: "translateY(60px)" }}
+            className="main_purifier_carousel" id="purifier_learn_more"
+        >
+            <div className="container mx-auto">
+                <div className="main_purifier_carousel_inner_wrap">
+                    <div className="flex flex-col-reverse xl:flex-row">
+                        <div className="puri_slider xl:w-6/12 slideshow-container">
+                            <ul>
+                                {data && data.map((item, index) => <li
+                                    key={`slideshow-container-${index}`}
+                                    className="dot"
+                                    onClick={() => setSlideIndex(index + 1)}
+                                >
+                                    <span>{item.heading}</span>
+                                </li>)}
+                            </ul>
+                        </div>
 
-                    <div className="sliderThumbnail xl:w-6/12 dot-container">
-                        {data && data.map((item, index) => <div
-                            className="slideBlocks"
-                            key={`dot-container-${index}`}
-                        >
-                            <h2>{item.subHeading}</h2>
-                            <p>{item.description}</p>
-                        </div>)}
-                    </div>                        
+                        <div className="sliderThumbnail xl:w-6/12 dot-container">
+                            {data && data.map((item, index) => <div
+                                className="slideBlocks"
+                                key={`dot-container-${index}`}
+                            >
+                                <h2>{item.subHeading}</h2>
+                                <p>{item.description}</p>
+                            </div>)}
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </motion.section>
 }
