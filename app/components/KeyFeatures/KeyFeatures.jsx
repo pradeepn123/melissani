@@ -1,5 +1,9 @@
-export function KeyFeatures({features}) {  
+// import { motion } from "framer-motion";
+
+export function KeyFeatures({features}) {
+  
   return (
+   
     <div className="key-features-section">
         {features && features.map((feature, index) => (
         <span className="key-feature" key={index}>
@@ -10,6 +14,6 @@ export function KeyFeatures({features}) {
                 {feature.text}
             </p>
         </span> ))}
-    </div>
+    </div>    
   )
 }
