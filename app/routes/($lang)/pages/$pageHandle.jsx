@@ -1,8 +1,6 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
-import {useEffect} from 'react';
-import AOS from 'aos';
 import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration, Filter, FooterContact} from '~/components';
 import FaqStyles from '~/components/Faq/Faq.css';
 import AboutUsStyles from '~/components/About/About.css';
@@ -303,11 +301,7 @@ export default function Page() {
   if(footer_contact) {
     parsed_footer_contact = JSON.parse(footer_contact?.value);
   }
-  useEffect(() => {
-    AOS.init({
-      duration : 1000
-    })
-  }, [])
+  
   return (
     <>
       {page.handle == 'faq' && (<>

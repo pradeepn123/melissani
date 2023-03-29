@@ -1,6 +1,18 @@
+import { motion } from 'framer-motion';
+
 export function ImageCenterWithText({ installation, installationHeadingClassName, installationParaClassName }) {
     return (
-        <section data-aos="fade-up">
+        <motion.section
+            initial={{ opacity: 0, transform: "translateY(60px)" }}
+            whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+            animate="visible"
+            transition={{
+            ease: "easeInOut",
+            duration: 0.8,
+                x: { duration: 1 }
+            }}
+            exit={{ opacity: 0, transform: "translateY(60px)" }}
+        >
             <div className="desktop-convenience-section w-full">
                 <img src={installation.desktopImg} />
             </div>
@@ -15,6 +27,6 @@ export function ImageCenterWithText({ installation, installationHeadingClassName
                     {installation.paragraph}
                 </p>
             </div>
-        </section>
+        </motion.section>
     )
 }

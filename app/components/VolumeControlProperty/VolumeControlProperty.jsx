@@ -1,7 +1,18 @@
+import { motion } from 'framer-motion';
 
 export function VolumeControlProperty({ volume }) {
     return (
-        <section data-aos="fade-up">
+        <motion.section
+            initial={{ opacity: 0, transform: "translateY(60px)" }}
+            whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+            animate="visible"
+            transition={{
+            ease: "easeInOut",
+            duration: 0.8,
+                x: { duration: 1 }
+            }}
+            exit={{ opacity: 0, transform: "translateY(60px)" }}
+        >
             <div className="relative">
                 <div className="check">
                     <h2
@@ -23,6 +34,6 @@ export function VolumeControlProperty({ volume }) {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }

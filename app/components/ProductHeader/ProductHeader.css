@@ -60,8 +60,7 @@
 
 .key-feature {
     display: flex;
-    flex-direction: row;
-    margin: auto;
+    flex-direction: row;    
     align-items: center;
     column-gap: 0.5em;
     justify-content: flex-end;
@@ -267,8 +266,8 @@
     }
 
     .key-features-inner {
-        display: -webkit-box;
-        width: 145%;
+        display: grid;
+        grid-template-columns: repeat(3, 45%);
         overflow-x: auto;
         height: 100%;
         padding: 1.5rem 0;
@@ -276,8 +275,8 @@
     }
 
     .key-feature {
-        justify-content: flex-start;
-        margin-right: -55px;
+        justify-content: unset;
+        margin-right: 0px;
         scroll-snap-align: start;
     }
 
@@ -286,7 +285,7 @@
         width: 37px;
     }
     .key-feature-text {
-        width: 50%;
+        width: calc(100% - 30%);
         font-size: 12px;
         line-height: 18px;
     }

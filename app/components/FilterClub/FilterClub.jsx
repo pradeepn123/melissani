@@ -7,6 +7,7 @@ import {
     StickyBarBottom
 } from '~/components';
 import { FaqAccordion } from '../Faq/FaqAccordion';
+import { motion } from 'framer-motion';
   
   export function FilterClub({hero, filterclub, supportinfo, textwithbutton, stickybarbottom, data, filterclubwarrenty}) {
       return (
@@ -33,14 +34,25 @@ import { FaqAccordion } from '../Faq/FaqAccordion';
 
             {(data?.tab_heading || []).map((item, index) => (
                 <>
-                    <div className='filter_club_faq w-full' key={`faq-${index}`} data-aos="fade-up" data-aos-duration="3000">
+                    <motion.div 
+                        initial={{ opacity: 0, transform: "translateY(60px)" }}
+                        whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+                        animate="visible"
+                        transition={{
+                        ease: "easeInOut",
+                        duration: 0.8,
+                            x: { duration: 1 }
+                        }}
+                        exit={{ opacity: 0, transform: "translateY(60px)" }}
+                        className='filter_club_faq w-full' key={`faq-${index}`}
+                    >
                         <h2 className='filter_club_main_heading'>{item.text}</h2>
                         <FaqAccordion item={item} />
                         <div className="filterclub_extra_information">
                             <p>{item.filterclub_extra_info}</p>
                             <a href={item.filterclub_extra_link}>{item.filterclub_extra_label}</a>
                         </div>
-                    </div>
+                    </motion.div>
                 </>
             ))}
 

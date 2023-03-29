@@ -1,7 +1,5 @@
 import { defer } from '@shopify/remix-oxygen';
 import { Suspense } from 'react';
-import {useEffect} from 'react';
-import AOS from 'aos';
 import { Await, useLoaderData } from '@remix-run/react';
 import { 
   ProductSwimlane,
@@ -172,11 +170,6 @@ export default function Homepage() {
   //     pageType: ShopifyAnalyticsConstants.pageType.home,
   //   },
   // });
-  useEffect(() => {
-    AOS.init({
-      duration : 1000
-    })
-  }, [])
 
   return (
     <>

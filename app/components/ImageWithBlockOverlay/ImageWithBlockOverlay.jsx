@@ -1,5 +1,6 @@
 import {useEffect} from 'react';
 import { RightArrow } from '~/components';
+import { motion } from 'framer-motion';
 
 export function ImageWithBlockOverlay({filterclub}) {
 
@@ -16,8 +17,18 @@ export function ImageWithBlockOverlay({filterclub}) {
     }, []);
         
     return (
-        <section>
-            <div className="image_with_block_sec" id='image_with_block_sec' data-aos="fade-up">
+        <motion.section
+            initial={{ opacity: 0, transform: "translateY(60px)" }}
+            whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+            animate="visible"
+            transition={{
+            ease: "easeInOut",
+            duration: 0.8,
+                x: { duration: 1 }
+            }}
+            exit={{ opacity: 0, transform: "translateY(60px)" }}
+        >
+            <div className="image_with_block_sec" id='image_with_block_sec'>
                 <div className="mx-auto">
                     <div className="flex flex-col xl:flex-row">
                     {(filterclub?.imagewithblockoverlay || []).map((content, index) => (
@@ -43,6 +54,6 @@ export function ImageWithBlockOverlay({filterclub}) {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }
