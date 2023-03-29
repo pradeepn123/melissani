@@ -272,11 +272,13 @@
         overflow-x: auto;
         height: 100%;
         padding: 1.5rem 0;
+        scroll-snap-type: x mandatory;
     }
 
     .key-feature {
         justify-content: flex-start;
         margin-right: -55px;
+        scroll-snap-align: start;
     }
 
     .key-feature .key-feature-icon img{
