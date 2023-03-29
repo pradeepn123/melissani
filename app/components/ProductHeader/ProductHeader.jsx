@@ -20,7 +20,7 @@ export function ProductHeader({ title, data }) {
                     </Link>
                 </div>
             </div>
-            <div className="product-key-features">
+            <div className="product-key-features touch-auto">
                 <div className="key-features-inner">
                     {dataItem.keyFeatures.map((item, index) => (
                         <div className="key-feature" key={index}>
