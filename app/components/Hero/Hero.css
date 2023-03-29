@@ -13,6 +13,8 @@
     transform: translate(-90%, -50%);
     width: 35%;
     text-align: left;
+    background: rgb(255, 255, 255, 80%);
+    padding: 2rem;
 }
 
 #home-hero .hero-text h1, #home-hero .hero-banner-subtitle{

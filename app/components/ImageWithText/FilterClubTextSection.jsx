@@ -1,8 +1,19 @@
 import {Button, Link} from '~/components';
+import { motion } from 'framer-motion';
 
 export function FilterClubTextSection({ filterClub }) {
     return (
-        <div className="filter-club-section">
+        <motion.div 
+        initial={{ opacity: 0, transform: "translateY(60px)" }}
+        whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+        animate="visible"
+        transition={{
+        ease: "easeInOut",
+        duration: 0.8,
+            x: { duration: 1 }
+        }}
+        exit={{ opacity: 0, transform: "translateY(60px)" }}
+        className="filter-club-section">
             <h2 className="filter-club-title">
                 {filterClub.heading}
             </h2>
@@ -39,6 +50,6 @@ export function FilterClubTextSection({ filterClub }) {
                     </Link>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
