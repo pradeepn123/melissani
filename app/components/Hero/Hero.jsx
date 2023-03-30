@@ -14,18 +14,20 @@ export function Hero({ data, id }) {
       )} id={id}>
         <div className="hero-text">
           <div dangerouslySetInnerHTML={{ __html: data.rawHtml}}></div>
-            {data?.cta && <Link
-              to={data.subscribeBtnLink}>
-              <Button variant='primary' className="font-medium">
-              {data.cta}
-              </Button>
-            </Link>}
-            {data?.learnMoreBtnText && <Link
-              to={data.learnMoreBtnLink}>
-              <Button variant='inline' className="font-medium mx-10 fs-17 hero-learn-more-btn">
-                {data.learnMoreBtnText}
-              </Button>
-            </Link>}
+          <div className="hero-btns">
+              {data?.cta && <Link
+                to={data.subscribeBtnLink}>
+                <Button variant='primary' className="font-medium">
+                {data.cta}
+                </Button>
+              </Link>}
+              {data?.learnMoreBtnText && <Link
+                to={data.learnMoreBtnLink}>
+                <Button variant='inline' className="font-medium mx-10 fs-17 hero-learn-more-btn">
+                  {data.learnMoreBtnText}
+                </Button>
+              </Link>}
+          </div>
         </div>
         <div className="hero-image-wrapper">
           <img src={data?.banner_image} className="hero-image"/>

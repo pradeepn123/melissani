@@ -15,7 +15,13 @@
     text-align: left;    
 }
 
-#home-hero .hero-text{
+.hero-text .hero-btns {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#home-hero .hero-text {
     background: rgb(255, 255, 255, 80%);
     padding: 2rem;
 }
@@ -25,15 +31,22 @@
 }
 
 #purifier-hero .hero-text {
-    top: 44%;
+    /* top: 44%;
     left: 31.5%;
     width: 40%;
-    transform: translate(70%, -30%);
+    transform: translate(70%, -30%); */
+    top: 44%;
+    left: 30%;
+    width: 43%;
+    transform: translate(47%, -39%);
+    padding: 57px 45px;
+    background: rgb(255, 255, 255, 80%);
+    color: #1B2943;
 }
 
-#purifier-hero .hero-banner-title,
+/* #purifier-hero .hero-banner-title,
 #purifier-hero .hero-banner-subtitle,
-#purifier-hero .hero-learn-more-btn,
+#purifier-hero .hero-learn-more-btn, */
 #filter-hero .hero-banner-title,
 #filter-hero .hero-banner-subtitle,
 #filter-hero .hero-learn-more-btn,
@@ -152,7 +165,8 @@
     #filter-changes-hero .hero-banner-subtitle, 
     #filter-changes-hero .hero-banner-title, 
     #filter-changes-hero .hero-learn-more-btn {
-        color: #1B2943;
+        color: #1B2943 !important;
+        /* opacity: 1; */
     }
 
     #filter-changes-hero .hero-banner-title {
