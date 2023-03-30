@@ -58,59 +58,87 @@ export async function loader({ params, context }) {
   })
 
   const hero = page.metafields.find(item => {
-    return item.key == "hero"
+    if (item !== null) {
+      return item.key == "hero"
+    }
   })
 
   const features = page.metafields.find(item => {
-    return item.key == "features"
+    if (item !== null) {
+      return item.key == "features"
+    }
   })
 
   const goodbye = page.metafields.find(item => {
-    return item.key == "goodbye"
+    if (item !== null) {
+      return item.key == "goodbye"
+    }
   })
 
   const advancedFiltration = page.metafields.find(item => {
-    return item.key == "carousel"
+    if (item !== null) {
+      return item.key == "carousel"
+    }
   })
 
   const filterClub = page.metafields.find(item => {
-    return item.key == "filter_club"
-  })
+    if (item !== null) {
+      return item.key == "filter_club"
+    }
+})
 
   const videoSection = page.metafields.find(item => {
-    return item.key == "video_section"
+    if (item !== null) {
+      return item.key == "video_section"
+    }
   })
 
   const discover = page.metafields.find(item => {
-    return item.key == "discover"
+    if (item !== null) {
+      return item.key == "discover"
+    }
   })
 
   const installation = page.metafields.find(item => {
-    return item.key == "installation"
+    if (item !== null) {
+      return item.key == "installation"
+    }
   })
 
   const volume = page.metafields.find(item => {
-    return item.key == "volume"
+    if (item !== null) {
+      return item.key == "volume"
+    }
   })
 
   const reviews = page.metafields.find(item => {
-    return item.key == "reviews"
+    if (item !== null) {
+      return item.key == "reviews"
+    }
   })
 
   const learnMore = page.metafields.find(item => {
-    return item.key == "learn_more"
+    if (item !== null) {
+      return item.key == "learn_more"
+    }
   })
 
   const footerBanner = page.metafields.find(item => {
-    return item.key == "footer_banner"
+    if (item !== null) {
+      return item.key == "footer_banner"
+    }
   })
 
   const footerContact = page.metafields.find(item => {
-    return item.key == "footer_contact"
+    if (item !== null) {
+      return item.key == "footer_contact"
+    }
   })
 
   let featuredProductsHandles = page.metafields.find(item => {
-    return item.key == "featured_products_handle"
+    if (item !== null) {
+      return item.key == "featured_products_handle"
+    }
   })
 
   featuredProductsHandles = featuredProductsHandles ? JSON.parse(featuredProductsHandles.value) : []
@@ -120,20 +148,21 @@ export async function loader({ params, context }) {
     return productHandles.map(productHandle => products.nodes.find(product => product.handle === productHandle))
   })
 
+
   return defer({
     primaryHero: JSON.parse(hero?.value),
-    features: JSON.parse(features?.value),
-    goodbye: JSON.parse(goodbye?.value),
-    advancedFiltration: JSON.parse(advancedFiltration?.value),
-    filterClub: JSON.parse(filterClub?.value),
-    videoSection: JSON.parse(videoSection?.value),
-    discover: JSON.parse(discover?.value),
-    installation: JSON.parse(installation?.value),
-    volume: JSON.parse(volume?.value),
-    reviews: JSON.parse(reviews?.value),
-    learnMore: JSON.parse(learnMore?.value),
-    footerBanner: JSON.parse(footerBanner?.value),
-    footerContact: JSON.parse(footerContact?.value),
+    features: features && JSON.parse(features?.value),
+    goodbye: goodbye && JSON.parse(goodbye?.value),
+    advancedFiltration: advancedFiltration && JSON.parse(advancedFiltration?.value),
+    filterClub: filterClub && JSON.parse(filterClub?.value),
+    videoSection: videoSection && JSON.parse(videoSection?.value),
+    discover: discover && JSON.parse(discover?.value),
+    installation: installation && JSON.parse(installation?.value),
+    volume: volume && JSON.parse(volume?.value),
+    reviews: reviews && JSON.parse(reviews?.value),
+    learnMore: learnMore && JSON.parse(learnMore?.value),
+    footerBanner: footerBanner && JSON.parse(footerBanner?.value),
+    footerContact: footerContact && JSON.parse(footerContact?.value),
     featuredProducts: featuredProducts,
     // These different queries are separated to illustrate how 3rd party content
     // fetching can be optimized for both above and below the fold.
@@ -232,7 +261,6 @@ const PAGE_QUERY = `#graphql
           { namespace: "home", key: "goodbye" }
           { namespace: "global", key: "carousel" }
           { namespace: "home", key: "filter_club" }
-          { namespace: "home", key: "membership" }
           { namespace: "global", key: "video_section" }
           { namespace: "home", key: "discover" }
           { namespace: "home", key: "installation" }
