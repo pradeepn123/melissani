@@ -73,10 +73,6 @@
     transform: none !important;
 }
 
-#home-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider {
-    align-items: inherit;
-}
-
 .flickity-enabled .flickity-viewport .flickity-slider .slider {
     left: 0 !important;
     opacity: 0;
@@ -218,6 +214,9 @@
 }
 
 @media (max-width: 540px) {
+    #home-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider {
+        align-items: inherit;
+    }
     .left-slider-content {
         margin: 0 2em;
         padding-right: 1em;
