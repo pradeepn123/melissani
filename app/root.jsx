@@ -91,6 +91,7 @@ export default function App() {
         <Seo />
         <Meta />
         <Links />
+        <script id="gorgias-chat-widget-install-v2" src="https://config.gorgias.chat/gorgias-chat-bundle-loader.js?applicationId=28865"></script>
       </head>
       <body>
         <Layout
