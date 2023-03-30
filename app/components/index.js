@@ -59,5 +59,6 @@ export { FooterContact } from './FooterContact/FooterContact';
 export { RequestContext } from './MelissaniContext';
 export { DrawerFromBottom, useDrawerFromBottom } from './DrawerFromBottom';
 export { CartClubMembership } from './CartClubMembership/CartClubMembership';
+export { OkendoReviewsWidget, OkendoStarRating } from './Okendo';
 // Sue me
 export * from './Icon';

@@ -16,7 +16,8 @@ import {
   ProductDescription,
   ProductHeader,
   MediaGallery,
-  ProductStickyBar
+  ProductStickyBar,
+  OkendoReviewsWidget
 } from '~/components';
 
 import invariant from 'tiny-invariant';
@@ -130,6 +131,8 @@ export default function Product() {
     parsedProductDetails = JSON.parse(productDetails?.value);
   }
 
+  const productId = product.id.replace("gid://shopify/Product/", "")
+
   return (
     <>
       <Section className="product-section px-0">
@@ -150,6 +153,7 @@ export default function Product() {
               selectedVariant={selectedVariant}
               parsedProductDetails={parsedProductDetails}
               products={products.nodes}
+              productId={productId}
             />
           </div>
         </div>
@@ -162,6 +166,9 @@ export default function Product() {
         {parsedProductDetails?.Specifications && <Specifications
           data={parsedProductDetails.Specifications}
         />}
+        <div className="okendo-reviews">
+          <OkendoReviewsWidget productId={productId} />
+        </div>
         <ProductStickyBar
           products={products}
           selectedVariant={selectedVariant}
