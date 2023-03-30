@@ -81,13 +81,16 @@
 
 #filter-changes-hero .hero-text {
     top: 50%;
+    left: 31.5%;
+    width: 40%;
+    transform: translate(70%, -50%);
 }
 
 #filter-changes-hero .hero-banner-subtitle {
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
-    width: 90%;
+    width: 75%;
     margin-top: 20px;
 }
 
