@@ -73,6 +73,10 @@
     transform: none !important;
 }
 
+#home-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider {
+    align-items: inherit;
+}
+
 .flickity-enabled .flickity-viewport .flickity-slider .slider {
     left: 0 !important;
     opacity: 0;
@@ -486,7 +490,7 @@
     #home-carousel .right-slider-content {
         margin: 0em auto;
     }
-    
+
     .right-slider-content {
         justify-content: right;
         margin: 2em auto;

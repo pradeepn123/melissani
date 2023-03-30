@@ -434,7 +434,7 @@ ul.filter-club-list {
 
 @media (min-width: 320px) and (max-width: 425px) {
     .filter-club-img {
-        padding: 5em 0 2em 1em;
+        padding: 5em 0 2em 0em;
     }
 
     .filter-club-title {
