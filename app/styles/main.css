@@ -159,8 +159,12 @@ svg:focus {
 .stickybar_main_section.is-shown{
     transform: translateY(0);
     visibility: visible;
-    z-index: 100000000000000001;
 }
+
+iframe {
+  z-index: 1 !important;
+}
+
 .stickybar_main_section .stickybar_main_section_inner{
     display: flex;
     flex-direction: column;
@@ -496,6 +500,7 @@ svg:focus {
 
 .custom_nav_height{
     height: calc(100% - 10%);
+    overflow-y: scroll;
 }
 .menu_nav_items .secondary_menu_drawer{
     margin-bottom: 20px;
