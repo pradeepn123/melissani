@@ -325,13 +325,7 @@ function CartLineItem({line}) {
       <div className="flex justify-between items-center flex-grow">
         <div className="grid gap-2">
           <Heading as="h3" size="copy" className="font-primary cart-product-title">
-            {merchandise?.product?.handle ? (
-              <Link to={`/products/${merchandise.product.handle}`} >
-                {merchandise?.product?.title || ''}
-              </Link>
-            ) : (
-              <Text>{merchandise?.product?.title || ''}</Text>
-            )}
+            {merchandise?.product?.title || ''}
           </Heading>
 
           <div className="grid pb-2">

@@ -43,6 +43,18 @@
   text-align: left;
   color: #717070;
 }
+
+.stike-out {
+  color: #F62727 !important;
+  text-decoration: line-through;
+  font-size: 16px;
+}
+
+.stike-out span {
+  color: #F62727 !important;
+  font-size: 20px !important;
+}
+
 label.product-form-wrapper {
   display: block;
   cursor: pointer;
