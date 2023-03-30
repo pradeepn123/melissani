@@ -244,11 +244,6 @@ svg:focus {
 .filter-club-membership {
   display: flex;
   flex-direction: column;
-  /* padding-top: 2rem; */
-}
-
-.filter-club-membership {
-
 }
 
 .cart-heading {
@@ -722,6 +717,11 @@ form .field-input::placeholder {
   height: 15px;
   width: 15px;
 }
+
+.drawer-bottom-dialog-panel .drawer-header .filter-club-membership {
+  padding-top: 1rem;
+}
+
 .drawer-bottom-dialog-panel .drawer-header .filter-club-membership .cart-heading{
     text-transform: capitalize;
 }
