@@ -124,7 +124,7 @@ export function Layout({children, layout}) {
         <Header
           menu={layout?.headerMenu}
           logo={logo}
-          footerMenu={layout?.footerMenu}
+          sidebarMenu={layout?.sidebarMenu}
           metafields={layout?.metafields}
         />
         <main
@@ -143,7 +143,7 @@ export function Layout({children, layout}) {
   );
 }
 
-function Header({logo, menu, footerMenu, metafields}) {
+function Header({logo, menu, sidebarMenu, metafields}) {
   const isHome = useIsHomePath();
   const context = useContext(RequestContext)
   const [root] = useMatches();
@@ -196,7 +196,8 @@ function Header({logo, menu, footerMenu, metafields}) {
         isOpen={isMenuOpen}
         onClose={closeMenu}
         menu={menu}
-        footerMenu={footerMenu}
+        // footerMenu={footerMenu}
+        sidebarMenu={sidebarMenu}
         isHome={isHome}
         openCart={() => {
           closeMenu()
@@ -634,7 +635,7 @@ function CartDrawer({isOpen, isHome, onClose, openCart }) {
   );
 }
 
-export function MenuDrawer({isOpen, onClose, menu,footerMenu,metafields,isHome,openCart}) {
+export function MenuDrawer({isOpen, onClose, menu, sidebarMenu, metafields, isHome,openCart}) {
   return (
     <Drawer
       open={isOpen}
@@ -645,13 +646,13 @@ export function MenuDrawer({isOpen, onClose, menu,footerMenu,metafields,isHome,o
       heading="Menu"
     >
     <div className="menu-drawer-container">
-      <MenuMobileNav menu={menu} onClose={onClose} footerMenu={footerMenu} metafields={metafields} />
+      <MenuMobileNav menu={menu} onClose={onClose} sidebarMenu={sidebarMenu} metafields={metafields} />
       </div>
     </Drawer>
   );
 }
 
-function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
+function MenuMobileNav({ menu, onClose, sidebarMenu,metafields }) {
   const footerMetafields = JSON.parse(metafields.footer.value)
   return (
     <>
@@ -677,7 +678,7 @@ function MenuMobileNav({ menu, onClose, footerMenu,metafields }) {
 
         {/* Bottom level menu items */}
         <div className="pt-6">
-          { (footerMenu?.items || []).map((item) => (
+          { (sidebarMenu?.items || []).map((item) => (
               <span key={item.id} className="block secondary_menu_drawer">
                 <Link
                   to={item.to}

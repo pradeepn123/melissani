@@ -166,6 +166,7 @@ const LAYOUT_QUERY = `#graphql
   query layoutMenus(
     $language: LanguageCode
     $headerMenuHandle: String!
+    $sidebarMenuHandle: String!
     $footerMenuHandle: String!
     $handle: String!
   ) @inContext(language: $language) {
@@ -175,6 +176,15 @@ const LAYOUT_QUERY = `#graphql
       description
     }
     headerMenu: menu(handle: $headerMenuHandle) {
+      id
+      items {
+        ...MenuItem
+        items {
+          ...MenuItem
+        }
+      }
+    }
+    sidebarMenu: menu(handle: $sidebarMenuHandle) {
       id
       items {
         ...MenuItem
@@ -213,11 +223,13 @@ const LAYOUT_QUERY = `#graphql
 
 async function getLayoutData({storefront}) {
   const HEADER_MENU_HANDLE = 'main-menu';
+  const SIDEBAR_MENU_HANDLE = 'sidebar-menu';
   const FOOTER_MENU_HANDLE = 'footer';
 
   const data = await storefront.query(LAYOUT_QUERY, {
     variables: {
       headerMenuHandle: HEADER_MENU_HANDLE,
+      sidebarMenuHandle: SIDEBAR_MENU_HANDLE,
       footerMenuHandle: FOOTER_MENU_HANDLE,
       language: storefront.i18n.language,
       handle: "about-us"
@@ -239,7 +251,9 @@ async function getLayoutData({storefront}) {
   const headerMenu = data?.headerMenu
     ? parseMenu(data.headerMenu, customPrefixes)
     : undefined;
-
+  const sidebarMenu = data?.sidebarMenu
+    ? parseMenu(data.sidebarMenu, customPrefixes)
+    : undefined;
   const footerMenu = data?.footerMenu
     ? parseMenu(data.footerMenu, customPrefixes)
     : undefined;
@@ -248,7 +262,7 @@ async function getLayoutData({storefront}) {
   ? data.metafields
   : undefined;
 
-  return {shop: data.shop, headerMenu, footerMenu, metafields};
+  return {shop: data.shop, headerMenu, sidebarMenu, footerMenu, metafields};
 }
 
 const CART_QUERY = `#graphql
