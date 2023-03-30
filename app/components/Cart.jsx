@@ -253,7 +253,7 @@ function SubsctiptionLineItem({lines}) {
             </Text>
           </div>
 
-          <div className="items-center cart-filter-club-icons hidden md:flex">
+          <div className="items-center cart-filter-club-icons cart-filter-club-icons-desktop">
             <button className="flex items-center" onClick={() => context.openFilterClubItemsModal(lines)}>
               <div className="icon-wrapper">
                 <svg width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -280,7 +280,7 @@ function SubsctiptionLineItem({lines}) {
           </div>
         </div>
       </div>
-      <div className="flex items-center cart-filter-club-icons md:hidden">
+      <div className="flex items-center cart-filter-club-icons cart-filter-club-icons-mobile">
         <button className="flex items-center" onClick={() => context.openFilterClubItemsModal(lines)}>
           <div className="icon-wrapper">
             <svg width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">

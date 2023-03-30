@@ -28,7 +28,7 @@
 }
 
 .featured-products-home .product-card {
-    background-color: #F9F9F9;
+    /* background-color: #F9F9F9; */
     padding: 30px 40px 0;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .featured-products-home .cta-wrapper {
-    background-color: #F9F9F9;
+    /* background-color: #F9F9F9; */
     padding: 0 40px 30px;
 }
 

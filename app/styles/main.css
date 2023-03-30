@@ -561,7 +561,17 @@ form .field-input::placeholder {
 .text-lead {
   line-height: 0.9;
 }
-
+.announcementbar_main{
+  background: #E1E9EB;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+.announcementbar_main .inner_text{
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0px;
+  text-decoration: underline;
+}
 /* End: Common Styles */
 
 
@@ -594,6 +604,9 @@ form .field-input::placeholder {
 }
 
 @media screen and (min-width: 1200px) {
+    .announcementbar_main{
+      font-size: 24px;
+    }
     .drawer-header .cart-heading {
         font-size: 28px;
     }

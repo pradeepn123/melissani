@@ -6,6 +6,7 @@ import {
   Hero,
   KeyFeatures,
   Carousel,
+  AnnouncementBar,
   ImageWithText,
   VideoPlayer,
   ImageCenterWithText,
@@ -72,6 +73,11 @@ export async function loader({ params, context }) {
   const goodbye = page.metafields.find(item => {
     if (item !== null) {
       return item.key == "goodbye"
+    }
+  })
+  const announcementbar = page.metafields.find(item => {
+    if (item !== null) {
+      return item.key == "announcement_bar"
     }
   })
 
@@ -153,6 +159,7 @@ export async function loader({ params, context }) {
     primaryHero: JSON.parse(hero?.value),
     features: features && JSON.parse(features?.value),
     goodbye: goodbye && JSON.parse(goodbye?.value),
+    announcementbar: announcementbar && JSON.parse(announcementbar?.value),
     advancedFiltration: advancedFiltration && JSON.parse(advancedFiltration?.value),
     filterClub: filterClub && JSON.parse(filterClub?.value),
     videoSection: videoSection && JSON.parse(videoSection?.value),
@@ -178,6 +185,7 @@ export default function Homepage() {
     featuredProducts,
     features,
     goodbye,
+    announcementbar,
     advancedFiltration,
     filterClub,
     videoSection,
@@ -211,6 +219,9 @@ export default function Homepage() {
 
       {goodbye && (
         <ImageWithText goodbye={goodbye} height="full" className="bg-grey xl:flex"/>)}
+    
+      {announcementbar && (
+        <AnnouncementBar announcementbar={announcementbar} height="full" />)}
 
       {advancedFiltration && (
         <Carousel data={advancedFiltration} className="home-carousel" />)}
@@ -259,6 +270,7 @@ const PAGE_QUERY = `#graphql
           { namespace: "global", key: "hero" }
           { namespace: "home", key: "features" }
           { namespace: "home", key: "goodbye" }
+          { namespace: "home", key: "announcement_bar" }
           { namespace: "global", key: "carousel" }
           { namespace: "home", key: "filter_club" }
           { namespace: "global", key: "video_section" }

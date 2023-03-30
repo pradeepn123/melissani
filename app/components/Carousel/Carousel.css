@@ -73,6 +73,10 @@
     transform: none !important;
 }
 
+#home-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider {
+    align-items: inherit;
+}
+
 .flickity-enabled .flickity-viewport .flickity-slider .slider {
     left: 0 !important;
     opacity: 0;
@@ -481,6 +485,10 @@
         font-size: 20px;
         line-height: 36px;
         width: 90%;
+    }
+
+    #home-carousel .right-slider-content {
+        margin: 0em auto;
     }
 
     .right-slider-content {
