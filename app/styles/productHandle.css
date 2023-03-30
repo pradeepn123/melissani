@@ -16,6 +16,7 @@
 
 .media-gallery {
   width: 56%;
+  max-width: 900px;
 }
 
 .product-content-description {
