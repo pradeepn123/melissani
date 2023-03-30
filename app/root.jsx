@@ -58,6 +58,7 @@ export const links = () => {
 export const meta = () => ({
   charset: 'utf-8',
   viewport: 'width=device-width,initial-scale=1',
+  "oke:subscriber_id": "a0ca6b07-0ad6-4495-9f6b-5a1ac98d0fe6"
 });
 
 export async function loader({context}) {
@@ -92,6 +93,7 @@ export default function App() {
         <Meta />
         <Links />
         <script id="gorgias-chat-widget-install-v2" src="https://config.gorgias.chat/gorgias-chat-bundle-loader.js?applicationId=28865"></script>
+        <script async src="https://d3hw6dc1ow8pp2.cloudfront.net/reviews-widget-plus/js/okendo-reviews.js"></script>
       </head>
       <body>
         <Layout
