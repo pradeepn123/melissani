@@ -19,6 +19,7 @@ const SubscriptionProductForm = (props) => {
     const [subscriptionProducts, setSubscriptionProducts] = useState([])
     const [oneTimeProducts, setOneTimeProducts] = useState([])
     const [amount, setAmount] = useState({price: 0, compareAtPrice: 0})
+    const [productAmount, setProductAmount] = useState(0)
     const [variantLineItems, setVariantLineItems] = useState([])
     const [isAddingToCart, setIsAddingToCart] = useState(false)
     const context = useContext(RequestContext)
@@ -42,10 +43,16 @@ const SubscriptionProductForm = (props) => {
         })
         setSubscriptionProducts(subscriptionItems)
         const oneTimeProducts = props.products.filter((p) => props.parsedProductDetails.linkedProducts.default.includes(p.handle))
+        var productAmountUnit = 0
         setOneTimeProducts(oneTimeProducts.map(oneTimeProduct => {
-            oneTimeProduct.quantity = 0
+            const firstVariant = oneTimeProduct.variants.nodes[0];
+            oneTimeProduct.quantity = 1
+
+            productAmountUnit += oneTimeProduct.quantity * firstVariant.price?.amount
             return oneTimeProduct
         }))
+        setProductAmount(productAmountUnit)
+
         setAmount({compareAtPrice: oneTimeProducts.reduce((acc, lineProduct) => {
             const firstVariant = lineProduct.variants.nodes[0];
             return acc + parseFloat(firstVariant.price?.amount)
@@ -54,7 +61,6 @@ const SubscriptionProductForm = (props) => {
     }, [])
 
     useEffect(() => {
-        // UpdateLineItems
         if (isSubscriptionSelected) {
             setVariantLineItems(subscriptionProducts)
         } else{
@@ -86,12 +92,16 @@ const SubscriptionProductForm = (props) => {
             return oneTimeProduct
         })
         setOneTimeProducts(updateOneTimeProducts)
+        var productAmountUnit = 0
         setVariantLineItems(updateOneTimeProducts.map((oneTimeProduct) => {
+            const firstVariant = oneTimeProduct.variants.nodes[0];
+            productAmountUnit += oneTimeProduct.quantity * firstVariant.price?.amount
             return {
                 merchandiseId: oneTimeProduct.variants.nodes[0].id,
                 quantity: oneTimeProduct.quantity
             }
         }).filter((productVariant) => productVariant.quantity > 0))
+        setProductAmount(productAmountUnit)
     }
 
     const openMembershipBenifitsDrawer = (e) => {
@@ -127,6 +137,16 @@ const SubscriptionProductForm = (props) => {
                     Filter Club Membership
                 </Heading>
                 <div className="product-price font-tertiary">
+                    <span className="stike-out">
+                        <Money
+                            data={{
+                                amount: amount.compareAtPrice.toFixed(2),
+                                currencyCode: 'USD'
+                            }}
+                            as="span"
+                        />
+                    </span>
+                    {" "}
                     <Money
                         data={{
                             amount: amount.price.toFixed(2),
@@ -177,7 +197,7 @@ const SubscriptionProductForm = (props) => {
                 <div className="product-price font-tertiary">
                     <Money
                         data={{
-                            amount: amount.compareAtPrice.toFixed(2),
+                            amount: productAmount.toFixed(2),
                             currencyCode: 'USD'
                         }}
                         as="span"

@@ -159,6 +159,7 @@ svg:focus {
 .stickybar_main_section.is-shown{
     transform: translateY(0);
     visibility: visible;
+    z-index: 100000000000000001;
 }
 .stickybar_main_section .stickybar_main_section_inner{
     display: flex;
