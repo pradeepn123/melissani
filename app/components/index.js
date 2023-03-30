@@ -39,6 +39,7 @@ export { Purifier } from './Purifier/Purifier';
 export { Contact } from './Contact/Contact';
 export { ProductRegistration } from './ProductRegistration/ProductRegistration';
 export { Filter } from './Filter/Filter';
+export { AnnouncementBar } from './AnnouncementBar';
 export { ProductHeader } from './ProductHeader/ProductHeader';
 export { ImageCarousel } from './ImageCarousel/ImageCarousel';
 export { MediaGallery } from './ImageCarousel/MediaGallery';

@@ -483,6 +483,10 @@
         width: 90%;
     }
 
+    #home-carousel .right-slider-content {
+        margin: 0em auto;
+    }
+    
     .right-slider-content {
         justify-content: right;
         margin: 2em auto;
