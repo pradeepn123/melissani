@@ -632,6 +632,8 @@ ul.filter-club-list {
     .filter-club-flex {
         display: flex;
         flex-direction: row-reverse;
+        margin-top: 6rem;
+        background: #E1E9EB;
     }
     .filter-club-description {
         width: 100%;
@@ -823,7 +825,7 @@ ul.filter-club-list {
     }
     .filter-club-img {
         width: 50%;
-        padding: 7em 0 2em 10em;
+        padding: 0;
     }
     .filter-club-section {
         padding: 6em 6em 4em;
@@ -841,11 +843,11 @@ ul.filter-club-list {
 @media screen and (min-width: 1536px) {
     .filter-club-section {
         padding: 2em 12em 0 6em;
-        width: 40%;
+        width: 50%;
     }
-    .filter-club-img img {
+    /* .filter-club-img img {
         padding: 0 0 5em 0em;
-    }
+    } */
     .text-section-description {
         padding: 0 8em 0 0;
     }

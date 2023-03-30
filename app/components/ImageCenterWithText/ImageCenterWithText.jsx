@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import {Button, Link} from '~/components';
 
 export function ImageCenterWithText({ installation, installationHeadingClassName, installationParaClassName }) {
     return (
@@ -15,6 +16,19 @@ export function ImageCenterWithText({ installation, installationHeadingClassName
         >
             <div className="desktop-convenience-section w-full">
                 <img src={installation.desktopImg} />
+                <div className="hero-text">
+                    <div dangerouslySetInnerHTML={{ __html: installation.rawHtml}}></div>
+                    {installation?.cta && <Link to={installation.subscribeBtnLink}>
+                        <Button variant='primary' className="font-medium">
+                            {installation.cta}
+                        </Button>
+                    </Link>}
+                    {installation?.learnMoreBtnText && <Link to={installation.learnMoreBtnLink}>
+                        <Button variant='inline' className="font-medium mx-10 fs-17 hero-learn-more-btn">
+                            {installation.learnMoreBtnText}
+                        </Button>
+                    </Link>}
+                </div>
             </div>
             <div className="relative mobile-convenience-section">
                 <img className="relative top-0 -left-0 w-full" src={installation.img} />
