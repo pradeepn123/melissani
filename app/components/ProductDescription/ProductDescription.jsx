@@ -22,15 +22,7 @@ export function ProductDescription ({
 }) {
 
     return <div>
-        <div className="okendo-star-rating-wraper">
-            <OkendoStarRating productId={productId} />
-            <a
-                href={`https://okendo.reviews/?subscriberId=a0ca6b07-0ad6-4495-9f6b-5a1ac98d0fe6&productId=shopify-${productId}&locale=en`}
-                target="__blank"
-            >
-                Write a Review
-            </a>
-        </div>
+        <OkendoStarRating productId={productId} />
         {isSubscriptionProduct ? <div className="hidden md:block subscriptipn-product-form-wrapper">
             <SubscriptionProductForm
                 parsedProductDetails={parsedProductDetails}
