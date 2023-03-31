@@ -466,8 +466,11 @@
 }
 
 @media screen and (min-width: 1280px) {
-    .slider {
+    .slider .left-slider-content{
         padding: 0 0 0 6em;
+    }
+    .slider {
+        padding: 0 0 0 0em;
     }
 
     .slider-heading {
@@ -508,7 +511,7 @@
 
 @media screen and (min-width: 1536px) {
     .slider {
-        padding: 0 0 0 8em;
+        padding: 0 0 0 0em;
     }
 }
 

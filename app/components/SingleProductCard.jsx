@@ -137,7 +137,7 @@ export function SingleProductCard({
           </AddToCartButton>
         )}
         {learnMore && <Link to="/pages/purifier">
-            Learn more
+            Discover
         </Link>}
       </div>
     </div>

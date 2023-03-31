@@ -21,7 +21,7 @@
   }
   
   .footer-image-section .footer-text {
-    padding: 8rem 0;
+    padding: 8rem 0 0;
   }
   
   .footer-contact-icons {
@@ -50,7 +50,7 @@
   
   .footer-menu {
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 20px;
     line-height: 24px;
   }
@@ -87,18 +87,35 @@
   }
   
   @media screen and (min-width: 1200px) {
+    .footer-image-section{
+      align-items: center;
+    }
+    .footer-image img{
+      height: 100%;
+      object-fit: cover;
+    }
+    .footer-image{
+      max-height: 550px;
+    }
+    .footer-image-section .footer-text {
+      padding: 0;
+      padding-left: 3rem;
+    }
     .footer-image-section .footer-text p {
       font-size: 52px;
       line-height: 56px;
     }
   
     .footer-image-section .footer-text p span {
-      padding-top: 20px;
-      font-size: 32px;
+      padding-top: 10px;
+      font-size: 20px;
     }
   }
   
   @media (min-width: 768px) and (max-width: 1024px) {
+    .footer-image-section .footer-text{
+      padding: 4rem 0 4em;
+    }
     .footer-image-section .footer-image {
       display: flex;
       align-items: flex-end;

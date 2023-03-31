@@ -105,9 +105,10 @@ svg:focus {
 
 .footer-menu {
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 20px;
   line-height: 24px;
+  font-family: 'Montserrat', sans-serif;
 }
 /* End: Footer Section */
 
@@ -830,15 +831,15 @@ form .field-input::placeholder {
   }
 }
 
-@media screen and (min-width:1681px){
+@media screen and (min-width:1920px){
   .page-width {
-    max-width: 1680px;
+    max-width: 1920px;
     margin: auto;
   }
 }
 @media screen and (max-width:1680px){
   .page-width {
-    max-width: 1680px;    
+    max-width: 1920px;
   }
 }
 
