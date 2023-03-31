@@ -299,6 +299,7 @@ iframe {
   font-weight: 400;
   font-size: 20px;
   line-height: 27px;
+  color: #000;
 }
 
 .cart-lines-wrapper .quantity-selector-btn {
@@ -313,6 +314,7 @@ iframe {
 
 .cart-lines-wrapper .cart-product-quantity {
   width: 50px;
+  color: #000;
 }
 
 .cart-lines-wrapper .cart-delete-btn {
@@ -399,7 +401,7 @@ iframe {
 
 .filter-club-text {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 21px;
   color: #000;
 }
@@ -623,15 +625,15 @@ form .field-input::placeholder {
         line-height: inherit;
     }
     .cart-lines-wrapper .cart-product-img-wrapper {
-        width: 160px;
-        height: 195px;        
+        width: 145px;
+        height: 180px;        
     }
     .cart-lines-wrapper .cart-product-title{
-        font-size: 28px;
+        font-size: 26px;
         line-height: 36px;
     }
     .cart-lines-wrapper {
-        padding: 50px 40px;
+        padding: 50px 30px;
     }
     .filter-club-membership-benefits ul {
         margin: 40px 0;

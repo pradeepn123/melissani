@@ -529,9 +529,13 @@ export function CartEmpty({hidden = false, layout = 'drawer', onClose}) {
           started!
         </Text>
         <div>
-          <Button onClick={onClose}>
-            Continue shopping
-          </Button>
+          <Link
+            to="products/melissani-m1-countertop-ro-system-water-purifier"
+          >
+            <Button onClick={onClose}>
+              Continue shopping
+            </Button>
+          </Link>
         </div>
       </section>
     </div>
