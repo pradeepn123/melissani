@@ -16,10 +16,10 @@ export function FaqAccordion({ item }) {
 
     return (
         <>        
-            <div className="accordion-main xl:w-8/12 pt-6 xl:pt-8" ref={accordionMain}>
+            <div className="accordion-main xl:w-8/12 sm:pt-0 xl:pt-0" ref={accordionMain}>
                 {(item?.contentinfo || []).map((content, index) => (
                 <div className="accordion-item" key={`faq-${index}`}>
-                    <div className="accordion-title py-4 accordion_heading md:text-3xl text-lg md:font-text-28 font-bold text-[#000000]">
+                    <div className="accordion-title pt-4 pb-3 accordion_heading md:text-3xl text-lg md:font-text-28 font-bold text-[#000000]">
                         <h5>{content.question}</h5>
                         <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M24.25 0.749965C11.2713 0.749964 0.750002 11.2713 0.750001 24.25C0.75 37.2287 11.2713 47.75 24.25 47.75C37.2287 47.75 47.75 37.2287 47.75 24.25C47.75 11.2713 37.2287 0.749965 24.25 0.749965Z" stroke="#1B2943" strokeWidth="1.5"/>

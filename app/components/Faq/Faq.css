@@ -100,7 +100,7 @@
 
 
 .accordion-main .accordion-item {
-    padding: 6px 0;
+    padding: 0 0 6px 0;
     border-bottom: 1px solid #D3D3D3;
 }
 .accordion-main .accordion-title {
@@ -142,9 +142,20 @@
 /* End: Faq Section */
 
 /* Begin: Media Query */
+@media screen and (max-width: 767px) {
+    .accordion-main .accordion-item .accordion-title svg,
+    .accordion-main .accordion-item.accordion-open .accordion-title svg
+    {
+        width: 28px;
+        height: 28px;
+    }
+    .accordion-main .accordion-title:first-of-type {
+        padding-top: 13px !important;
+    }
+}
 @media screen and (min-width:768px) {
     .accordion-main .accordion-item.accordion-open .accordion-body {
-        padding: 20px 0;
+        padding: 0 0 20px 0;
     }
     .accordion-main .accordion-item {
         padding: 16px 0;

@@ -30,7 +30,7 @@ export function ImageWithBlockOverlay({filterclub}) {
         >
             <div className="image_with_block_sec" id='image_with_block_sec'>
                 <div className="mx-auto">
-                    <div className="flex flex-col xl:flex-row">
+                    <div className="flex flex-col xl:flex-row xl:flex-wrap">
                     {(filterclub?.imagewithblockoverlay || []).map((content, index) => (
                         <div className={`image_with_block_sec_inner xl:w-4/12 ${index == 0 ? 'active' : '' }`} key={`imagewithblockoverlay-${index}`}>
                             <div className="image_wrapper_filter">
