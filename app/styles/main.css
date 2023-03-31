@@ -831,15 +831,10 @@ form .field-input::placeholder {
   }
 }
 
-@media screen and (min-width:1920px){
+@media(min-width:1980px){
   .page-width {
-    max-width: 1920px;
+    max-width: 1680px;
     margin: auto;
-  }
-}
-@media screen and (max-width:1680px){
-  .page-width {
-    max-width: 1920px;
   }
 }
 
