@@ -4,11 +4,6 @@
   gap: 2rem;
 }
 
-.page-width {
-  max-width: 1680px;
-  margin: auto;
-}
-
 .product-content {
   display: flex;
   flex-wrap: wrap;

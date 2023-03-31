@@ -35,7 +35,7 @@ export function ProductRegistration({data}) {
         return <section className='contact-section h-full'>
             <div className="card grid">
                 <h1 className="card-title font-primary">
-                    Thankyou for your's registration request.
+                    Thank you for your registration request.
                 </h1>
             </div>
         </section>
