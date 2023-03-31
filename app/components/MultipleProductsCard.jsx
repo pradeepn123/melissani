@@ -143,7 +143,7 @@ export function MultipleProductsCard({
                     </AddToCartButton>
                 )}
                 {learnMore && <Link to="/pages/melissani-club">
-                    Learn more
+                    Discover
                 </Link>}
             </div>
         </div>

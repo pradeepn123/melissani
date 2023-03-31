@@ -293,6 +293,13 @@
 }
 
 @media screen and (min-width: 1280px) {
+    #home-hero .hero-text {
+        background: rgb(255, 255, 255, 80%);
+        padding: 2rem;
+        transform: translate(-50%, -50%);
+        left: 25%;
+        width: 40%;
+    }
     .hero-text {
         top: 42%;
         left: 39%;
