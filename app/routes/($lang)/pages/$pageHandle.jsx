@@ -1,7 +1,7 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
-import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration, Filter, FooterContact} from '~/components';
+import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration, Filter, FooterContact, Section} from '~/components';
 import FaqStyles from '~/components/Faq/Faq.css';
 import AboutUsStyles from '~/components/About/About.css';
 import FilterClubStyles from '~/components/FilterClub/FilterClub.css';
@@ -304,24 +304,45 @@ export default function Page() {
   
   return (
     <>
-      {page.handle == 'faq' && (<>
+      {page.handle == 'faq' ? (<>
         <Faq data={parsed_faq} /><FooterContact data={parsed_footer_contact} />
-      </>)}
-      {page.handle == 'about-us' && (<>
+      </>) : 
+      page.handle == 'about-us' ? (<>
         <About data={parsed_about} /><FooterContact data={parsed_footer_contact} />
-      </>)}
-      {page.handle == 'melissani-club' && (<FilterClub hero={parsed_hero} data={parsed_faq} supportinfo={parsed_filterclubsupportinfo} 
-      filterclub={parsed_filterclub}  filterclubwarrenty={parsed_filterclubwarrenty} textwithbutton={parsed_textwithbutton} stickybarbottom={parsed_sticky_bar_bottom} />)}
-      {page.handle == 'purifier' && (
+      </>) :
+      page.handle == 'melissani-club' ? (
+        <FilterClub hero={parsed_hero} data={parsed_faq} supportinfo={parsed_filterclubsupportinfo} 
+        filterclub={parsed_filterclub}  filterclubwarrenty={parsed_filterclubwarrenty} textwithbutton={parsed_textwithbutton} stickybarbottom={parsed_sticky_bar_bottom} />
+      ) :
+      page.handle == 'purifier' ? (
         <Purifier installation={parsed_installation} hero={parsed_hero} temperature={parsed_temperature} volume={parsed_volume} 
         video_section={parsed_video_section} carousel={parsed_carousel} stickybarbottom={parsed_sticky_bar_bottom}/>
-      )}
-      {page.handle == 'contact' && (<Contact data={parsed_contact_form} />)}
-      {page.handle == 'product-registration' && (<ProductRegistration data={parsed_product_registration_form} />)}
-      {page.handle == 'melissani-m1-filter' && (
+      ) :
+      page.handle == 'contact' ? (
+        <Contact data={parsed_contact_form} />
+      ) :
+      page.handle == 'product-registration' ? (
+        <ProductRegistration data={parsed_product_registration_form} />
+      ) :
+      page.handle == 'melissani-m1-filter' ? (
         <Filter hero={parsed_hero} carousel={parsed_carousel} filterreplacementcycle={parsed_filterreplacementcycle} filter_changes={parsed_filter_changes} 
         video_section={parsed_video_section} stickybarbottom={parsed_sticky_bar_bottom}/>
-      )}
+      ) :
+      <Section
+        padding="all"
+        display="flex"
+        className="flex-col items-baseline w-full gap-8 md:flex-col lg:px-28 lg:py-12"
+      >
+        <h1 className="page-title grid items-start flex-grow gap-4 top-36">
+          {page.title}
+        </h1>
+        <div className="flex-grow w-full">
+          <div
+            dangerouslySetInnerHTML={{__html: page.body}}
+            className="page-description page-handle-style"
+          />
+        </div>
+      </Section>}
     </>
   );
 }
