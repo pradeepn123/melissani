@@ -9,49 +9,88 @@
     border: none;
 }
 
-/* Begin: Swiper */
+/* Begin: Flickity */
+.flickity-enabled {
+    outline: none;
+    overflow: hidden;
+    position: relative;
+}
 
-
-.swiper-button-prev ,.swiper-button-next  {
-    width: 42px !important;
-    height: 42px !important;
+.flickity-prev-next-button {
+    width: 45px;
+    height: 45px;
     border-radius: 50px;
     background: #1B2943;
     padding: 13.5px;
     position: absolute;
+    margin: 1em 1em 1em 2.8em;
     border: 3.23px solid #1B2943;
     bottom: 0;
 }
-.swiper-button-prev{
-    margin: 1em 1em 1em 2em;
-}
-.swiper-button-next  {
-    margin: 1em 2em 1em 1em;
-}
-.swiper-button-next:after, .swiper-button-prev:after {
-    color: #E1E9EB;
-    font-size: 14px !important;
-    font-weight: 900;
-}
 
-.swiper-button-prev:hover ,.swiper-button-next :hover {
+.flickity-prev-next-button:hover {
     background: #1B2943;
 }
 
-.swiper-button-disabled {
-    background:  #DBE3E9;
-    border: 3.23px solid  #DBE3E9;
-    opacity: 1 !important;
+.flickity-button:disabled {
+    background: #fff;
+    border: 3.23px solid #A9A9A9;
+    margin: 1em 1em 1em 2.8em;
 }
 
-
-.swiper-button-disabled:after{
-    color: #A9A9A9;
+.flickity-button:disabled .arrow {
+    fill: #A9A9A9;
 }
 
+/* arrow color */
+.flickity-prev-next-button .arrow {
+    fill: white;
+}
 
+.flickity-prev-next-button.no-svg {
+    color: white;
+}
 
-/* End: Swiper*/
+/* position outside */
+.flickity-prev-next-button.previous {
+    margin-left: auto;
+    left: 3em;
+    position: absolute;
+    bottom: 45%;
+}
+
+.flickity-prev-next-button.next {
+    margin-right: auto;
+    right: 3em;
+    position: absolute;
+    bottom: 45%;
+}
+
+/* Fade effect */
+.product-image-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider{
+    transform: none !important;
+}
+
+.product-image-carousel .flickity-enabled .flickity-viewport .flickity-slider {
+    transform: none !important;
+}
+
+.product-image-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider {
+    left: 0 !important;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease-in-out;
+}
+.product-image-carousel .flickity-enabled .flickity-viewport {
+    transform: scale(0.85);
+}
+
+.product-image-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider.is-selected {    
+    opacity: 1;
+    z-index: 0
+}
+
+/* End: Flickity */
 
 /* Begin: Box Contents Section */
 .box-content-section {
