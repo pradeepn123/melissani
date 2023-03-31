@@ -13,7 +13,7 @@ export function Contact({data}) {
         return <section className='contact-section h-full'>
             <div className="card grid">
                 <h1 className="card-title font-primary">
-                    Thankyou for Contacting us.
+                    Thank you for Contacting us.
                 </h1>
             </div>
         </section>

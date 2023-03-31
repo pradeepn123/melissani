@@ -130,7 +130,7 @@ export function Layout({children, layout}) {
         <main
           role="main"
           id="mainContent"
-          className="flex-grow"
+          className="flex-grow page-width"
         >
           {children}
         </main>
@@ -783,7 +783,7 @@ function Footer({menu, metafields}) {
       role="contentinfo"
       className={`footer-wrapper w-full bg-white overflow-hidden`}
     >
-      <div className={`bg-white flex md:justify-around text-center flex-col md:flex-row px-9 pt-9 pb-2`}>
+      <div className={`bg-white flex md:justify-around text-center flex-col lg:flex-row px-9 pt-9 pb-2`}>
         <FooterMenu menu={menu} />
       </div>
       <div className="bg-white social-section-wrapper flex items-center justify-center pt-7 pb-4">

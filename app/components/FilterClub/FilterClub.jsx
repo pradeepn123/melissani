@@ -6,10 +6,13 @@ import {
     TextWithButton,
     StickyBarBottom
 } from '~/components';
+
 import { FaqAccordion } from '../Faq/FaqAccordion';
+
 import { motion } from 'framer-motion';
+
   
-  export function FilterClub({hero, filterclub, supportinfo, textwithbutton, stickybarbottom, data, filterclubwarrenty}) {
+export function FilterClub({hero, filterclub, supportinfo, textwithbutton, stickybarbottom, data, filterclubwarrenty}) {
       return (
         <>
             {hero && (
@@ -32,34 +35,30 @@ import { motion } from 'framer-motion';
                 <TextWithButton textwithbutton={textwithbutton} height="full" top loading="eager" />
             )}
 
-            {(data?.tab_heading || []).map((item, index) => (
-                <>
-                    <motion.div 
-                        initial={{ opacity: 0, transform: "translateY(60px)" }}
-                        whileInView={{ opacity: 1, transform: "translateY(0px)" }}
-                        animate="visible"
-                        transition={{
-                        ease: "easeInOut",
-                        duration: 0.8,
-                            x: { duration: 1 }
-                        }}
-                        exit={{ opacity: 0, transform: "translateY(60px)" }}
-                        className='filter_club_faq w-full' key={`faq-${index}`}
-                    >
-                        <h2 className='filter_club_main_heading'>{item.text}</h2>
-                        <FaqAccordion item={item} />
-                        <div className="filterclub_extra_information">
-                            <p>{item.filterclub_extra_info}</p>
-                            <a href={item.filterclub_extra_link}>{item.filterclub_extra_label}</a>
-                        </div>
-                    </motion.div>
-                </>
-            ))}
+            {(data?.tab_heading || []).map((item, index) => (<motion.div 
+                initial={{ opacity: 0, transform: "translateY(60px)" }}
+                whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+                animate="visible"
+                transition={{
+                    ease: "easeInOut",
+                    duration: 0.8,
+                    x: { duration: 1 }
+                }}
+                exit={{ opacity: 0, transform: "translateY(60px)" }}
+                className='filter_club_faq w-full' key={`faq-${index}`}
+                key={`tab-heading-${index}`}
+            >
+                <h2 className='filter_club_main_heading'>{item.text}</h2>
+                <FaqAccordion item={item} />
+                <div className="filterclub_extra_information">
+                    <p>{item.filterclub_extra_info}</p>
+                    <a href={item.filterclub_extra_link}>{item.filterclub_extra_label}</a>
+                </div>
+            </motion.div>))}
 
-            {stickybarbottom && ( 
-                <StickyBarBottom stickybarbottom={stickybarbottom}/>
-            )}
-            
+            {stickybarbottom && <StickyBarBottom
+                stickybarbottom={stickybarbottom}
+            />}
         </>
-      )
-  }
+    )
+}
