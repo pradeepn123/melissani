@@ -27,13 +27,22 @@ import ProductHeaderStyles from '~/components/ProductHeader/ProductHeader.css';
 import ImageCarouselStyles from '~/components/ImageCarousel/ImageCarousel.css';
 import SpecificationStyles from '~/components/Specifications/Specifications.css';
 import ProductHandleStyles from '../../../styles/productHandle.css';
+import SwiperCss from "swiper/css";
+import SwiperFadeeffect from "swiper/css/effect-fade";
+import SwiperNavigation from "swiper/css/navigation";
+import SwiperPagination from "swiper/css/pagination";
+
 
 
 export const links = () => [
   {rel: 'stylesheet', href: ProductHeaderStyles},
   {rel: 'stylesheet', href: ImageCarouselStyles},
   {rel: 'stylesheet', href: SpecificationStyles},
-  {rel: 'styleSheet', href: ProductHandleStyles}
+  {rel: 'styleSheet', href: ProductHandleStyles},
+  {rel: 'styleSheet', href: SwiperCss},
+  {rel: 'styleSheet', href: SwiperFadeeffect},
+  {rel: 'styleSheet', href: SwiperNavigation},
+  {rel: 'styleSheet', href: SwiperPagination}
 ]
 
 const seo = ({data}) => {
