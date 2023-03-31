@@ -130,7 +130,7 @@ export function Layout({children, layout}) {
         <main
           role="main"
           id="mainContent"
-          className="flex-grow"
+          className="flex-grow page-width"
         >
           {children}
         </main>

@@ -6,6 +6,7 @@ const OkendoStarRating = (props) => {
 
   const initialiseReviewsWidget = () => {
     window.okeWidgetApi.initWidget(widgetContainer.current);
+    setShowWriteReview(true)
   }
 
   useEffect(() => {
@@ -16,14 +17,6 @@ const OkendoStarRating = (props) => {
       window.addEventListener('oke-script-loaded', initialiseReviewsWidget);
     }
   }, []);
-
-  useEffect(() => {
-    console.log(widgetContainer?.current.innerHTML)
-    if (widgetContainer?.current?.querySelector(".oke-is-clickable")) {
-      setShowWriteReview(true)
-    }
-    console.log()
-  }, [])
 
   return <div className="okendo-star-rating-wraper">
     <div

@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
   useCatch,
   useLoaderData,
+  useLocation,
   useMatches,
 } from '@remix-run/react';
 import {ShopifySalesChannel, Seo} from '@shopify/hydrogen';
@@ -83,6 +84,7 @@ export default function App() {
   const data = useLoaderData();
   const locale = data.selectedLocale ?? DEFAULT_LOCALE;
   const hasUserConsent = true;
+  const {pathname} = useLocation()
 
   useAnalytics(hasUserConsent, locale);
 
@@ -100,7 +102,7 @@ export default function App() {
           layout={data.layout}
           key={`${locale.language}-${locale.country}`}
         >
-          <Outlet />
+          <Outlet key={pathname}/>
         </Layout>
         <ScrollRestoration />
         <Scripts />

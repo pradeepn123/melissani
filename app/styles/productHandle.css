@@ -1,7 +1,12 @@
 /* Begin: Product Handle */
 .product-section {
   padding: 0;
-  gap: 1rem;
+  gap: 2rem;
+}
+
+.page-width {
+  max-width: 1680px;
+  margin: auto;
 }
 
 .product-content {
@@ -196,13 +201,11 @@ label.product-form-wrapper {
 /* Begin: Media Query */
 
 @media(min-width:1200px){
-  .subscriptipn-product-form-wrapper {
-    padding: 1rem 0;
-  }
   .product-content {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+
   .media-gallery .product__media-sticky .flickity-prev-next-button{
     width: 45px;
     height: 45px;
@@ -269,7 +272,11 @@ label.product-form-wrapper {
 }
 
 .subscription-form .subscription-title {
-  margin: 1rem auto;
+  margin: 0.5rem auto;
+}
+
+.okeReviews[data-oke-container] .oke-state, div.okeReviews .oke-state {
+  border-bottom: unset !important;
 }
 
 .subscription-form input[name="subscription-form"] {
