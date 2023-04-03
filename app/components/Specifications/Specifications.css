@@ -61,7 +61,7 @@
 /* Begin: Media Query */
 
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 820px) {
     .specifications-section {
         padding: 1.5em;
     }
@@ -88,7 +88,7 @@
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 900px) {
     .specification-content {
         column-gap: 2em;
     }
