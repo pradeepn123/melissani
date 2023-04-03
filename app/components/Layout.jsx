@@ -377,7 +377,7 @@ const FilterClubItemsModal = ({isOpen, open, onClose, filterClubItems, isCartOpe
               </div>
               <div className="flex items-center flex-grow include-benifits">
                 {line.quantity} X {line.merchandise.product.productType} / <span>
-                  {` Every ${line.merchandise.product.productType.includes("CR") ? "12" : "6"} months`}
+                  {` Every ${line.merchandise.product.productType.includes("CF") ? "12" : "6"} months`}
                 </span>
               </div>
             </li>)}
