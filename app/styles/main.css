@@ -929,3 +929,11 @@ form .field-input::placeholder {
   background-color: #FFF;
   opacity: 0.5;
 }
+
+.social-links > a > img {
+  transition: all .2s ease-in-out;
+}
+
+.social-links > a:hover > img {
+  transform: scale(1.2);
+}
