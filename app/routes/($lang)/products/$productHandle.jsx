@@ -27,13 +27,19 @@ import ProductHeaderStyles from '~/components/ProductHeader/ProductHeader.css';
 import ImageCarouselStyles from '~/components/ImageCarousel/ImageCarousel.css';
 import SpecificationStyles from '~/components/Specifications/Specifications.css';
 import ProductHandleStyles from '../../../styles/productHandle.css';
+ import SwiperCss from "swiper/css";
+import SwiperNavigation from "swiper/css/navigation";
+import SwiperPagination from "swiper/css/pagination";
 
 
 export const links = () => [
   {rel: 'stylesheet', href: ProductHeaderStyles},
   {rel: 'stylesheet', href: ImageCarouselStyles},
   {rel: 'stylesheet', href: SpecificationStyles},
-  {rel: 'styleSheet', href: ProductHandleStyles}
+  {rel: 'styleSheet', href: ProductHandleStyles},
+  {rel: 'styleSheet', href: SwiperCss},
+  {rel: 'styleSheet', href: SwiperNavigation},
+  {rel: 'styleSheet', href: SwiperPagination}
 ]
 
 const seo = ({data}) => {
@@ -163,9 +169,9 @@ export default function Product() {
           className="w-screen md:w-full lg:col-span-1 box-content-image-carousel"
         />}
 
-        {parsedProductDetails?.Specifications && <Specifications
+        {/* {parsedProductDetails?.Specifications && <Specifications
           data={parsedProductDetails.Specifications}
-        />}
+        />} */}
         <div className="okendo-reviews">
           <OkendoReviewsWidget productId={productId} />
         </div>
