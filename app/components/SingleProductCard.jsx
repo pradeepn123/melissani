@@ -132,7 +132,7 @@ export function SingleProductCard({
             onClick={handleAddToCartClick}
           >
             <Text as="span" className="flex items-center justify-center gap-2 normal-case font-tertiary fw-500">
-              {availableForSale ? 'Buy now' : 'Sold Out'}
+              {availableForSale ? 'Buy' : 'Sold Out'}
             </Text>
           </AddToCartButton>
         )}

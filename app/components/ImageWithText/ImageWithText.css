@@ -78,7 +78,7 @@
 .discover-icon-text {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    max-width: 108px;
+    max-width: 80%;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -256,7 +256,9 @@ ul.filter-club-list {
         font-size: 52px;
         font-weight: 300;
     }
-
+    .discover-main-section{
+        padding-top: 2em;
+    }
     .discover-main-section, .text-main-section {
         display: block;
     }
@@ -386,7 +388,7 @@ ul.filter-club-list {
     }
     .discover-section {
         width: 100%;
-        padding: 3em 1em;
+        padding: 2em 1em;
     }
     .discover-heading {
         font-size: 32px;
@@ -434,7 +436,7 @@ ul.filter-club-list {
 
 @media (min-width: 320px) and (max-width: 425px) {
     .filter-club-img {
-        padding: 5em 0 2em 0em;
+        padding: 2em 0 2em 0em;
     }
 
     .filter-club-title {
