@@ -19,7 +19,7 @@ import styles from './styles/app.css';
 import customStyles from './styles/main.css';
 import customFonts from './styles/custom-font.css';
 import cartClubMembershipStyles from './components/CartClubMembership/CartClubMembership.css'
-import favicon from '../public/favicon.svg';
+import favicon from '../public/favicon.png';
 
 import {DEFAULT_LOCALE, parseMenu} from './lib/utils';
 import invariant from 'tiny-invariant';
@@ -94,7 +94,7 @@ export default function App() {
         <Seo />
         <Meta />
         <Links />
-        <script id="gorgias-chat-widget-install-v2" src="https://config.gorgias.chat/gorgias-chat-bundle-loader.js?applicationId=28865"></script>
+        {/* <script id="gorgias-chat-widget-install-v2" src="https://config.gorgias.chat/gorgias-chat-bundle-loader.js?applicationId=28865"></script> */}
         <script async src="https://d3hw6dc1ow8pp2.cloudfront.net/reviews-widget-plus/js/okendo-reviews.js"></script>
       </head>
       <body>

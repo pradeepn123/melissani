@@ -218,7 +218,7 @@ export default function Homepage() {
         <KeyFeatures features={features} />)}
 
       {goodbye && (
-        <ImageWithText goodbye={goodbye} height="full" className="bg-grey xl:flex"/>)}
+        <ImageWithText goodbye={goodbye} height="full" className="bg-white xl:flex"/>)}
     
       {announcementbar && (
         <AnnouncementBar announcementbar={announcementbar} height="full" />)}
