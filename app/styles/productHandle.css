@@ -18,6 +18,16 @@
   width: 56%;
   max-width: 900px;
 }
+.okendo-reviews{
+  width: 100%;
+}
+.oke-w-header{
+  width: 100%;
+}
+.oke-is-small .oke-w-breakdownModule {
+  width: 90% !important;
+  max-width: 100% !important;
+}
 
 .product-content-description {
   width: 37%;

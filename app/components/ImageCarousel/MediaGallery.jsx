@@ -1,22 +1,35 @@
-import Flickity from 'react-flickity-component'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Image } from '@shopify/hydrogen';
+import {Navigation, Pagination} from "swiper";
 
 export function MediaGallery({ data }) {
 
     return <section className="media-gallery">
         <div className="product__media-sticky image-carousel">
-            <Flickity
-                options={{
-                    contain: false,
-                    percentPosition: true
+          
+                <Swiper
+                spaceBetween={0}
+                navigation={true}
+                pagination={{
+                    clickable: true,
                 }}
-            >
-                {data && data.map((item, index) => <div
-                    className="slider"
-                    key={`product-gallery-${index}`}
+                modules={[ Navigation, Pagination]}
+                    className="mySwiper"
                 >
-                    <img src={item.image.url} />
-                </div>)}
-            </Flickity>
+                    {data && data.map((item, index) => <div
+                        className="slider"
+                        key={`product-gallery-${index}`}
+                    >
+                        <SwiperSlide>
+                            <Image
+                                alt={`product-gallery-image${index}`}
+                                data={item.image}
+                            />
+                        </SwiperSlide>
+
+                    </div>)}
+                </Swiper>
+       
         </div>
     </section>
 }
