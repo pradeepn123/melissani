@@ -169,9 +169,9 @@ export default function Product() {
           className="w-screen md:w-full lg:col-span-1 box-content-image-carousel"
         />}
 
-        {/* {parsedProductDetails?.Specifications && <Specifications
+        {parsedProductDetails?.Specifications && <Specifications
           data={parsedProductDetails.Specifications}
-        />} */}
+        />}
         <div className="okendo-reviews">
           <OkendoReviewsWidget productId={productId} />
         </div>
