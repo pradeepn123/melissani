@@ -15,7 +15,7 @@ export function Purifier({installation, hero, temperature, volume, video_section
             <Hero data={hero} id="purifier-hero" height="full" top loading="eager" />
         )}
         {installation && (
-            <ImageCenterWithText installation={installation} installationHeadingClassName="installation-header" installationParaClassName="installation-para" />
+            <ImageCenterWithText id="purifier_plumber_free" installation={installation} installationHeadingClassName="installation-header" installationParaClassName="installation-para" />
         )}
         {temperature && (
             <ImageWithText temperature={temperature} className={"flex text-main-section"} height="full" top loading="eager" />

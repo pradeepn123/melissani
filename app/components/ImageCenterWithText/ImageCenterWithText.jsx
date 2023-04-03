@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import {Button, Link} from '~/components';
 
-export function ImageCenterWithText({ installation, installationHeadingClassName, installationParaClassName }) {
+export function ImageCenterWithText({ installation, installationHeadingClassName, installationParaClassName, id }) {
     return (
         <motion.section
             initial={{ opacity: 0, transform: "translateY(60px)" }}
@@ -13,6 +13,7 @@ export function ImageCenterWithText({ installation, installationHeadingClassName
                 x: { duration: 1 }
             }}
             exit={{ opacity: 0, transform: "translateY(60px)" }}
+            id={id}
         >
             <div className="desktop-convenience-section w-full">
                 <img src={installation.desktopImg} />
