@@ -30,11 +30,20 @@
     line-height: 24px;
     letter-spacing: 0em;
     width: 60%;
+    @media screen and (min-width: 540px) {
+        br  {
+            content: ' '
+        }
+        br:after {
+            content: ' '
+        }
+}
 }
 
 /* End: Key Features Section */
 
 /* Begin: Media Query */
+
 
 @media screen and (max-width: 767px) {
     .key-features-section {
@@ -80,6 +89,12 @@
 
     .key-feature-text {
         width: 100%;
+    }
+    .key-feature-text br {
+        content: ' ';
+    }
+    .key-feature-text br::after{
+        content: " ";
     }
 }
 

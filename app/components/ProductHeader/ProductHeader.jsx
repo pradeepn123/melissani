@@ -22,16 +22,17 @@ export function ProductHeader({ title, data }) {
             </div>
             <div className="product-key-features touch-auto">
                 <div className="key-features-inner">
-                    {dataItem.keyFeatures.map((item, index) => (
-                        <div className="key-feature" key={index}>
-                            <span className="key-feature-icon">
-                                <img src={item.iconImg} />
-                            </span>
-                            <span className="key-feature-text">
-                                {item.iconText}
-                            </span>
-                        </div>
-                    ))}
+                    {dataItem.keyFeatures.map((item, index) =><div className="key-feature" key={index}>
+                        <span className="key-feature-icon">
+                            <img src={item.iconImg} />
+                        </span>
+                        <span
+                            className="key-feature-text"
+                            dangerouslySetInnerHTML={{
+                                __html: item.iconText
+                            }}>
+                        </span>
+                    </div>)}
                 </div>
             </div>
         </section>

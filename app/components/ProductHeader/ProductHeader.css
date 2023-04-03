@@ -302,3 +302,17 @@
         line-height: 22px !important;
     }
 }
+@media screen and (min-width: 768px) {
+    .key-features-section {
+        padding: 4em 2em;
+        grid-column-gap: 1em;
+        grid-row-gap: 2em;
+    }
+    .key-feature-text br {
+        content: ' ';
+    }
+    .key-feature-text br::after{
+        content: " ";
+    }
+}
+
