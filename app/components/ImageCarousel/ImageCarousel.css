@@ -8,6 +8,7 @@
     width: 100% !important;
     border: none;
 }
+
 /* Begin: Swiper */
 @media screen and (max-width: 541px) {
     .swiper-button-prev ,.swiper-button-next  {
@@ -21,6 +22,7 @@
     .swiper-button-next  {
         margin-right: 2%;
     }
+
 
 }
 @media screen and (min-width: 541px) {
@@ -38,6 +40,10 @@
     position: absolute;
     border: 3.23px solid #1B2943;
     bottom: 0;
+}
+.swiper-pagination-bullet {
+    cursor: pointer;
+    background: #1B2943 !important;
 }
 
 .swiper-slide {
