@@ -31,7 +31,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
     row-gap: 0.5rem;
 }
 
@@ -47,17 +47,19 @@
 
 .specification-text .spec-description {
     font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
-    line-height: 33px;
+    line-height: 36px;
     letter-spacing: 0em;
     text-align: left;
     color: #000000;
+    width: max-content;
 }
 
 /* End: Specifications */
 
 /* Begin: Media Query */
+
 
 @media screen and (max-width: 540px) {
     .specifications-section {
@@ -78,51 +80,49 @@
     }
 
     .specification-text .spec-description {
-        font-size: 18px;
-        line-height: 24.59px;
+        font-size: 16px;
+        line-height: 22px;
     }
-    .column-three .spec-wrap:last-of-type {
+    .column-four .spec-wrap:last-of-type {
         margin-bottom: 0;
     }
 }
 
-@media screen and (max-width: 1024px) {
-    .specification-text .spec-description {
-        font-size: 18px;
-        line-height: 24.59px;
-    }
-}
-
 @media screen and (min-width: 768px) {
-    .specification-text:first-of-type {
-        margin-right: 68px;
+    .specification-content {
+        column-gap: 2em;
     }
-    .specification-text:nth-of-type(2) {
-        margin-right: 20px;
+    .specification-text .spec-title {
+        font-size: 12px;
+        line-height: 18px;
     }
-}
-
-@media screen and (min-width: 820px) {
-    .specification-text:nth-of-type(2) {
-        margin-right: 24px;
+    .specification-text .spec-description {
+        font-size: 14px;
+        line-height: 16px;
     }
 }
 
 @media screen and (min-width: 1280px) {
-    .specification-text:first-of-type {
-        margin-right: 98px;
+    .specification-content {
+        column-gap: 0;
     }
-}
-
-@media screen and (min-width: 1536px) {
-    .specification-text:first-of-type {
-        margin-right: calc(98px * 2);
+    .specification-text .spec-title {
+        font-size: 16px;
+        line-height: 22px;
     }
-
+    .specification-text .spec-description {
+        font-size: 20px;
+        line-height: 36px;
+    }
+    .specification-text:first-of-type {
+        margin-right: 80px;
+    }
     .specification-text:nth-of-type(2) {
-        margin-right: calc(20px * 4);
+        margin-right: 80px;
+    }
+    .specification-text:nth-of-type(3) {
+        margin-right: 99px;
     }
 }
-
 
 /* End: Media Query */

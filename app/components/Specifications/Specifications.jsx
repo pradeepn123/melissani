@@ -16,9 +16,11 @@ export function Specifications({data}) {
                         <p className="spec-title">
                             {spec_item.title}
                         </p>
-                        <p className="spec-description">
-                            {spec_item.description}
-                        </p>
+                        {spec_item.description.map((point, point_index) => 
+                            <p className="spec-description" key={point_index}>
+                                    {point}
+                            </p>
+                        )}
                     </div>)}
                 </div>
                 <div className="specification-text">
@@ -29,12 +31,14 @@ export function Specifications({data}) {
                         <p className="spec-title">
                             {spec_item.title}
                         </p>
-                        <p className="spec-description">
-                            {spec_item.description}
-                        </p>
+                        {spec_item.description.map((point, point_index) =>
+                            <p className="spec-description" key={point_index}>
+                                    {point}
+                            </p>
+                        )}
                     </div>)}
                 </div>
-                <div className="specification-text column-three">
+                <div className="specification-text">
                     {dataItem.spec_details_column3.map((spec_item, spec_index) => <div
                         className="spec-wrap"
                         key={`specifications-${spec_index}`}
@@ -42,9 +46,26 @@ export function Specifications({data}) {
                         <p className="spec-title">
                             {spec_item.title}
                         </p>
-                        <p className="spec-description">
-                            {spec_item.description}
+                        {spec_item.description.map((point, point_index) =>
+                            <p className="spec-description" key={point_index}>
+                                {point}
+                            </p>
+                        )}
+                    </div>)}
+                </div>
+                <div className="specification-text column-four">
+                    {dataItem.spec_details_column4.map((spec_item, spec_index) => <div
+                        className="spec-wrap"
+                        key={`specifications-${spec_index}`}
+                    >
+                        <p className="spec-title">
+                            {spec_item.title}
                         </p>
+                        {spec_item.description.map((point, point_index) =>
+                            <p className="spec-description" key={point_index}>
+                                    {point}
+                            </p>
+                        )}
                     </div>)}
                 </div>
             </div>
