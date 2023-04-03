@@ -25,7 +25,7 @@ export function ProductRegistration({data}) {
                 type={field_value_item.field_type}
                 id={field_value_item.id}
                 name={field_value_item.id}
-                className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500 field-input font-tertiary"
+                className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg sm:text-md field-input font-tertiary"
                 required
             />
         </div>)
@@ -77,7 +77,7 @@ export function ProductRegistration({data}) {
                                 <select
                                     id={field_value.id}
                                     name={field_value.id}
-                                    className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 field-input font-tertiary"
+                                    className="border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-4 field-input font-tertiary"
                                     required
                                 >
                                     {field_value.select_options.map((option_item, option_index) => <option

@@ -19,16 +19,18 @@
     height: 156px;
     display: inline-block;
     white-space: break-spaces;
+    outline: none;
 }
 .tabs_with_icons button[aria-selected="true"]{
     margin: 1rem 1.5rem;
-    border: 2px solid #CACACA;
+    border: 2px solid #1B2943;
     border-radius: 10px;
     width: 156px;
     height: 156px;
     display: inline-block;
     white-space: break-spaces;
     word-wrap: break-word;
+    outline: none;
 }
 .tabs_with_icons .p-4[role="tabpanel"]{
     padding: 0;

@@ -64,6 +64,7 @@
     align-items: center;
     column-gap: 0.5em;
     justify-content: flex-end;
+    flex-basis: 33.33%;
 }
 
 .key-feature-text {

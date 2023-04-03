@@ -39,6 +39,11 @@
     text-align: left;
 }
 
+.form .field-input:focus {
+    border-color: #1B2943;
+    --tw-ring-shadow: none;
+}
+
 .form .field-input::placeholder {
     font-family: var(--font-tertiary);
     font-size: 14px;

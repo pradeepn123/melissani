@@ -19,7 +19,7 @@ export function Carousel({ data, className }) {
             <Flickity
                 flickityRef={c => flkty = c}
                 options={{
-                    prevNextButtons: false
+                    prevNextButtons: true
                 }}
             >
                 {data && data.map((item, index) =>
@@ -34,7 +34,7 @@ export function Carousel({ data, className }) {
                             <p className="slider-description font-tertiary">
                                 {item.description}
                             </p>
-                            <div className="flickity-button-wrapper">
+                            {/* <div className="flickity-button-wrapper">
                                 <button className="flickity-button flickity-prev-next-button previous" onClick={() => flkty.previous()} disabled={index == 0}>
                                     <svg className="flickity-button-icon" viewBox="0 0 100 100">
                                         <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" className="arrow"></path>
@@ -45,7 +45,7 @@ export function Carousel({ data, className }) {
                                         <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" className="arrow" transform="translate(100, 100) rotate(180)"></path>
                                     </svg>
                                 </button>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="right-slider-content">
                             <img className="slider-image" src={item.image} alt={item.heading}/>
