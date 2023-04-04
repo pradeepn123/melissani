@@ -11,7 +11,7 @@
 
 /* Begin: Swiper */
 @media screen and (max-width: 541px) {
-    .swiper-button-prev ,.swiper-button-next  {
+    .swiper-button-prev ,.swiper-button-next{
        display: none !important;
        width: 10% !important;
        height: 11% !important;
@@ -19,7 +19,7 @@
     .swiper-button-prev{
         margin-left: 2%;
     }
-    .swiper-button-next  {
+    .swiper-button-next{
         margin-right: 2%;
     }
 
@@ -31,7 +31,7 @@
     }
 }
 
-.swiper-button-prev ,.swiper-button-next  {
+.swiper-button-prev, .swiper-button-next  {
     width: 42px !important;
     height: 42px !important;
     border-radius: 50px;
@@ -50,17 +50,16 @@
     background-position: center;
     background-size: cover;
     width: 100% !important;
-  }
-  .swiper {
+}
+.swiper {
     width: 100%;
     height: 100%;
-  }
+}
   
-  
-  .swiper-slide img {
+.swiper-slide img {
     display: block;
     width: 100%;
-  }
+}
 .swiper-button-next:after, .swiper-button-prev:after {
     color: #E1E9EB;
     font-size: 14px !important;
@@ -93,7 +92,7 @@
     max-height: 100vh;
     min-height: 0;
     min-width: 0;
-  }
+}
 
 /* End: Swiper*/
 /* Begin: Flickity */
@@ -212,8 +211,6 @@
     left: 50%;
 }
 
-
-
 .content-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
@@ -231,6 +228,12 @@
 
 /* Begin: Media Query */
 
+@media screen and (min-width: 1200px) {
+    .swiper-button-prev, .swiper-button-next{
+        width: 60px !important;
+        height: 60px !important;
+    }
+}
 @media screen and (min-width: 1536px) {
     .product-image-carousel .flickity-enabled .flickity-viewport {
         left: 5%;
@@ -392,20 +395,28 @@ ol.flickity-page-dots > li.dot::marker {
     .box-content-flickity .flickity-page-dots {
         bottom: 0;
     }
+    .box-content-flickity .slider .content-text{
+        margin-top: 1.25rem;
+        margin-bottom: 0;
+    }
 }
 
 @media screen and (max-width: 320px) {
     .box-content-flickity {
-        height: 470px !important;
+        height: 400px !important;
         padding-top: 0;
     }
 
     .box-content-flickity .flickity-viewport {
         transform: scale(.9);
-        top: 1.25em;
-        height: 435px !important;
+        top: 0;
+        height: 360px !important;
         padding-top: 0;
         position: relative;
+    }
+    .box-content-flickity .slider .content-text{
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }
 

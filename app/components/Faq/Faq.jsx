@@ -12,7 +12,7 @@ export function Faq({data}) {
       <>
         <section className='faq_section_wrapper w-full grid gap-8 p-6 py-8 md:p-8 lg:p-12 justify-items-start'>
             <div className="container mx-auto">
-                <h2 className="main_content_heading font-bold pb-16">{data.heading}</h2>
+                <h2 className="main_content_heading font-bold pb-6 md:pb-16">{data.heading}</h2>
                 <Tabs.Group className='flex justify-between tabs_with_icons'
                     aria-label="Tabs with icons"
                     >

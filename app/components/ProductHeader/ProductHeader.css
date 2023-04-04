@@ -48,7 +48,7 @@
 }
 
 .learn-more-btn:hover {
-    padding: 0.3rem 2em;
+    padding: .4rem 2.5em;
 }
 .product-key-features {
     border-left: 1px solid #DDDDDD;
@@ -253,7 +253,7 @@
 
     .learn-more-btn {
         font-size: 12px;
-        padding: .4rem 1.5em;
+        padding: .4rem 2.5em;
     }
 
     .product-key-features {

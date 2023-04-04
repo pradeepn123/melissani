@@ -101,6 +101,9 @@
     background-size:20px 18px;
     background-repeat:no-repeat;    
 }
+#purchase_date{
+    cursor: pointer;
+}
 /* End: Product Registration Section */
 
 /* Begin: Media Query */

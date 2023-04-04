@@ -267,6 +267,9 @@ label.product-form-wrapper {
   .cart-btn {
     padding: .5em;
   }
+  .product-form-wrapper {
+    padding: 22px 14px;
+  }
 }
 
 /* End: Media Query */
