@@ -1,13 +1,21 @@
+import { useState, useRef } from 'react';
+import {ArrowDown} from '~/components';
 
 export function Specifications({data}) {
+  const accordionRef = useRef(null);
+  const [openAccordion, setOpenAccordion] = useState(false);
+
   return (
     <>
     {data.map((dataItem, dataIndex) => 
         <section className="specifications-section" key={`specifications-data-${dataIndex}`}>
-            <h1 className="specification-heading">
-                {dataItem.title}
-            </h1>
-            <div className="specification-content">
+            <div className="specification-heading">
+                <h1>
+                    {dataItem.title}
+                </h1>
+                <ArrowDown className="arrow-down-icon" onClick={()=>setOpenAccordion(!openAccordion)} ref={accordionRef} />
+            </div>
+            {openAccordion || accordionRef && <div className="specification-content">
                 <div className="specification-text">
                     {dataItem.spec_details_column1.map((spec_item, spec_index) => <div
                         className="spec-wrap"
@@ -68,7 +76,7 @@ export function Specifications({data}) {
                         )}
                     </div>)}
                 </div>
-            </div>
+            </div>}
         </section>
     )}
     </>

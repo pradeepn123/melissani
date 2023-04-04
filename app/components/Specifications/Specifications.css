@@ -2,8 +2,12 @@
 .specifications-section {
     padding: 3em 4.5em;
 }
-
 .specification-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.specification-heading h1{
     font-family: 'Peachi-Bold';
     font-size: 52px;
     line-height: 77px;
@@ -12,7 +16,9 @@
     color: #000000;
     padding-bottom: 0.5em;
 }
-
+.specification-heading .arrow-down-icon {
+    display: none;
+}
 .specification-content {
     display: flex;
     flex-direction: row;
@@ -65,9 +71,12 @@
     .specifications-section {
         padding: 1.5em;
     }
-    .specification-heading {
+    .specification-heading h1{
         font-size: 39px;
         line-height: 57.6px;
+    }
+    .specification-heading .arrow-down-icon {
+        display: block;
     }
 
     .specification-content {
