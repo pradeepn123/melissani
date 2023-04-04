@@ -48,10 +48,6 @@ const seo = ({data}) => {
   );
 
   const variant = data.product.variants.nodes[0]
-  let reviewMetafield = data.product.metafields.find((metafield) => metafield.key == "summaryData")
-  if (reviewMetafield) {
-    reviewMetafield = JSON.parse(reviewMetafield.value)
-  }
 
   return {
     title: data?.product?.seo?.title ?? data?.product?.title,
@@ -82,12 +78,20 @@ const seo = ({data}) => {
       },
       "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": reviewMetafield?.reviewAverageValue || 5,
-          "ratingCount": reviewMetafield?.reviewCount || 2
+          "ratingValue": data.reviews.reduce((acc, review) => {
+            return acc + review.rating
+          }, 0) / data.reviews.length,
+          "ratingCount": data.reviews.length
       }
     },
   };
 };
+
+const getOkendoReview = async function (productId) {
+  let response = await fetch(`https://api.okendo.io/v1/stores/a0ca6b07-0ad6-4495-9f6b-5a1ac98d0fe6/products/shopify-${productId}/reviews`)
+  response = await response.json()
+  return response
+}
 
 export const handle = {
   seo,
@@ -120,6 +124,7 @@ export async function loader({params, request, context}) {
     throw new Response(null, {status: 404});
   }
 
+  const { reviews } = await getOkendoReview(product.id.replace("gid://shopify/Product/", ''))
   const recommended = getRecommendedProducts(context.storefront, product.id);
   const firstVariant = product.variants.nodes[0];
   const selectedVariant = product.selectedVariant ?? firstVariant;
@@ -141,6 +146,7 @@ export async function loader({params, request, context}) {
   return defer({
     product,
     shop,
+    reviews,
     recommended,
     analytics: {
       pageType: AnalyticsPageType.product,
@@ -294,7 +300,6 @@ const PRODUCT_QUERY = `#graphql
       }
       metafields(
         identifiers: [
-          { namespace: "okendo", key: "summaryData" },
           { namespace: "product", key: "product_details" }
         ]
       ) {
