@@ -13,6 +13,9 @@ export function About({data}) {
                             </div>
                         </div>
                     ))}
+                    <div className="text-center text-white about_heading_desc_info">
+                        <div dangerouslySetInnerHTML={{ __html: data.rawHtml}}></div>
+                    </div>
                 </div>
             </div>
             {/* <div className="image_main_wrapper h-full">
