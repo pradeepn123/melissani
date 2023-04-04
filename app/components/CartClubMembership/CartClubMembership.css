@@ -33,6 +33,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 1em;
+    transform: translateY(-14%);
 }
 
 .club-membership-content {
@@ -216,6 +217,7 @@ p.club-membership-bottom-text {
     }    
     .club-membership-container {
         padding: 0 2rem;
+        transform: translateY(-14%);
     }
     .club-membership-right-content {
         justify-content: flex-end;

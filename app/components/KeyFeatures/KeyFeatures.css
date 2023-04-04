@@ -36,6 +36,7 @@
 
 /* Begin: Media Query */
 
+
 @media screen and (max-width: 767px) {
     .key-features-section {
         display: grid;
@@ -70,7 +71,6 @@
         width: 80%;
     }
 }
-
 @media screen and (min-width: 768px) {
     .key-features-section {
         padding: 4em 2em;
@@ -81,6 +81,7 @@
     .key-feature-text {
         width: 100%;
     }
+  
 }
 
 @media screen and (min-width: 820px) {

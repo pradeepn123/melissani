@@ -353,6 +353,9 @@ label.product-form-wrapper {
 .one-time-product-row .quantity-field .text-black{
   font-family: 'Montserrat', sans-serif;
 }
+.disabled\:text-primary\/10:disabled{
+  color:  #a1a4b3 !important;
+}
 .subscription-add-to-cart {
   margin: 1.5rem auto;
 }
