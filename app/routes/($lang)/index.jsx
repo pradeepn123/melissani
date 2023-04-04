@@ -42,6 +42,17 @@ export const links = () => {
     {rel: 'stylesheet', href: FooterContactStyles}
   ]
 }
+
+const seo = ({data}) => ({
+  title: data?.seo?.title,
+  description: data?.seo?.description
+});
+
+export const handle = {
+  seo,
+};
+
+
 export async function loader({ params, context }) {
   const { language, country } = context.storefront.i18n;
 
@@ -55,7 +66,10 @@ export async function loader({ params, context }) {
   }
 
   const { page } = await context.storefront.query(PAGE_QUERY, {
-    variables: { handle: 'home' }
+    variables: {
+      handle: 'home',
+      language: context.storefront.i18n.language,
+    }
   })
 
   const hero = page.metafields.find(item => {
@@ -176,6 +190,7 @@ export async function loader({ params, context }) {
     analytics: {
       pageType: AnalyticsPageType.home,
     },
+    seo: page.seo
   });
 }
 
@@ -265,6 +280,10 @@ export default function Homepage() {
 const PAGE_QUERY = `#graphql
   query getPageByHandle($handle: String!) {
     page(handle: $handle) {
+      seo {
+        description
+        title
+      }
       metafields(
         identifiers: [
           { namespace: "global", key: "hero" }
