@@ -26,7 +26,7 @@
     padding: 2rem;
 }
 
-#home-hero .hero-text h1, #home-hero .hero-banner-subtitle{
+#home-hero .hero-banner-title, #home-hero .hero-banner-subtitle{
     color: #1B2943;
 }
 
@@ -213,7 +213,7 @@
         font-size: 20px;
     }
 
-    #purifier-hero .hero-banner-title {
+    #purifier-hero .hero-banner-title, #home-hero .hero-banner-title {
         font-size: 32px;
     }
 }
