@@ -141,7 +141,7 @@ svg:focus {
   padding-bottom: 8rem;
 }
 .sticky-product-footer-attached {
-  padding-bottom: 6rem;
+  padding-bottom: 8rem;
 }
 .stickybar_main_section{
     position: fixed;
@@ -612,6 +612,9 @@ form .field-input::placeholder {
   letter-spacing: 0px;
   text-decoration: underline;
 }
+.okendo-reviews {
+  padding: 0 1rem;
+}
 
 /* End: Common Styles */
 
@@ -725,7 +728,7 @@ form .field-input::placeholder {
   .modal-close svg {
     width: 24px;
     height: 24px;
-  }
+  }  
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
