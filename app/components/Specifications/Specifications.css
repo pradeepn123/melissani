@@ -6,6 +6,7 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
+    border-bottom: 1px solid #DDDDDD;
 }
 .specification-heading h1{
     font-family: 'Peachi-Bold';
@@ -22,7 +23,6 @@
 .specification-content {
     display: flex;
     flex-direction: row;
-    border-top: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
     padding: 2.5em 0 2.3em 0;
 }
@@ -81,6 +81,7 @@
 
     .specification-content {
         flex-direction: column;
+        display: flex;
     }
 
     .specification-text .spec-title {

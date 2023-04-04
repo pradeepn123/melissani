@@ -4,7 +4,7 @@ import {ArrowDown} from '~/components';
 export function Specifications({data}) {
   const accordionRef = useRef(null);
   const [openAccordion, setOpenAccordion] = useState(false);
-
+  
   return (
     <>
     {data.map((dataItem, dataIndex) => 
@@ -13,7 +13,7 @@ export function Specifications({data}) {
                 <h1>
                     {dataItem.title}
                 </h1>
-                <ArrowDown className="arrow-down-icon" onClick={()=>setOpenAccordion(!openAccordion)} ref={accordionRef} />
+                <ArrowDown className="arrow-down-icon" ref={accordionRef} onClick={()=>setOpenAccordion(!openAccordion)}  />
             </div>
             {openAccordion || accordionRef && <div className="specification-content">
                 <div className="specification-text">
