@@ -47,6 +47,12 @@ const seo = ({data}) => {
     (media) => media.mediaContentType === 'IMAGE',
   );
 
+  const variant = data.product.variants.nodes[0]
+  let reviewMetafield = data.product.metafields.find((metafield) => metafield.key == "summaryData")
+  if (reviewMetafield) {
+    reviewMetafield = JSON.parse(reviewMetafield.value)
+  }
+
   return {
     title: data?.product?.seo?.title ?? data?.product?.title,
     media: media?.image,
@@ -56,6 +62,29 @@ const seo = ({data}) => {
       '@type': 'Product',
       brand: data?.product?.vendor,
       name: data?.product?.title,
+      image: media?.image?.url,
+      description: data?.product?.seo?.description ?? data?.product?.description,
+      mpn: data?.product?.id,
+      brand: {
+        "@type": "Brand",
+        "name": data?.product?.vendor
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": variant?.price?.currencyCode,
+        "price": variant?.price?.amount,
+        "priceValidUntil": "2023-06-17",
+        "availability": "InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": data?.shop?.name
+        }
+      },
+      "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": reviewMetafield?.reviewAverageValue || 5,
+          "ratingCount": reviewMetafield?.reviewCount || 2
+      }
     },
   };
 };
@@ -235,6 +264,10 @@ const PRODUCT_QUERY = `#graphql
     $selectedOptions: [SelectedOptionInput!]!
   ) @inContext(country: $country, language: $language) {
     product(handle: $handle) {
+      seo {
+        description
+        title
+      }
       id
       title
       vendor
@@ -261,6 +294,7 @@ const PRODUCT_QUERY = `#graphql
       }
       metafields(
         identifiers: [
+          { namespace: "okendo", key: "summaryData" },
           { namespace: "product", key: "product_details" }
         ]
       ) {
