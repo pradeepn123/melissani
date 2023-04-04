@@ -4,31 +4,31 @@ import FaqStyles from '~/components/Faq/Faq.css';
 
 export const links = () => {
     return [
-      {rel: 'stylesheet', href: FaqStyles}    
+        { rel: 'stylesheet', href: FaqStyles }
     ]
 }
-export function Faq({data}) {
+export function Faq({ data }) {
     return (
-      <>
-        <section className='faq_section_wrapper w-full grid gap-8 p-6 py-8 md:p-8 lg:p-12 justify-items-start'>
-            <div className="container mx-auto">
-                <h2 className="main_content_heading font-bold pb-6 md:pb-16">{data.heading}</h2>
-                <Tabs.Group className='flex justify-between tabs_with_icons'
-                    aria-label="Tabs with icons"
+        <>
+            <section className='faq_section_wrapper w-full grid gap-8 p-6 py-8 md:p-8 lg:p-12 justify-items-start'>
+                <div className="container mx-auto">
+                    <h2 className="main_content_heading font-bold pb-6 md:pb-16">{data.heading}</h2>
+                    <Tabs.Group className='flex justify-between tabs_with_icons'
+                        aria-label="Tabs with icons"
                     >
-                    {(data?.tab_heading || []).map((item, index) => (
-                        <Tabs.Item key={`faq-${index}`} active={true} title={
-                            <div className='flex flex-col text-sm items-center text-[#1376BC] icon_with_text'>
-                                <img src={item.icon} alt=''/>
-                                <p className='tab__title font-extrabold text-base text-[#1376BC]'>{item.text}</p>
-                            </div>
-                        }>
-                            <FaqAccordion item={item} />
-                        </Tabs.Item>
-                    ))}
-                </Tabs.Group>
-            </div>
-        </section>
-      </>
+                        {(data?.tab_heading || []).map((item, index) => (
+                            <Tabs.Item key={`faq-${index}`} active={true} title={
+                                <div className='flex flex-col text-sm items-center text-[#1376BC] icon_with_text'>
+                                    <img src={item.icon} alt={`${item.text} icon`} />
+                                    <p className='tab__title font-extrabold text-base text-[#1376BC]'>{item.text}</p>
+                                </div>
+                            }>
+                                <FaqAccordion item={item} />
+                            </Tabs.Item>
+                        ))}
+                    </Tabs.Group>
+                </div>
+            </section>
+        </>
     );
-  }
+}
