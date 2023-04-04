@@ -71,7 +71,18 @@
         width: 80%;
     }
 }
+@media screen and (min-width: 768px) {
+    .key-features-section {
+        padding: 4em 2em;
+        grid-column-gap: 1em;
+        grid-row-gap: 2em;
+    }
 
+    .key-feature-text {
+        width: 100%;
+    }
+  
+}
 
 @media screen and (min-width: 820px) {
     .key-features-section {
