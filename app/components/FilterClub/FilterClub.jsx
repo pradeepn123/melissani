@@ -1,6 +1,5 @@
 import {
     Hero,
-    ImageWithBlockOverlay,
     ImageWithText,
     FilterClubSupportInfo,
     TextWithButton,
@@ -13,7 +12,7 @@ import { FaqAccordion } from '../Faq/FaqAccordion';
 import { motion } from 'framer-motion';
 
   
-export function FilterClub({hero, filterclub, supportinfo, textwithbutton, stickybarbottom, data, filterclubwarrenty, features}) {
+export function FilterClub({hero, supportinfo, textwithbutton, stickybarbottom, data, filterclubwarrenty, features}) {
       return (
         <>
             {hero && (
@@ -22,10 +21,6 @@ export function FilterClub({hero, filterclub, supportinfo, textwithbutton, stick
 
             {features && (
                 <KeyFeatures features={features} className="filter-features" />
-            )}
-            
-            {filterclub && (
-                <ImageWithBlockOverlay filterclub={filterclub} height="full" top loading="eager" />
             )}
 
             {filterclubwarrenty && (
