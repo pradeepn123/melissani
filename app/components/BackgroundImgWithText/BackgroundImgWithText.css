@@ -56,17 +56,7 @@
     display: block;
 }
 
-@media (min-width: 600px) {
-    .background_image_section .text_wrapper_section .text_wrapper_section_inner h2{
-        width: 70%;
-    }
-}
-
 @media(min-width:1200px){
-    .background_image_section .text_wrapper_section .text_wrapper_section_inner p{
-        width: 70%;
-    }
-    
     .background_image_section .desktop-img {
         display: block;
     }
@@ -83,6 +73,8 @@
         color: #ffffff;
     }
     .background_image_section .text_wrapper_section .text_wrapper_section_inner p{
+        font-size: 20px;
+        line-height: 30px;
         color: #ffffff;
     }
     .background_image_section .text_wrapper_section .text_wrapper_section_inner .block_icon_text__wrapper li{
@@ -102,10 +94,6 @@
         height: 100%;
         padding: 4rem;
     }
-    .background_image_section .text_wrapper_section .text_wrapper_section_inner p{        
-        font-size: 20px;
-        line-height: 30px;
-    }
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
@@ -119,6 +107,14 @@
     .background_image_section .text_wrapper_section .text_wrapper_section_inner h2 {
         font-size: 64px;
         line-height: 77px;
+    }
+
+    .background_image_section .text_wrapper_section .text_wrapper_section_inner p {
+        width: 70%;
+    }
+
+    .background_image_section .text_wrapper_section .text_wrapper_section_inner h2{
+        width: 70%;
     }
 }
 
