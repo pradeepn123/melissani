@@ -208,6 +208,16 @@
     }
 }
 
+@media (max-width: 360px) {
+    #purifier-hero .hero-banner-subtitle {
+        font-size: 20px;
+    }
+
+    #purifier-hero .hero-banner-title {
+        font-size: 32px;
+    }
+}
+
 @media screen and (min-width: 390px) {
     #filter_membership_hero .mobile-heading-wrapper .hero-banner-subtitle {
         font-size: 24px;
