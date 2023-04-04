@@ -172,9 +172,9 @@ export default function Product() {
         {parsedProductDetails?.Specifications && <Specifications
           data={parsedProductDetails.Specifications}
         />}
-        <div className="okendo-reviews">
+        <section className="okendo-reviews">
           <OkendoReviewsWidget productId={productId} />
-        </div>
+        </section>
         <ProductStickyBar
           products={products}
           selectedVariant={selectedVariant}

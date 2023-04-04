@@ -26,13 +26,14 @@ import invariant from 'tiny-invariant';
 import {useAnalytics} from './hooks/useAnalytics';
 import { PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
 
-const seo = ({data, pathname}) => ({
+const seo = ({data, pathname}) => {
+  return {
   title: data?.layout?.shop?.name,
   titleTemplate: '%s',
   description: data?.layout?.shop?.description,
   handle: '@shopify',
-  url: `https://shop${pathname}`,
-});
+  url: `https://melissaniwater.com${pathname}`,
+}};
 
 export const handle = {
   seo,

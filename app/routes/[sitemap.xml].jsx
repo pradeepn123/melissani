@@ -18,8 +18,8 @@ export async function loader({request, context: {storefront}}) {
     {
       headers: {
         'content-type': 'application/xml',
-        // Cache for 24 hours
-        'cache-control': `max-age=${60 * 60 * 24}`,
+        // Cache for 3 hours
+        'cache-control': `max-age=${60 * 60 * 3}`,
       },
     },
   );
@@ -29,6 +29,7 @@ function shopSitemap({data, baseUrl}) {
   const productsData = flattenConnection(data.products)
     .filter((product) => product.onlineStoreUrl)
     .map((product) => {
+      console.log(product.tags, product.tags.includes("hydrogen-channel"))
       const url = `${baseUrl}/products/${product.handle}`;
 
       const finalObject = {
@@ -54,17 +55,17 @@ function shopSitemap({data, baseUrl}) {
       return finalObject;
     });
 
-  const collectionsData = flattenConnection(data.collections)
-    .filter((collection) => collection.onlineStoreUrl)
-    .map((collection) => {
-      const url = `${baseUrl}/collections/${collection.handle}`;
-
-      return {
-        url,
-        lastMod: collection.updatedAt,
-        changeFreq: 'daily',
-      };
-    });
+//  const collectionsData = flattenConnection(data.collections)
+//    .filter((collection) => collection.onlineStoreUrl)
+//    .map((collection) => {
+//      const url = `${baseUrl}/collections/${collection.handle}`;
+//
+//      return {
+//        url,
+//        lastMod: collection.updatedAt,
+//        changeFreq: 'daily',
+//      };
+//    });
 
   const pagesData = flattenConnection(data.pages)
     .filter((page) => page.onlineStoreUrl)
@@ -78,7 +79,9 @@ function shopSitemap({data, baseUrl}) {
       };
     });
 
-  const urlsDatas = [...productsData, ...collectionsData, ...pagesData];
+//  console.log(productsData)
+
+  const urlsDatas = [...productsData, ...pagesData];
 
   return `
     <urlset
@@ -122,6 +125,7 @@ const SITEMAP_QUERY = `#graphql
         handle
         onlineStoreUrl
         title
+        tags
         featuredImage {
           url
           altText
