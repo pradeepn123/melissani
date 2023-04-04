@@ -4,7 +4,8 @@ import {
     ImageWithText,
     FilterClubSupportInfo,
     TextWithButton,
-    StickyBarBottom
+    StickyBarBottom,
+    KeyFeatures
 } from '~/components';
 
 import { FaqAccordion } from '../Faq/FaqAccordion';
@@ -12,11 +13,15 @@ import { FaqAccordion } from '../Faq/FaqAccordion';
 import { motion } from 'framer-motion';
 
   
-export function FilterClub({hero, filterclub, supportinfo, textwithbutton, stickybarbottom, data, filterclubwarrenty}) {
+export function FilterClub({hero, filterclub, supportinfo, textwithbutton, stickybarbottom, data, filterclubwarrenty, features}) {
       return (
         <>
             {hero && (
                 <Hero data={hero} height="full" id="filter_membership_hero" top loading="eager" />
+            )}
+
+            {features && (
+                <KeyFeatures features={features} className="filter-features" />
             )}
             
             {filterclub && (

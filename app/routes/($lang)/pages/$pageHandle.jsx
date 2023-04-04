@@ -19,6 +19,7 @@ import ContactStyles from '~/components/Contact/Contact.css';
 import ProductRegistrationStyles from '~/components/ProductRegistration/ProductRegistration.css';
 import CarouselStyles from '~/components/Carousel/Carousel.css';
 import FooterContactStyles from '~/components/FooterContact/FooterContact.css';
+import KeyFeaturesStyles from '~/components/KeyFeatures/KeyFeatures.css';
 
 export const links = () => {
   return [
@@ -38,7 +39,8 @@ export const links = () => {
     {rel: 'stylesheet', href: ContactStyles},
     {rel: 'stylesheet', href: ProductRegistrationStyles},
     {rel: 'stylesheet', href: CarouselStyles},
-    {rel: 'stylesheet', href: FooterContactStyles}
+    {rel: 'stylesheet', href: FooterContactStyles},
+    {rel: 'stylesheet', href: KeyFeaturesStyles}
   ]
 }
 
@@ -167,6 +169,12 @@ export async function loader({request, params, context}) {
     }
   })
 
+  const features = (page.handle == 'melissani-club') && page.metafields.find(item => {
+    if(item !== null) {
+      return item.key == "features"
+    }
+  })
+
   const footer_contact = (page.handle == 'about-us' || page.handle == 'faq') && page.metafields.find(item => {
     if(item !== null) {
       return item.key == "footer_contact"
@@ -193,7 +201,8 @@ export async function loader({request, params, context}) {
       supportinfo,
       textwithbutton,
       sticky_bar_bottom,
-      footer_contact
+      footer_contact,
+      features
     },
     {
       headers: {
@@ -223,12 +232,14 @@ export default function Page() {
     textwithbutton,
     sticky_bar_bottom,
     filterclubwarrenty,
-    footer_contact
+    footer_contact,
+    features
   } = useLoaderData();
 
   let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, 
     parsed_about, parsed_carousel, parsed_contact_form, parsed_product_registration_form, parsed_filter_changes, 
-    parsed_filterclub, parsed_filterclubsupportinfo, parsed_textwithbutton, parsed_filterreplacementcycle, parsed_filterclubwarrenty, parsed_sticky_bar_bottom, parsed_footer_contact;
+    parsed_filterclub, parsed_filterclubsupportinfo, parsed_textwithbutton, parsed_filterreplacementcycle, 
+    parsed_filterclubwarrenty, parsed_sticky_bar_bottom, parsed_footer_contact, parsed_features;
   
   if(faq) {
     parsed_faq = JSON.parse(faq?.value);
@@ -301,6 +312,10 @@ export default function Page() {
   if(footer_contact) {
     parsed_footer_contact = JSON.parse(footer_contact?.value);
   }
+
+  if(features) {
+    parsed_features = JSON.parse(features?.value);
+  }
   
   return (
     <>
@@ -312,7 +327,8 @@ export default function Page() {
       </>) :
       page.handle == 'melissani-club' ? (
         <FilterClub hero={parsed_hero} data={parsed_faq} supportinfo={parsed_filterclubsupportinfo} 
-        filterclub={parsed_filterclub}  filterclubwarrenty={parsed_filterclubwarrenty} textwithbutton={parsed_textwithbutton} stickybarbottom={parsed_sticky_bar_bottom} />
+        filterclub={parsed_filterclub}  filterclubwarrenty={parsed_filterclubwarrenty} textwithbutton={parsed_textwithbutton} 
+        stickybarbottom={parsed_sticky_bar_bottom} features={parsed_features} />
       ) :
       page.handle == 'purifier' ? (
         <Purifier installation={parsed_installation} hero={parsed_hero} temperature={parsed_temperature} volume={parsed_volume} 
@@ -377,8 +393,9 @@ const PAGE_QUERY = `#graphql
           { namespace: "filterclub", key: "filter_club_warrenty" },
           { namespace: "filterclub", key: "filter_club_support_info" },
           { namespace: "filterclub", key: "text_with_button" },
-          { namespace: "global", key: "sticky_bar_bottom" }
-          { namespace: "global", key: "footer_contact" }
+          { namespace: "global", key: "sticky_bar_bottom" },
+          { namespace: "global", key: "footer_contact" },
+          { namespace: "home", key: "features" }
         ]
       ) {
         value

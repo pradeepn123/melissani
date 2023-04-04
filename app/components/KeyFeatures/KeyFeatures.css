@@ -135,6 +135,9 @@
     .key-feature-text {
         width: 75%;
     }
+    .filter-features.key-features-section {
+        grid-column-gap: 6em;
+    }
 }
 
 /* End: Media Query */

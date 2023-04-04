@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 
-export function KeyFeatures({features}) {
+export function KeyFeatures({features, className}) {
 
   return (
-      <div className="key-features-section">
+      <div className={`${className ? className + " key-features-section" : "key-features-section"}`}>
           {features && features.map((feature, index) => (
           <motion.span 
           initial={{ opacity: 0, transform: "translateY(60px)" }}
