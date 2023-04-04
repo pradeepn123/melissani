@@ -91,6 +91,7 @@
 @media screen and (min-width: 1200px) {
   .footer-image-section{
     align-items: center;
+    position: relative;
   }
   .footer-image img{
     height: 100%;
