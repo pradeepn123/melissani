@@ -212,9 +212,7 @@
     left: 50%;
 }
 
-.box-content img.content-image {
-    height: 100%;
-}
+
 
 .content-text {
     font-family: 'Montserrat', sans-serif;
@@ -274,6 +272,7 @@
     .key-features-inner {
         display: flex;
         margin: auto;
+        width: 90%;
     }
     .box-content-flickity {
         display: none;

@@ -336,7 +336,7 @@ const FilterClubBenifitsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
     <div className="grid grid-cols-1 grid-rows-[1fr_auto]">
       <div className="filter-club-membership-benefits-small">
           <ul className='px-4 sm:px-8 md:px-8'>
-            <li>10% Discount on filters</li>
+            <li>10% Discount</li>
             <li>1 year extended warranty</li>
             <li>Free Shipping</li>
             <li>Automated delivery</li>
