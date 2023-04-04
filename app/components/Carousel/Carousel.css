@@ -302,22 +302,23 @@
     }
 
     .slider-description {
-        height: 140px;
+        height: 100px;
         overflow-y: scroll;
     }
 }
 
 @media (min-width:767px) and (max-width:1023px) {
     .slider {
-        padding: 5em 0 4em 4em;
+        padding: 0 0 0 4em;
     }
 
     .left-slider-content {
-        margin: 0 0 3em;
+        margin: 0 0 1em;
         width: 50%;
         display: flex;
         flex-direction: column;
         row-gap: 1em;
+        padding-right: 20px;
     }
 
     .slider-heading {
@@ -361,7 +362,15 @@
     }
 
     .filter-carousel .left-slider-content {
-        padding: 2em 0 1em 4em;
+        padding: 2em 1em 1em 4em;
+    }
+
+    .home-carousel .slider-description {
+        line-height: 20px;
+    }
+
+    .home-carousel .left-slider-content {
+        row-gap: 0.5em;
     }
 }
 
