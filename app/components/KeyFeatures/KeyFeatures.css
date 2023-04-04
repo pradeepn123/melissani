@@ -58,6 +58,27 @@
         text-align: center;
         width: 100%;
     }
+
+    .filter-features.key-features-section {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+    }
+
+    .filter-features .key-feature {
+        flex-direction: row;
+    }
+
+    .filter-features .key-feature-text {
+        width: fit-content;
+        margin-top: 0;
+        margin-left: 25px;
+        font-size: 18px;
+    }
+
+    .filter-features .key-feature-icon img {
+        width: 73px;
+        height: 73px;
+    }
 }
 
 @media screen and (max-width: 540px) {
@@ -71,6 +92,14 @@
         width: 80%;
     }
 }
+
+@media (max-width: 360px) {
+    .filter-features .key-feature-text {
+        margin-left: 20px;
+        font-size: 16px;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .key-features-section {
         padding: 4em 2em;
@@ -134,6 +163,9 @@
     }
     .key-feature-text {
         width: 75%;
+    }
+    .filter-features.key-features-section {
+        grid-column-gap: 6em;
     }
 }
 
