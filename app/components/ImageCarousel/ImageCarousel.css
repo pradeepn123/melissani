@@ -268,7 +268,7 @@
     }
 }
 
-@media screen and (min-width: 541px) {
+@media screen and (min-width: 768px) {
     .flickity-page-dots {
         display: none;
     }
@@ -280,6 +280,14 @@
     .box-content-flickity {
         display: none;
     } 
+}
+@media screen and (min-width: 913px) {
+    .key-features-inner {
+        display: flex;
+        margin: auto;
+        width: 100%;
+    }
+  
 }
 
 ol.flickity-page-dots > li.dot::marker {
