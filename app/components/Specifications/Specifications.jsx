@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import {ArrowDown} from '~/components';
+import { ArrowDownRef } from '~/components';
 
 export function Specifications({data}) {
   const accordionRef = useRef(null);
@@ -13,7 +13,11 @@ export function Specifications({data}) {
                 <h1>
                     {dataItem.title}
                 </h1>
-                <ArrowDown className="arrow-down-icon" ref={accordionRef} onClick={()=>setOpenAccordion(!openAccordion)}  />
+                <ArrowDownRef
+                    className="arrow-down-icon"
+                    innerRef={accordionRef}
+                    onClick={()=>setOpenAccordion(!openAccordion)}
+                />
             </div>
             {openAccordion || accordionRef && <div className="specification-content">
                 <div className="specification-text">

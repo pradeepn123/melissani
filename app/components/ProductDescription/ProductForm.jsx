@@ -71,7 +71,8 @@ export function ProductForm() {
 
   const productAnalytics = {
     ...analytics.products[0],
-    quantity: 1,
+    quantity: quantity,
+    price: parseFloat(selectedVariant?.price?.amount)
   };
 
   const addToCartFetchers = useCartFetchers('ADD_TO_CART');
