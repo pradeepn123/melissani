@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 
 import clsx from 'clsx';
 import { flattenConnection, Image, Money, useMoney } from '@shopify/hydrogen';
-import { Text, Link, AddToCartButton, RequestContext } from '~/components';
+import { Text, Link, RequestContext, Button } from '~/components';
 import { isDiscounted, isNewArrival } from '~/lib/utils';
 
 import { useCartFetchers } from '~/hooks/useCartFetchers';
@@ -14,7 +14,6 @@ export function SingleProductCard({
   className,
   loading,
   onClick,
-  quickAdd,
   showLabel,
   learnMore
 }) {
@@ -113,31 +112,13 @@ export function SingleProductCard({
         </Text>
       </div>
       <div className="cta-wrapper flex items-center flex-col">
-        {quickAdd && (
-          <AddToCartButton
-            lines={[
-              {
-                quantity: 1,
-                merchandiseId: firstVariant.id,
-              },
-            ]}
-            disabled={!availableForSale ? true : false}
-            variant={availableForSale ? "primary" : "secondary"}
-            className="add-to-cart-btn w-full uppercase font-bold mt-25"
-            analytics={{
-              products: [productAnalytics],
-              totalValue: parseFloat(productAnalytics.price),
-            }}
-            isAddingToCart={isAddingToCart}
-            onClick={handleAddToCartClick}
-          >
-            <Text as="span" className="flex items-center justify-center gap-2 normal-case font-tertiary fw-500">
-              {availableForSale ? 'Buy' : 'Sold Out'}
-            </Text>
-          </AddToCartButton>
-        )}
-        {learnMore && <Link to="/pages/purifier">
-          Learn More
+        <Link to={`products/${product.handle}`} className="w-full">
+          <Button variant="primary" className="w-full">
+              Buy
+          </Button>
+        </Link>
+        {learnMore && <Link to={`${product?.tags?.includes("filter-club-subscription") ? "/pages/melissani-club" : "/pages/purifier" }`}>
+            Learn more
         </Link>}
       </div>
     </div>
