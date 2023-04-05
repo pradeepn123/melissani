@@ -23,10 +23,10 @@ const SubscriptionProductForm = (props) => {
     const [variantLineItems, setVariantLineItems] = useState([])
     const [isAddingToCart, setIsAddingToCart] = useState(false)
     const context = useContext(RequestContext)
-
     useEffect(() => {
         let filterClubPrice = 0
         const subscriptionItems = props.products.filter((p) => {
+
             return props.parsedProductDetails.linkedProducts.subscription.includes(p.handle)
         }).map((item) => {
             const itemMetafield = JSON.parse(item.metafields[0].value)
@@ -42,7 +42,9 @@ const SubscriptionProductForm = (props) => {
             }
         })
         setSubscriptionProducts(subscriptionItems)
-        const oneTimeProducts = props.products.filter((p) => props.parsedProductDetails.linkedProducts.default.includes(p.handle))
+        const oneTimeProducts = props.parsedProductDetails.linkedProducts.default.map((productHandle) => {
+            return props.products.find((p) => productHandle == p.handle)
+        })
         var productAmountUnit = 0
         setOneTimeProducts(oneTimeProducts.map(oneTimeProduct => {
             const firstVariant = oneTimeProduct.variants.nodes[0];
@@ -205,7 +207,7 @@ const SubscriptionProductForm = (props) => {
                 </div>
                 <div className="grid gap-4 py-1">
                     <div className="font-tertiary product-description">
-                        One - time purchase buy filters seperatley
+                        One time purchase buy filters seperatley
                     </div>
                 </div>
             </div>
