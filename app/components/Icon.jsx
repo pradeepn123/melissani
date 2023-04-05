@@ -394,6 +394,15 @@ export function SpinnerLoadingSecondary (props) {
   </span>
 }
 
+export function ArrowDownRef ({innerRef, ...props}) {
+  return <span {...props} ref={innerRef}>
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14 0.562462C6.57867 0.562462 0.5625 6.57864 0.5625 14C0.5625 21.4213 6.57867 27.4375 14 27.4375C21.4213 27.4375 27.4375 21.4213 27.4375 14C27.4375 6.57864 21.4213 0.562462 14 0.562462Z" stroke="#1B2943" strokeWidth="1.125"/>
+      <path d="M18.1953 12.6008L13.9953 16.8008L9.79531 12.6008" stroke="#1B2943" strokeWidth="1.81875" strokeLinecap="round"/>
+    </svg>
+  </span>
+}
+
 export function ArrowDown (props) {
   return <span {...props}>
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
