@@ -34,6 +34,10 @@ export function FaqAccordion({ item }) {
                                 {content.list.map((item, index) => <li key={index}>{item}</li>)}
                             </ul>}
                         </div>
+                        <meta itemprop="acceptedAnswer" content={`{
+                            "@type": "Answer",
+                            "text": "${content.answer}"
+                        }`} />
                     </div>
                 ))}
             </div>
