@@ -21,7 +21,7 @@ export function ProductSwimlane({...props}) {
               key={products[0].id}
               className="product-card-wrapper single-product-card-wrapper"
               showLabel={false}
-              quickAdd={true}
+              quickAdd={false}
               learnMore={true}
             />}
 
