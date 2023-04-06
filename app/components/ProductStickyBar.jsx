@@ -36,16 +36,20 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
     useEffect(() => {
         const body = document.querySelector("body")
         const header = document.querySelector(".main_header")
+        const sectionLength = body.querySelector("#mainContent").querySelectorAll("section").length
         if (isSticky) {
             header.classList.add('is-hidden')
             body.classList.add("sticky-product-footer-attached")
+            body.classList.add(`sticky-${sectionLength >= 5}`)
         } else {
             header.classList.remove('is-hidden')
             body.classList.remove("sticky-product-footer-attached")
+            body.classList.remove(`sticky-${sectionLength >= 5}`)
         }
         return () => {
             header.classList.remove('is-hidden')
             body.classList.remove("sticky-product-footer-attached")
+            body.classList.remove(`sticky-${sectionLength >= 5}`)
         }
     }, [isSticky])
 

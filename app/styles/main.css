@@ -140,9 +140,21 @@ svg:focus {
 .sticky-footer-attached {
   padding-bottom: 8rem;
 }
+
 .sticky-product-footer-attached {
   padding-bottom: 8rem;
 }
+
+.sticky-product-footer-attached.sticky-false {
+  padding-bottom: 11rem;
+}
+
+@media (min-width: 48em) {
+  .sticky-product-footer-attached.sticky-false {
+    padding-bottom: unset;
+  }
+}
+
 .stickybar_main_section{
     position: fixed;
     bottom: 0;
