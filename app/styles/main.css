@@ -930,7 +930,7 @@ form .field-input::placeholder {
 
 .add-to-cart-generic .add-to-cart-loading-spin svg {
   height: 18px;
-  position: absolute;
+  /* position: absolute; */
   top: -9px;
   right: 0;
 }
@@ -1011,5 +1011,11 @@ form .field-input::placeholder {
   }
   .not_found_header p{
    font-size: 20px !important;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .add-to-cart-generic .add-to-cart-loading-spin {
+    display: none ;
   }
 }
