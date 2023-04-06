@@ -4,7 +4,7 @@ import {Button, Link} from '~/components';
 
 export function NotFound({type = 'page'}) {
   const heading = `404`;
-  const description = `We couldn’t find the ${type} you’re looking for. Try checking the URL or heading back to the home page.`;
+  const description = `The page may have been removed, had its name changed, or is temporarily unavailable.`;
   const subHeading = `Oops! We couldn't find the page you were looking for.`
   return (
     <>
