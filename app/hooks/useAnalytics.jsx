@@ -8,6 +8,7 @@ import {
 import {useEffect} from 'react';
 import {CartAction} from '../lib/type';
 
+
 export function useAnalytics(hasUserConsent, locale) {
   useShopifyCookies({hasUserConsent});
   const location = useLocation();
@@ -46,7 +47,7 @@ export function useAnalytics(hasUserConsent, locale) {
     const addToCartPayload = {
       ...getClientBrowserParameters(),
       ...pageAnalytics,
-      ...cartData,
+      ...{...cartData, cartId: cartData.cartId.replace("c1-", "")},
     };
 
     sendShopifyAnalytics({
