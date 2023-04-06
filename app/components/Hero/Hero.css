@@ -29,7 +29,16 @@
 #home-hero .hero-banner-title, #home-hero .hero-banner-subtitle{
     color: #1B2943;
 }
-#purifier-hero .hero-text{
+#purifier-hero .hero-text, #filter-hero .hero-text{
+    padding: 57px 45px;
+    background: rgb(255, 255, 255, 80%);
+    color: #1B2943;
+}
+#purifier-hero .hero-text {
+    top: 44%;
+    left: 30%;
+    width: 43%;
+    transform: translate(47%, -39%);
     padding: 57px 45px;
     background: rgb(255, 255, 255, 80%);
     color: #1B2943;
@@ -44,9 +53,6 @@
     color: #1B2943;
 }
 
-#filter-hero .hero-banner-title,
-#filter-hero .hero-banner-subtitle,
-#filter-hero .hero-learn-more-btn,
 #filter-changes-hero .hero-banner-subtitle,
 #filter-changes-hero .hero-banner-title,
 #filter-changes-hero .hero-learn-more-btn {
