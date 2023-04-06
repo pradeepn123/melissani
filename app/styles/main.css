@@ -952,3 +952,64 @@ form .field-input::placeholder {
 .social-links > a:hover > img {
   transform: scale(1.2);
 }
+.not_found_header{
+  justify-items: center !important;
+  padding: 6% 32%;
+  background: #E1E9EB;
+
+}
+
+@media screen and (max-width: 768px) {
+  .not_found_image{
+    max-width: 75% !important;
+  }
+  .not_found_header{
+    justify-items: center !important;
+    padding: 28% 2%;
+  }
+  .not_found_header h2{
+    font-size: 24px !important;
+    line-height: 31px !important;
+  }
+}
+.not_found_header h1{
+  text-align: center;
+  font-size: 40px;
+}
+.not_found_header h2{
+    text-align: center;
+    font-family: 'Peachi-Light';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 47px;
+}
+.not_found_header p{
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-weight: 400;
+}
+@media (min-width: 768px) and (max-width: 912px) {
+  .not_found_header{
+    padding: 18% 21% !important;
+  }
+}
+@media (min-width: 912px) and (max-width: 1024px) {
+  .not_found_header{
+    padding: 18% 24%;
+  }
+  .not_found_header h1{
+    font-size: 64px !important;
+  }
+  .not_found_header p{
+   font-size: 20px !important;
+  }
+}
+@media (min-width: 1025px) and (max-width: 2000px) {
+  .not_found_header h1{
+    font-size: 64px !important;
+  }
+  .not_found_header p{
+   font-size: 20px !important;
+  }
+}
