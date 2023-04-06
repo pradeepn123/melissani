@@ -9,7 +9,7 @@ import {Link} from '../Link';
 
 export function ImageWithText({ goodbye, alignment, filterClub, discover, className, learnMore, temperature, volume, filterclubwarrenty }) {
   return <>
-  <section className={`w-full gap-4 md:gap-8 items-center ${goodbye ? "xl:flex gb_bg_color" : ""} ${className && className}`}>
+  <section className={`w-full gap-4 md:gap-8 items-center ${goodbye || filterClub ? "xl:flex gb_bg_color" : ""} ${className && className}`}>
     {goodbye && <>
       {alignment == "rtl" ? <>
         <ContaminantTextSection data={goodbye} />
@@ -22,9 +22,9 @@ export function ImageWithText({ goodbye, alignment, filterClub, discover, classN
     {filterClub && <>
         {alignment == "rtl" ? <>
         <FilterClubTextSection filterClub={filterClub}/>
-        <ImageSection data={filterClub} className={"filter-club-img"}/>
+        <ImageSection data={filterClub}/>
       </> : <>
-        <ImageSection data={filterClub} className={"filter-club-img"}/>
+        <ImageSection data={filterClub}/>
         <FilterClubTextSection filterClub={filterClub} />
       </>}</>
     }

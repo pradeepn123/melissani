@@ -216,9 +216,17 @@ export function IconFilters(props) {
 export function AccountIcon() {
   return (
     <span>
-      <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17 19V17C17 15.9391 16.5786 14.9217 15.8284 14.1716C15.0783 13.4214 14.0609 13 13 13H5C3.93913 13 2.92172 13.4214 2.17157 14.1716C1.42143 14.9217 1 15.9391 1 17V19" stroke="#1376BC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M9 9C11.2091 9 13 7.20914 13 5C13 2.79086 11.2091 1 9 1C6.79086 1 5 2.79086 5 5C5 7.20914 6.79086 9 9 9Z" stroke="#1376BC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clipPath="url(#clip0_1953_3830)">
+        <path d="M15.5 19.56C20.16 19.56 24.33 21.69 27.08 25.03C29.21 22.44 30.5 19.12 30.5 15.5C30.5 7.22 23.78 0.5 15.5 0.5C7.22 0.5 0.5 7.22 0.5 15.5C0.5 19.12 1.78 22.44 3.92 25.03C6.67 21.69 10.84 19.56 15.5 19.56Z" stroke="#0B2340" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M15.4999 30.5001C20.1599 30.5001 24.3299 28.3701 27.0799 25.0301C24.3299 21.6901 20.1599 19.5601 15.4999 19.5601C10.8399 19.5601 6.66992 21.6901 3.91992 25.0301C6.66992 28.3701 10.8399 30.5001 15.4999 30.5001Z" stroke="#0B2340" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M9.23047 10.56C9.23047 14.02 12.0405 16.83 15.5005 16.83C18.9605 16.83 21.7705 14.02 21.7705 10.56C21.7705 7.10004 18.9605 4.29004 15.5005 4.29004C12.0405 4.29004 9.23047 7.10004 9.23047 10.56Z" stroke="#0B2340" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_1953_3830">
+        <rect width="31" height="31" fill="white"/>
+        </clipPath>
+        </defs>
       </svg>
     </span>
   )
@@ -227,10 +235,12 @@ export function AccountIcon() {
 export function CartIcon() {
   return (
     <span>
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" stroke="#1376BC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" stroke="#1376BC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" stroke="#1376BC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.24953 18.0399H16.3395C21.2095 18.0399 25.4795 14.7799 26.7895 10.0499L28.4895 3.68994H5.51953" stroke="#0B2340" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M24.6096 21.05C22.5496 21.05 20.8896 22.7201 20.8896 24.7701C20.8896 26.8201 22.5596 28.49 24.6096 28.49C26.6696 28.49 28.3296 26.8201 28.3296 24.7701C28.3296 22.7201 26.6696 21.05 24.6096 21.05Z" stroke="#0B2340" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M9.37039 21.05C7.31039 21.05 5.65039 22.7201 5.65039 24.7701C5.65039 26.8201 7.32039 28.49 9.37039 28.49C11.4304 28.49 13.0904 26.8201 13.0904 24.7701C13.0904 24.7501 13.0904 24.73 13.0904 24.71C13.0604 22.69 11.4004 21.05 9.37039 21.05Z" stroke="#0B2340" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M8.73977 21.1L5.10977 1.5H1.50977" stroke="#0B2340" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M13.0898 24.71H20.8898" stroke="#0B2340" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     </span>
   )

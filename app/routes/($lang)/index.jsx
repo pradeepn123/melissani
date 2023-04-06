@@ -254,7 +254,7 @@ export default function Homepage() {
       )}
 
       {filterClub && (
-        <ImageWithText filterClub={filterClub} className="md:flex filter-club-flex"/>
+        <ImageWithText filterClub={filterClub} className="xl:flex filter-club-flex"/>
       )}
 
       {videoSection && (
