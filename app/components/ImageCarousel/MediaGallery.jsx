@@ -13,6 +13,10 @@ export function MediaGallery({ data }) {
                 pagination={{
                     clickable: true,
                 }}
+                cssMode = {true}
+                shortSwipes = {true}
+                longSwipes = {false}
+                lazyPreloadPrevNext = {3}
                 modules={[ Navigation, Pagination]}
                 className="mySwiper"
             >
