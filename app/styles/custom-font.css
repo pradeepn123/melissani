@@ -21,12 +21,15 @@
 
 @font-face {
   font-family: 'Peachi-Light';
-  font-display: swap;
-  font-weight: 400;
-  font-style: italic;
-  src: url('https://cdn.shopify.com/s/files/1/0684/3023/3888/files/Peachi-Light.otf?v=1677652631') format('opentype') ;
+  font-display: swap;  
+  src: url('https://cdn.shopify.com/s/files/1/0684/3023/3888/files/Peachi-Light.otf?v=1677652631') format('opentype'),
+  url('https://cdn.shopify.com/s/files/1/0684/3023/3888/files/Peachi-Light.eot?v=1681115894') format('eot'),
+  url('https://cdn.shopify.com/s/files/1/0684/3023/3888/files/Peachi-Light_f3d849ab-8b4e-4b37-8f31-ca3d02646585.woff') format('woff'),
+  url('https://cdn.shopify.com/s/files/1/0684/3023/3888/files/Peachi-Light.woff2') format('woff2'),
+  url('https://cdn.shopify.com/s/files/1/0684/3023/3888/files/Peachi-Light.ttf') format('truetype');  
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
   font-family: 'Peachi-Medium';
   font-display: swap;
