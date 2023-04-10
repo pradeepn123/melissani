@@ -14,8 +14,6 @@ export function MediaGallery({ data }) {
                     clickable: true,
                 }}
                 slidesPerGroup={1}
-               // slidesPerView={1}
-                // speed={1200}
                 cssMode = {true}
                 lazyPreloadPrevNext = {10}
                 modules={[ Navigation, Pagination]}
