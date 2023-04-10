@@ -1,4 +1,4 @@
-import {defer} from '@shopify/remix-oxygen';
+import { defer, redirect } from '@shopify/remix-oxygen';
 
 import {
   useLoaderData
@@ -99,7 +99,6 @@ export const handle = {
 
 export async function loader({params, request, context}) {
   const {productHandle} = params;
-  invariant(productHandle, 'Missing productHandle param, check route filename');
 
   const searchParams = new URL(request.url).searchParams;
 
@@ -118,6 +117,12 @@ export async function loader({params, request, context}) {
     },
   });
 
+  const redirectUrl = product.metafields.find(item => item && item.key == "redirect_url")
+
+  if (redirectUrl) {
+    return redirect(redirectUrl.value)
+  }
+
   const { products } = await context.storefront.query(LIST_PRODUCTS_QUERY);
 
   if (!product?.id) {
@@ -128,11 +133,7 @@ export async function loader({params, request, context}) {
   const recommended = getRecommendedProducts(context.storefront, product.id);
   const firstVariant = product.variants.nodes[0];
   const selectedVariant = product.selectedVariant ?? firstVariant;
-  const productDetails = product.metafields.find(item => {
-    if(item !== null){
-      return item.key == "product_details"
-    }
-  })
+  const productDetails = product.metafields.find(item => item && item.key == "product_details")
 
   const productAnalytics = {
     productGid: product.id,
@@ -288,7 +289,7 @@ const PRODUCT_QUERY = `#graphql
       selectedVariant: variantBySelectedOptions(selectedOptions: $selectedOptions) {
         ...ProductVariantFragment
       }
-      media(first: 7) {
+      media(first: 15) {
         nodes {
           ...Media
         }
@@ -300,7 +301,8 @@ const PRODUCT_QUERY = `#graphql
       }
       metafields(
         identifiers: [
-          { namespace: "product", key: "product_details" }
+          { namespace: "product", key: "product_details" },
+          { namespace: "custom", key: "redirect_url" }
         ]
       ) {
         value
