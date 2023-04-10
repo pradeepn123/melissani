@@ -13,9 +13,9 @@ export function MediaGallery({ data }) {
                 pagination={{
                     clickable: true,
                 }}
-                // speed={1200}
-                // cssMode = {true}
-                // lazyPreloadPrevNext = {10}
+                slidesPerGroup={1}
+                cssMode = {true}
+                lazyPreloadPrevNext = {10}
                 modules={[ Navigation, Pagination]}
                 className="mySwiper"
             >
