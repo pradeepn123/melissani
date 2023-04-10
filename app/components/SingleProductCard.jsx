@@ -138,7 +138,7 @@ export function SingleProductCard({
         )}
         <Link to={`products/${product.handle}`} className="w-full">
           <Button variant="primary" className="w-full">
-              Buy
+              Shop
           </Button>
         </Link>
         {learnMore && <Link to={`${product?.tags?.includes("filter-club-subscription") ? "/pages/melissani-club" : "/pages/purifier" }`}>

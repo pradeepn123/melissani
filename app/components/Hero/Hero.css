@@ -241,6 +241,10 @@
 }
 
 @media screen and (min-width: 768px) {
+    #home-hero .hero-text {
+        padding: 24px;
+    }
+
     .hero-text {
         top: 45%;
         left: 47%;
@@ -278,6 +282,10 @@
 }
 
 @media screen and (min-width: 820px) {
+    #home-hero .hero-text {
+        padding: 37px 28px;
+    }
+
     .hero-text {
         top: 51%;
         left: 45%;
@@ -291,6 +299,10 @@
 }
 
 @media screen and (min-width: 912px) {
+    #home-hero .hero-text {
+        padding: 37px 45px;
+    }
+
     .hero-text {
         top: 42%;
     }
@@ -328,9 +340,6 @@
     #home-hero .hero-text {
         background: rgb(255, 255, 255, 80%);
         padding: 2rem;
-        /* transform: translate(-50%, -50%);
-        left: 25%;
-        width: 40%; */
     }
     .hero-text {
         top: 42%;

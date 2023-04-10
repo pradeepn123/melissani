@@ -14,7 +14,6 @@ import {
   Button,
   Heading,
   IconMenu,
-  IconCaret,
   Section,
   Cart,
   CartLoading,
@@ -23,7 +22,8 @@ import {
   AddToCartButton,
   QuantityAdjust,
   ForwardNav,
-  CartFooter
+  CartFooter,
+  AccountIcon
 } from '~/components';
 
 import { useCartFetchers } from '~/hooks/useCartFetchers';
@@ -755,7 +755,7 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
           to="/account"
           className="relative hidden items-center justify-center w-8 h-8 lg:flex"
         >
-          <img src={account} />
+          <AccountIcon />
         </Link>
         <CartCount
           isHome={isHome}
