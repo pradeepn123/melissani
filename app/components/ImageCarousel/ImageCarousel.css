@@ -233,6 +233,9 @@
         width: 60px !important;
         height: 60px !important;
     }
+    .box-content-image-carousel .box-contents .box-content .image_wrapper img{
+        max-height: 420px;
+    }
 }
 @media screen and (min-width: 1536px) {
     .product-image-carousel .flickity-enabled .flickity-viewport {
