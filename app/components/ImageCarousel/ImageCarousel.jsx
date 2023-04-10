@@ -16,7 +16,9 @@ export function ImageCarousel({ data, className, boxContents }) {
                                     {contentItem.contentText}
                                 </p>
                                 {contentIndex == 0 && <div className="vertical-line"></div>}
-                                <img src={contentItem.contentImg} className="content-image"/>
+                                <div className="image_wrapper">
+                                    <img src={contentItem.contentImg} className="content-image"/>
+                                </div>
                             </div>
                         )}
                     </div>
