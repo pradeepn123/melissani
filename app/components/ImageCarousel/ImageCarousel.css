@@ -49,7 +49,7 @@
 .swiper-slide {
     background-position: center;
     background-size: cover;
-    width: 100% !important;
+    /* width: 100% !important; */
 }
 .swiper {
     width: 100%;
@@ -299,7 +299,11 @@ ol.flickity-page-dots > li.dot::marker {
     .image-carousel {
         border: none;
     }
-
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 100% !important;
+    }
     .image-carousel.flickity-viewport {
         height: 400px !important;
         width: 100%;

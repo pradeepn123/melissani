@@ -13,10 +13,9 @@ export function MediaGallery({ data }) {
                 pagination={{
                     clickable: true,
                 }}
-                cssMode = {true}
-                shortSwipes = {true}
-                longSwipes = {false}
-                lazyPreloadPrevNext = {3}
+                // speed={1200}
+                // cssMode = {true}
+                // lazyPreloadPrevNext = {10}
                 modules={[ Navigation, Pagination]}
                 className="mySwiper"
             >
@@ -25,9 +24,9 @@ export function MediaGallery({ data }) {
                     key={`product-gallery-${index}`}
                 >
                     <SwiperSlide key={`product-gallery-${index}`}>
-                        <Image
+                        <img
                             alt={`product-gallery-image${index}`}
-                            data={item.image}
+                            src={item.image.url}
                         />
                     </SwiperSlide>
                 </div>)}
