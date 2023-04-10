@@ -2,7 +2,7 @@ import {Fragment, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 
 import { IconClose,Link} from '~/components';
-import account from '../../public/account.svg';
+import account from '../../public/account_drawer.svg';
 import {CartCount} from '~/components/CartCount'
 
 /**

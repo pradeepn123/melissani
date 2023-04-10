@@ -216,7 +216,7 @@ export default function Product() {
           selectedVariant={selectedVariant}
           title={title}
           price={selectedVariant?.price}
-          media={media.nodes.find(media => media.alt == "featured-homepage")}
+          data={media.nodes.filter(media => media.alt != "featured-homepage")}
           isSubscriptionProduct={isSubscriptionProduct}
           parsedProductDetails={parsedProductDetails}
         />

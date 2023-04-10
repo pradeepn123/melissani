@@ -10,7 +10,7 @@ import { Money } from '@shopify/hydrogen';
 import { useCartFetchers } from '~/hooks/useCartFetchers';
 
 
-export function ProductStickyBar({title, media, price, isSubscriptionProduct, ...props}) {
+export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...props}) {
     const [isSticky, setIsSticky] = useState(false);
     const [isAddingToCart, setIsAddingToCart] = useState(false)
 
@@ -25,7 +25,7 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
             setIsSticky(false)
         }
     }
-
+    
     useEffect(() => {
         window.addEventListener("scroll", handleWindowScroll);
         return () => {
@@ -103,7 +103,7 @@ export function ProductStickyBar({title, media, price, isSubscriptionProduct, ..
             <div className="container mx-auto">
                 <div className="stickybar_main_section_inner">
                     <div className="sticky_image_wrapper">
-                        <img className='hidden md:block' src="https://cdn.shopify.com/s/files/1/0684/3023/3888/products/Group7192.jpg" alt="" />
+                        <img className='hidden md:block' src={data[0].image.url} alt="" />
                         <div className="title_price_combo">
                             <h2>{title}</h2>
                             {price && <div className="product-price font-tertiary">
