@@ -222,6 +222,9 @@ const LAYOUT_QUERY = `#graphql
     footer: metafield(namespace: "footer", key: "footer_jsonfields") {
       value
     }
+    announcement: metafield(namespace: "global", key: "announcement") {
+      value
+    }
   }
 `;
 

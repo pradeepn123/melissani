@@ -19,7 +19,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
     const handleWindowScroll = () => {
         const stickybar = document.querySelector(".product-content");
         const rect = stickybar.getBoundingClientRect();
-        if ((rect.bottom - 600) < 0) {
+        if ((rect.bottom - 300) < 0) {
             setIsSticky(true)
         } else {
             setIsSticky(false)

@@ -234,9 +234,9 @@ export default function Homepage() {
 
       {goodbye && (
         <ImageWithText goodbye={goodbye} height="full" className="bg-white xl:flex"/>)}
-    
+
       {announcementbar && (
-        <AnnouncementBar announcementbar={announcementbar} height="full" />)}
+        <AnnouncementBar announcementbar={announcementbar} height="full" animation={true} />)}
 
       {advancedFiltration && (
         <Carousel data={advancedFiltration} className="home-carousel" />)}

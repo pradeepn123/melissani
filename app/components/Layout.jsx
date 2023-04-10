@@ -2,7 +2,6 @@ import { Suspense, useEffect, useContext, useState } from 'react';
 import { useParams, Await, useMatches, useFetchers } from '@remix-run/react';
 import { Disclosure } from '@headlessui/react';
 
-
 import { Image, Money } from '@shopify/hydrogen';
 
 import {
@@ -23,7 +22,8 @@ import {
   QuantityAdjust,
   ForwardNav,
   CartFooter,
-  AccountIcon
+  AccountIcon,
+  AnnouncementBar
 } from '~/components';
 
 import { useCartFetchers } from '~/hooks/useCartFetchers';
@@ -31,7 +31,6 @@ import { CartCount } from '~/components/CartCount'
 import {useIsHomePath} from '~/lib/utils';
 
 import logo from '../../public/logo.svg';
-import account from '../../public/account.svg';
 
 export function Layout({children, layout}) {
   const [isAddingToCart, setIsAddingToCart] = useState(false)
@@ -147,6 +146,7 @@ function Header({logo, menu, sidebarMenu, metafields}) {
   const isHome = useIsHomePath();
   const context = useContext(RequestContext)
   const [root] = useMatches();
+  const announcement = JSON.parse(metafields?.announcement?.value);
 
   const {
     isOpen: isCartOpen,
@@ -206,6 +206,7 @@ function Header({logo, menu, sidebarMenu, metafields}) {
         metafields={metafields}
       />}
       <MobileHeader
+        announcement={announcement}
         isHome={isHome}
         logo={logo}
         openCart={() => {
@@ -712,15 +713,16 @@ function MenuMobileNav({ menu, onClose, sidebarMenu,metafields }) {
   );
 }
 
-function MobileHeader({logo, isHome, openCart, openMenu}) {
+function MobileHeader({logo, isHome, openCart, openMenu, announcement}) {
   // useHeaderStyleFix(containerStyle, setContainerStyle, isHome);
 
   const params = useParams();
-
   return (
+    <div className="sticky top-0 z-40">
+    <AnnouncementBar announcementbar={announcement} height="full" announcementID="header_announcement" animation={false}/>
     <header
       role="banner"
-      className="bg-contrast/80 text-primary main_header flex items-center h-nav sticky bg-white z-40 top-0 justify-between w-full leading-none gap-4 py-8 md:py-6 px-4 md:px-8"
+      className="bg-contrast/80 text-primary main_header flex items-center h-nav bg-white justify-between w-full leading-none gap-4 py-8 md:py-6 px-4 md:px-8"
     >
       <Link
         className="flex items-center leading-[3rem] md:leading-[4rem]"
@@ -769,6 +771,7 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
         </button>
       </div>
     </header>
+    </div>
   );
 }
 
