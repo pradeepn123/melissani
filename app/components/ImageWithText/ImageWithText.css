@@ -309,7 +309,7 @@ ul.filter-club-list {
     .discover-icon-text {
         font-size: 12px;
         line-height: 14px;
-        max-width: 90px;
+        max-width: 95px;
     }
 
     .filter-club-section {
@@ -580,6 +580,9 @@ ul.filter-club-list {
     .img-sec{
         flex:1 0 50%;
     }
+    .discover-icon-text {
+        width: max-content;
+     }
 
     .text-section {
         padding: 3em 1em;
@@ -662,7 +665,7 @@ ul.filter-club-list {
         margin-top: 0;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-column-gap: 1em;
+        grid-column-gap: 0.2em;
         padding: 0;
         margin-left: -1em;
         justify-content: center;
@@ -677,7 +680,7 @@ ul.filter-club-list {
     .discover-icon-text {
         font-size: 10px;
         line-height: 14px;
-        width: 100%;
+        width:max-content;
     }
 }
 
@@ -760,6 +763,7 @@ ul.filter-club-list {
         font-weight: 300;
         line-height: 51px;
     }
+   
 }
 
 @media screen and (min-width: 1280px) {

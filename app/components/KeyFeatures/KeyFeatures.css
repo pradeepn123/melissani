@@ -87,9 +87,20 @@
     }
 }
 
+
 @media screen and (max-width: 425px) {
     .key-feature-text {
-        width: 80%;
+        width: 66%;
+    }
+}
+@media screen and (max-width: 375px) {
+    .key-feature-text {
+        width: 70%;
+    }
+}
+@media screen and (max-width: 320px) {
+    .key-feature-text {
+        width: 87%;
     }
 }
 
@@ -108,7 +119,7 @@
     }
 
     .key-feature-text {
-        width: 100%;
+        width: 83%;
     }
   
 }
@@ -120,7 +131,7 @@
     }
 
     .key-feature-text {
-        width: 100%;
+        width: 73%;
     }
 }
 
@@ -131,7 +142,7 @@
     }
 
     .key-feature-text {
-        width: 90%;
+        width: 66%;
     }
 }
 
@@ -142,7 +153,7 @@
     }
 
     .key-feature-text {
-        width: 80%;
+        width: 63%;
     }
 }
 
@@ -162,7 +173,7 @@
         padding: 4em 2em;
     }
     .key-feature-text {
-        width: 75%;
+        width: 63%;
     }
     .filter-features.key-features-section {
         grid-column-gap: 6em;

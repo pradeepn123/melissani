@@ -8,13 +8,14 @@ export function MediaGallery({ data }) {
     return <section className="media-gallery">
         <div className="product__media-sticky image-carousel">
             <Swiper
-                spaceBetween={0}
+                spaceBetween={10}
                 navigation={true}
                 pagination={{
                     clickable: true,
                 }}
-                slidesPerGroup={1}
                 cssMode = {true}
+                shortSwipes = {true}
+                longSwipes = {false}
                 lazyPreloadPrevNext = {10}
                 modules={[ Navigation, Pagination]}
                 className="mySwiper"
@@ -24,9 +25,9 @@ export function MediaGallery({ data }) {
                     key={`product-gallery-${index}`}
                 >
                     <SwiperSlide key={`product-gallery-${index}`}>
-                        <img
+                        <Image
                             alt={`product-gallery-image${index}`}
-                            src={item.image.url}
+                            data={item.image}
                         />
                     </SwiperSlide>
                 </div>)}
