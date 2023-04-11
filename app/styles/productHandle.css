@@ -256,6 +256,9 @@ label.product-form-wrapper {
   .product-form-wrapper {
     padding: 22px 14px;
   }
+  .cart-btn span.text-copy{
+    font-size: 14px !important;
+  }
 }
 
 /* End: Media Query */
