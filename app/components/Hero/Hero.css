@@ -22,7 +22,6 @@
 }
 
 #home-hero .hero-text {
-    background: rgb(255, 255, 255, 80%);
     padding: 2rem;
 }
 
@@ -47,9 +46,9 @@
     top: 44%;
     left: 30%;
     width: 43%;
-    transform: translate(47%, -39%);
+    transform: translate(-47%, -39%);
     padding: 57px 45px;
-    background: rgb(255, 255, 255, 80%);
+    /* background: rgb(255, 255, 255, 80%); */
     color: #1B2943;
 }
 
@@ -242,7 +241,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    #home-hero .hero-text {
+    #home-hero .hero-text, .desktop-convenience-section #convenience-hero-text {
         padding: 24px;
     }
 
@@ -283,7 +282,7 @@
 }
 
 @media screen and (min-width: 820px) {
-    #home-hero .hero-text {
+    #home-hero .hero-text, .desktop-convenience-section #convenience-hero-text {
         padding: 37px 28px;
     }
 
@@ -300,7 +299,7 @@
 }
 
 @media screen and (min-width: 912px) {
-    #home-hero .hero-text {
+    #home-hero .hero-text, .desktop-convenience-section #convenience-hero-text {
         padding: 37px 45px;
     }
 
@@ -338,8 +337,8 @@
 }
 
 @media screen and (min-width: 1280px) {
-    #home-hero .hero-text {
-        background: rgb(255, 255, 255, 80%);
+    #home-hero .hero-text, #convenience-hero-text .hero-text {
+        /* background: rgb(255, 255, 255, 80%); */
         padding: 2rem;
     }
     .hero-text {

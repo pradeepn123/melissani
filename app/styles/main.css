@@ -131,6 +131,7 @@ svg:focus {
 /* Sticky header bar css here */
 .main_header{
   transition: transform .5s ease, visibility .5s ease;
+  max-height: 80px;
 }
 .main_header.is-hidden{
   visibility: hidden;
@@ -615,8 +616,8 @@ form .field-input::placeholder {
   line-height: 0.9;
 }
 #header_announcement {
-  padding: 10px;
-  font-size: 16px;
+  padding: 5.5px;
+  font-size: 14px;
   line-height: 24px;
   color: #1B2943;
 }
@@ -732,9 +733,9 @@ form .field-input::placeholder {
 
 @media screen and (max-width: 767px) {
   #header_announcement {
-    font-size: 14px;
-    line-height: 18.2px;
-    padding: 10px 30px;
+    font-size: 12px;
+    line-height: 16.8px;
+    padding: 14.15px 20px;
   }
 
   .page-title {

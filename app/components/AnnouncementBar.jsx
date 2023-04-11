@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export function AnnouncementBar({ announcementbar, announcementID, animation }) {
+export function AnnouncementBar({ announcementbar, id, animation }) {
     return ( <>
         {animation ? 
         <motion.div 
@@ -15,7 +15,7 @@ export function AnnouncementBar({ announcementbar, announcementID, animation }) 
         exit={{ opacity: 0, transform: "translateY(60px)" }}
         className="w-full py-6 md:py-8 lg:py-12 px-6 md:px-8 lg:px-12 text-center announcementbar_main">
             <div dangerouslySetInnerHTML={{ __html: announcementbar.rawHtml}}></div>
-        </motion.div> : <div className="w-full text-center announcementbar_main" id={announcementID}>
+        </motion.div> : <div className="w-full text-center announcementbar_main" id={id}>
         <div dangerouslySetInnerHTML={{ __html: announcementbar.rawHtml}}></div></div>}
         </>
     )
