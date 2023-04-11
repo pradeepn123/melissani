@@ -134,6 +134,25 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .footer-image-section .footer-image .footer_mobile_img {
+    display: flex;
+    margin: auto;
+  }
+  .footer-image-section .footer-image .footer_img {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer-image-section .footer-image .footer_mobile_img {
+    display: none;
+  }
+  .footer-image-section .footer-image .footer_img {
+    display: block;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .footer-image-section .footer-text{
     padding: 4rem 0 4em;

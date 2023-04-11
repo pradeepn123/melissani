@@ -1,6 +1,6 @@
 export function FooterContact({data}) {
   return (
-    <div className="footer-image-section w-full pt-8 px-6 lg:pt-16 md:px-8 lg:px-12 md:flex">
+    <div className="footer-image-section w-full pt-0 px-6 lg:pt-0 md:px-8 lg:px-12 md:flex">
         <div className="footer-text flex item-center flex-col md:w-6/12">
           <p className="footer-heading">
             {data?.heading}
@@ -17,7 +17,8 @@ export function FooterContact({data}) {
           </div>
         </div>
         <div className="footer-image md:w-6/12">
-          <img src={data?.image} />
+          <img className="footer_img" src={data?.footer_img} />
+          <img className="footer_mobile_img" src={data?.footer_mobile_img} />
         </div>
     </div>
   )
