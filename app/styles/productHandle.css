@@ -108,6 +108,11 @@ label.product-form-wrapper {
   cursor: pointer;
 }
 
+.cart-btn {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 @media (min-width: 768px) {
   .product__media-sticky {
     display: block;
@@ -222,6 +227,7 @@ label.product-form-wrapper {
 @media screen and (max-width: 1024px) {
   .cart-btn {
     min-width: max-content;
+    
   }
 }
 
