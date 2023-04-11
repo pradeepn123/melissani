@@ -17,7 +17,7 @@ export function ImageCenterWithText({ installation, installationHeadingClassName
         >
             <div className="desktop-convenience-section w-full">
                 <img src={installation.desktopImg} />
-                <div className="hero-text">
+                <div className="hero-text" id="convenience-hero-text">
                     <div dangerouslySetInnerHTML={{ __html: installation.rawHtml}}></div>
                     {installation?.cta && <Link to={installation.subscribeBtnLink}>
                         <Button variant='primary' className="font-medium">
@@ -35,11 +35,11 @@ export function ImageCenterWithText({ installation, installationHeadingClassName
                 <img className="relative top-0 -left-0 w-full" src={installation.img} />
                 <div className="mobile-convenience-section-inner-wrap">
                     <h2
-                        className={`md:absolute font-bold sm:text-2xl lg:text-4xl xl:text-5xl top-1/2 lg:max-w-sm md:p-3 sm:text-center sm:p-3 lg:pt-0 ${installationHeadingClassName}`}>
+                        className={`md:absolute font-bold sm:text-2xl lg:text-4xl xl:text-5xl top-1/2 lg:max-w-sm md:p-3 sm:text-center sm:py-3 lg:pt-0 ${installationHeadingClassName}`}>
                         {installation.header}
                     </h2>
                     <p
-                        className={`md:absolute text-black font-normal sm:text-base xl:text-2xl lg:text-base top-1/2 left-1/2 lg:max-w-xs xl:max-w-sm sm:p-5 sm:pt-0 ${installationParaClassName}`}>
+                        className={`md:absolute text-black font-normal sm:text-base xl:text-2xl lg:text-base top-1/2 left-1/2 lg:max-w-xs xl:max-w-sm sm:py-5 sm:pt-0 ${installationParaClassName}`}>
                         {installation.paragraph}
                     </p>
                     {installation?.cta && <Link to={installation.subscribeBtnLink}>

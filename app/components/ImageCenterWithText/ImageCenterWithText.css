@@ -13,6 +13,10 @@
 .desktop-convenience-section .hero-banner-title{
     color: #1B2943;
 }
+.desktop-convenience-section #convenience-hero-text {
+    transform: translate(33%, -50%);
+    background: rgb(255, 255, 255, 80%);
+}
 .installation-header{
     font-family: 'Peachi-Bold';
     font-size: 52px;
@@ -83,6 +87,9 @@
 }
 
 @media screen and (max-width: 1024px) {
+    .desktop-convenience-section #convenience-hero-text {
+        transform: translate(20%, -50%);
+    }
     .installation-header {
         font-size: 40px;
         line-height: 50px;
@@ -97,6 +104,9 @@
 }
 
 @media screen and (max-width: 912px) {
+    .desktop-convenience-section #convenience-hero-text {
+        transform: translate(15%, -50%);
+    }
     .installation-header {
         transform: translate(2%, -40%);
     }
@@ -121,6 +131,7 @@
         max-width: 300px;
     }
 }
+
 @media screen and (max-width: 767px) {
     .mobile-convenience-section {
         display: block;
@@ -129,7 +140,11 @@
         display: none;
     }
 }
+
 @media screen and (max-width: 768px) {
+    .desktop-convenience-section #convenience-hero-text {
+        transform: translate(10%, -50%);
+    }
     .installation-para {
         transform: translate(35%, -30%);
         font-size: 14px;

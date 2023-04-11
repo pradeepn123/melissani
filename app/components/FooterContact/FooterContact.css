@@ -62,7 +62,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.footer-contact-wrapper:first-child ~ .footer-contact-icons .footer-icon-text-wrapper .footer-icon-text {
+.footer-contact-wrapper .footer-contact-icons:first-child  .footer-icon-text-wrapper .footer-icon-text {
   text-decoration: underline;
 }
 
