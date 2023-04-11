@@ -733,8 +733,8 @@ form .field-input::placeholder {
 @media screen and (max-width: 767px) {
   #header_announcement {
     font-size: 12px;
-    line-height: 18.2px;
-    padding: 4.31px 30px;
+    line-height: 16.8px;
+    padding: 14.15px 20px;
   }
 
   .page-title {
