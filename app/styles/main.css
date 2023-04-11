@@ -615,8 +615,8 @@ form .field-input::placeholder {
   line-height: 0.9;
 }
 #header_announcement {
-  padding: 10px;
-  font-size: 16px;
+  padding: 5.5px;
+  font-size: 14px;
   line-height: 24px;
   color: #1B2943;
 }
@@ -732,9 +732,9 @@ form .field-input::placeholder {
 
 @media screen and (max-width: 767px) {
   #header_announcement {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 18.2px;
-    padding: 10px 30px;
+    padding: 4.31px 30px;
   }
 
   .page-title {

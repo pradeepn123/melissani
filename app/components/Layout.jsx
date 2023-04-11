@@ -205,8 +205,8 @@ function Header({logo, menu, sidebarMenu, metafields}) {
         }}
         metafields={metafields}
       />}
+      <AnnouncementBar announcementbar={announcement} height="full" id="header_announcement" animation={false}/>
       <MobileHeader
-        announcement={announcement}
         isHome={isHome}
         logo={logo}
         openCart={() => {
@@ -713,16 +713,14 @@ function MenuMobileNav({ menu, onClose, sidebarMenu,metafields }) {
   );
 }
 
-function MobileHeader({logo, isHome, openCart, openMenu, announcement}) {
+function MobileHeader({logo, isHome, openCart, openMenu}) {
   // useHeaderStyleFix(containerStyle, setContainerStyle, isHome);
 
   const params = useParams();
   return (
-    <div className="sticky top-0 z-40">
-    <AnnouncementBar announcementbar={announcement} height="full" id="header_announcement" animation={false}/>
     <header
       role="banner"
-      className="bg-contrast/80 text-primary main_header flex items-center h-nav bg-white justify-between w-full leading-none gap-4 py-8 md:py-6 px-4 md:px-8"
+      className="bg-contrast/80 text-primary main_header sticky top-0 z-40 flex items-center h-nav bg-white justify-between w-full leading-none gap-4 py-8 md:py-6 px-4 md:px-8"
     >
       <Link
         className="flex items-center leading-[3rem] md:leading-[4rem]"
@@ -771,7 +769,6 @@ function MobileHeader({logo, isHome, openCart, openMenu, announcement}) {
         </button>
       </div>
     </header>
-    </div>
   );
 }
 
