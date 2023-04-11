@@ -227,7 +227,6 @@ label.product-form-wrapper {
 @media screen and (max-width: 1024px) {
   .cart-btn {
     min-width: max-content;
-    
   }
 }
 
