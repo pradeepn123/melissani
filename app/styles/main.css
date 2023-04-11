@@ -131,6 +131,7 @@ svg:focus {
 /* Sticky header bar css here */
 .main_header{
   transition: transform .5s ease, visibility .5s ease;
+  max-height: 80px;
 }
 .main_header.is-hidden{
   visibility: hidden;
