@@ -184,6 +184,7 @@ label.product-form-wrapper {
 .product-form-wrapper .add-to-cart-wrapper .quantity-selector {
   border: 1px solid #000;
   justify-content: space-between;
+  font-family: Montserrat, sans-serif;
 }
   
 .product-form-wrapper .desc-list ul {
@@ -235,7 +236,7 @@ label.product-form-wrapper {
   .product-section {
     gap: 2rem;
   }
-
+  
   .product-form-wrapper {
     padding: 27px 37px;
   }
@@ -337,6 +338,7 @@ label.product-form-wrapper {
 .one-time-product-row .quantity-field .quantity-selector{
   height: 75%;
   border: 1px solid #000;
+  font-family: Montserrat, sans-serif;
 }
 .one-time-product-row .quantity-field .text-black{
   font-family: 'Montserrat', sans-serif;

@@ -6,10 +6,11 @@ export function FaqAccordion({ item }) {
         var acc = accordionMain.current.querySelectorAll(".accordion-title");
         for (var i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function () {
+               let accordior_open = this.parentNode.classList.contains("accordion-open")
                 for (let li of acc) {
                     li.parentNode.classList.remove('accordion-open');
                 }
-                this.parentNode.classList.add('accordion-open');
+             !accordior_open && this.parentNode.classList.add('accordion-open');
             });
         }
     }, []);

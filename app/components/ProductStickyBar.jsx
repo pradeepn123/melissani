@@ -70,7 +70,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
         })
 
         return <div className="md:hidden" id='js_stickybar_main_section'>
-            <div className={`stickybar_main_section ${isSticky == true ? 'is-shown' : 'is-hidden'}`}>
+            <div className={`stickybar_main_section ${'is-shown'}`}>
                 <div className="container mx-auto">
                     <div className="stickybar_main_section_inner">
                         <p className="subscription-title font-tertiary">
