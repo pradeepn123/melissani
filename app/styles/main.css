@@ -162,7 +162,7 @@ svg:focus {
     left: 0;
     background: #fff;    
     width: 100%;
-    z-index: 99999;
+    z-index: 9;
     padding: 1em;
     transition: transform .5s ease, visibility .5s ease;
     border: 1px solid #E8E8E8;
