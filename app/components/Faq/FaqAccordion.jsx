@@ -28,10 +28,10 @@ export function FaqAccordion({ item }) {
                             </svg>
                         </div>
                         <div className="accordion-body custom_content" itemScope itemType="https://schema.org/Answer">
-                            <p className="font-normal md:text-2xl text-base md:font-text-22 text-[#000000]" itemProp="text">
+                            <p className="font-normal md:text-xl text-base text-[#000000]" itemProp="text">
                                 {content.answer}
                             </p>
-                            {content.list && <ul className="font-normal md:text-2xl text-base md:font-text-22 text-[#000000]">
+                            {content.list && <ul className="font-normal md:text-xl text-base text-[#000000]">
                                 {content.list.map((item, index) => <li key={index}>{item}</li>)}
                             </ul>}
                         </div>
