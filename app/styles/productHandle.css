@@ -112,7 +112,12 @@ label.product-form-wrapper {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-
+@media (max-width: 375px) {
+  .cart-btn {
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+  }
+}
 @media (min-width: 768px) {
   .product__media-sticky {
     display: block;
@@ -257,7 +262,7 @@ label.product-form-wrapper {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 375px) {
   .product-form-wrapper {
     padding: 22px 14px;
   }
