@@ -622,7 +622,7 @@ function CartDrawer({isOpen, isHome, onClose, openCart }) {
       heading="Cart"
       openFrom="right"
     >
-      <div className="grid">
+      <div className="grid cart-body-content">
         <Suspense fallback={<CartLoading />}>
           <Await resolve={root.data?.cart}>
             {(cart) => <Cart layout="drawer" onClose={onClose} cart={cart} />}

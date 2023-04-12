@@ -36,7 +36,7 @@ export function CartDetails({layout, cart}) {
   const isZeroCost = !cart || cart?.cost?.subtotalAmount?.amount === '0.0';
 
   const container = {
-    drawer: 'grid grid-cols-1 h_footer_height grid-rows-[1fr_auto] overflow-auto',
+    drawer: 'grid grid-cols-1 grid-rows-[1fr_auto] overflow-auto',
     page: 'w-full pb-12 grid md:grid-cols-2 md:items-start gap-8 md:gap-8 lg:gap-12',
   };
 

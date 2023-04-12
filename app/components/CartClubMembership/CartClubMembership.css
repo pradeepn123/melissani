@@ -5,13 +5,18 @@
 
 .cart-club-icon {
     position: relative;
-    transform: translate(0%, -50%);
     background-color: #fff;
     margin: 0 auto;
     display: flex;
     width: fit-content;
     justify-content: center;
-    padding: 0 1em;
+}
+
+.cart-club-icon > span {
+    position: absolute;
+    transform: translate(0%, -50%);
+    background-color: #FFF;
+    padding: 0 1em
 }
 
 .add-on-label {
@@ -29,11 +34,10 @@
 }
 
 .club-membership-container {
-    padding: 0 1em;
+    padding: 2rem 1em 1.5rem;
     display: flex;
     flex-direction: column;
     row-gap: 1em;
-    transform: translateY(-14%);
 }
 
 .club-membership-content {
@@ -159,7 +163,21 @@ p.club-membership-bottom-text {
     row-gap: 1em;
 }
 
+.cart-drawer-dialog-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: scroll;
+}
 
+.cart-drawer-dialog-panel .menuDrawer-nav {
+    background-color: #FFF;
+    z-index: 10001;
+}
+
+.cart-drawer-dialog-panel .cart-body-content {
+    flex: 1 0 auto;
+}
 
 @media screen and (max-width: 767px) { 
     .subscription_filter_club_member {
@@ -216,8 +234,7 @@ p.club-membership-bottom-text {
         grid-column: span 3;
     }    
     .club-membership-container {
-        padding: 0 2rem;
-        transform: translateY(-14%);
+        padding: 2rem 2rem;
     }
     .club-membership-right-content {
         justify-content: flex-end;
