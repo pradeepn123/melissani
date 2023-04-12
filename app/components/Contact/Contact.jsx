@@ -8,6 +8,15 @@ export function Contact({data}) {
     const formRef = useRef(null);
 
     const [state, handleSubmit] = useForm("mgeblbqn");
+    const [purchasedValue, setPurchasedValue] = useState(true);
+
+    const handleChange = (fieldID) => (event) => {
+        if(fieldID === 'purchased' && event.target.value === "Yes") {
+            setPurchasedValue(true);
+        } else {
+            setPurchasedValue(false);
+        }
+    }
 
     if (state.succeeded) {
         return <section className='contact-section h-full'>
@@ -83,29 +92,32 @@ export function Contact({data}) {
                                         errors={state.errors}
                                     />
                             </div>}
-                            {field_value.field_type === 'select' && <div
-                                className="mb-6"
-                                key={field_index}
-                            >
-                                <label
-                                    htmlFor={field_value.id}
-                                    className="block mb-2 text-sm font-medium field-label font-tertiary"
+                            {(field_value.field_type === 'select') && 
+                            ((field_value.id === 'purchased') || (field_value.id === 'purchased_from' && purchasedValue)) &&
+                                <div
+                                    className="mb-6"
+                                    key={field_index}
                                 >
-                                    {field_value.field_name}
-                                </label>
-                                <select
-                                    id={field_value.id}
-                                    name={field_value.id}
-                                    className="border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-4 field-input font-tertiary"
-                                    required
-                                >
-                                    {field_value.select_options.map((option_item, option_index) => (
-                                        <option key={option_index} value={option_item.option}>
-                                            {option_item.option}
-                                        </option>)
-                                    )}
-                                </select>
-                            </div>}
+                                    <label
+                                        htmlFor={field_value.id}
+                                        className="block mb-2 text-sm font-medium field-label font-tertiary"
+                                    >
+                                        {field_value.field_name}
+                                    </label>
+                                    <select
+                                        id={field_value.id}
+                                        name={field_value.id}
+                                        className="border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-4 field-input font-tertiary"
+                                        onChange={handleChange(field_value.id)}
+                                        required
+                                    >
+                                        {field_value.select_options.map((option_item, option_index) => (
+                                            <option key={option_index} value={option_item.option}>
+                                                {option_item.option}
+                                            </option>)
+                                        )}
+                                    </select>
+                                </div>}
                             {field_value.field_type === 'textarea' && <div
                                 className="mb-6"
                                 key={field_index}
