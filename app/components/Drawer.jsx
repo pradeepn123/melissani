@@ -50,7 +50,7 @@ export function Drawer({isHome, isCartDrawer, openCart, open, onClose, openFrom 
                 leaveFrom="translate-x-0"
                 leaveTo={offScreen[openFrom]}
               >
-                <Dialog.Panel className="drawer-dialog-panel w-screen max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl text-left align-middle transition-all transform shadow-xl h-screen-dynamic bg-contrast">
+                <Dialog.Panel className={`drawer-dialog-panel w-screen max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl text-left align-middle transition-all transform shadow-xl h-screen-dynamic bg-contrast ${isCartDrawer ? 'cart-drawer-dialog-panel' : ''}`}>
                   <header className={`menuDrawer-nav sticky top-0 flex px-4 h-nav gap-x-4 sm:px-8 md:px-8 items-center relative ${isCartDrawer || isFilterClubModal ? 'justify-between' : 'justify-end'}`}>
                     {isCartDrawer && <div className="cart-heading-wrapper">
                       <p className="font-primary cart-heading">Cart</p>

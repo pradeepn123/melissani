@@ -280,6 +280,7 @@ export function IconPlay(props) {
 export function CartClubMembershipIcon(props) {
   return(
     <span {...props}>
+      <span>
       <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clipPath="url(#clip0_867_11302)">
         <path d="M15.4151 23.2629H7.31756C7.24631 23.2629 7.19287 23.3199 7.19287 23.3876V33.6049C7.19287 33.6761 7.24987 33.7296 7.31756 33.7296H7.86618C7.93743 33.7296 7.99087 33.6726 7.99087 33.6049V28.4286H14.3143C14.3856 28.4286 14.439 28.3716 14.439 28.3039V27.8265C14.439 27.7553 14.382 27.7018 14.3143 27.7018H7.99087V24.0075H15.4116C15.4828 24.0075 15.5362 23.9505 15.5362 23.8828V23.3912C15.5362 23.3199 15.4792 23.2665 15.4116 23.2665" fill="#0C233F"/>
@@ -293,6 +294,7 @@ export function CartClubMembershipIcon(props) {
         </clipPath>
         </defs>
       </svg>
+      </span>
     </span>
   )
 }
