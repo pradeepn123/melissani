@@ -11,10 +11,12 @@ export function Contact({data}) {
     const [purchasedValue, setPurchasedValue] = useState(true);
 
     const handleChange = (fieldID) => (event) => {
-        if(fieldID === 'purchased' && event.target.value === "Yes") {
-            setPurchasedValue(true);
-        } else {
-            setPurchasedValue(false);
+        if(fieldID === 'purchased') {
+            if (event.target.value === "Yes") {
+                setPurchasedValue(true);
+            } else {
+                setPurchasedValue(false);
+            }
         }
     }
 
@@ -93,7 +95,7 @@ export function Contact({data}) {
                                     />
                             </div>}
                             {(field_value.field_type === 'select') && 
-                            ((field_value.id === 'purchased') || (field_value.id === 'purchased_from' && purchasedValue)) &&
+                            ((field_value.id === 'purchased') || (field_value.id === 'purchased_from' && purchasedValue === true)) &&
                                 <div
                                     className="mb-6"
                                     key={field_index}
