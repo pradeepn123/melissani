@@ -366,6 +366,16 @@ iframe {
   text-align: left;
   color: #000;
 }
+.page-description  a {
+  line-break: anywhere;
+}
+.table_wrapper{
+  width: 100%;
+  overflow: auto;
+}
+.table_wrapper table{
+  overflow: scroll;
+}
 
 .page-handle-style ul {
   list-style: disc;

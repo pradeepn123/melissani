@@ -257,7 +257,7 @@ label.product-form-wrapper {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 360px) {
   .product-form-wrapper {
     padding: 22px 14px;
   }
