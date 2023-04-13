@@ -20,7 +20,7 @@ export function FilterClub({hero, supportinfo, textwithbutton, stickybarbottom, 
             )}
 
             {features && (
-                <KeyFeatures features={features} className="filter-features" />
+                <KeyFeatures features={features} className="filter-features" id="filterclub_key_features" />
             )}
 
             {filterclubwarrenty && (
