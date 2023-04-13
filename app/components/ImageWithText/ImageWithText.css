@@ -312,6 +312,10 @@ ul.filter-club-list {
         max-width: 95px;
     }
 
+    .discover-icon:first-child .discover-icon-text{
+        width: 20%;
+    }
+
     .filter-club-section {
         width: 80%;
         padding: 3em 0 1em 1.5em;
@@ -343,11 +347,30 @@ ul.filter-club-list {
         line-height: 24px;
     }
 }
+
+@media screen and (max-width: 615px) {
+    .discover-icon:first-child .discover-icon-text {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .discover-icon:first-child .discover-icon-text {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 325px) {
+    .discover-icon:first-child .discover-icon-text {
+        width: 50%;
+    }
+}
+
 @media screen and (max-width: 360px) {
     .filter-club-anouncement {
         font-size: 14px;
         line-height: 1.4;
-    }    
+    }
 }
 
 @media (max-width:640px){    
