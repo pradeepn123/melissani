@@ -60,6 +60,11 @@
     font-weight: 400;
     width: 90%;
 }
+.filter_club_faq .custom_content ul li{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    width: 90%;
+}
 .filter_club_faq{
     padding: 3em 1em;
 }

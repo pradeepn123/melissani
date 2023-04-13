@@ -61,6 +61,7 @@
     font-size: 32px;
 }
 
+
 .featured-products-home .product-card-wrapper select {
     border-color: #DDDDDD;
     padding: 13px 20px;
@@ -109,6 +110,14 @@
         padding: 0 50px;
     }
 }
+@media (max-width: 767px) {
+    .featured-products-home .product-card-wrapper .price {
+        line-height: 1;
+        min-height: unset;
+        font-size: 24px;
+    }
+}
+
 
 @media(min-width:768px) and (max-width:1024px) {
     .featured-products-home .product-card-wrapper {
@@ -161,7 +170,7 @@
     .featured-products-home .single-product-card-wrapper {
         border-bottom: 1px solid #E2E2E2;
         border-right: none;
-        padding-bottom: 4em;
+        padding-bottom: 2em;
     }
     .featured-products-home .product-card-wrapper:not(:last-child) {
         margin-bottom: 30px;

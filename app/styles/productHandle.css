@@ -102,6 +102,8 @@ label.product-form-wrapper {
 
 .additional-information .include-benifits span {
   margin-left: unset;
+  font-weight: 300;
+  font-size: 13px;
 }
 
 .additional-information .filter_club_benefits span {
@@ -291,7 +293,7 @@ label.product-form-wrapper {
 }
 
 .subscription-form input[name="subscription-form"]:checked + label.product-form-wrapper {
-  border: 1px solid #1B2943;
+  border: 2px solid #1B2943;
   cursor: initial;
 }
 
