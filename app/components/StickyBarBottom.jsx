@@ -3,7 +3,9 @@ import {Button} from '~/components';
 
 export function StickyBarBottom({stickybarbottom}) {
     const [isSticky, setIsSticky] = useState(false);
-
+    var stickyFloat;
+    var footer;
+    
     const handleWindowScroll = () => {
         const stickybar = document.querySelector(".hero");
         const rect = stickybar.getBoundingClientRect();
@@ -14,8 +16,29 @@ export function StickyBarBottom({stickybarbottom}) {
         }
     }
 
+    function checkOffset() {        
+        function getRectTop(el){
+            var rect = el.getBoundingClientRect();
+            return rect.top;
+        }
+        
+        if((getRectTop(stickyFloat) + document.body.scrollTop) + stickyFloat.offsetHeight >= (getRectTop(footer) + document.body.scrollTop) - 10) {
+            stickyFloat.style.transform = 'translateY(calc(100% + 30px))';
+        }
+        if(document.body.scrollTop + window.innerHeight < (getRectTop(footer) + document.body.scrollTop)){
+            stickyFloat.style.transform = 'translateY(0)';
+        }
+    }
+
     useEffect(() => {
         window.addEventListener("scroll", handleWindowScroll);
+        stickyFloat = document.querySelector('.stickybar_main_section');
+        footer = document.querySelector('footer');
+
+        window.addEventListener("scroll", function () {
+            handleWindowScroll();
+            checkOffset();
+        });
         return () => {
             window.removeEventListener("scroll", handleWindowScroll)
         }

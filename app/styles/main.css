@@ -138,16 +138,9 @@ svg:focus {
   transform: translateY(calc(-100%));
 }
 /* Sticky bar css here */
-.sticky-footer-attached {
-  padding-bottom: 8rem;
-}
-
-.sticky-product-footer-attached {
-  padding-bottom: 8rem;
-}
 
 .sticky-product-footer-attached.sticky-false {
-  padding-bottom: 11rem;
+  /* padding-bottom: 11rem; */
 }
 
 @media (min-width: 48em) {
@@ -169,7 +162,7 @@ svg:focus {
 }
 .stickybar_main_section.is-hidden{
     visibility: hidden;
-    transform: translateY(calc(100% + 30px));
+    transform: translateY(calc(100% + 30px)) !important;
 }
 .stickybar_main_section.is-shown{
     transform: translateY(0);
