@@ -93,8 +93,8 @@
     min-height: 0;
     min-width: 0;
 }
-
 /* End: Swiper*/
+
 /* Begin: Flickity */
 .flickity-enabled {
     outline: none;
@@ -151,31 +151,6 @@
     position: absolute;
     bottom: 45%;
 }
-
-/* Fade effect */
-.product-image-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider{
-    transform: none !important;
-}
-
-.product-image-carousel .flickity-enabled .flickity-viewport .flickity-slider {
-    transform: none !important;
-}
-
-.product-image-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider {
-    left: 0 !important;
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 0.3s ease-in-out;
-}
-.product-image-carousel .flickity-enabled .flickity-viewport {
-    transform: scale(0.85);
-}
-
-.product-image-carousel .flickity-enabled .flickity-viewport .flickity-slider .slider.is-selected {    
-    opacity: 1;
-    z-index: 0
-}
-
 /* End: Flickity */
 
 /* Begin: Box Contents Section */
@@ -221,9 +196,6 @@
     color: #555555;
 }
 
-.box-content-flickity {
-    padding-top: 4em;
-}
 /* End: Box Contents Section */
 
 /* Begin: Media Query */
@@ -235,12 +207,6 @@
     }
     .box-content-image-carousel .box-contents .box-content .image_wrapper img{
         max-height: 420px;
-    }
-}
-@media screen and (min-width: 1536px) {
-    .product-image-carousel .flickity-enabled .flickity-viewport {
-        left: 5%;
-        position: relative;
     }
 }
 
@@ -272,6 +238,10 @@
 }
 
 @media screen and (min-width: 768px) {
+    .box-content-flickity-section {
+        display: none;
+    }
+
     .flickity-page-dots {
         display: none;
     }
@@ -280,9 +250,6 @@
         margin: auto;
         width: 90%;
     }
-    .box-content-flickity {
-        display: none;
-    }
 }
 @media screen and (min-width: 913px) {
     .key-features-inner {
@@ -290,7 +257,6 @@
         margin: auto;
         width: 100%;
     }
-  
 }
 
 ol.flickity-page-dots > li.dot::marker {
@@ -298,18 +264,33 @@ ol.flickity-page-dots > li.dot::marker {
     color: transparent;
 }
 
+@media screen and (max-width: 650px) {
+    .vertical-line {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .vertical-line {
+        height: 250px;
+    }
+}
+
+@media screen and (min-width: 541px) {
+    .box-content-flickity-section {
+        display: none;
+    }
+}
 @media screen and (max-width: 540px) {
     .image-carousel {
         border: none;
     }
-    .image-carousel.flickity-viewport {
-        height: 400px !important;
-        width: 100%;
-        touch-action: pan-y;
-        transform: scale(0.9);
-    }
 
     .flickity-prev-next-button {
+        display: none;
+    }
+
+    .box-contents {
         display: none;
     }
 
@@ -323,8 +304,21 @@ ol.flickity-page-dots > li.dot::marker {
         position: relative;
         list-style-type: circle;
     }
+
+    .box-content-flickity-section .flickity-page-dots {
+        display: flex;
+        column-gap: 1em;
+        justify-content: center;
+        vertical-align: top;
+        bottom: 0;
+        position: relative;
+        list-style-type: circle;
+        background-color: white;
+        padding: 1em;
+    }
+
     /* white circles */
-    .flickity-page-dots .dot {
+    .flickity-page-dots .dot, .box-content-flickity-section .flickity-page-dots .dot{
         width: 12px;
         height: 12px;
         opacity: 1;
@@ -332,12 +326,14 @@ ol.flickity-page-dots > li.dot::marker {
         background: #E1E9EB;
         border-radius: 50px;
     }
+
     /* fill-in selected dot */
-    .flickity-page-dots .dot.is-selected {
+    .flickity-page-dots .dot.is-selected, .box-content-flickity-section .dot.is-selected {
         background: #1B2943;
         border: 2px solid #1B2943;
         border-radius: 50px;
     }
+
     ol.flickity-page-dots>li.dot::marker {
         display: none;
         color: transparent;
@@ -345,88 +341,17 @@ ol.flickity-page-dots > li.dot::marker {
     .box-content-section {
         padding-top: 2rem;
     }
-    .box-contents {
-        display: none;
-    }
-    .box-content-flickity {
-        padding-top: 4.1em;
-        height: 590px;
-    }
-    .box-content-flickity .flickity-viewport .flickity-slider .slider:nth-child(2) img {
-        bottom: 3em;
-        position: relative;
-    }
-    .box-content-flickity .flickity-viewport {
-        top: 4em;
-        position: relative;
-        transform: scale(1.46);
-        height: 460px !important;
-    }
-    .box-content-flickity .flickity-page-dots {
-        display: flex;
-        column-gap: 1em;
-        justify-content: center;
-        vertical-align: top;
-        bottom: -2em;
-        position: relative;
-        list-style-type: circle;
-        padding: 1em 0;
-        background-color: #ffffff;
-    }
+
     .box-content-heading {
         font-size: 32px;
     }
     .content-text {
         font-size: 16px;
         line-height: 22px;
-        margin-bottom: 1.5rem;
         margin-top: 2.25rem;
     }
     .product-image-carousel {
         width: 100% !important;
-    }
-}
-
-@media screen and (max-width: 425px) {
-    .box-content-flickity {
-        height: 545px !important;
-        padding-top: 0;
-    }
-    .box-content-flickity .flickity-viewport .flickity-slider .slider:nth-child(2) img {
-        bottom: 0;
-    }
-    .box-content-flickity .flickity-viewport {
-        transform: scale(1.09);
-        height: 505px !important;
-        padding-top: 0;
-        position: relative;
-        top: 4.15em;
-    }
-    .box-content-flickity .flickity-page-dots {
-        bottom: 0;
-    }
-    .box-content-flickity .slider .content-text{
-        margin-top: 1.25rem;
-        margin-bottom: 0;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .box-content-flickity {
-        height: 400px !important;
-        padding-top: 0;
-    }
-
-    .box-content-flickity .flickity-viewport {
-        transform: scale(.9);
-        top: 0;
-        height: 360px !important;
-        padding-top: 0;
-        position: relative;
-    }
-    .box-content-flickity .slider .content-text{
-        margin-top: 0;
-        margin-bottom: 0;
     }
 }
 

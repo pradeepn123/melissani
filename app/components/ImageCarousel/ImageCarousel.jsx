@@ -22,12 +22,12 @@ export function ImageCarousel({ data, className, boxContents }) {
                             </div>
                         )}
                     </div>
-                    
+
                     <Flickity
-                        className="box-content-flickity"
-                        prevNextButtons="false"
+                        className="box-content-flickity-section"
                         groupCells="100%"
-                        >
+                        prevNextButtons={false}
+                        pageDots={true}>
                         {boxContents.content.map((contentItem, contentIndex) =>
                             <div className="slider" key={contentIndex}>
                                 <p className="content-text">
@@ -39,8 +39,8 @@ export function ImageCarousel({ data, className, boxContents }) {
                     </Flickity>
                 </div>}
                 <Flickity
-                    pageDots="true"
-                    prevNextButtons="true"
+                    pageDots={true}
+                    prevNextButtons={true}
                     >
                     {data && data.map((item, index) =>
                         <div className="slider" key={index}>
