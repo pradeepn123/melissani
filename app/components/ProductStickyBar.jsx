@@ -12,7 +12,9 @@ import { useCartFetchers } from '~/hooks/useCartFetchers';
 
 export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...props}) {
     const [isSticky, setIsSticky] = useState(false);
-    const [isAddingToCart, setIsAddingToCart] = useState(false)
+    const [isAddingToCart, setIsAddingToCart] = useState(false);
+    var stickyFloat;
+    var footer;
 
     const context = useContext(RequestContext)
 
@@ -25,9 +27,29 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
             setIsSticky(false)
         }
     }
+
+    function checkOffset() {        
+        function getRectTop(el){
+            var rect = el.getBoundingClientRect();
+            return rect.top;
+        }
+        
+        if((getRectTop(stickyFloat) + document.body.scrollTop) + stickyFloat.offsetHeight >= (getRectTop(footer) + document.body.scrollTop) - 10) {
+            stickyFloat.style.transform = 'translateY(calc(100% + 30px))';
+        }
+        if(document.body.scrollTop + window.innerHeight < (getRectTop(footer) + document.body.scrollTop)){
+            stickyFloat.style.transform = 'translateY(0)';
+        }
+    }
     
     useEffect(() => {
-        window.addEventListener("scroll", handleWindowScroll);
+        stickyFloat = document.querySelector('.stickybar_main_section');
+        footer = document.querySelector('footer');
+
+        window.addEventListener("scroll", function () {
+            handleWindowScroll();
+            checkOffset();
+        });
         return () => {
             window.removeEventListener("scroll", handleWindowScroll)
         }
@@ -45,12 +67,14 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
             header.classList.remove('is-hidden')
             body.classList.remove("sticky-product-footer-attached")
             body.classList.remove(`sticky-${sectionLength >= 5}`)
-        }
+        }    
+
         return () => {
             header.classList.remove('is-hidden')
             body.classList.remove("sticky-product-footer-attached")
             body.classList.remove(`sticky-${sectionLength >= 5}`)
         }
+
     }, [isSticky])
 
     const addToCartFetchers = useCartFetchers('ADD_TO_CART');
