@@ -66,10 +66,15 @@
     font-weight: 500;
     flex: 1 0 80%;
 }
-.tabs_with_icons .custom_content , .tabs_with_icons .custom_content ul li{
+.tabs_with_icons .custom_content {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     width: calc(100% - 10%);
+}
+.tabs_with_icons .custom_content ul li{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    width: 100%;
 }
 .tabs_with_icons [data-testid="flowbite-accordion"] button, 
 .tabs_with_icons [data-testid="flowbite-accordion"] .custom_content{
