@@ -196,7 +196,8 @@ iframe {
 .stickybar_main_section .stickybar_main_section_inner .sticky_button{
     width: 100%;
 }
-.stickybar_main_section .stickybar_main_section_inner .sticky_button button{
+.stickybar_main_section .stickybar_main_section_inner .sticky_button button,
+.stickybar_main_section .stickybar_main_section_inner .sticky_secondary_button button{
     font-weight: 500;
     font-size: 17px;
     line-height: 23px;
