@@ -642,44 +642,7 @@ form .field-input::placeholder {
   text-decoration: underline;
 }
 
-/* .announcementbar {
-  width: max-content;
-  margin: 0 auto;
-  overflow: hidden;
-  white-space: nowrap;
-} */
-/* .announcementbar p {
-  display: inline-block;
-  font-size: 20px;
-  position: relative;
-  left: 100%;
-  animation: marquee 8s linear infinite;
-} */
-
-/* .announcementbar p:nth-child(1) {
-  animation-delay: 3.2s;
-} */
-/* 
-.announcementbar p:nth-child(2) {
-  animation-delay: 0.8s;
-}
-.announcementbar p:nth-child(3) {
-  animation-delay: 1.6s;
-}
-.announcementbar p:nth-child(4) {
-  animation-delay: 2.4s;
-}
-.announcementbar p:nth-child(5) {
-  animation-delay: 3.2s;
-} */
-
-/* @keyframes marquee {
-  0%   { left: 100%; }
-  100% { left: -100%; }
-} */
-
-/* BEGIN: Marquee styles */
-
+/*Begin: Announcement Marquee*/
 .marquee {
   --gap: 1rem;
   position: relative;
@@ -693,17 +656,13 @@ form .field-input::placeholder {
   justify-content: space-around;
   margin-right: var(--gap);
   min-width: 27%;
-  padding: 22px 0;
-  /* @media (max-width: 767px){
-    padding: 15px 0;
-  } */
 }
 @keyframes scroll {
   from {
       transform: translateX(0);
   }
   to {
-      transform: translateX(calc(-100% - var(--gap)));
+      transform: translateX(calc(-60% - var(--gap)));
   }
 }
 @keyframes scroll-v {
@@ -722,13 +681,10 @@ form .field-input::placeholder {
 }
 /* Enable animation */
 .enable-animation .marquee__content {
-  animation: scroll 10s linear infinite;
+  animation: scroll 25s linear infinite;
 }
 .enable-animation-v .marquee__content {
   animation: scroll 10s linear infinite;
-  /* @media (min-width:767px) {
-      animation: scroll-v 5s linear infinite;
-  } */
 }
 /* Pause on hover */
 .marquee--hover-pause:hover .marquee__content {
@@ -743,11 +699,7 @@ form .field-input::placeholder {
 }
 .Marquee-tag p {
   margin-right: 40px;
-  font-weight: 700;
   margin-bottom: 0;
-  /* @media (max-width:767px) {
-      object-fit: contain;
-  } */
 }
 
 @media (min-width:767px) {
@@ -760,12 +712,8 @@ form .field-input::placeholder {
   .Marquee-tag p {
     object-fit: contain;
   }
-  .marquee__content {
-    padding: 15px 0;
-  }
 }
-
-/*END:  Marquee styles */
+/*End: Announcement Marquee*/
 
 
 .okendo-reviews {
