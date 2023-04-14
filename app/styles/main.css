@@ -642,6 +642,80 @@ form .field-input::placeholder {
   text-decoration: underline;
 }
 
+/*Begin: Announcement Marquee*/
+.marquee {
+  --gap: 1rem;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+.marquee__content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  margin-right: var(--gap);
+  min-width: 27%;
+}
+@keyframes scroll {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(calc(-60% - var(--gap)));
+  }
+}
+@keyframes scroll-v {
+  from {
+      transform: translateY(0);
+  }
+  to {
+      transform: translateY(-50% );
+  }
+}
+/* Pause animation when reduced-motion is set */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__content {
+      animation-play-state: paused !important;
+  }
+}
+/* Enable animation */
+.enable-animation .marquee__content {
+  animation: scroll 25s linear infinite;
+}
+.enable-animation-v .marquee__content {
+  animation: scroll 10s linear infinite;
+}
+/* Pause on hover */
+.marquee--hover-pause:hover .marquee__content {
+  animation-play-state: paused;
+}
+.Marquee-tag {
+  display: flex;
+  align-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.Marquee-tag p {
+  margin-right: 40px;
+  margin-bottom: 0;
+}
+
+@media (min-width:767px) {
+  .enable-animation-v .marquee__content {
+    animation: scroll-v 5s linear infinite;
+  }
+}
+
+@media (max-width:767px) {
+  .Marquee-tag p {
+    object-fit: contain;
+  }
+}
+/*End: Announcement Marquee*/
+
+
 .okendo-reviews {
   padding: 0 1rem;
 }
@@ -741,10 +815,13 @@ form .field-input::placeholder {
 }
 
 @media screen and (max-width: 767px) {
+  .desktop_announcement{
+    display: none;
+  }
   #header_announcement {
     font-size: 12px;
     line-height: 16.8px;
-    padding: 14.15px 20px;
+    padding: 14.15px 0;
   }
 
   .page-title {
@@ -825,6 +902,9 @@ form .field-input::placeholder {
 }
 
 @media screen and (min-width: 768px) {
+    .mobile_announcement {
+      display: none;
+    }
     .custom_nav_height{
         height: 100%;
     }
