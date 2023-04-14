@@ -339,6 +339,7 @@ const CART_QUERY = `#graphql
                 title
                 id
                 productType
+                tags
                 metafields(identifiers: [
                   { namespace: "product", key: "product_details" }
                 ]) {

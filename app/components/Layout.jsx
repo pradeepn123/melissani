@@ -493,15 +493,21 @@ const NoSubscriptionModal = ({isOpen, open, onClose, oneTimeProducts, setOneTime
     setVariantLineItems(oneTimeProducts.map(oneTimeProduct => {
       return {
         merchandiseId: oneTimeProduct.variants.nodes[0].id,
-        quantity: 0
+        quantity: 1
       }
-    }))    
-  }, [oneTimeProducts.length > 0])
+    }))
+
+    setTotalPrice(oneTimeProducts.reduce((acc, lineProduct) => {
+      const firstVariant = lineProduct.variants.nodes[0];
+      return acc + parseFloat(firstVariant.price?.amount) * (lineProduct.quantity == undefined ? 1 : lineProduct.quantity)
+    }, 0))
+
+  }, [oneTimeProducts.length > 0 && isOpen])
 
   const updateQuantity = (handle, quantity) => {
     const updatedOneTimeProducts = oneTimeProducts.map((oneTimeProduct) => {
-      if (!oneTimeProduct.quantity) {
-        oneTimeProduct.quantity = 0
+      if (oneTimeProduct.quantity == undefined) {
+        oneTimeProduct.quantity = 1
       }
 
       if (handle == oneTimeProduct.handle) {
@@ -544,7 +550,7 @@ const NoSubscriptionModal = ({isOpen, open, onClose, oneTimeProducts, setOneTime
       <div className="content one-time-products-wrapper">
         {oneTimeProducts.map((oneTimeProduct) => {
           let featuredImage = oneTimeProduct.media.nodes[0]?.image
-          let oneTimeProductQuantity = oneTimeProduct.quantity || 0
+          let oneTimeProductQuantity = oneTimeProduct.quantity == undefined ? 1 : oneTimeProduct.quantity
           return <div
             key={`one-time-product-${oneTimeProduct.handle}`}
             className="grid gap-2 py-2"

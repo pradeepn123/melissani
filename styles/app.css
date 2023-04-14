@@ -219,3 +219,7 @@ shop-pay-button {
     }
   }
 }
+
+.needsclick {
+  z-index: 1 !important;
+}
