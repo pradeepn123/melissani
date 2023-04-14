@@ -495,7 +495,13 @@ const NoSubscriptionModal = ({isOpen, open, onClose, oneTimeProducts, setOneTime
         merchandiseId: oneTimeProduct.variants.nodes[0].id,
         quantity: 0
       }
-    }))    
+    }))
+
+    setTotalPrice(oneTimeProducts.reduce((acc, lineProduct) => {
+      const firstVariant = lineProduct.variants.nodes[0];
+      return acc + parseFloat(firstVariant.price?.amount) * lineProduct.quantity
+    }, 0))
+
   }, [oneTimeProducts.length > 0])
 
   const updateQuantity = (handle, quantity) => {

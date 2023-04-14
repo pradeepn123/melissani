@@ -16,6 +16,7 @@ import { getInputStyleClasses } from '~/lib/utils';
 import { useFetcher, Await, useMatches } from '@remix-run/react';
 import { CartAction } from '~/lib/type';
 
+
 export function Cart({layout, onClose, cart}) {
   const linesCount = Boolean(cart?.lines?.edges?.length || 0);
   const context = useContext(RequestContext)
@@ -127,13 +128,14 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
   const {y} = useScroll(scrollRef);
 
   const filterClubLineItems = currentLines.filter((line) => {
-
     return line.attributes.find((attribute) => attribute.key == "Bundle" && attribute.value == "Filter Club")
   })
 
   const oneTimeLineItems = currentLines.filter(line => {
     return !line.attributes.find((attribute) => attribute.key == "Bundle" && attribute.value == "Filter Club")
   })
+
+  const isPurfierInCart = currentLines.filter(line => line.merchandise.product.productType == "Water Purifier").length > 0
 
   const className = clsx([
     y > 0 ? 'border-t' : '',
@@ -161,7 +163,7 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
         </p>
       </div>}
     </section>
-    {filterClubLineItems == 0 && <Await resolve={root.data?.products}>
+    {filterClubLineItems.length == 0 && isPurfierInCart && <Await resolve={root.data?.products}>
       {(products) => <CartClubMembership products={products.nodes} />}
     </Await>}
   </>
@@ -386,7 +388,7 @@ function CartLineQuantityAdjust({line}) {
             aria-label="Decrease quantity"
             className="quantity-selector-btn transition text-primary/50 hover:text-primary disabled:text-primary/10"
             value={prevQuantity}
-            disabled={quantity <= 1}
+            disabled={quantity < 1}
           >
             <span>&#8722;</span>
           </button>
@@ -434,7 +436,7 @@ function SubscriptionLineQuantityAdjust({lines}) {
             aria-label="Decrease quantity"
             className="quantity-selector-btn transition text-primary/50 hover:text-primary disabled:text-primary/10"
             value={prevQuantity}
-            disabled={quantity <= 1}
+            disabled={quantity < 1}
           >
             <span>&#8722;</span>
           </button>
