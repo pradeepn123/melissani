@@ -22,20 +22,20 @@ export function AnnouncementBar({ announcementbar, id, animation }) {
                 <div dangerouslySetInnerHTML={{ __html: announcementbar.rawHtml}}></div>
             </div>
             <div className="w-full text-center announcementbar_main mobile_announcement" id={id}>
-                <p className="marquee marquee--hover-pause enable-animation">
-                <div className="marquee__content">
-                    <div className="Marquee-tag">
-                        {Array.from(
-                            { length: 5 },
-                            (_, i) => (
-                                <p className="marquee_content announcement-title text-black" key={i}>
-                                    {announcementbar.marqueeAnnouncementText}
-                                </p>
-                            ))
-                        }
+                <div className="marquee marquee--hover-pause enable-animation" style={{display: 'flex'}}>
+                    <div className="marquee__content">
+                        <div className="Marquee-tag">
+                            {Array.from(
+                                { length: 5 },
+                                (_, i) => (
+                                    <p className="marquee_content announcement-title text-black" key={i}>
+                                        {announcementbar.marqueeAnnouncementText}
+                                    </p>
+                                ))
+                            }
+                        </div>
                     </div>
                 </div>
-                </p>
             </div>
         </>
         }
