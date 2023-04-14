@@ -3,7 +3,6 @@ import {PageHeader, Text} from './Text';
 import {Button, Link} from '~/components';
 
 export function NotFound({type = 'page', heading, subHeading, description, notFound, buttonText}) {
-
   return (
     <>
       <PageHeader heading={heading} className="not_found_header">
