@@ -783,8 +783,10 @@ function Footer({menu, metafields}) {
   const isHome = useIsHomePath();
   console.log("metafields>", metafields)
   const footerMetafields = metafields !== undefined ? JSON.parse(metafields.footer.value) : "";
-  const heading = `Something went wrong :(`;
-  const subHeading = `Please refresh the Page`;
+  const heading = `Oops!`;
+  const subHeading = `Something went wrong`;
+  const description = `Please refresh the page and try again`;
+  const buttonText = `Refresh`;
   return (
     <Section
       divider={isHome ? 'none' : 'top'}
@@ -792,11 +794,12 @@ function Footer({menu, metafields}) {
       role="contentinfo"
       className={`footer-wrapper w-full bg-white overflow-hidden`}
     >
+    {metafields !== "" && footerMetafields ?
+      <>
       <div className={`bg-white flex md:justify-around text-center flex-col lg:flex-row px-9 pt-9 pb-2`}>
         <FooterMenu menu={menu} />
       </div>
-      {metafields !== "" && footerMetafields ?
-      <>
+
         <div className="bg-white social-section-wrapper flex items-center justify-center pt-7 pb-4">
           {footerMetafields.social.map((item, index) => (
             <div key={`footer-social-${index}`} className="social-links mr-6">
@@ -816,7 +819,7 @@ function Footer({menu, metafields}) {
       :
       <>
       {console.log("metafields..", metafields)}
-        <NotFound heading={heading} subHeading={subHeading} />
+        <NotFound heading={heading} subHeading={subHeading} description={description} buttonText={buttonText} />
       </>
       }
     </Section>

@@ -2,7 +2,7 @@ import {FeaturedSection} from './FeaturedSection';
 import {PageHeader, Text} from './Text';
 import {Button, Link} from '~/components';
 
-export function NotFound({type = 'page', heading, subHeading, description, notFound}) {
+export function NotFound({type = 'page', heading, subHeading, description, notFound, buttonText}) {
 
   return (
     <>
@@ -13,10 +13,10 @@ export function NotFound({type = 'page', heading, subHeading, description, notFo
         {description && <Text width="narrow" as="p">
           {description}
         </Text>}
-        {notFound && <Link
-            to={'/'}>
+        {buttonText && <Link
+            to={notFound ? '/' : '#'}>
             <Button variant='primary' className="font-medium">
-            Back to home
+              {buttonText}
             </Button>
         </Link>}
       </PageHeader>
