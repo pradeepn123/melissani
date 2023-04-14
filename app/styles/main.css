@@ -818,6 +818,9 @@ form .field-input::placeholder {
   .desktop_announcement{
     display: none;
   }
+  #error_found_section {
+    justify-content: flex-start;
+  }
   #header_announcement {
     font-size: 12px;
     line-height: 16.8px;
@@ -1060,7 +1063,14 @@ form .field-input::placeholder {
   justify-items: center !important;
   padding: 6% 32%;
   background: #E1E9EB;
+}
 
+#error_found_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 @media screen and (max-width: 768px) {

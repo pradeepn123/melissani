@@ -781,7 +781,6 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
 
 function Footer({menu, metafields}) {
   const isHome = useIsHomePath();
-  console.log("metafields>", metafields)
   const footerMetafields = metafields !== undefined ? JSON.parse(metafields.footer.value) : "";
   const heading = `Oops!`;
   const subHeading = `Something went wrong`;
@@ -818,8 +817,7 @@ function Footer({menu, metafields}) {
       </> 
       :
       <>
-      {console.log("metafields..", metafields)}
-        <NotFound heading={heading} subHeading={subHeading} description={description} buttonText={buttonText} />
+        <NotFound heading={heading} subHeading={subHeading} description={description} buttonText={buttonText} id="error_found_section" />
       </>
       }
     </Section>
