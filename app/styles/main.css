@@ -642,6 +642,132 @@ form .field-input::placeholder {
   text-decoration: underline;
 }
 
+/* .announcementbar {
+  width: max-content;
+  margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
+} */
+/* .announcementbar p {
+  display: inline-block;
+  font-size: 20px;
+  position: relative;
+  left: 100%;
+  animation: marquee 8s linear infinite;
+} */
+
+/* .announcementbar p:nth-child(1) {
+  animation-delay: 3.2s;
+} */
+/* 
+.announcementbar p:nth-child(2) {
+  animation-delay: 0.8s;
+}
+.announcementbar p:nth-child(3) {
+  animation-delay: 1.6s;
+}
+.announcementbar p:nth-child(4) {
+  animation-delay: 2.4s;
+}
+.announcementbar p:nth-child(5) {
+  animation-delay: 3.2s;
+} */
+
+/* @keyframes marquee {
+  0%   { left: 100%; }
+  100% { left: -100%; }
+} */
+
+/* BEGIN: Marquee styles */
+
+.marquee {
+  --gap: 1rem;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+.marquee__content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  margin-right: var(--gap);
+  min-width: 27%;
+  padding: 22px 0;
+  /* @media (max-width: 767px){
+    padding: 15px 0;
+  } */
+}
+@keyframes scroll {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+@keyframes scroll-v {
+  from {
+      transform: translateY(0);
+  }
+  to {
+      transform: translateY(-50% );
+  }
+}
+/* Pause animation when reduced-motion is set */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__content {
+      animation-play-state: paused !important;
+  }
+}
+/* Enable animation */
+.enable-animation .marquee__content {
+  animation: scroll 10s linear infinite;
+}
+.enable-animation-v .marquee__content {
+  animation: scroll 10s linear infinite;
+  /* @media (min-width:767px) {
+      animation: scroll-v 5s linear infinite;
+  } */
+}
+/* Pause on hover */
+.marquee--hover-pause:hover .marquee__content {
+  animation-play-state: paused;
+}
+.Marquee-tag {
+  display: flex;
+  align-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.Marquee-tag p {
+  margin-right: 40px;
+  font-weight: 700;
+  margin-bottom: 0;
+  /* @media (max-width:767px) {
+      object-fit: contain;
+  } */
+}
+
+@media (min-width:767px) {
+  .enable-animation-v .marquee__content {
+    animation: scroll-v 5s linear infinite;
+  }
+}
+
+@media (max-width:767px) {
+  .Marquee-tag p {
+    object-fit: contain;
+  }
+  .marquee__content {
+    padding: 15px 0;
+  }
+}
+
+/*END:  Marquee styles */
+
+
 .okendo-reviews {
   padding: 0 1rem;
 }
@@ -741,10 +867,13 @@ form .field-input::placeholder {
 }
 
 @media screen and (max-width: 767px) {
+  .desktop_announcement{
+    display: none;
+  }
   #header_announcement {
     font-size: 12px;
     line-height: 16.8px;
-    padding: 14.15px 20px;
+    padding: 14.15px 0;
   }
 
   .page-title {
@@ -825,6 +954,9 @@ form .field-input::placeholder {
 }
 
 @media screen and (min-width: 768px) {
+    .mobile_announcement {
+      display: none;
+    }
     .custom_nav_height{
         height: 100%;
     }
