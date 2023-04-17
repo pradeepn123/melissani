@@ -118,7 +118,10 @@ export function CatchBoundary() {
   const caught = useCatch();
   const isNotFound = caught.status === 404;
   const locale = root.data?.selectedLocale ?? DEFAULT_LOCALE;
-
+  const heading = `404`;
+  const description = `The page may have been removed, had its name changed, or is temporarily unavailable.`;
+  const subHeading = `Oops! We couldn't find the page you were looking for.`
+  const buttonText = `Back to home`;
   return (
     <html lang={locale.language}>
       <head>
@@ -132,7 +135,7 @@ export function CatchBoundary() {
           key={`${locale.language}-${locale.country}`}
         >
           {isNotFound ? (
-            <NotFound type={caught.data?.pageType} />
+            <NotFound type={caught.data?.pageType} heading={heading} subHeading={subHeading} description={description} notFound={isNotFound} buttonText={buttonText}/>
           ) : (
             <GenericError
               error={{message: `${caught.status} ${caught.data}`}}

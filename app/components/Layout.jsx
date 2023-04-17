@@ -31,6 +31,7 @@ import { CartCount } from '~/components/CartCount'
 import {useIsHomePath} from '~/lib/utils';
 
 import logo from '../../public/logo.svg';
+import { NotFound } from './NotFound';
 
 export function Layout({children, layout}) {
   const [isAddingToCart, setIsAddingToCart] = useState(false)
@@ -146,7 +147,7 @@ function Header({logo, menu, sidebarMenu, metafields}) {
   const isHome = useIsHomePath();
   const context = useContext(RequestContext)
   const [root] = useMatches();
-  const announcement = JSON.parse(metafields?.announcement?.value);
+  const announcement = metafields !== undefined ? JSON.parse(metafields?.announcement?.value) : "";
 
   const {
     isOpen: isCartOpen,
@@ -205,7 +206,7 @@ function Header({logo, menu, sidebarMenu, metafields}) {
         }}
         metafields={metafields}
       />}
-      <AnnouncementBar announcementbar={announcement} height="full" id="header_announcement" animation={false}/>
+      {announcement !== "" && <AnnouncementBar announcementbar={announcement} height="full" id="header_announcement" animation={false}/>}
       <MobileHeader
         isHome={isHome}
         logo={logo}
@@ -780,8 +781,11 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
 
 function Footer({menu, metafields}) {
   const isHome = useIsHomePath();
-
-  const footerMetafields = JSON.parse(metafields.footer.value)
+  const footerMetafields = metafields !== undefined ? JSON.parse(metafields.footer.value) : "";
+  const heading = `Oops!`;
+  const subHeading = `Something went wrong`;
+  const description = `Please refresh the page and try again`;
+  const buttonText = `Refresh`;
   return (
     <Section
       divider={isHome ? 'none' : 'top'}
@@ -789,24 +793,33 @@ function Footer({menu, metafields}) {
       role="contentinfo"
       className={`footer-wrapper w-full bg-white overflow-hidden`}
     >
+    {metafields !== "" && footerMetafields ?
+      <>
       <div className={`bg-white flex md:justify-around text-center flex-col lg:flex-row px-9 pt-9 pb-2`}>
         <FooterMenu menu={menu} />
       </div>
-      <div className="bg-white social-section-wrapper flex items-center justify-center pt-7 pb-4">
-        {footerMetafields.social.map((item, index) => (
-          <div key={`footer-social-${index}`} className="social-links mr-6">
-            <a href={item.link} target="_blank">
-              <img src={item.icon} />
-            </a>
-          </div>
-        ))}
-      </div>
-      <div
-        className={`bg-white pt-3 pb-4 text-center footer-bottom`}
-      >
-        {footerMetafields.address} 
-        <span className="ml-5">&copy; MELISSANI</span>
-      </div>
+
+        <div className="bg-white social-section-wrapper flex items-center justify-center pt-7 pb-4">
+          {footerMetafields.social.map((item, index) => (
+            <div key={`footer-social-${index}`} className="social-links mr-6">
+              <a href={item.link} target="_blank">
+                <img src={item.icon} />
+              </a>
+            </div>
+          ))}
+        </div>
+        <div
+          className={`bg-white pt-3 pb-4 text-center footer-bottom`}
+        >
+          {footerMetafields.address} 
+          <span className="ml-5">&copy; MELISSANI</span>
+        </div>
+      </> 
+      :
+      <>
+        <NotFound heading={heading} subHeading={subHeading} description={description} buttonText={buttonText} id="error_found_section" />
+      </>
+      }
     </Section>
   );
 }
