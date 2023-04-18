@@ -89,34 +89,34 @@ export default function App() {
 
   useAnalytics(hasUserConsent, locale);
 
-return (
-  <html lang={locale.language} className="scroll-auto md:scroll-smooth">
-    <head>
-      <Seo />
-      <Meta />
-      <Links />
-      {/* <script id="gorgias-chat-widget-install-v2" src="https://config.gorgias.chat/gorgias-chat-bundle-loader.js?applicationId=28865"></script> */}
-      <React.Fragment>
+  return (
+    <html lang={locale.language} className="scroll-auto md:scroll-smooth">
+      <head>
+        <Seo />
+        <Meta />
+        <Links />
+        {/* <script id="gorgias-chat-widget-install-v2" src="https://config.gorgias.chat/gorgias-chat-bundle-loader.js?applicationId=28865"></script> */}
         <script async src="https://d3hw6dc1ow8pp2.cloudfront.net/reviews-widget-plus/js/okendo-reviews.js"></script>
         <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wp4Lww"></script>
         <script>
-          !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
-          twq('config','oenmr');
+          {`
+            !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+            twq('config','oenmr');
+          `}
         </script>
-      </React.Fragment>
-    </head>
-    <body>
-      <Layout
-        layout={data.layout}
-        key={`${locale.language}-${locale.country}`}
-      >
-        <Outlet key={pathname}/>
-      </Layout>
-      <ScrollRestoration />
-      <Scripts />
-    </body>
-  </html>
-);
+      </head>
+      <body>
+        <Layout
+          layout={data.layout}
+          key={`${locale.language}-${locale.country}`}
+        >
+          <Outlet key={pathname}/>
+        </Layout>
+        <ScrollRestoration />
+        <Scripts />
+      </body>
+    </html>
+  );
 }
 
 
