@@ -98,6 +98,7 @@ export default function App() {
         {/* <script id="gorgias-chat-widget-install-v2" src="https://config.gorgias.chat/gorgias-chat-bundle-loader.js?applicationId=28865"></script> */}
         <script async src="https://d3hw6dc1ow8pp2.cloudfront.net/reviews-widget-plus/js/okendo-reviews.js"></script>
         <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wp4Lww"></script>
+        <script async type="text/javascript" src="https://cdn.shopify.com/s/files/1/0684/3023/3888/files/twitter.js?v=1681901569"></script>
       </head>
       <body>
         <Layout
