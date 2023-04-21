@@ -214,7 +214,7 @@ export default function Product() {
         <section className="okendo-reviews">
           <OkendoReviewsWidget productId={productId} />
         </section>
-        <ImageGallery />
+        {parsedProductDetails?.social_proof && <ImageGallery data={parsedProductDetails.social_proof}/>}
         <ProductStickyBar
           products={products}
           selectedVariant={selectedVariant}
