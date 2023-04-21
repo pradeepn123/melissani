@@ -25,6 +25,7 @@ import {DEFAULT_LOCALE, parseMenu} from './lib/utils';
 import invariant from 'tiny-invariant';
 import {useAnalytics} from './hooks/useAnalytics';
 import { PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
+import { useEffect, useState } from 'react';
 
 const seo = ({data, pathname}) => {
   return {
@@ -86,8 +87,15 @@ export default function App() {
   const locale = data.selectedLocale ?? DEFAULT_LOCALE;
   const hasUserConsent = true;
   const {pathname} = useLocation()
-
+  const [fourtySizeInitialized, setFourtySizeInitialized] = useState(false);
   useAnalytics(hasUserConsent, locale);
+
+  useEffect(() => {
+    if(typeof window != undefined && window.FoursixtyEmbed && fourtySizeInitialized == false) {
+        window.FoursixtyEmbed.init()
+        setFourtySizeInitialized(true)
+    }
+  }, [pathname]);
 
   return (
     <html lang={locale.language} className="scroll-auto md:scroll-smooth">
