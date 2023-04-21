@@ -95,7 +95,7 @@ export default function App() {
         window.FoursixtyEmbed.init()
         setFourtySizeInitialized(true)
     }
-  }, [pathname]);
+  }, []);
 
   return (
     <html lang={locale.language} className="scroll-auto md:scroll-smooth">
