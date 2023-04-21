@@ -1,0 +1,16 @@
+.image_gallery {
+    padding: 0 7.5em;
+}
+
+
+@media screen and (max-width: 1280px) {
+    .image_gallery {
+        padding: 0 2.5em;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .image_gallery {
+        padding: 0 1em;
+    }
+}
