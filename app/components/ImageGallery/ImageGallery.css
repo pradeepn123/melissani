@@ -1,7 +1,28 @@
-.image_gallery {
-    padding: 0 7.5em;
+
+
+@media screen and (min-width: 1980px) {
+    .image_gallery {
+        padding: 0 6.5em;
+    }
 }
 
+@media screen and (max-width: 1920px) {
+    .image_gallery {
+        padding: 0 22.5em;
+    }
+}
+
+@media screen and (max-width: 1680px) {
+    .image_gallery {
+        padding: 0 15em;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .image_gallery {
+        padding: 0 7.5em;
+    }
+}
 
 @media screen and (max-width: 1280px) {
     .image_gallery {
@@ -9,8 +30,9 @@
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
     .image_gallery {
         padding: 0 1em;
     }
 }
+
