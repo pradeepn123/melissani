@@ -69,7 +69,7 @@ export async function loader({context}) {
     context.session.get('cartId'),
     getLayoutData(context),
   ]);
-
+  console.log("context", context)
   return defer({
     layout,
     selectedLocale: context.storefront.i18n,
@@ -84,18 +84,11 @@ export async function loader({context}) {
 
 export default function App() {
   const data = useLoaderData();
+  console.log("data", data)
   const locale = data.selectedLocale ?? DEFAULT_LOCALE;
   const hasUserConsent = true;
   const {pathname} = useLocation()
-  const [fourtySizeInitialized, setFourtySizeInitialized] = useState(false);
   useAnalytics(hasUserConsent, locale);
-
-  useEffect(() => {
-    if(typeof window != undefined && window.FoursixtyEmbed && fourtySizeInitialized == false) {
-        window.FoursixtyEmbed.init()
-        setFourtySizeInitialized(true)
-    }
-  }, []);
 
   return (
     <html lang={locale.language} className="scroll-auto md:scroll-smooth">
@@ -107,6 +100,7 @@ export default function App() {
         <script async src="https://d3hw6dc1ow8pp2.cloudfront.net/reviews-widget-plus/js/okendo-reviews.js"></script>
         <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wp4Lww"></script>
         <script async type="text/javascript" src="https://cdn.shopify.com/s/files/1/0684/3023/3888/files/twitter.js?v=1681901569"></script>
+        <script async src='//foursixty.com/media/scripts/fs.embed.v2.5.js' data-feed-id='melissani' data-theme='showcase_v2_5' data-open-links-in-same-page='true' data-show-okendo-stars='true' data-page-size='10'></script>
       </head>
       <body>
         <Layout
@@ -236,6 +230,9 @@ const LAYOUT_QUERY = `#graphql
       value
     }
     announcement: metafield(namespace: "global", key: "announcement") {
+      value
+    }
+    social_proofing: metafield(namespace: "global", key: "social_proofing") {
       value
     }
   }
