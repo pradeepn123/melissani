@@ -25,7 +25,6 @@ import {DEFAULT_LOCALE, parseMenu} from './lib/utils';
 import invariant from 'tiny-invariant';
 import {useAnalytics} from './hooks/useAnalytics';
 import { PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
-import { useEffect, useState } from 'react';
 
 const seo = ({data, pathname}) => {
   return {
@@ -69,7 +68,6 @@ export async function loader({context}) {
     context.session.get('cartId'),
     getLayoutData(context),
   ]);
-  console.log("context", context)
   return defer({
     layout,
     selectedLocale: context.storefront.i18n,
@@ -84,7 +82,6 @@ export async function loader({context}) {
 
 export default function App() {
   const data = useLoaderData();
-  console.log("data", data)
   const locale = data.selectedLocale ?? DEFAULT_LOCALE;
   const hasUserConsent = true;
   const {pathname} = useLocation()
@@ -230,9 +227,6 @@ const LAYOUT_QUERY = `#graphql
       value
     }
     announcement: metafield(namespace: "global", key: "announcement") {
-      value
-    }
-    social_proofing: metafield(namespace: "global", key: "social_proofing") {
       value
     }
   }
