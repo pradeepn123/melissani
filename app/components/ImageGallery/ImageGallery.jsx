@@ -1,14 +1,14 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react';
+import { useLocation } from 'react-router-dom';
 
 export function ImageGallery() {
+    let location = useLocation();
     const [fourtySizeInitialized, setFourtySizeInitialized] = useState(false)
 
     useEffect(() => {
-        if (typeof window != undefined && window.FoursixtyEmbed && fourtySizeInitialized == false) {
-            window.FoursixtyEmbed.init()
-            setFourtySizeInitialized(true)
-        }
-    }, [])
+        window.FoursixtyEmbed.init();
+        setFourtySizeInitialized(true);
+    }, [location])
 
     return (
         <div className="image_gallery" dangerouslySetInnerHTML={{__html: `<script src="//foursixty.com/media/scripts/fs.embed.v2.5.js" data-feed-id="melissani" data-theme="showcase_v2_5" data-open-links-in-same-page="true" data-show-okendo-stars="true" data-page-size="10"></script>
