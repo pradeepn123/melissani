@@ -6,8 +6,10 @@ export function ImageGallery() {
     const [fourtySizeInitialized, setFourtySizeInitialized] = useState(false)
 
     useEffect(() => {
-        window.FoursixtyEmbed.init();
-        setFourtySizeInitialized(true);
+        if(typeof window != undefined && fourtySizeInitialized == false) {
+            window.FoursixtyEmbed.init()
+            setFourtySizeInitialized(true)
+        }
     }, [location])
 
     return (
