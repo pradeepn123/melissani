@@ -61,5 +61,6 @@ export { RequestContext } from './MelissaniContext';
 export { DrawerFromBottom, useDrawerFromBottom } from './DrawerFromBottom';
 export { CartClubMembership } from './CartClubMembership/CartClubMembership';
 export { OkendoReviewsWidget, OkendoStarRating } from './Okendo';
+export { ImageGallery } from './ImageGallery/ImageGallery';
 // Sue me
 export * from './Icon';

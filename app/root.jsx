@@ -68,7 +68,6 @@ export async function loader({context}) {
     context.session.get('cartId'),
     getLayoutData(context),
   ]);
-
   return defer({
     layout,
     selectedLocale: context.storefront.i18n,
@@ -86,7 +85,6 @@ export default function App() {
   const locale = data.selectedLocale ?? DEFAULT_LOCALE;
   const hasUserConsent = true;
   const {pathname} = useLocation()
-
   useAnalytics(hasUserConsent, locale);
 
   return (
@@ -99,6 +97,7 @@ export default function App() {
         <script async src="https://d3hw6dc1ow8pp2.cloudfront.net/reviews-widget-plus/js/okendo-reviews.js"></script>
         <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wp4Lww"></script>
         <script async type="text/javascript" src="https://cdn.shopify.com/s/files/1/0684/3023/3888/files/twitter.js?v=1681901569"></script>
+        <script async src='//foursixty.com/media/scripts/fs.embed.v2.5.js' data-feed-id='melissani' data-theme='showcase_v2_5' data-open-links-in-same-page='true' data-show-okendo-stars='true' data-page-size='10'></script>
       </head>
       <body>
         <Layout

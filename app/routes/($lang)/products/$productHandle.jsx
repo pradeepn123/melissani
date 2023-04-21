@@ -17,7 +17,8 @@ import {
   ProductHeader,
   MediaGallery,
   ProductStickyBar,
-  OkendoReviewsWidget
+  OkendoReviewsWidget,
+  ImageGallery
 } from '~/components';
 
 import invariant from 'tiny-invariant';
@@ -27,7 +28,8 @@ import ProductHeaderStyles from '~/components/ProductHeader/ProductHeader.css';
 import ImageCarouselStyles from '~/components/ImageCarousel/ImageCarousel.css';
 import SpecificationStyles from '~/components/Specifications/Specifications.css';
 import ProductHandleStyles from '../../../styles/productHandle.css';
- import SwiperCss from "swiper/css";
+import ImageGalleryStyles from '~/components/ImageGallery/ImageGallery.css';
+import SwiperCss from "swiper/css";
 import SwiperNavigation from "swiper/css/navigation";
 import SwiperPagination from "swiper/css/pagination";
 
@@ -39,7 +41,8 @@ export const links = () => [
   {rel: 'styleSheet', href: ProductHandleStyles},
   {rel: 'styleSheet', href: SwiperCss},
   {rel: 'styleSheet', href: SwiperNavigation},
-  {rel: 'styleSheet', href: SwiperPagination}
+  {rel: 'styleSheet', href: SwiperPagination},
+  {rel: 'stylesheet', href: ImageGalleryStyles}
 ]
 
 const seo = ({data}) => {
@@ -211,6 +214,7 @@ export default function Product() {
         <section className="okendo-reviews">
           <OkendoReviewsWidget productId={productId} />
         </section>
+        {parsedProductDetails?.social_proof && <ImageGallery data={parsedProductDetails.social_proof}/>}
         <ProductStickyBar
           products={products}
           selectedVariant={selectedVariant}
