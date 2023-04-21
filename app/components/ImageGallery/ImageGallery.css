@@ -1,36 +1,36 @@
 @media screen and (min-width: 1980px) {
     .image_gallery {
-        padding: 0 6.5em;
+        padding: 0 6.5em 2em 6.5em;
     }
 }
 
 @media screen and (max-width: 1920px) {
     .image_gallery {
-        padding: 0 22.5em;
+        padding: 0 22.5em 2em 22.5em;
     }
 }
 
 @media screen and (max-width: 1680px) {
     .image_gallery {
-        padding: 0 15em;
+        padding: 0 15em 2em 15em;
     }
 }
 
 @media screen and (max-width: 1440px) {
     .image_gallery {
-        padding: 0 7.5em;
+        padding: 0 7.5em 2em 7.5em;
     }
 }
 
 @media screen and (max-width: 1280px) {
     .image_gallery {
-        padding: 0 2.5em;
+        padding: 0 2.5em 2em 2.5em;
     }
 }
 
 @media screen and (max-width: 1200px) {
     .image_gallery {
-        padding: 0 1em;
+        padding: 0 1em 2em 1em;
     }
 }
 
