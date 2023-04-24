@@ -40,8 +40,16 @@ export async function loader({request, params, context}) {
 }
 
 export const meta = ({data}) => {
+  let policyPage = data?.policy?.handle;
   return {
-    title: data?.policy?.title ?? 'Policies',
+    title: policyPage === "privacy-policy" ? "Melissani Privacy Policy | Safeguarding Your Personal Information" : policyPage === 'refund-policy' ? "Melissani Refund Policy | Hassle-Free Returns & Exchanges"
+    : policyPage === "terms-of-service" ? "Melissani Terms of Service | Understanding Our Policies & Practices" : policyPage === "subscription-policy" ? "Melissani Filter Club Subscription Terms | Enjoy Worry-Free Filter Replacements"
+    : policyPage === "warranty-policy" ? "Melissani Warranty Policy | Countertop RO Water Purifier Protection" : "Policies",
+    description: policyPage === "privacy-policy" ? "At Melissani, we value your privacy. Learn about our commitment to protecting your personal information and how we handle data in our Privacy Policy." : policyPage === 'refund-policy' ?
+    "Discover Melissani's Refund Policy, ensuring a smooth and hassle-free process for returns and exchanges on your countertop RO water purifier purchase."
+    : policyPage === "terms-of-service" ? "Review Melissani's Terms of Service to better understand our policies, practices, and guidelines governing the use of our website and products." : policyPage === "subscription-policy" ?
+    "Explore the terms and conditions of the Melissani Filter Club subscription service, ensuring a hassle-free experience for your countertop RO water purifier filter replacements."
+    : policyPage === "warranty-policy" ? "Learn about Melissani's Warranty Policy, providing comprehensive protection for your M1 countertop RO water purifier. Shop with confidence and peace of mind." : "Policies"
   };
 };
 
