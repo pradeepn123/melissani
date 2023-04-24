@@ -28,9 +28,9 @@ import { PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
 
 const seo = ({data, pathname}) => {
   return {
-  title: data?.layout?.shop?.name,
+  // title: data?.layout?.shop?.name,
   titleTemplate: '%s',
-  description: data?.layout?.shop?.description,
+  // description: data?.layout?.shop?.description,
   handle: '@shopify',
   url: `https://melissaniwater.com${pathname}`,
 }};
