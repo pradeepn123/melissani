@@ -101,7 +101,7 @@ export function SingleProductCard({
           </div>
         </div>
       </Link>
-      <div className="grid gap-1 product-card">
+      {/* <div className="grid gap-1 product-card">
         <Text className="flex gap-4 w-full justify-center items-center">
           <Money withoutTrailingZeros data={price} className="price" />
           {isDiscounted(price, compareAtPrice) && (
@@ -111,7 +111,7 @@ export function SingleProductCard({
             />
           )}
         </Text>
-      </div>
+      </div> */}
       <div className="cta-wrapper flex items-center flex-col">
         {quickAdd && (
           <AddToCartButton
