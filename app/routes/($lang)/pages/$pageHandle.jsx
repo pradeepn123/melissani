@@ -67,25 +67,25 @@ export async function loader({request, params, context}) {
     throw new Response(null, {status: 404});
   }
   
-  const faq = (page.handle == 'faq' ||  page.handle == 'melissani-club') && page.metafields.find(item => {
+  const faq = (page.handle == 'faq' ||  page.handle == 'filter-club') && page.metafields.find(item => {
     if(item !== null){
       return item.key == "qna"
     }
   })
 
-  const filterclub = (page.handle == 'melissani-club') && page.metafields.find(item => {
+  const filterclub = (page.handle == 'filter-club') && page.metafields.find(item => {
     if(item !== null){
       return item.key == "image_with_block_overlay"
     }
   })
 
-  const supportinfo = (page.handle == 'melissani-club') && page.metafields.find(item => {
+  const supportinfo = (page.handle == 'filter-club') && page.metafields.find(item => {
     if(item !== null){
       return item.key == "filter_club_support_info"
     }
   })
 
-  const textwithbutton = (page.handle == 'melissani-club') && page.metafields.find(item => {
+  const textwithbutton = (page.handle == 'filter-club') && page.metafields.find(item => {
     if(item !== null){
       return item.key == "text_with_button"
     }
@@ -97,7 +97,7 @@ export async function loader({request, params, context}) {
     }
   }) 
 
-  const hero = (page.handle == 'purifier' ||  page.handle == 'melissani-club' || page.handle == "melissani-m1-filter") && page.metafields.find(item => {
+  const hero = (page.handle == 'purifier' ||  page.handle == 'filter-club' || page.handle == "melissani-m1-filter") && page.metafields.find(item => {
     if(item !== null) {
       return item.key == "hero"
     }
@@ -109,7 +109,7 @@ export async function loader({request, params, context}) {
     }
   })
   
-  const temperature = (page.handle == 'purifier' ||  page.handle == 'melissani-club') && page.metafields.find(item => {
+  const temperature = (page.handle == 'purifier' ||  page.handle == 'filter-club') && page.metafields.find(item => {
     if(item !== null) {
       return item.key == "temperature"
     }
@@ -157,19 +157,19 @@ export async function loader({request, params, context}) {
     }
   })
 
-  const sticky_bar_bottom = (page.handle == 'purifier' || page.handle == 'melissani-m1-filter' || page.handle == 'melissani-club') && page.metafields.find(item => {
+  const sticky_bar_bottom = (page.handle == 'purifier' || page.handle == 'melissani-m1-filter' || page.handle == 'filter-club') && page.metafields.find(item => {
     if(item !== null){
       return item.key == "sticky_bar_bottom"
     }
   })
 
-  const filterclubwarrenty = (page.handle == 'melissani-club') && page.metafields.find(item => {
+  const filterclubwarrenty = (page.handle == 'filter-club') && page.metafields.find(item => {
     if(item !== null) {
       return item.key == "filter_club_warrenty"
     }
   })
 
-  const features = (page.handle == 'melissani-club') && page.metafields.find(item => {
+  const features = (page.handle == 'filter-club') && page.metafields.find(item => {
     if(item !== null) {
       return item.key == "features"
     }
@@ -325,7 +325,7 @@ export default function Page() {
       page.handle == 'about-us' ? (<>
         <About data={parsed_about} /><FooterContact data={parsed_footer_contact} />
       </>) :
-      page.handle == 'melissani-club' ? (
+      page.handle == 'filter-club' ? (
         <FilterClub hero={parsed_hero} data={parsed_faq} supportinfo={parsed_filterclubsupportinfo} 
         filterclub={parsed_filterclub}  filterclubwarrenty={parsed_filterclubwarrenty} textwithbutton={parsed_textwithbutton} 
         stickybarbottom={parsed_sticky_bar_bottom} features={parsed_features} />

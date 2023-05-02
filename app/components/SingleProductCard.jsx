@@ -141,7 +141,7 @@ export function SingleProductCard({
               Shop
           </Button>
         </Link>
-        {learnMore && <Link to={`${product?.tags?.includes("filter-club-subscription") ? "/pages/melissani-club" : "/pages/purifier" }`}>
+        {learnMore && <Link to={`${product?.tags?.includes("filter-club-subscription") ? "/pages/filter-club" : "/pages/purifier" }`}>
             Learn more
         </Link>}
       </div>
