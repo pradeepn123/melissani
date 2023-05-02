@@ -748,7 +748,7 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
           </Button>
         </Link>
         <Link
-          to="/pages/melissani-club/"
+          to="/pages/filter-club/"
           className="hidden lg:block"
         >
           <Button
