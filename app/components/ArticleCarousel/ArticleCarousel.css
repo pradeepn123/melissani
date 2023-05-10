@@ -1,0 +1,113 @@
+.article-carousel-wrapper{
+    background: #ECF6F9;
+    padding: 53px 98px 98px 98px;
+    position: relative;
+}
+
+.article-carousel-wrapper .flickity-enabled{
+    position: unset !important;
+}
+.article-carousel-wrapper .flickity-enabled .flickity-button{
+    position: absolute;
+    top: 0;
+    left: unset;
+    right: 0;
+}
+.article-carousel-wrapper .flickity-enabled .flickity-button.previous{
+    right: 180px;
+    top: 45px;
+}
+.article-carousel-wrapper .flickity-enabled .flickity-button.next{
+    right: 98px;
+    top: 45px;
+}
+.article-content-title{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    color: #000000;
+    margin-bottom: 61px;
+}
+.article-content-block{
+    background-color: #fff;
+    padding: 30px;
+    line-height: 28px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0 8px;
+    max-width: 400px;
+    height: 245px;
+    position: relative;
+}
+.article-content-block p{
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 23px;
+}
+.read-article-link{
+    position: absolute;
+    bottom: 46px;
+    right: 48px;
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    text-decoration: underline;
+    color: #1B2943;
+}
+@media (max-width: 375px){
+    .article-content-block p{
+        font-size: 16px;
+    }
+}
+@media (min-width: 1024px){
+    .article-flickity-mobile{
+        display: none;
+    }
+    .article-flickity-desktop{
+        display: block;
+    }
+}
+@media (max-width: 1023px){
+    .read-article-link{
+        bottom: 28px;
+        right: 28px;
+    }
+    .article-flickity-mobile{
+        display: block;
+    }
+    .article-flickity-desktop{
+        display: none;
+    }
+    .article-content-title{
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+    .article-carousel-wrapper{
+        padding: 50px 0 20px 20px;
+    }
+    .article-carousel-wrapper .flickity-page-dots{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 21px 0 8px 0;
+    }
+    .article-carousel-wrapper .flickity-page-dots .dot{
+        /* border: 1px solid red; */
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid #000000;
+    }
+    .article-carousel-wrapper .flickity-page-dots .dot.is-selected{
+        background: #000;
+        border: 1px solid #000000;
+    }
+    .article-carousel-wrapper .flickity-prev-next-button{
+        display: none !important;
+    }
+}
