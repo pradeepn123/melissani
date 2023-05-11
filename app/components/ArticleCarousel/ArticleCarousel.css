@@ -57,7 +57,7 @@
 }
 .read-article-link{
     position: absolute;
-    bottom: 46px;
+    bottom: 30px;
     right: 48px;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
@@ -81,7 +81,7 @@
 }
 @media (max-width: 1023px){
     .read-article-link{
-        bottom: 28px;
+        bottom: 20px;
         right: 28px;
     }
     .article-flickity-mobile{
