@@ -243,14 +243,14 @@ export default function Homepage() {
       {features && (
         <KeyFeatures features={features} />)}
 
-      {articles && (
-        <ArticleCarousel articles={articles} />)}
-
       {goodbye && (
         <ImageWithText goodbye={goodbye} height="full" className="bg-white xl:flex"/>)}
 
-      {announcementbar && (
-        <AnnouncementBar announcementbar={announcementbar} height="full" animation={true} />)}
+      {/* {announcementbar && (
+        <AnnouncementBar announcementbar={announcementbar} height="full" animation={true} />)} */}
+      
+      {articles && (
+        <ArticleCarousel articles={articles} />)}
 
       {advancedFiltration && (
         <Carousel data={advancedFiltration} className="home-carousel" />)}

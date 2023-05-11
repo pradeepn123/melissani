@@ -33,7 +33,7 @@ export function ArticleCarousel({articles}){
                             <div className="article-content-block" key={index}>
                                 <img src={articleContent.articleLogo} alt="" />
                                 <p>"{articleContent.articleContent}"</p>
-                                <a className="read-article-link" href={articleContent.readArticleLink}>Read Article</a>
+                                <a className="read-article-link" href={articleContent.readArticleLink} target="_blank">Read Article</a>
                             </div>
                         ))}
                     </Flickity>
@@ -52,7 +52,7 @@ export function ArticleCarousel({articles}){
                             <div className="article-content-block" key={index}>
                                 <img src={articleContent.articleLogo} alt="" />
                                 <p>"{articleContent.articleContent}"</p>
-                                <a className="read-article-link" href={articleContent.readArticleLink}>Read Article</a>
+                                <a href={articleContent.readArticleLink} target="_blank" className="read-article-link">Read Article</a>
                             </div>
                         ))}
                     </Flickity>    
