@@ -41,7 +41,7 @@
     position: relative;
 }
 .article-content-block p{
-    font-family: 'Avenir';
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 19px;
@@ -59,7 +59,7 @@
     position: absolute;
     bottom: 46px;
     right: 48px;
-    font-family: 'Avenir';
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 900;
     font-size: 16px;
