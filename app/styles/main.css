@@ -60,9 +60,94 @@ svg:focus {
 
 /* Begin: Footer Section */
 .footer-wrapper {
-  padding: 0;
+  padding: 66px 104px 40px 104px;
   display: block;
   color: #1b2943;
+  background-color: #E2E9EB;
+}
+
+.copy-wrapper {
+  justify-content: center;
+  position: relative;
+}
+.footer-menus {
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-between;
+}
+
+.footer-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  line-height: 31.92px;
+  font-weight: 900;
+}
+
+.email-subscription-btn {
+  border-radius: 4.17px;
+  font-size: 14px;
+  padding: 14.5px 13px;
+}
+
+.footer-subscription-info, .footer-list-item {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #1B2943;
+}
+
+/* 
+.social-section-wrapper {
+  position: absolute;
+  margin-top: 0.875rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+.footer-social-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #1B2943;
+  margin-top: 47px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.copyright-content-wrapper {
+  position: absolute;
+  left: 0;
+}
+
+.copyright-content {
+  column-gap: 34px;
+}
+
+.copy-symbol {
+  font-size: 25px;
+  vertical-align: middle;
+}
+
+.copyright-content p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+  display: inherit;
+}
+
+.copyright-content p, .copyright-content span {
+  align-items: center;
+  column-gap: 10px;
 }
 
 .footer-image-section {
@@ -962,6 +1047,104 @@ form .field-input::placeholder {
   }
 }
 
+@media screen and (max-width: 1280px) {
+  .footer-wrapper {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .footer-wrapper {
+    padding: 37px 46px;
+  }
+  .footer-menu-item {
+    border-top: 1px solid #1B2943;
+  }
+  .footer-menu-item .menu-span:last-of-type{
+    margin-bottom: 30px;
+  }
+  .footer-accordion-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+  .copy-wrapper {
+    justify-content: center;
+  }
+  .footer-menus {
+    grid-template-columns: 1fr;
+  }
+  .subscription-form {
+    order: 4;
+  }
+  .contact-menu {
+    order: 1;
+  }
+  .information-menu {
+    order: 2;
+  }
+  .customers-menu {
+    order: 3;
+  }
+  .social-section-wrapper {
+    display: none;
+  }
+  .mobile-social-section-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2.25rem;
+  }
+  .footer-social-text {
+    display: none;
+  }
+  .copyright-content-wrapper {
+    left: unset;
+  }
+  .copyright-content {
+    column-gap: 13px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .footer-accordion-title span svg {
+    display: none;
+  }
+  .footer-title {
+    margin-bottom: 0.875rem;
+  }
+  .social-section-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-social-section-wrapper {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .footer-title {
+    font-size: 18px;
+  }
+  .footer-list-item {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .footer-menus {
+    column-gap: 142px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .footer-subscription-info {
+    max-width: 70%;
+  }
+}
+
 @media(min-width:1980px){
   .page-width {
     max-width: 1680px;
@@ -1112,6 +1295,10 @@ form .field-input::placeholder {
 }
 
 @media screen and (max-width: 767px) {
+  .footer-menus #optin-form input#customer_email{
+    /* min-width: 210px; */
+    min-width: 70%;
+  }
   .not_found_image{
     max-width: 75%;
   }
@@ -1137,6 +1324,12 @@ form .field-input::placeholder {
   #error_found_section p {
     font-size: 16px;
     line-height: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer-menus #optin-form input#customer_email{
+    min-width: 199px;
   }
 }
 

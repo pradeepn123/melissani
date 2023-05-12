@@ -176,6 +176,8 @@ const LAYOUT_QUERY = `#graphql
     $headerMenuHandle: String!
     $sidebarMenuHandle: String!
     $footerMenuHandle: String!
+    $footerCustomersMenuHandle: String!
+    $footerInfoMenuHandle: String!
     $handle: String!
   ) @inContext(language: $language) {
     shop {
@@ -210,6 +212,26 @@ const LAYOUT_QUERY = `#graphql
         }
       }
     }
+    customersMenu: menu(handle: $footerCustomersMenuHandle) {
+      id
+      title
+      items {
+        ...MenuItem
+        items {
+          ...MenuItem
+        }
+      }
+    }
+    informationMenu: menu(handle: $footerInfoMenuHandle) {
+      id
+      title
+      items {
+        ...MenuItem
+        items {
+          ...MenuItem
+        }
+      }
+    }
     metafields: page(handle: $handle) {
       ...PageContent
     }
@@ -225,7 +247,10 @@ const LAYOUT_QUERY = `#graphql
   fragment PageContent on Page {
     footer: metafield(namespace: "footer", key: "footer_jsonfields") {
       value
-    }
+    },
+    footer_contact: metafield(namespace: "global", key:"footer_contact") {
+      value
+    },
     announcement: metafield(namespace: "global", key: "announcement") {
       value
     }
@@ -236,12 +261,18 @@ async function getLayoutData({storefront}) {
   const HEADER_MENU_HANDLE = 'main-menu';
   const SIDEBAR_MENU_HANDLE = 'sidebar-menu';
   const FOOTER_MENU_HANDLE = 'footer';
+  const CUSTOMERS_MENU = 'footer-customers';
+  const INFO_MENU = 'footer-information';
+  const METAFIELDS = 'metafields';
 
   const data = await storefront.query(LAYOUT_QUERY, {
     variables: {
       headerMenuHandle: HEADER_MENU_HANDLE,
       sidebarMenuHandle: SIDEBAR_MENU_HANDLE,
       footerMenuHandle: FOOTER_MENU_HANDLE,
+      footerCustomersMenuHandle: CUSTOMERS_MENU,
+      footerInfoMenuHandle: INFO_MENU,
+      metafields: METAFIELDS,
       language: storefront.i18n.language,
       handle: "about-us"
     },
@@ -268,12 +299,19 @@ async function getLayoutData({storefront}) {
   const footerMenu = data?.footerMenu
     ? parseMenu(data.footerMenu, customPrefixes)
     : undefined;
+  const footerCustomersMenu = data?.customersMenu
+    ? parseMenu(data.customersMenu, customPrefixes)
+    : undefined;
+
+  const footerInfoMenu = data?.informationMenu
+    ? parseMenu(data.informationMenu, customPrefixes)
+    : undefined;
 
   const metafields = data?.metafields
   ? data.metafields
   : undefined;
 
-  return {shop: data.shop, headerMenu, sidebarMenu, footerMenu, metafields};
+  return {shop: data.shop, headerMenu, sidebarMenu, footerMenu, footerCustomersMenu, footerInfoMenu, metafields};
 }
 
 const CART_QUERY = `#graphql

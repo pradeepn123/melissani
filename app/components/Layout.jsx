@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useContext, useState } from 'react';
+import { Suspense, useEffect, useContext, useState, useRef } from 'react';
 import { useParams, Await, useMatches, useFetchers } from '@remix-run/react';
 import { Disclosure } from '@headlessui/react';
 
@@ -23,7 +23,9 @@ import {
   ForwardNav,
   CartFooter,
   AccountIcon,
-  AnnouncementBar
+  AnnouncementBar,
+  PlusIcon,
+  MinusIcon
 } from '~/components';
 
 import { useCartFetchers } from '~/hooks/useCartFetchers';
@@ -32,6 +34,7 @@ import {useIsHomePath} from '~/lib/utils';
 
 import logo from '../../public/logo.svg';
 import { NotFound } from './NotFound';
+import { useFetcher, useLocation } from '@remix-run/react';
 
 export function Layout({children, layout}) {
   const [isAddingToCart, setIsAddingToCart] = useState(false)
@@ -136,6 +139,8 @@ export function Layout({children, layout}) {
         </main>
       </div>
       <Footer
+        footerCustomersMenu={layout?.footerCustomersMenu}
+        footerInfoMenu={layout?.footerInfoMenu}
         menu={layout?.footerMenu}
         metafields={layout?.metafields}
       />
@@ -705,7 +710,7 @@ function MenuMobileNav({ menu, onClose, sidebarMenu,metafields }) {
       <div className="menu_nav_items_social_media">
         {/* Social Media Links  */}
         <div className="footer-social-media">
-          {footerMetafields.social.map((item, index) => (
+          {footerMetafields.social_media.map((item, index) => (
             <span key={`footer-social-${index}`} className="social-links mr-6">
               <a href={item.link} target="_blank">
                 <img className='inline-block' src={item.icon} />
@@ -779,13 +784,70 @@ function MobileHeader({logo, isHome, openCart, openMenu}) {
   );
 }
 
-function Footer({menu, metafields}) {
+function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
+  const fetcher = useFetcher();
+  const {pathname} = useLocation();
   const isHome = useIsHomePath();
   const footerMetafields = metafields !== undefined ? JSON.parse(metafields.footer.value) : "";
+  const footerContactMetafields = metafields !== undefined ? JSON.parse(metafields.footer_contact.value) : "";
   const heading = `Oops!`;
   const subHeading = `Something went wrong`;
   const description = `Please refresh the page and try again`;
   const buttonText = `Refresh`;
+
+  const accordionRef = useRef(null);
+
+  const [activeCustomersMenuAccordion, setActiveCustomersMenuAccordion] = useState(true);
+  const [activeInfoMenuAccordion, setActiveInfoMenuAccordion] = useState(true);
+  const [activeContactMenuAccordion, setActiveContactMenuAccordion] = useState(true);
+
+  const handleResize = () => {
+    if (window?.outerWidth < 1024) {
+        setActiveCustomersMenuAccordion(false);
+        setActiveInfoMenuAccordion(false);
+        setActiveContactMenuAccordion(false);
+    } else {
+        setActiveCustomersMenuAccordion(true);
+        setActiveInfoMenuAccordion(true);
+        setActiveContactMenuAccordion(true);
+    }
+
+  }
+
+  useEffect(() => {
+    window?.addEventListener("resize", handleResize)
+    if (window?.outerWidth < 1024) {
+      setActiveCustomersMenuAccordion(false);
+      setActiveInfoMenuAccordion(false);
+      setActiveContactMenuAccordion(false);
+    } else {
+      setActiveCustomersMenuAccordion(true);
+      setActiveInfoMenuAccordion(true);
+      setActiveContactMenuAccordion(true);
+    }
+  }, []);
+  
+  function activateAccordion(e) {
+    let menuID = e.currentTarget.id;
+    switch(menuID) {
+      case "customers-menu":
+        setActiveCustomersMenuAccordion(!activeCustomersMenuAccordion);
+        setActiveInfoMenuAccordion(false);
+        setActiveContactMenuAccordion(false);
+        break;
+      case "information-menu":
+        setActiveInfoMenuAccordion(!activeInfoMenuAccordion);
+        setActiveCustomersMenuAccordion(false);
+        setActiveContactMenuAccordion(false);
+        break;
+      case "contact-menu":
+        setActiveContactMenuAccordion(!activeContactMenuAccordion);
+        setActiveInfoMenuAccordion(false);
+        setActiveCustomersMenuAccordion(false);
+        break;
+    }
+  }
+
   return (
     <Section
       divider={isHome ? 'none' : 'top'}
@@ -793,26 +855,113 @@ function Footer({menu, metafields}) {
       role="contentinfo"
       className={`footer-wrapper w-full bg-white overflow-hidden`}
     >
+      <div className="grid footer-menus">
+      {metafields !== "" && footerMetafields &&
+        <div className="mobile-social-section-wrapper">
+          <div className="flex items-center justify-center">
+            {footerMetafields?.social_media.map((item, index) => (
+              <div key={`footer-social-${index}`} className="social-links mr-6">
+                <a href={item.link} target="_blank">
+                  <img src={item.icon} />
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>}
+        {metafields !== "" && footerContactMetafields && footerContactMetafields.email_subscription.map((item, index) =>
+          (<div className="subscription-form" key={index}>
+              <h3 className="footer-title mb-3.5">
+                {item.title}
+              </h3>
+              {item && item.email_input.map((email_item, email_index) => (
+                <fetcher.Form action="/opt-in" method="post" id="optin-form" className="form flex" key={email_index}>
+                  <input type={email_item.field_type} id={email_item.id} name="customerOptin" onChange={(e)=>set_cust_email(e.target.value)} placeholder={email_item.placeholder}
+                    className="mr-2 p-4 text-gray-900 border border-gray-300 rounded-lg sm:text-md field-input font-tertiary" />
+                  <input type="hidden" name="loc" value={pathname} />
+                  <Button variant='primary' className="email-subscription-btn" type="submit">Subscribe</Button>
+                </fetcher.Form>
+              ))}
+              <p className="footer-subscription-info mt-2.5">{item.subscription_info}</p>
+          </div>)
+        )}
+        {metafields !== "" && footerCustomersMenu &&
+          (<div className="customers-menu footer-menu-item">
+              <div className="footer-accordion-title"  onClick={activateAccordion} id="customers-menu" ref={accordionRef} >
+                <h3 className="footer-title">{footerCustomersMenu?.title}</h3>
+                {activeCustomersMenuAccordion ? <PlusIcon /> : <MinusIcon />}
+              </div>
+              {activeCustomersMenuAccordion && (footerCustomersMenu?.items || []).map((item) => (
+                <p key={item.id} className="block menu-span mb-5">
+                  <Link
+                    to={item.to}
+                    target={item.target}>
+                      <p className="footer-list-item">
+                      {item.title}
+                      </p>
+                  </Link>
+                </p>
+              ))}
+        </div>)}
+        {metafields !== "" && footerInfoMenu &&
+          (<div className="information-menu footer-menu-item">
+            <div className="footer-accordion-title"  onClick={activateAccordion} id="information-menu" ref={accordionRef} >
+              <h3 className="footer-title">{footerInfoMenu?.title}</h3>
+              {activeInfoMenuAccordion ? <PlusIcon /> : <MinusIcon />}
+            </div>
+            {activeInfoMenuAccordion && (footerInfoMenu?.items || []).map((item) => (
+              <p key={item.id} className="block menu-span mb-5">
+                <Link
+                  to={item.to}
+                  target={item.target}>
+                    <p className="footer-list-item">
+                    {item.title}
+                    </p>
+                </Link>
+              </p>
+            ))}
+        </div>)}  
+        {metafields !== "" && footerContactMetafields &&
+          (<div className="contact-menu footer-menu-item">
+            <div className="footer-accordion-title"  onClick={activateAccordion} id="contact-menu" ref={accordionRef} >
+              <h3 className="footer-title">{footerContactMetafields?.contact_title}</h3>
+              {activeContactMenuAccordion ? <PlusIcon /> : <MinusIcon />}
+            </div>
+            {activeContactMenuAccordion && (footerContactMetafields?.contact || []).map((listItem, listKey) => (
+              <p key={listKey} className="block menu-span mb-5">
+                <Link
+                    to={listItem.link}>
+                    <p className="footer-list-item mb-5">
+                      {listItem.iconText}
+                    </p>
+                    </Link>
+                </p>
+              ))}
+          </div>)}
+      </div>
     {metafields !== "" && footerMetafields ?
       <>
-      <div className={`bg-white flex md:justify-around text-center flex-col lg:flex-row px-9 pt-9 pb-2`}>
-        <FooterMenu menu={menu} />
-      </div>
-
-        <div className="bg-white social-section-wrapper flex items-center justify-center pt-7 pb-4">
-          {footerMetafields.social.map((item, index) => (
-            <div key={`footer-social-${index}`} className="social-links mr-6">
-              <a href={item.link} target="_blank">
-                <img src={item.icon} />
-              </a>
-            </div>
-          ))}
-        </div>
-        <div
-          className={`bg-white pt-3 pb-4 text-center footer-bottom`}
-        >
-          {footerMetafields.address} 
-          <span className="ml-5">&copy; MELISSANI</span>
+        <p className="footer-social-text">{footerMetafields?.social_text}</p>
+        <div className="copy-wrapper flex pt-3.5 pb-4">
+          <div className="copyright-content-wrapper">
+            {footerMetafields.copyright_text.map((item, index) => (
+              <div className="copyright-content flex" key={index}>
+                <p><span className="copy-symbol">&copy;</span>{item.brand_name}</p>
+                <span className="copyright-location flex">
+                  <img src={item.location_flag_icon} />
+                  <p>{item.location}</p>
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="social-section-wrapper flex items-center justify-center">
+            {footerMetafields.social_media.map((item, index) => (
+              <div key={`footer-social-${index}`} className="social-links mr-6">
+                <a href={item.link} target="_blank">
+                  <img src={item.icon} />
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </> 
       :
@@ -840,7 +989,7 @@ const FooterLink = ({item}) => {
   );
 };
 
-function FooterMenu({menu}) {
+function FooterMenu({menu, metafields}) {
   const styles = {
     section: 'justify-center py-4 lg:py-2 lg:pt-0',
     nav: 'pb-6',

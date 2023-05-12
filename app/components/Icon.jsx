@@ -423,3 +423,19 @@ export function ArrowDown (props) {
     </svg>
   </span>
 }
+
+export function PlusIcon ({innerRef, ...props}) {
+  return <span {...props} ref={innerRef}>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0.819719 10.956H9.13572V19.272H10.8637V10.956H19.1797V9.228H10.8637V0.911999H9.13572V9.228H0.819719V10.956Z" fill="#1B2943"/>
+    </svg>
+  </span>
+}
+
+export function MinusIcon ({innerRef, ...props}) {
+  return <span {...props} ref={innerRef}>   
+    <svg width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 0H0V2H16V0Z" fill="#1B2943"/>
+    </svg>
+  </span>
+}

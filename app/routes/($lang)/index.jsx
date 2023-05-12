@@ -190,7 +190,8 @@ export async function loader({ params, context }) {
     analytics: {
       pageType: AnalyticsPageType.home,
     },
-    seo: page.seo
+    seo: page.seo,
+    context: context
   });
 }
 
@@ -210,7 +211,8 @@ export default function Homepage() {
     reviews,
     learnMore,
     footerBanner,
-    footerContact
+    footerContact,
+    context
   } = useLoaderData();
 
   // TODO: skeletons vs placeholders
@@ -271,7 +273,7 @@ export default function Homepage() {
 
       {/* {footerBanner && (<SecondaryHero data={footerBanner} />)} */}
 
-      {footerContact && (<FooterContact data={footerContact} />)}
+      {/* {footerContact && (<FooterContact data={footerContact} context={context}/>)} */}
       
     </>
   );

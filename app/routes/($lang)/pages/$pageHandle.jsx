@@ -320,10 +320,12 @@ export default function Page() {
   return (
     <>
       {page.handle == 'faq' ? (<>
-        <Faq data={parsed_faq} /><FooterContact data={parsed_footer_contact} />
+        <Faq data={parsed_faq} />
+        {/* <FooterContact data={parsed_footer_contact} /> */}
       </>) : 
       page.handle == 'about-us' ? (<>
-        <About data={parsed_about} /><FooterContact data={parsed_footer_contact} />
+        <About data={parsed_about} />
+        {/* <FooterContact data={parsed_footer_contact} /> */}
       </>) :
       page.handle == 'filter-club' ? (
         <FilterClub hero={parsed_hero} data={parsed_faq} supportinfo={parsed_filterclubsupportinfo} 
