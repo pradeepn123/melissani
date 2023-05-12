@@ -796,17 +796,21 @@ function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
   const buttonText = `Refresh`;
 
   const accordionRef = useRef(null);
-
+  const [isMobile, setIsMobile] = useState(false);
   const [activeCustomersMenuAccordion, setActiveCustomersMenuAccordion] = useState(true);
   const [activeInfoMenuAccordion, setActiveInfoMenuAccordion] = useState(true);
   const [activeContactMenuAccordion, setActiveContactMenuAccordion] = useState(true);
 
+  const [path, setPath] = useState('');
+
   const handleResize = () => {
     if (window?.outerWidth < 1024) {
+        setIsMobile(true);
         setActiveCustomersMenuAccordion(false);
         setActiveInfoMenuAccordion(false);
         setActiveContactMenuAccordion(false);
     } else {
+        setIsMobile(false);
         setActiveCustomersMenuAccordion(true);
         setActiveInfoMenuAccordion(true);
         setActiveContactMenuAccordion(true);
@@ -816,11 +820,14 @@ function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
 
   useEffect(() => {
     window?.addEventListener("resize", handleResize)
+    setPath(window?.location.href);
     if (window?.outerWidth < 1024) {
+      setIsMobile(true);
       setActiveCustomersMenuAccordion(false);
       setActiveInfoMenuAccordion(false);
       setActiveContactMenuAccordion(false);
     } else {
+      setIsMobile(false);
       setActiveCustomersMenuAccordion(true);
       setActiveInfoMenuAccordion(true);
       setActiveContactMenuAccordion(true);
@@ -828,23 +835,27 @@ function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
   }, []);
   
   function activateAccordion(e) {
-    let menuID = e.currentTarget.id;
-    switch(menuID) {
-      case "customers-menu":
-        setActiveCustomersMenuAccordion(!activeCustomersMenuAccordion);
-        setActiveInfoMenuAccordion(false);
-        setActiveContactMenuAccordion(false);
-        break;
-      case "information-menu":
-        setActiveInfoMenuAccordion(!activeInfoMenuAccordion);
-        setActiveCustomersMenuAccordion(false);
-        setActiveContactMenuAccordion(false);
-        break;
-      case "contact-menu":
-        setActiveContactMenuAccordion(!activeContactMenuAccordion);
-        setActiveInfoMenuAccordion(false);
-        setActiveCustomersMenuAccordion(false);
-        break;
+    if (isMobile) {
+      let menuID = e.currentTarget.id;
+      switch(menuID) {
+        case "customers-menu":
+          setActiveCustomersMenuAccordion(!activeCustomersMenuAccordion);
+          setActiveInfoMenuAccordion(false);
+          setActiveContactMenuAccordion(false);
+          break;
+        case "information-menu":
+          setActiveInfoMenuAccordion(!activeInfoMenuAccordion);
+          setActiveCustomersMenuAccordion(false);
+          setActiveContactMenuAccordion(false);
+          break;
+        case "contact-menu":
+          setActiveContactMenuAccordion(!activeContactMenuAccordion);
+          setActiveInfoMenuAccordion(false);
+          setActiveCustomersMenuAccordion(false);
+          break;
+      }
+    } else  {
+      return;
     }
   }
 
@@ -874,13 +885,14 @@ function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
                 {item.title}
               </h3>
               {item && item.email_input.map((email_item, email_index) => (
-                <fetcher.Form action="/opt-in" method="post" id="optin-form" className="form flex" key={email_index}>
-                  <input type={email_item.field_type} id={email_item.id} name="customerOptin" onChange={(e)=>set_cust_email(e.target.value)} placeholder={email_item.placeholder}
+                <fetcher.Form action="/opt-in" method="post" id="optin-form" className="form flex" key={email_index} reloadDocument>
+                  <input type={email_item.field_type} id={email_item.id} name="customerOptin" placeholder={email_item.placeholder}
                     className="mr-2 p-4 text-gray-900 border border-gray-300 rounded-lg sm:text-md field-input font-tertiary" />
                   <input type="hidden" name="loc" value={pathname} />
                   <Button variant='primary' className="email-subscription-btn" type="submit">Subscribe</Button>
                 </fetcher.Form>
               ))}
+              {path?.includes('?subscribed=true') && <p className="footer-subscription-success-text">Email successfully subscribed!</p>}
               <p className="footer-subscription-info mt-2.5">{item.subscription_info}</p>
           </div>)
         )}
@@ -888,7 +900,7 @@ function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
           (<div className="customers-menu footer-menu-item">
               <div className="footer-accordion-title"  onClick={activateAccordion} id="customers-menu" ref={accordionRef} >
                 <h3 className="footer-title">{footerCustomersMenu?.title}</h3>
-                {activeCustomersMenuAccordion ? <PlusIcon /> : <MinusIcon />}
+                {activeCustomersMenuAccordion ? <MinusIcon /> : <PlusIcon />}
               </div>
               {activeCustomersMenuAccordion && (footerCustomersMenu?.items || []).map((item) => (
                 <p key={item.id} className="block menu-span mb-5">
@@ -906,7 +918,7 @@ function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
           (<div className="information-menu footer-menu-item">
             <div className="footer-accordion-title"  onClick={activateAccordion} id="information-menu" ref={accordionRef} >
               <h3 className="footer-title">{footerInfoMenu?.title}</h3>
-              {activeInfoMenuAccordion ? <PlusIcon /> : <MinusIcon />}
+              {activeInfoMenuAccordion ? <MinusIcon /> : <PlusIcon />}
             </div>
             {activeInfoMenuAccordion && (footerInfoMenu?.items || []).map((item) => (
               <p key={item.id} className="block menu-span mb-5">
@@ -924,12 +936,13 @@ function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
           (<div className="contact-menu footer-menu-item">
             <div className="footer-accordion-title"  onClick={activateAccordion} id="contact-menu" ref={accordionRef} >
               <h3 className="footer-title">{footerContactMetafields?.contact_title}</h3>
-              {activeContactMenuAccordion ? <PlusIcon /> : <MinusIcon />}
+              {activeContactMenuAccordion ? <MinusIcon /> : <PlusIcon />}
             </div>
             {activeContactMenuAccordion && (footerContactMetafields?.contact || []).map((listItem, listKey) => (
               <p key={listKey} className="block menu-span mb-5">
                 <Link
-                    to={listItem.link}>
+                    to={listItem.link} target="_blank">
+
                     <p className="footer-list-item mb-5">
                       {listItem.iconText}
                     </p>

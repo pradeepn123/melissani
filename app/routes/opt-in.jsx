@@ -1,30 +1,24 @@
 import { createAdminClient } from '~/lib/utils';
-import {json} from '@shopify/remix-oxygen';
+import { redirect } from '@shopify/remix-oxygen';
 
-export const action =  async ({request, context, layout}) => {
-   console.log("context", layout)
+export const action =  async ({request, context}) => {
     const {session} = context;
     const formData = await request.formData()
     const cust_email = formData.get('customerOptin')
     const current_location = formData.get('loc');
-debugger;
-    console.log("form data..", cust_email, current_location)
+
     const {admin} = createAdminClient({
         privateAdminToken: context.env.PRIVATE_ADMIN_API_TOKEN,
         storeDomain: `https://${context.env.PUBLIC_STORE_DOMAIN}`,
         adminApiVersion: context.env.PRIVATE_ADMIN_API_VERSION || '2023-01',
     });
-    
-      
+
     const subscribeToNewsletter = await useUpdateEmailMarketingConsent(admin);
     const response = await subscribeToNewsletter(cust_email);
     const headers = new Headers();
     headers.set('Set-Cookie', await session.commit());
     headers.set('Location',  current_location)
-    console.log({current_location, response})
-    const status = 303;
-    // return "test"
-    return json({}, {status, headers})
+    return redirect(current_location + "?subscribed=true");
 }
 
 async function useUpdateEmailMarketingConsent(admin) {
