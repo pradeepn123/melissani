@@ -333,7 +333,6 @@ export default function Page() {
   
   return (
     <>
-    {console.log("page.handle..", page.handle)}
       {page.handle == 'faq' ? (<>
         <Faq data={parsed_faq} />
         {/* <FooterContact data={parsed_footer_contact} /> */}
