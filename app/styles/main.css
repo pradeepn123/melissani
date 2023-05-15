@@ -99,11 +99,11 @@ svg:focus {
   color: #1B2943;
 }
 
-.success-msg {
+#email-success {
   display: flex;
 }
 
-.success-msg span {
+#email-success span {
   margin-top: 10px;
   margin-right: 5px;
 }

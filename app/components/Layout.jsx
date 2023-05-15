@@ -894,7 +894,7 @@ function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
                 </fetcher.Form>
               ))}
               {path?.includes('?subscribed=true') && 
-              <p className="success-msg">
+              <p id="email-success">
                 <CheckIcon />
                 <p className="footer-subscription-success-text">Your email has been registered successfully</p>
               </p>
