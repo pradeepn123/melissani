@@ -880,7 +880,7 @@ function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
           </div>
         </div>}
         {metafields !== "" && footerContactMetafields && footerContactMetafields.email_subscription.map((item, index) =>
-          (<div className="subscription-form" key={index}>
+          (<div className="subscription-form" key={index} id="email-subscription-form">
               <h3 className="footer-title mb-3.5">
                 {item.title}
               </h3>
