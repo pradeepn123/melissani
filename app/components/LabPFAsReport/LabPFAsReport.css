@@ -4,7 +4,8 @@
     margin-top: 3em;
 }
 
-.lab_pfas_report_section .pdf_container iframe {
+.lab_pfas_report_section .pdf_container iframe,
+.lab_pfas_report_section .pdf_container .pdf_viewer {
     width: -webkit-fill-available;
     height: 100vh;
 }
