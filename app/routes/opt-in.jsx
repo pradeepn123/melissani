@@ -17,8 +17,8 @@ export const action =  async ({request, context}) => {
     const response = await subscribeToNewsletter(cust_email);
     const headers = new Headers();
     headers.set('Set-Cookie', await session.commit());
-    headers.set('Location',  current_location)
-    return redirect(current_location + "?subscribed=true#subscription-form");
+    headers.set('Location',  current_location);
+    return redirect(current_location + "?subscribed=true#customer_email");
 }
 
 async function useUpdateEmailMarketingConsent(admin) {
