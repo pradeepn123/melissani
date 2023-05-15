@@ -5,6 +5,7 @@ import {
   ProductSwimlane,
   Hero,
   KeyFeatures,
+  ArticleCarousel,
   Carousel,
   AnnouncementBar,
   ImageWithText,
@@ -19,6 +20,7 @@ import { getHeroPlaceholder } from '~/lib/placeholders';
 import { AnalyticsPageType } from '@shopify/hydrogen';
 import ImageWithTextStyles from '~/components/ImageWithText/ImageWithText.css';
 import KeyFeaturesStyles from '~/components/KeyFeatures/KeyFeatures.css';
+import ArticleCarouselStyles from '~/components/ArticleCarousel/ArticleCarousel.css';
 import CarouselStyles from '~/components/Carousel/Carousel.css';
 import ProductSwimlaneStyles from '~/components/ProductSwimlane/ProductSwimlane.css';
 import VideoPlayerStyles from '~/components/VideoPlayer/VideoPlayer.css';
@@ -32,6 +34,7 @@ export const links = () => {
   return [
     {rel: 'stylesheet', href: ImageWithTextStyles},
     {rel: 'stylesheet', href: KeyFeaturesStyles},
+    {rel: 'stylesheet', href: ArticleCarouselStyles},
     {rel: 'stylesheet', href: CarouselStyles},
     {rel: 'stylesheet', href: ProductSwimlaneStyles},
     {rel: 'stylesheet', href: VideoPlayerStyles},
@@ -81,6 +84,12 @@ export async function loader({ params, context }) {
   const features = page.metafields.find(item => {
     if (item !== null) {
       return item.key == "features"
+    }
+  })
+
+  const articles = page.metafields.find(item => {
+    if (item !== null) {
+      return item.key == "article_carousel"
     }
   })
 
@@ -172,6 +181,7 @@ export async function loader({ params, context }) {
   return defer({
     primaryHero: JSON.parse(hero?.value),
     features: features && JSON.parse(features?.value),
+    articles: articles && JSON.parse(articles?.value),
     goodbye: goodbye && JSON.parse(goodbye?.value),
     announcementbar: announcementbar && JSON.parse(announcementbar?.value),
     advancedFiltration: advancedFiltration && JSON.parse(advancedFiltration?.value),
@@ -200,6 +210,7 @@ export default function Homepage() {
     primaryHero,
     featuredProducts,
     features,
+    articles,
     goodbye,
     announcementbar,
     advancedFiltration,
@@ -237,8 +248,11 @@ export default function Homepage() {
       {goodbye && (
         <ImageWithText goodbye={goodbye} height="full" className="bg-white xl:flex"/>)}
 
-      {announcementbar && (
-        <AnnouncementBar announcementbar={announcementbar} height="full" animation={true} />)}
+      {/* {announcementbar && (
+        <AnnouncementBar announcementbar={announcementbar} height="full" animation={true} />)} */}
+      
+      {articles && (
+        <ArticleCarousel articles={articles} />)}
 
       {advancedFiltration && (
         <Carousel data={advancedFiltration} className="home-carousel" />)}
@@ -290,6 +304,7 @@ const PAGE_QUERY = `#graphql
         identifiers: [
           { namespace: "global", key: "hero" }
           { namespace: "home", key: "features" }
+          { namespace: "home", key: "article_carousel" }
           { namespace: "home", key: "goodbye" }
           { namespace: "home", key: "announcement_bar" }
           { namespace: "global", key: "carousel" }

@@ -62,5 +62,6 @@ export { DrawerFromBottom, useDrawerFromBottom } from './DrawerFromBottom';
 export { CartClubMembership } from './CartClubMembership/CartClubMembership';
 export { OkendoReviewsWidget, OkendoStarRating } from './Okendo';
 export { ImageGallery } from './ImageGallery/ImageGallery';
+export { ArticleCarousel } from './ArticleCarousel/ArticleCarousel';
 // Sue me
 export * from './Icon';
