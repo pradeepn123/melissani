@@ -1,7 +1,7 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
-import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration, Filter, FooterContact, Section} from '~/components';
+import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration, Filter, FooterContact, Section, LabPFAsReport} from '~/components';
 import FaqStyles from '~/components/Faq/Faq.css';
 import AboutUsStyles from '~/components/About/About.css';
 import FilterClubStyles from '~/components/FilterClub/FilterClub.css';
@@ -20,6 +20,7 @@ import ProductRegistrationStyles from '~/components/ProductRegistration/ProductR
 import CarouselStyles from '~/components/Carousel/Carousel.css';
 import FooterContactStyles from '~/components/FooterContact/FooterContact.css';
 import KeyFeaturesStyles from '~/components/KeyFeatures/KeyFeatures.css';
+import LabPFAsReportStyles from '~/components/LabPFAsReport/LabPFAsReport.css';
 
 export const links = () => {
   return [
@@ -40,7 +41,8 @@ export const links = () => {
     {rel: 'stylesheet', href: ProductRegistrationStyles},
     {rel: 'stylesheet', href: CarouselStyles},
     {rel: 'stylesheet', href: FooterContactStyles},
-    {rel: 'stylesheet', href: KeyFeaturesStyles}
+    {rel: 'stylesheet', href: KeyFeaturesStyles},
+    {rel: 'stylesheet', href: LabPFAsReportStyles}
   ]
 }
 
@@ -181,6 +183,12 @@ export async function loader({request, params, context}) {
     }
   })
 
+  const popup_content = (page.handle == 'lab-pfas-report') && page.metafields.find(item => {
+    if(item !== null) {
+      return item.key == "popup_content"
+    }
+  })
+
   return json(
     {
       page, 
@@ -202,7 +210,8 @@ export async function loader({request, params, context}) {
       textwithbutton,
       sticky_bar_bottom,
       footer_contact,
-      features
+      features,
+      popup_content
     },
     {
       headers: {
@@ -233,13 +242,14 @@ export default function Page() {
     sticky_bar_bottom,
     filterclubwarrenty,
     footer_contact,
-    features
+    features,
+    popup_content
   } = useLoaderData();
 
   let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, 
     parsed_about, parsed_carousel, parsed_contact_form, parsed_product_registration_form, parsed_filter_changes, 
     parsed_filterclub, parsed_filterclubsupportinfo, parsed_textwithbutton, parsed_filterreplacementcycle, 
-    parsed_filterclubwarrenty, parsed_sticky_bar_bottom, parsed_footer_contact, parsed_features;
+    parsed_filterclubwarrenty, parsed_sticky_bar_bottom, parsed_footer_contact, parsed_features, parsed_popup_content;
   
   if(faq) {
     parsed_faq = JSON.parse(faq?.value);
@@ -316,9 +326,14 @@ export default function Page() {
   if(features) {
     parsed_features = JSON.parse(features?.value);
   }
+
+  if(popup_content) {
+    parsed_popup_content = JSON.parse(popup_content?.value);
+  }
   
   return (
     <>
+    {console.log("page.handle..", page.handle)}
       {page.handle == 'faq' ? (<>
         <Faq data={parsed_faq} />
         {/* <FooterContact data={parsed_footer_contact} /> */}
@@ -345,6 +360,9 @@ export default function Page() {
       page.handle == 'melissani-m1-filter' ? (
         <Filter hero={parsed_hero} carousel={parsed_carousel} filterreplacementcycle={parsed_filterreplacementcycle} filter_changes={parsed_filter_changes} 
         video_section={parsed_video_section} stickybarbottom={parsed_sticky_bar_bottom}/>
+      ) :
+      page.handle == 'lab-pfas-report' ? (
+        <LabPFAsReport data={parsed_popup_content} />
       ) :
       <Section
         padding="all"
@@ -397,7 +415,8 @@ const PAGE_QUERY = `#graphql
           { namespace: "filterclub", key: "text_with_button" },
           { namespace: "global", key: "sticky_bar_bottom" },
           { namespace: "global", key: "footer_contact" },
-          { namespace: "home", key: "features" }
+          { namespace: "home", key: "features" },
+          { namespace: "lab_pfas_report", key: "popup_content" }
         ]
       ) {
         value

@@ -1377,3 +1377,11 @@ form .field-input::placeholder {
   font-size: 16px;
   line-height: 30px;
 }
+
+/* Begin: PDF Popup Modal */
+.lab_pfas_report_section .pdf_modal {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+/* End: PDF Popup Modal */

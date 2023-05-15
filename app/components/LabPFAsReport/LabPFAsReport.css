@@ -1,0 +1,15 @@
+.lab_pfas_report_section .pdf_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+}
+
+.lab_pfas_report_section .pdf_container iframe {
+    width: -webkit-fill-available;
+    height: 100vh;
+}
+@media (max-width:767px) {
+    .lab_pfas_report_section .pdf_container {
+        margin-top: 2.5em;
+    }
+}

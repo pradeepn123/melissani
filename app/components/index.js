@@ -63,5 +63,7 @@ export { CartClubMembership } from './CartClubMembership/CartClubMembership';
 export { OkendoReviewsWidget, OkendoStarRating } from './Okendo';
 export { ImageGallery } from './ImageGallery/ImageGallery';
 export { ArticleCarousel } from './ArticleCarousel/ArticleCarousel';
+export { LabPFAsReport } from './LabPFAsReport/LabPFAsReport';
+
 // Sue me
 export * from './Icon';
