@@ -6,3 +6,8 @@ export var CartAction;
   CartAction['UPDATE_DISCOUNT'] = 'UPDATE_DISCOUNT';
   CartAction['UPDATE_BUYER_IDENTITY'] = 'UPDATE_BUYER_IDENTITY';
 })(CartAction || (CartAction = {}));
+
+export var CustomerAction;
+(function (CustomerAction) {
+  CustomerAction['CUSTOMER_EMAIL_CONSENT'] = 'CUSTOMER_EMAIL_CONSENT';
+})(CustomerAction || (CustomerAction = {}));

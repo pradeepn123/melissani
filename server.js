@@ -6,7 +6,7 @@ import {
 } from '@shopify/remix-oxygen';
 import {createStorefrontClient, storefrontRedirect} from '@shopify/hydrogen';
 import {HydrogenSession} from '~/lib/session.server';
-import {getLocaleFromRequest} from '~/lib/utils';
+import { getLocaleFromRequest, createAdminClient } from '~/lib/utils';
 
 /**
  * Export a fetch handler in module format.
@@ -42,6 +42,12 @@ export default {
         storefrontHeaders: getStorefrontHeaders(request),
       });
 
+      const { adminClient } = createAdminClient({
+        privateAdminToken: env.ADMIN_API_TOKEN,
+        storeDomain: `https://${env.PUBLIC_STORE_DOMAIN}`,
+        adminApiVersion: env.PRIVATE_ADMIN_API_VERSION || '2023-01',
+      });
+
       /**
        * Create a Remix request handler and pass
        * Hydrogen's Storefront client to the loader context.
@@ -49,7 +55,7 @@ export default {
       const handleRequest = createRequestHandler({
         build: remixBuild,
         mode: process.env.NODE_ENV,
-        getLoadContext: () => ({cache, session, waitUntil, storefront, env}),
+        getLoadContext: () => ({cache, session, waitUntil, storefront, env, adminClient}),
       });
 
       const response = await handleRequest(request);
