@@ -13,7 +13,7 @@ export function Modal({children, cancelLink, classname}) {
       <div className="fixed inset-0 z-50 overflow-y-auto">
         <div className={`${classname ? `p-0` : `p-4 sm:p-0`} flex items-center justify-center min-h-full text-center`}>
           <div
-            className={`${classname ? `lg:p-0 p-0` : `lg:px-14 lg:py-12 px-8 py-8`} relative flex-1 overflow-hidden text-left transition-all transform rounded shadow-xl bg-contrast sm:my-12 sm:flex-none sm:w-full sm:max-w-sm  md:max-w-full lg:max-w-3xl ${classname}`}
+            className={`${classname ? `lg:p-0 p-0` : `lg:px-14 lg:py-12 px-8 py-8 sm:w-full sm:max-w-sm  md:max-w-full lg:max-w-3xl`} relative flex-1 overflow-hidden text-left transition-all transform rounded shadow-xl bg-contrast sm:my-12 sm:flex-none ${classname}`}
             role="button"
             onClick={(e) => {
               e.stopPropagation();
