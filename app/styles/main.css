@@ -99,6 +99,15 @@ svg:focus {
   color: #1B2943;
 }
 
+.success-msg {
+  display: flex;
+}
+
+.success-msg span {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
 .footer-subscription-success-text {
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
@@ -107,7 +116,7 @@ svg:focus {
   letter-spacing: 0em;
   text-align: left;
   color: #1B2943;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 /* 
