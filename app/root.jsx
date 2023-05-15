@@ -76,7 +76,11 @@ export async function loader({context}) {
       shopifySalesChannel: ShopifySalesChannel.hydrogen,
       shopId: layout.shop.id,
     },
-    products: getProducts(context)
+    products: getProducts(context),
+    okendoProviderData: await getOkendoProviderData({
+      context,
+      subscriberId: 'a0ca6b07-0ad6-4495-9f6b-5a1ac98d0fe6',
+    }),
   });
 }
 
