@@ -10,15 +10,15 @@ export const action =  async ({request, context}) => {
     const {admin} = createAdminClient({
         privateAdminToken: context.env.ADMIN_API_TOKEN,
         storeDomain: `https://${context.env.PUBLIC_STORE_DOMAIN}`,
-        adminApiVersion: context.env.PRIVATE_ADMIN_API_VERSION || '2023-01',
+        adminApiVersion: context.env.PUBLIC_ADMIN_API_VERSION || '2023-01',
     });
 
     const subscribeToNewsletter = await useUpdateEmailMarketingConsent(admin);
     const response = await subscribeToNewsletter(cust_email);
     const headers = new Headers();
     headers.set('Set-Cookie', await session.commit());
-    headers.set('Location',  current_location)
-    return redirect(current_location + "?subscribed=true");
+    headers.set('Location',  current_location);
+    return redirect(current_location + "?subscribed=true/#email-success");
 }
 
 async function useUpdateEmailMarketingConsent(admin) {

@@ -25,7 +25,8 @@ import {
   AccountIcon,
   AnnouncementBar,
   PlusIcon,
-  MinusIcon
+  MinusIcon,
+  CheckIcon
 } from '~/components';
 
 import { useCartFetchers } from '~/hooks/useCartFetchers';
@@ -880,7 +881,7 @@ function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
           </div>
         </div>}
         {metafields !== "" && footerContactMetafields && footerContactMetafields.email_subscription.map((item, index) =>
-          (<div className="subscription-form" key={index}>
+          (<div className="subscription-form" key={index} id="subscription-form">
               <h3 className="footer-title mb-3.5">
                 {item.title}
               </h3>
@@ -892,7 +893,12 @@ function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
                   <Button variant='primary' className="email-subscription-btn" type="submit">Subscribe</Button>
                 </fetcher.Form>
               ))}
-              {path?.includes('?subscribed=true') && <p className="footer-subscription-success-text">Email successfully subscribed!</p>}
+              {path?.includes('?subscribed=true') && 
+              <p id="email-success">
+                <CheckIcon />
+                <p className="footer-subscription-success-text">Your email has been registered successfully</p>
+              </p>
+              }
               <p className="footer-subscription-info mt-2.5">{item.subscription_info}</p>
           </div>)
         )}
