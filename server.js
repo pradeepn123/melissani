@@ -43,7 +43,7 @@ export default {
       });
 
       const { adminClient } = createAdminClient({
-        privateAdminToken: env.PRIVATE_ADMIN_API_TOKEN,
+        privateAdminToken: env.ADMIN_API_TOKEN,
         storeDomain: `https://${env.PUBLIC_STORE_DOMAIN}`,
         adminApiVersion: env.PRIVATE_ADMIN_API_VERSION || '2023-01',
       });

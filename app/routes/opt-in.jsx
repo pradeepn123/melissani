@@ -8,7 +8,7 @@ export const action =  async ({request, context}) => {
     const current_location = formData.get('loc');
 
     const {admin} = createAdminClient({
-        privateAdminToken: context.env.PRIVATE_ADMIN_API_TOKEN,
+        privateAdminToken: context.env.ADMIN_API_TOKEN,
         storeDomain: `https://${context.env.PUBLIC_STORE_DOMAIN}`,
         adminApiVersion: context.env.PRIVATE_ADMIN_API_VERSION || '2023-01',
     });
