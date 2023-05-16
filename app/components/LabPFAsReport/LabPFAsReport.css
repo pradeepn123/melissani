@@ -1,3 +1,7 @@
+.lab_pfas_report_section {
+    overflow: hidden;
+}
+
 .lab_pfas_report_section .pdf_container {
     display: flex;
     justify-content: center;
