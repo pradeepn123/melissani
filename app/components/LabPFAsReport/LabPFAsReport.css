@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     margin-top: 3em;
-    height: calc(100vh - 3em);
+    height: calc(100% - 3em);
 }
 
 .lab_pfas_report_section .pdf_container iframe,
@@ -18,6 +18,6 @@
 @media (max-width:767px) {
     .lab_pfas_report_section .pdf_container {
         margin-top: 2.5em;
-        height: calc(100vh - 2.5em);
+        height: calc(100% - 2.5em);
     }
 }
