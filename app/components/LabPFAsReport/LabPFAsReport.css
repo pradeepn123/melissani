@@ -2,15 +2,18 @@
     display: flex;
     justify-content: center;
     margin-top: 3em;
+    height: calc(100vh - 3em);
 }
 
 .lab_pfas_report_section .pdf_container iframe,
 .lab_pfas_report_section .pdf_container .pdf_viewer {
     width: -webkit-fill-available;
-    height: 100vh;
+    height: 100%;
 }
+
 @media (max-width:767px) {
     .lab_pfas_report_section .pdf_container {
         margin-top: 2.5em;
+        height: calc(100vh - 2.5em);
     }
 }

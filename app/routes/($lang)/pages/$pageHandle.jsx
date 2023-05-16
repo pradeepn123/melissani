@@ -1,7 +1,9 @@
+import { useEffect, useContext } from 'react';
+
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
-import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration, Filter, FooterContact, Section, LabPFAsReport} from '~/components';
+import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration, Filter, FooterContact, Section, LabPFAsReport, RequestContext } from '~/components';
 import FaqStyles from '~/components/Faq/Faq.css';
 import AboutUsStyles from '~/components/About/About.css';
 import FilterClubStyles from '~/components/FilterClub/FilterClub.css';
@@ -21,6 +23,8 @@ import CarouselStyles from '~/components/Carousel/Carousel.css';
 import FooterContactStyles from '~/components/FooterContact/FooterContact.css';
 import KeyFeaturesStyles from '~/components/KeyFeatures/KeyFeatures.css';
 import LabPFAsReportStyles from '~/components/LabPFAsReport/LabPFAsReport.css';
+
+
 
 export const links = () => {
   return [
@@ -56,6 +60,7 @@ export const handle = {
 };
 
 export async function loader({request, params, context}) {
+
   invariant(params.pageHandle, 'Missing page handle');
 
   const {page} = await context.storefront.query(PAGE_QUERY, {
@@ -222,6 +227,9 @@ export async function loader({request, params, context}) {
 }
 
 export default function Page() {
+
+  const requestContext = useContext(RequestContext);
+
   const {
     page, 
     faq, 
@@ -246,10 +254,21 @@ export default function Page() {
     popup_content
   } = useLoaderData();
 
+
   let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, 
     parsed_about, parsed_carousel, parsed_contact_form, parsed_product_registration_form, parsed_filter_changes, 
     parsed_filterclub, parsed_filterclubsupportinfo, parsed_textwithbutton, parsed_filterreplacementcycle, 
     parsed_filterclubwarrenty, parsed_sticky_bar_bottom, parsed_footer_contact, parsed_features, parsed_popup_content;
+
+  if(popup_content) {
+    parsed_popup_content = JSON.parse(popup_content?.value);
+  }
+
+  useEffect(function () {
+    if (parsed_popup_content && !requestContext.labReportInformation) {
+      requestContext.setLabReportInformation(parsed_popup_content)      
+    }
+  }, [page.handle == 'lab-pfas-report'])
   
   if(faq) {
     parsed_faq = JSON.parse(faq?.value);
@@ -326,10 +345,6 @@ export default function Page() {
   if(features) {
     parsed_features = JSON.parse(features?.value);
   }
-
-  if(popup_content) {
-    parsed_popup_content = JSON.parse(popup_content?.value);
-  }
   
   return (
     <>
@@ -360,9 +375,14 @@ export default function Page() {
         <Filter hero={parsed_hero} carousel={parsed_carousel} filterreplacementcycle={parsed_filterreplacementcycle} filter_changes={parsed_filter_changes} 
         video_section={parsed_video_section} stickybarbottom={parsed_sticky_bar_bottom}/>
       ) :
-      // page.handle == 'lab-pfas-report' ? (
-      //   <LabPFAsReport data={parsed_popup_content} />
-      // ) :
+      page.handle == 'lab-pfas-report' ? (
+        <div className="flex-grow w-full">
+          <div
+            dangerouslySetInnerHTML={{__html: page.body}}
+            className="page-description page-handle-style justify-center flex"
+          />
+        </div>
+      ) :
       <Section
         padding="all"
         display="flex"

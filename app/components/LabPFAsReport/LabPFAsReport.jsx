@@ -1,14 +1,14 @@
-import {Modal} from '~/components';
-export function LabPFAsReport({data}) {
-    return (
-      <>
-        <section className='lab_pfas_report_section'>
-            <Modal cancelLink={data?.page_link} classname="pdf_modal">
-                <div className="pdf_container">
-                    <embed className="pdf_viewer" src={`https://drive.google.com/viewerng/viewer?embedded=true&url=${data?.pdf_url}`}/>
-                </div>
-            </Modal>
-        </section>
-      </>
-    )
+import { Modal } from '~/components';
+
+
+const LabPFAsReport = ({data}) => {
+    return <section className='lab_pfas_report_section'>
+        <Modal cancelLink={data?.page_link} classname="pdf_modal">
+            <div className="pdf_container">
+                <embed className="pdf_viewer" src={data?.pdf_url} />
+            </div>
+        </Modal>
+    </section>
 }
+
+export default LabPFAsReport;
