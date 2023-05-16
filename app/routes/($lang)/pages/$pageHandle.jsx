@@ -360,9 +360,9 @@ export default function Page() {
         <Filter hero={parsed_hero} carousel={parsed_carousel} filterreplacementcycle={parsed_filterreplacementcycle} filter_changes={parsed_filter_changes} 
         video_section={parsed_video_section} stickybarbottom={parsed_sticky_bar_bottom}/>
       ) :
-      page.handle == 'lab-pfas-report' ? (
-        <LabPFAsReport data={parsed_popup_content} />
-      ) :
+      // page.handle == 'lab-pfas-report' ? (
+      //   <LabPFAsReport data={parsed_popup_content} />
+      // ) :
       <Section
         padding="all"
         display="flex"

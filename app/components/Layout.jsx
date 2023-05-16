@@ -26,7 +26,8 @@ import {
   AnnouncementBar,
   PlusIcon,
   MinusIcon,
-  CheckIcon
+  CheckIcon,
+  LabPFAsReport
 } from '~/components';
 
 import { useCartFetchers } from '~/hooks/useCartFetchers';
@@ -87,6 +88,8 @@ export function Layout({children, layout}) {
     }
   }, [fetchers.length > 0 && addToCartFetchers.length == 0 && (isNoSubscriptionModalOpen || isFilterClubRightModalOpen || isSubscriptionModalOpen)])
 
+  const parsed_popup_content = layout?.metafields?.popup_content ? JSON.parse(layout?.metafields.popup_content.value) : "";
+  const {pathname} = useLocation();
   return (
     <RequestContext.Provider
       value={{
@@ -139,6 +142,7 @@ export function Layout({children, layout}) {
           {children}
         </main>
       </div>
+      {parsed_popup_content != "" && pathname.includes("lab-pfas-report") && <LabPFAsReport data={parsed_popup_content} />}
       <Footer
         footerCustomersMenu={layout?.footerCustomersMenu}
         footerInfoMenu={layout?.footerInfoMenu}
