@@ -21,12 +21,12 @@ export function Hero({ data, id }) {
                 {data.cta}
                 </Button>
               </Link>}
-              {data?.learnMoreBtnText && <Link
+              {/* {data?.learnMoreBtnText && <Link
                 to={data.learnMoreBtnLink}>
                 <Button variant='inline' className="font-medium mx-10 fs-17 hero-learn-more-btn">
                   {data.learnMoreBtnText}
                 </Button>
-              </Link>}
+              </Link>} */}
           </div>
         </div>
         <div className="hero-image-wrapper">
