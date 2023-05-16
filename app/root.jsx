@@ -253,6 +253,9 @@ const LAYOUT_QUERY = `#graphql
     },
     announcement: metafield(namespace: "global", key: "announcement") {
       value
+    },
+    popup_content: metafield(namespace: "lab_pfas_report", key: "popup_content") {
+      value
     }
   }
 `;

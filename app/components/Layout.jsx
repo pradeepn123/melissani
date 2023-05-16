@@ -26,7 +26,8 @@ import {
   AnnouncementBar,
   PlusIcon,
   MinusIcon,
-  CheckIcon
+  CheckIcon,
+  LabPFAsReport
 } from '~/components';
 
 import { useCartFetchers } from '~/hooks/useCartFetchers';
@@ -40,6 +41,7 @@ import { useFetcher, useLocation } from '@remix-run/react';
 export function Layout({children, layout}) {
   const [isAddingToCart, setIsAddingToCart] = useState(false)
   const [isCartUpdating, setIsCartUpdating] = useState(false)
+  const [labReportInformation, setLabReportInformation] = useState(null)
 
   const {
     isOpen: isFilterClubRightModalOpen,
@@ -87,6 +89,7 @@ export function Layout({children, layout}) {
     }
   }, [fetchers.length > 0 && addToCartFetchers.length == 0 && (isNoSubscriptionModalOpen || isFilterClubRightModalOpen || isSubscriptionModalOpen)])
 
+  const {pathname} = useLocation();
   return (
     <RequestContext.Provider
       value={{
@@ -113,7 +116,9 @@ export function Layout({children, layout}) {
         isAddingToCart: isAddingToCart,
         setIsAddingToCart: setIsAddingToCart,
         isCartUpdating: isCartUpdating,
-        setIsCartUpdating: setIsCartUpdating
+        setIsCartUpdating: setIsCartUpdating,
+        labReportInformation: labReportInformation,
+        setLabReportInformation: setLabReportInformation
       }}
     >
       <div className="flex flex-col">
@@ -139,6 +144,9 @@ export function Layout({children, layout}) {
           {children}
         </main>
       </div>
+      {labReportInformation && <LabPFAsReport
+        data={labReportInformation}
+      />}
       <Footer
         footerCustomersMenu={layout?.footerCustomersMenu}
         footerInfoMenu={layout?.footerInfoMenu}

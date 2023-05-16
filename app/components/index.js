@@ -1,3 +1,5 @@
+import LabPFAsReport from './LabPFAsReport/LabPFAsReport';
+
 export { Layout } from './Layout';
 export { Drawer, useDrawer } from './Drawer';
 export { Heading, Section, Text, PageHeader } from './Text';
@@ -63,5 +65,7 @@ export { CartClubMembership } from './CartClubMembership/CartClubMembership';
 export { OkendoReviewsWidget, OkendoStarRating } from './Okendo';
 export { ImageGallery } from './ImageGallery/ImageGallery';
 export { ArticleCarousel } from './ArticleCarousel/ArticleCarousel';
+export { LabPFAsReport };
+
 // Sue me
 export * from './Icon';

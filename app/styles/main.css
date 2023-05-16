@@ -1085,6 +1085,9 @@ form .field-input::placeholder {
 .footer-menus #optin-form input#customer_email{
   min-width: 199px;
 }
+.lab_pfas_report_section .pdf_modal {
+  position: absolute;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -1147,6 +1150,9 @@ form .field-input::placeholder {
   #error_found_section p {
     font-size: 16px;
     line-height: 24px;
+  }
+  .lab_pfas_report_section .pdf_modal {
+    position: relative;
   }
 }
 
@@ -1377,3 +1383,10 @@ form .field-input::placeholder {
   font-size: 16px;
   line-height: 30px;
 }
+
+/* Begin: PDF Popup Modal */
+.lab_pfas_report_section .pdf_modal {
+  width: 100vw;
+  height: 100vh;
+}
+/* End: PDF Popup Modal */
