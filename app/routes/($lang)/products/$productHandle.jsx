@@ -18,7 +18,9 @@ import {
   MediaGallery,
   ProductStickyBar,
   OkendoReviewsWidget,
-  ImageGallery
+  ImageGallery,
+  TextCarousel,
+  ImageWithText
 } from '~/components';
 
 import invariant from 'tiny-invariant';
@@ -32,6 +34,8 @@ import ImageGalleryStyles from '~/components/ImageGallery/ImageGallery.css';
 import SwiperCss from "swiper/css";
 import SwiperNavigation from "swiper/css/navigation";
 import SwiperPagination from "swiper/css/pagination";
+import TextCarouselStyles from '~/components/TextCarousel/TextCarousel.css';
+import ImageWithTextStyles from '~/components/ImageWithText/ImageWithText.css';
 
 
 export const links = () => [
@@ -42,7 +46,9 @@ export const links = () => [
   {rel: 'styleSheet', href: SwiperCss},
   {rel: 'styleSheet', href: SwiperNavigation},
   {rel: 'styleSheet', href: SwiperPagination},
-  {rel: 'stylesheet', href: ImageGalleryStyles}
+  {rel: 'stylesheet', href: ImageGalleryStyles},
+  {rel: 'stylesheet', href: TextCarouselStyles},
+  {rel: 'stylesheet', href: ImageWithTextStyles}
 ]
 
 const seo = ({data}) => {
@@ -202,6 +208,31 @@ export default function Product() {
             />
           </div>
         </div>
+        {parsedProductDetails?.carousel && 
+        <TextCarousel 
+          data={parsedProductDetails.carousel} 
+          className="purifier-carousel" 
+          height="full" 
+          top 
+          loading="eager" />}
+
+        {parsedProductDetails?.temperature && 
+        <ImageWithText 
+          temperature={parsedProductDetails?.temperature} 
+          className={"flex text-main-section"} 
+          id="temperature-control-section" 
+          height="full" 
+          top 
+          loading="eager" />}
+
+        {parsedProductDetails?.volume && 
+        <ImageWithText 
+          volume={parsedProductDetails?.volume} 
+          className={"flex volume-main-section"} 
+          alignment="rtl" 
+          height="full" 
+          top 
+          loading="eager" />}
 
         {parsedProductDetails?.boxContents && <ImageCarousel
           boxContents={parsedProductDetails.boxContents[0]}
