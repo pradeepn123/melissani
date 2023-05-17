@@ -6,7 +6,6 @@ import { isDiscounted, isNewArrival, deepCopy } from '~/lib/utils';
 
 import { useCartFetchers } from '~/hooks/useCartFetchers';
 
-
 export function MultipleProductsCard({
   products,
   label,

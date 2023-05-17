@@ -6,7 +6,10 @@ import { Text, Link, RequestContext, AddToCartButton, Button } from '~/component
 import { isDiscounted, isNewArrival } from '~/lib/utils';
 
 import { useCartFetchers } from '~/hooks/useCartFetchers';
-
+import {
+	OkendoStarRating,
+	WithOkendoStarRatingSnippet
+} from "@okendo/shopify-hydrogen";
 
 export function SingleProductCard({
   product,
@@ -23,6 +26,8 @@ export function SingleProductCard({
 
   let cardLabel;
 
+  // const product: SerializeFrom<Product & WithOkendoStarRatingSnippet>;
+  // const product: seriali
   const cardProduct = product?.variants ? product : {};
   if (!cardProduct?.variants?.nodes?.length) return null;
 
@@ -74,6 +79,10 @@ export function SingleProductCard({
           >
             {product.title}
           </Text>
+          <OkendoStarRating
+            productId={product.id}
+            okendoStarRatingSnippet={product.okendoStarRatingSnippet}
+          />
           <div className="card-image bg-primary/5">
             {image && (
               <Image
