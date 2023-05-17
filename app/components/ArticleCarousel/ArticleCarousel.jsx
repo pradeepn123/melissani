@@ -26,7 +26,8 @@ export function ArticleCarousel({articles}){
                             prevNextButtons: true,
                             pageDots: false,
                             cellAlign: 'left',
-                            contain: true
+                            contain: true,
+                            wrapAround: true
                         }}
                     >
                         {articles && articles.content.map((articleContent, index) => (
@@ -45,7 +46,8 @@ export function ArticleCarousel({articles}){
                             pageDots: true,
                             cellAlign: 'left',
                             groupCells: '100%',
-                            contain: true
+                            contain: true,
+                            wrapAround: true
                         }}
                     >
                         {articles && articles.content.map((articleContent, index) => (
