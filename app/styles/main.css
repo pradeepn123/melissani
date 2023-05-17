@@ -956,6 +956,11 @@ form .field-input::placeholder {
   }
 }
 
+@media screen and (max-width: 360px) {
+  .footer-wrapper {
+    padding: 37px 17px !important;
+  }
+}
 @media screen and (max-width: 1023px) {
   .footer-wrapper {
     padding: 37px 46px;
