@@ -14,7 +14,8 @@ import {
   SecondaryHero,
   VolumeControlProperty,
   FooterContact,
-  KeyFeaturesCarousel
+  KeyFeaturesCarousel,
+  ReviewCarousel
 }from '~/components';
 import { PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
 import { getHeroPlaceholder } from '~/lib/placeholders';
@@ -31,6 +32,7 @@ import ImageCenterWithTextStyles from '~/components/ImageCenterWithText/ImageCen
 import SecondaryHeroStyles from '~/components/SecondaryHero/SecondaryHero.css';
 import FooterContactStyles from '~/components/FooterContact/FooterContact.css';
 import KeyFeaturesCarouselStyles from '~/components/KeyFeaturesCarousel/KeyFeaturesCarousel.css';
+import ReviewCarouselStyles from '~/components/ReviewCarousel/ReviewCarousel.css';
 
 export const links = () => {
   return [
@@ -45,7 +47,8 @@ export const links = () => {
     {rel: 'stylesheet', href: ImageCenterWithTextStyles},
     {rel: 'stylesheet', href: SecondaryHeroStyles},
     {rel: 'stylesheet', href: FooterContactStyles},
-    {rel: 'stylesheet', href: KeyFeaturesCarouselStyles}
+    {rel: 'stylesheet', href: KeyFeaturesCarouselStyles},
+    {rel: 'stylesheet', href: ReviewCarouselStyles}
   ]
 }
 

@@ -67,6 +67,7 @@ export { ImageGallery } from './ImageGallery/ImageGallery';
 export { ArticleCarousel } from './ArticleCarousel/ArticleCarousel';
 export { LabPFAsReport };
 export { KeyFeaturesCarousel } from './KeyFeaturesCarousel/KeyFeaturesCarousel';
+export { ReviewCarousel } from './ReviewCarousel/ReviewCarousel';
 
 // Sue me
 export * from './Icon';
