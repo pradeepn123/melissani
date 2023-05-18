@@ -9,8 +9,7 @@
     height: calc(100vh - 3em);
 }
 
-.lab_pfas_report_section .pdf_container iframe,
-.lab_pfas_report_section .pdf_container .pdf_viewer {
+.lab_pfas_report_section .pdf_container iframe {
     width: -webkit-fill-available;
     height: 100%;
 }
