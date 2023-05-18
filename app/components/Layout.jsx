@@ -827,7 +827,20 @@ function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
 
   }
 
+  var footer;
+
+  function checkOffset() {        
+      var offerTag = document.querySelector(".needsclick")
+        if(offerTag.getBoundingClientRect().bottom > footer.getBoundingClientRect().top){
+          offerTag.style.opacity = 0;
+      }
+      else{
+          offerTag.style.opacity = 1;
+      }
+  }
+
   useEffect(() => {
+    footer = document.querySelector('footer');
     window?.addEventListener("resize", handleResize)
     setPath(window?.location.href);
     if (window?.outerWidth < 1024) {
@@ -841,6 +854,11 @@ function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
       setActiveInfoMenuAccordion(true);
       setActiveContactMenuAccordion(true);
     }
+    if (window?.outerWidth < 1024) {
+      window.addEventListener("scroll", function () {
+          checkOffset();
+      })
+    };
   }, []);
   
   function activateAccordion(e) {
