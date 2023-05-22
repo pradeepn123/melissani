@@ -22,6 +22,7 @@
     align-items: center;
     column-gap: 0.5em;
     justify-content: flex-end;
+    flex-basis: calc(100%/5);
 }
 
 .key-feature-icon img{
@@ -31,7 +32,7 @@
 .key-feature-text {
     text-align: left;
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     line-height: 21px;
     letter-spacing: 0em;
@@ -57,7 +58,7 @@
 }
 @media screen and (max-width: 370px) {
     .key-features-inner {
-        grid-template-columns: repeat(5, 52%) !important;
+        grid-template-columns: repeat(5, 47%) !important;
     }
 }
 @media screen and (min-width: 371px) and (max-width: 399px) {
@@ -206,11 +207,11 @@
         margin-right: 0;
     }
 }
-@media screen and (max-width: 912px) {
+@media screen and (max-width: 767px) {
     .product-key-features {
         flex: 1 0 60%;
         padding-left: 1em;
-        padding-right: 1em;
+        padding-right: 0;
         border-left: none;
     }
     .key-feature {
@@ -223,23 +224,29 @@
         line-height: 18px;
     }
 }
-@media (min-width: 768px) and (max-width: 1200px){
+@media (min-width: 768px) and (max-width: 1107px){
     .product-key-features{
         max-width: 100%;
     }
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1107px) {
     .product-key-features {
+        padding: 0 2em;
         flex: 1 0 65%;
     }
     .key-feature {
         justify-content: center;
     }
     .key-feature-text {
-        font-size: 12px;
+        font-size: 11px;
+        line-height: 18px;
     }
 }
-
+@media (min-width: 768px) and (max-width: 1107px){
+    .key-feature-icon{
+        flex-basis: 30%;
+    }
+}
 
 
 
