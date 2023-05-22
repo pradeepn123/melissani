@@ -52,13 +52,18 @@
 }
 .features-carousel{
     display: block;
-    margin: 17px 0 110px 0;
+    margin-bottom: 84px;
     border-bottom: 0;
     border-top: 0;
 }
+@media (min-width: 768px) and (max-width: 1023px){
+    .features-carousel{
+        margin-bottom: 50px;
+    }
+}
 @media (max-width: 321px){
     .product-key-features{
-        padding: 0 1em !important;
+        padding: 0 0 0 1em !important;
     }
 }
 @media screen and (max-width: 370px) {
@@ -236,7 +241,7 @@
 }
 @media screen and (max-width: 1107px) {
     .product-key-features {
-        padding: 0 2em;
+        padding: 0 0 0 2em;
         flex: 1 0 65%;
     }
     .key-feature {
