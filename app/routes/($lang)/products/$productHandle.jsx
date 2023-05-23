@@ -105,7 +105,6 @@ export async function loader({params, request, context}) {
 
   const searchParams = new URL(request.url).searchParams;
 
-
   const selectedOptions = [];
   searchParams.forEach((value, name) => {
     selectedOptions.push({name, value});
@@ -186,6 +185,7 @@ export default function Product() {
           title={title}
           data={parsedProductDetails.productHeader}
         />}
+
         <div className="product-content">
           <MediaGallery
             data={media.nodes.filter(media => media.alt != "featured-homepage")}

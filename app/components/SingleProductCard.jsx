@@ -7,6 +7,7 @@ import { isDiscounted, isNewArrival } from '~/lib/utils';
 
 import { useCartFetchers } from '~/hooks/useCartFetchers';
 
+
 export function SingleProductCard({
   product,
   label,
