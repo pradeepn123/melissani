@@ -59,7 +59,8 @@ export const links = () => {
 
 export const meta = () => ({
   charset: 'utf-8',
-  viewport: 'width=device-width,initial-scale=1'
+  viewport: 'width=device-width,initial-scale=1',
+  "oke:subscriber_id": "a0ca6b07-0ad6-4495-9f6b-5a1ac98d0fe6"
 });
 
 export async function loader({context}) {

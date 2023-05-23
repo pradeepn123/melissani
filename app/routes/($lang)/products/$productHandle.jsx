@@ -33,6 +33,7 @@ import SwiperCss from "swiper/css";
 import SwiperNavigation from "swiper/css/navigation";
 import SwiperPagination from "swiper/css/pagination";
 
+
 export const links = () => [
   {rel: 'stylesheet', href: ProductHeaderStyles},
   {rel: 'stylesheet', href: ImageCarouselStyles},
@@ -103,6 +104,7 @@ export async function loader({params, request, context}) {
   const {productHandle} = params;
 
   const searchParams = new URL(request.url).searchParams;
+
 
   const selectedOptions = [];
   searchParams.forEach((value, name) => {
