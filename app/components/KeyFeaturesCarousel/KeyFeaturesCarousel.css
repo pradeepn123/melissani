@@ -127,7 +127,6 @@
         grid-template-columns: repeat(5, 63%);
         overflow-x: auto;
         height: 100%;
-        padding: 1.5rem 0;
         scroll-snap-type: x mandatory;
     }
 
