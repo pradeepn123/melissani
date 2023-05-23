@@ -32,14 +32,6 @@ import ImageGalleryStyles from '~/components/ImageGallery/ImageGallery.css';
 import SwiperCss from "swiper/css";
 import SwiperNavigation from "swiper/css/navigation";
 import SwiperPagination from "swiper/css/pagination";
-import {
-	OkendoReviews,
-	OkendoStarRating,
-	WithOkendoStarRatingSnippet,
-	WithOkendoReviewsSnippet,
-	OKENDO_PRODUCT_STAR_RATING_FRAGMENT,
-	OKENDO_PRODUCT_REVIEWS_FRAGMENT
-} from "@okendo/shopify-hydrogen";
 
 export const links = () => [
   {rel: 'stylesheet', href: ProductHeaderStyles},
@@ -117,13 +109,7 @@ export async function loader({params, request, context}) {
     selectedOptions.push({name, value});
   });
 
-  const {shop, product} = await context.storefront.query<{
-    product: ProductType & {
-      selectedVariant: ProductVariant
-    } & WithOkendoStarRatingSnippet &
-      WithOkendoReviewsSnippet,
-      shop: shop
-  }>(PRODUCT_QUERY, {
+  const {shop, product} = await context.storefront.query(PRODUCT_QUERY, {
     variables: {
       handle: productHandle,
       selectedOptions,
@@ -198,10 +184,6 @@ export default function Product() {
           title={title}
           data={parsedProductDetails.productHeader}
         />}
-        <OkendoStarRating
-          productId={product.id}
-          okendoStarRatingSnippet={product.okendoStarRatingSnippet}
-        />
         <div className="product-content">
           <MediaGallery
             data={media.nodes.filter(media => media.alt != "featured-homepage")}
@@ -288,8 +270,6 @@ const PRODUCT_VARIANT_FRAGMENT = `#graphql
 const PRODUCT_QUERY = `#graphql
   ${MEDIA_FRAGMENT}
   ${PRODUCT_VARIANT_FRAGMENT}
-  ${OKENDO_PRODUCT_STAR_RATING_FRAGMENT}
-	${OKENDO_PRODUCT_REVIEWS_FRAGMENT}
   query Product(
     $country: CountryCode
     $language: LanguageCode
@@ -308,8 +288,6 @@ const PRODUCT_QUERY = `#graphql
       tags
       descriptionHtml
       description
-      ...OkendoStarRatingSnippet
-			...OkendoReviewsSnippet
       options {
         name
         values
