@@ -25,10 +25,6 @@ import {DEFAULT_LOCALE, parseMenu} from './lib/utils';
 import invariant from 'tiny-invariant';
 import {useAnalytics} from './hooks/useAnalytics';
 import { PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
-import {
-	OkendoProvider,
-	getOkendoProviderData,
-} from "@okendo/shopify-hydrogen";
 
 const seo = ({data, pathname}) => {
   return {
@@ -63,8 +59,7 @@ export const links = () => {
 
 export const meta = () => ({
   charset: 'utf-8',
-  viewport: 'width=device-width,initial-scale=1',
-  "oke:subscriber_id": "a0ca6b07-0ad6-4495-9f6b-5a1ac98d0fe6"
+  viewport: 'width=device-width,initial-scale=1'
 });
 
 export async function loader({context}) {
@@ -80,11 +75,7 @@ export async function loader({context}) {
       shopifySalesChannel: ShopifySalesChannel.hydrogen,
       shopId: layout.shop.id,
     },
-    products: getProducts(context),
-    okendoProviderData: await getOkendoProviderData({
-      context,
-      subscriberId: 'a0ca6b07-0ad6-4495-9f6b-5a1ac98d0fe6',
-    }),
+    products: getProducts(context)
   });
 }
 
@@ -108,7 +99,6 @@ export default function App() {
         <script async src='//foursixty.com/media/scripts/fs.embed.v2.5.js' data-feed-id='melissani' data-theme='showcase_v2_5' data-open-links-in-same-page='true' data-show-okendo-stars='true' data-page-size='10'></script>
       </head>
       <body>
-        <OkendoProvider okendoProviderData={data.okendoProviderData} />
         <Layout
           layout={data.layout}
           key={`${locale.language}-${locale.country}`}

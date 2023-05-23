@@ -223,10 +223,6 @@ export default function Product() {
           parsedProductDetails={parsedProductDetails}
         />
       </Section>
-      <OkendoReviews
-        productId={product.id}
-        okendoReviewsSnippet={product.okendoReviewsSnippet}
-      />
     </>
   );
 }
