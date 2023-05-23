@@ -126,6 +126,9 @@
         padding: 1.5em 1.5em;
         row-gap: 1.5em;
     }
+    #home-hero .mobile-heading-wrapper{
+        padding: 0.8em 1.5em 1.5em 1.5em;
+    }
 
     #filter-changes-hero .mobile-heading-wrapper {
         padding: 3em 1.5em;
