@@ -111,10 +111,10 @@
         background-color: #F5F5F5;
     }
 }
+
 @media screen and (max-width: 540px) {
     .product-key-features {
         border-left: none;
-        border-top: 1px solid #DDDDDD;
         padding: 0 0 0 1.5rem;
         width: 100%;
         margin-left: 0;
