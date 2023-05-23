@@ -1,6 +1,6 @@
 .review-carousel-wrapper{
     background: #ECF6F9;
-    padding: 130px 119px 144px 118px;
+    padding: 130px 119px 140px 118px;
     position: relative;
 }
 
@@ -48,7 +48,7 @@
 }
 
 .review-content-block{
-    padding: 30px;
+    padding: 0 30px;
     line-height: 28px;
     font-style: normal;
     font-weight: 400;
