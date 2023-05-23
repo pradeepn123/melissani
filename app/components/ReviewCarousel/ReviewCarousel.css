@@ -7,8 +7,7 @@
 .review-carousel-wrapper .flickity-enabled{
     position: unset !important;
     outline: none;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .review-carousel-wrapper .flickity-button:disabled {
