@@ -11,19 +11,19 @@ export function TextCarousel ({data}) {
         var slides = document.getElementsByClassName("slideBlocks");
         var dots = document.getElementsByClassName("dot");
 
-        if (n > slides.length) {
-            if (interval) {
-                clearInterval(interval)
-            }
-            return setSlideIndex(1)
-        }
+        // if (n > slides.length) {
+        //     if (interval) {
+        //         clearInterval(interval)
+        //     }
+        //     return setSlideIndex(1)
+        // }
 
-        if (n < 1) {
-            if (interval) {
-                clearInterval(interval)
-            }
-            return setSlideIndex(slides.length)
-        }
+        // if (n < 1) {
+        //     if (interval) {
+        //         clearInterval(interval)
+        //     }
+        //     return setSlideIndex(slides.length)
+        // }
 
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";  
@@ -34,12 +34,12 @@ export function TextCarousel ({data}) {
         }
         slides[slideIndex-1].style.display = "block";  
         dots[slideIndex - 1].className += " active";
-        if (interval) {
-            clearInterval(interval)
-        }
-        interval = setInterval(function(){ 
-            setSlideIndex(slideIndex + 1)
-        }, 4000)
+        // if (interval) {
+        //     clearInterval(interval)
+        // }
+        // interval = setInterval(function(){ 
+        //     setSlideIndex(slideIndex + 1)
+        // }, 10000000)
     }
 
     useEffect(() => {
