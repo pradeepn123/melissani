@@ -1,12 +1,11 @@
 import clsx from 'clsx';
-import {Button, Link} from '~/components';
+import {Button, KeyFeaturesCarousel, Link} from '~/components';
 
 /**
  * Hero component that renders metafields attached to collection resources
  **/
 
 export function Hero({ data, id }) {
-
   return (
     <section
       className={clsx(
@@ -35,6 +34,7 @@ export function Hero({ data, id }) {
         <div className={"hero-mobile-image-wrapper"}>
           <img src={data?.mobile_banner_image} className="hero-image" />
         </div>
+          {data?.features && <KeyFeaturesCarousel features={data.features} className='features-carousel-mobile'/>}
         <div className="mobile-heading-wrapper">
           <div dangerouslySetInnerHTML={{ __html: data.rawHtml}}></div>
           <div className="mobile-button-wrapper">
@@ -56,6 +56,7 @@ export function Hero({ data, id }) {
             </>}
           </div>
         </div>
+        {data?.features && <KeyFeaturesCarousel features={data.features} className='features-carousel'/>}
     </section>
   );
 }

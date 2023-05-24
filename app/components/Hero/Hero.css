@@ -43,7 +43,7 @@
     color: #1B2943;
 }
 #home-hero .hero-text {
-    top: 44%;
+    top: 35%;
     left: 30%;
     width: 43%;
     transform: translate(-47%, -39%);
@@ -125,6 +125,9 @@
         background: #ffff;
         padding: 1.5em 1.5em;
         row-gap: 1.5em;
+    }
+    #home-hero .mobile-heading-wrapper{
+        padding: 0.8em 1.5em 1.5em 1.5em;
     }
 
     #filter-changes-hero .mobile-heading-wrapper {

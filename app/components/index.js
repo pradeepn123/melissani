@@ -66,6 +66,7 @@ export { OkendoReviewsWidget, OkendoStarRating } from './Okendo';
 export { ImageGallery } from './ImageGallery/ImageGallery';
 export { ArticleCarousel } from './ArticleCarousel/ArticleCarousel';
 export { LabPFAsReport };
+export { KeyFeaturesCarousel } from './KeyFeaturesCarousel/KeyFeaturesCarousel';
 
 // Sue me
 export * from './Icon';

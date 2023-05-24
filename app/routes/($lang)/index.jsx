@@ -13,7 +13,8 @@ import {
   ImageCenterWithText,
   SecondaryHero,
   VolumeControlProperty,
-  FooterContact
+  FooterContact,
+  KeyFeaturesCarousel
 }from '~/components';
 import { PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
 import { getHeroPlaceholder } from '~/lib/placeholders';
@@ -29,6 +30,7 @@ import VolumeControlPropertyStyles from '~/components/VolumeControlProperty/Volu
 import ImageCenterWithTextStyles from '~/components/ImageCenterWithText/ImageCenterWithText.css';
 import SecondaryHeroStyles from '~/components/SecondaryHero/SecondaryHero.css';
 import FooterContactStyles from '~/components/FooterContact/FooterContact.css';
+import KeyFeaturesCarouselStyles from '~/components/KeyFeaturesCarousel/KeyFeaturesCarousel.css';
 
 export const links = () => {
   return [
@@ -42,7 +44,8 @@ export const links = () => {
     {rel: 'stylesheet', href: VolumeControlPropertyStyles},
     {rel: 'stylesheet', href: ImageCenterWithTextStyles},
     {rel: 'stylesheet', href: SecondaryHeroStyles},
-    {rel: 'stylesheet', href: FooterContactStyles}
+    {rel: 'stylesheet', href: FooterContactStyles},
+    {rel: 'stylesheet', href: KeyFeaturesCarouselStyles}
   ]
 }
 
@@ -84,6 +87,11 @@ export async function loader({ params, context }) {
   const features = page.metafields.find(item => {
     if (item !== null) {
       return item.key == "features"
+    }
+  })
+  const featuresCarousel = page.metafields.find(item => {
+    if (item !== null) {
+      return item.key == "features_carousel"
     }
   })
 
@@ -181,6 +189,7 @@ export async function loader({ params, context }) {
   return defer({
     primaryHero: JSON.parse(hero?.value),
     features: features && JSON.parse(features?.value),
+    featuresCarousel: featuresCarousel && JSON.parse(featuresCarousel?.value),
     articles: articles && JSON.parse(articles?.value),
     goodbye: goodbye && JSON.parse(goodbye?.value),
     announcementbar: announcementbar && JSON.parse(announcementbar?.value),
@@ -210,6 +219,7 @@ export default function Homepage() {
     primaryHero,
     featuredProducts,
     features,
+    featuresCarousel,
     articles,
     goodbye,
     announcementbar,
@@ -242,8 +252,8 @@ export default function Homepage() {
           <Hero data={primaryHero} id="home-hero" height="full" top loading="eager" />
       )}
 
-      {features && (
-        <KeyFeatures features={features} />)}
+      {/* {features && (
+        <KeyFeatures features={features} />)} */}
 
       {goodbye && (
         <ImageWithText goodbye={goodbye} height="full" className="bg-white xl:flex"/>)}
@@ -316,6 +326,7 @@ const PAGE_QUERY = `#graphql
           { namespace: "home", key: "reviews" }
           { namespace: "home", key: "learn_more" }
           { namespace: "home", key: "footer_banner" }
+          { namespace: "home", key: "features_carousel" }
           { namespace: "home", key: "featured_products_handle" },
           { namespace: "global", key: "footer_contact" }
         ]
