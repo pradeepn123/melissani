@@ -148,6 +148,11 @@
     padding: 10px 0;
 }
 
+span.link-text {
+    color: #2B00FF !important;
+    text-decoration: underline !important;
+}
+
 /* End: Faq Section */
 
 /* Begin: Media Query */

@@ -29,7 +29,7 @@ export function FaqAccordion({ item }) {
                         </div>
                         <div className="accordion-body custom_content" itemScope itemType="https://schema.org/Answer">
                             <p className="font-normal md:text-xl text-base text-[#000000]" itemProp="text">
-                                {content.answer}
+                                {content.answer} {content.link_text && content.link_url  && <a href={content.link_url}><span className="link-text"> {content.link_text} </span></a>}
                             </p>
                             {content.list && <ul className="font-normal md:text-xl text-base text-[#000000]">
                                 {content.list.map((item, index) => <li key={index}>{item}</li>)}
