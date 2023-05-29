@@ -1,0 +1,194 @@
+.review-carousel-wrapper{
+    background: #ECF6F9;
+    padding: 130px 119px 140px 118px;
+    position: relative;
+}
+
+.review-carousel-wrapper .flickity-enabled{
+    position: unset !important;
+    outline: none;
+    overflow: hidden;
+}
+
+.review-carousel-wrapper .flickity-button:disabled {
+    background-color: transparent !important;
+    border-color: #C4C4C4;
+}
+
+.review-carousel-wrapper .flickity-button:disabled svg path {
+    fill: #C4C4C4;
+}
+
+.review-carousel-wrapper .flickity-enabled .flickity-button{
+    position: absolute;
+    top: 0;
+    left: unset;
+    right: 0;
+}
+.review-carousel-wrapper .flickity-enabled .flickity-button.previous{
+    right: 11.875rem;
+    top: 24rem;
+    left: 2rem;
+}
+.review-carousel-wrapper .flickity-enabled .flickity-button.next{
+    right: 1.75rem;
+    top: 24rem;
+}
+.review-content-heading{
+    font-family: 'Peachi-Medium';
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+    margin-bottom: 57px;
+    margin-left: -40px;
+}
+
+.review-content-block{
+    padding: 0 30px;
+    line-height: 28px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0 8px;
+    max-width: calc(33.33% - 8px);
+    position: relative;
+}
+
+.review-content-block h3{
+    font-family: 'Peachi-Bold';
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+}
+
+.review-content-block .Stars {
+    --percent: calc(var(--rating) / 5 * 100% - 3px);
+    display: inline-block;
+    font-size: 28px;
+    font-family: Times;
+    line-height: 1;
+    margin-top: 20px;
+}
+
+.review-content-block .Stars::before {
+    content: "★★★★★";
+    letter-spacing: 7px;
+    background: linear-gradient(90deg, #EB4F3C var(--percent), transparent var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-color: #EB4F3C;
+    -webkit-text-stroke-width: 1.85px;
+}
+
+.review-content-block p.review-text{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+    margin-top: 23px;
+    width: 100%;
+}
+.review-content-block p.reviewer-name{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #1B2943;
+    margin-top: 20px;
+}
+
+@media (min-width: 1024px){
+    .review-flickity-mobile{
+        display: none;
+    }
+    .review-flickity-desktop{
+        display: block;
+    }
+}
+
+@media (max-width: 1023px){
+    .reviewer{
+        bottom: 20px;
+        right: 28px;
+    }
+    .review-flickity-mobile{
+        display: block;
+        position: unset !important;
+        outline: none;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .review-flickity-desktop{
+        display: none;
+    }
+    .review-content-heading{
+        font-size: 32px;
+        margin-bottom: 40px;
+        line-height: 32px;
+        padding-right: 20px;
+        margin-left: 0;
+    }
+    .review-carousel-wrapper{
+        padding: 69px 0 72px 20px;
+    }
+    .review-carousel-wrapper .flickity-page-dots{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 21px 0 8px 0;
+    }
+    .review-carousel-wrapper .flickity-page-dots .dot{
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        border: 1px solid #000000;
+    }
+    .review-carousel-wrapper .flickity-page-dots .dot.is-selected{
+        background: #000;
+        border: 1px solid #000000;
+    }
+    .review-carousel-wrapper .flickity-prev-next-button{
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px){
+    .review-content-block{
+        max-width: 100% !important;
+        padding: 25px;
+    }
+    .review-content-block:last-child {
+        margin: 0 9.5px;
+        padding: 25px 25px 25px 10px;
+    }
+    .review-content-heading {
+        padding-left: 25px;
+        margin-bottom: 0;
+    }
+    .review-content-block h3 {
+        font-size: 24px;
+        line-height: 36.4px;
+    }
+    .review-content-block .Stars {
+        font-size: 20px;
+    }
+    .review-content-block p.review-text {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .review-content-block p.reviewer-name {
+        font-size: 16px;
+        line-height: 25.2px;
+    }
+}

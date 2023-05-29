@@ -14,7 +14,8 @@ import {
   SecondaryHero,
   VolumeControlProperty,
   FooterContact,
-  KeyFeaturesCarousel
+  KeyFeaturesCarousel,
+  ReviewCarousel
 }from '~/components';
 import { PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
 import { getHeroPlaceholder } from '~/lib/placeholders';
@@ -31,6 +32,7 @@ import ImageCenterWithTextStyles from '~/components/ImageCenterWithText/ImageCen
 import SecondaryHeroStyles from '~/components/SecondaryHero/SecondaryHero.css';
 import FooterContactStyles from '~/components/FooterContact/FooterContact.css';
 import KeyFeaturesCarouselStyles from '~/components/KeyFeaturesCarousel/KeyFeaturesCarousel.css';
+import ReviewCarouselStyles from '~/components/ReviewCarousel/ReviewCarousel.css';
 
 export const links = () => {
   return [
@@ -45,7 +47,8 @@ export const links = () => {
     {rel: 'stylesheet', href: ImageCenterWithTextStyles},
     {rel: 'stylesheet', href: SecondaryHeroStyles},
     {rel: 'stylesheet', href: FooterContactStyles},
-    {rel: 'stylesheet', href: KeyFeaturesCarouselStyles}
+    {rel: 'stylesheet', href: KeyFeaturesCarouselStyles},
+    {rel: 'stylesheet', href: ReviewCarouselStyles}
   ]
 }
 
@@ -58,10 +61,19 @@ export const handle = {
   seo,
 };
 
-
 export async function loader({ params, context }) {
   const { language, country } = context.storefront.i18n;
-
+  
+  let m1ProductID = 8032440975648;
+  
+  const getOkendoReview = async function (productId) {
+    let response = await fetch(`https://api.okendo.io/v1/stores/a0ca6b07-0ad6-4495-9f6b-5a1ac98d0fe6/products/shopify-${productId}/reviews`)
+    response = await response.json()
+    return response
+  }
+  
+  const m1Review = await getOkendoReview(m1ProductID);
+  
   if (
     params.lang &&
     params.lang.toLowerCase() !== `${language}-${country}`.toLowerCase()
@@ -210,7 +222,8 @@ export async function loader({ params, context }) {
       pageType: AnalyticsPageType.home,
     },
     seo: page.seo,
-    context: context
+    context: context,
+    m1Review: m1Review
   });
 }
 
@@ -233,7 +246,8 @@ export default function Homepage() {
     learnMore,
     footerBanner,
     footerContact,
-    context
+    context,
+    m1Review
   } = useLoaderData();
 
   // TODO: skeletons vs placeholders
@@ -298,7 +312,9 @@ export default function Homepage() {
       {/* {footerBanner && (<SecondaryHero data={footerBanner} />)} */}
 
       {/* {footerContact && (<FooterContact data={footerContact} context={context}/>)} */}
-      
+      { m1Review &&
+        <ReviewCarousel review={m1Review}/>
+      }
     </>
   );
 }
