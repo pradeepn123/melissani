@@ -28,7 +28,7 @@ export function ReviewCarousel(review){
                             pageDots: false,
                             cellAlign: 'left',
                             contain: true,
-                            wrapAround: false,
+                            wrapAround: true,
                             groupCells: 3
                         }}
                     >
@@ -51,7 +51,7 @@ export function ReviewCarousel(review){
                             pageDots: true,
                             cellAlign: 'left',
                             contain: true,
-                            wrapAround: false
+                            wrapAround: true
                         }}
                     >
                         {reviewsList && reviewsList.map((reviewContent, index) => (
