@@ -3,7 +3,7 @@ import { useEffect, useContext } from 'react';
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
-import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration, Filter, FooterContact, Section, LabPFAsReport, RequestContext } from '~/components';
+import {Faq, Purifier, About, FilterClub, Affiliate, Contact, ProductRegistration, Filter, FooterContact, Section, LabPFAsReport, RequestContext } from '~/components';
 import FaqStyles from '~/components/Faq/Faq.css';
 import AboutUsStyles from '~/components/About/About.css';
 import FilterClubStyles from '~/components/FilterClub/FilterClub.css';
@@ -104,7 +104,7 @@ export async function loader({request, params, context}) {
     }
   }) 
 
-  const hero = (page.handle == 'purifier' ||  page.handle == 'filter-club' || page.handle == "melissani-m1-filter") && page.metafields.find(item => {
+  const hero = (page.handle == 'purifier' || page.handle == 'affiliate' ||  page.handle == 'filter-club' || page.handle == "melissani-m1-filter") && page.metafields.find(item => {    
     if(item !== null) {
       return item.key == "hero"
     }
@@ -355,6 +355,9 @@ export default function Page() {
       page.handle == 'about-us' ? (<>
         <About data={parsed_about} />
         {/* <FooterContact data={parsed_footer_contact} /> */}
+      </>) :
+      page.handle == 'affiliate' ? (<>
+        <Affiliate hero={parsed_hero} />        
       </>) :
       page.handle == 'filter-club' ? (
         <FilterClub hero={parsed_hero} data={parsed_faq} supportinfo={parsed_filterclubsupportinfo} 
