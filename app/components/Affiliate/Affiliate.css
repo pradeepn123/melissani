@@ -1,0 +1,44 @@
+
+#affiliate-hero .hero-banner-subtitle{
+    font-size: 16px;
+    line-height: 1.2;
+}
+#affiliate-hero .mobile-button-wrapper .inline-block{
+    text-transform: uppercase;
+    padding: 10px 50px;
+    font-weight: 800;
+    font-size: 16px;
+}
+@media(min-width:768px){
+    #affiliate-hero .hero-banner-title{
+        color: #ffffff;
+        line-height: 1;
+        font-size: 40px;
+        margin-bottom: 12px;
+    }
+    #affiliate-hero .hero-banner-subtitle{
+        color: #ffffff;
+        font-size: 16px;
+        line-height: 1.2;
+        margin-bottom: 16px;        
+    }
+    #affiliate-hero .hero-btns .inline-block{
+        text-transform: uppercase;
+        padding: 10px 50px;
+        font-weight: 800;
+    }
+}
+@media(min-width:1200px){
+    #affiliate-hero .hero-banner-title{
+        color: #ffffff;
+        line-height: 1;
+        font-size: 64px;
+        margin-bottom: 30px;
+    }
+    #affiliate-hero .hero-banner-subtitle{
+        color: #ffffff;
+        font-size: 20px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
+}

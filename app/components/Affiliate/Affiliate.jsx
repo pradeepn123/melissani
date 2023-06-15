@@ -2,13 +2,13 @@ import {
     Hero    
   } from '~/components';
   
-  export function Affiliate({hero}) {
-    console.log(hero)
+  export function Affiliate({affiliate_banner}) {
+    console.log(affiliate_banner)
       return (
         <>
-          {hero && (
-              <Hero data={hero} id="affiliate-hero" height="full" top loading="eager" />
-          )}          
+            {affiliate_banner && (
+                <Hero data={affiliate_banner} id="affiliate-hero" height="full" top loading="eager" />
+            )}          
         </>
       )
   }
