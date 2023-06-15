@@ -13,11 +13,11 @@ export function ProductHeader({ title, data }) {
                 </h1>
                 <div className="product-subtitle">
                     <p className="subtitle">{dataItem.productSubtitle}</p>
-                    <Link to={dataItem.learnMoreBtnLink}>
+                    {/* <Link to={dataItem.learnMoreBtnLink}>
                         <Button className="learn-more-btn" variant="secondary">
                             {dataItem.learnMoreBtnText}
                         </Button>
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
             <div className="product-key-features touch-auto">

@@ -17,18 +17,18 @@ export function Purifier({installation, hero, temperature, volume, video_section
         {installation && (
             <ImageCenterWithText id="purifier_plumber_free" installation={installation} installationHeadingClassName="installation-header" installationParaClassName="installation-para" />
         )}
-        {temperature && (
+        {/* {temperature && (
             <ImageWithText temperature={temperature} className={"flex text-main-section"} id="temperature-control-section" height="full" top loading="eager" />
-        )}
-        {volume && (
+        )} */}
+        {/* {volume && (
             <ImageWithText volume={volume} className={"flex volume-main-section"} alignment="rtl" height="full" top loading="eager" />
-        )}
+        )} */}
         {video_section && (
           <VideoPlayer data={video_section} />
         )}
-        {carousel && (
+        {/* {carousel && (
           <TextCarousel data={carousel} className="purifier-carousel" height="full" top loading="eager" />
-        )}        
+        )}         */}
         {stickybarbottom && (
           <StickyBarBottom stickybarbottom={stickybarbottom}/>
         )}
