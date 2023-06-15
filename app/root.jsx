@@ -261,7 +261,7 @@ const LAYOUT_QUERY = `#graphql
 `;
 
 async function getLayoutData({storefront}) {
-  const HEADER_MENU_HANDLE = 'main-menu';
+  const HEADER_MENU_HANDLE = 'main-menu-copy';
   const SIDEBAR_MENU_HANDLE = 'sidebar-menu';
   const FOOTER_MENU_HANDLE = 'footer';
   const CUSTOMERS_MENU = 'footer-customers';
