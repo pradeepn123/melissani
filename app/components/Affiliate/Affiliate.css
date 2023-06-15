@@ -1,7 +1,13 @@
 
+#affiliate-hero .hero-banner-title{
+    margin-bottom: 16px;
+}
 #affiliate-hero .hero-banner-subtitle{
     font-size: 16px;
-    line-height: 1.2;
+    line-height: 1.4;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    margin-bottom: 16px;
 }
 #affiliate-hero .mobile-button-wrapper .inline-block{
     text-transform: uppercase;
@@ -14,31 +20,31 @@
         color: #ffffff;
         line-height: 1;
         font-size: 40px;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
     }
     #affiliate-hero .hero-banner-subtitle{
         color: #ffffff;
         font-size: 16px;
-        line-height: 1.2;
+        line-height: 1.4;
         margin-bottom: 16px;        
     }
     #affiliate-hero .hero-btns .inline-block{
         text-transform: uppercase;
-        padding: 10px 50px;
+        padding: 12px 60px;
         font-weight: 800;
+        border: 0;
     }
 }
 @media(min-width:1200px){
-    #affiliate-hero .hero-banner-title{
-        color: #ffffff;
-        line-height: 1;
+    #affiliate-hero .hero-text{
+        top: 50%;
+    }
+    #affiliate-hero .hero-banner-title{                
         font-size: 64px;
         margin-bottom: 30px;
     }
-    #affiliate-hero .hero-banner-subtitle{
-        color: #ffffff;
-        font-size: 20px;
-        line-height: 1.2;
+    #affiliate-hero .hero-banner-subtitle{        
+        font-size: 20px;        
         margin-bottom: 30px;
     }
 }
