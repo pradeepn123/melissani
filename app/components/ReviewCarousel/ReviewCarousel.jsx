@@ -36,7 +36,7 @@ export function ReviewCarousel(review){
                             if (reviewContent.rating > 3) {
                                 return <div className="review-content-block" key={index}>
                                         <h3>{reviewContent.title}</h3>
-                                        <div class="Stars" style={{"--rating": reviewContent.rating}}></div>
+                                        <div className="Stars" style={{"--rating": reviewContent.rating}}></div>
                                         <p className="review-text">{reviewContent.body}</p>
                                         <p className="reviewer-name">-{reviewContent.reviewer.displayName}</p>
                                 </div>
@@ -57,7 +57,7 @@ export function ReviewCarousel(review){
                         {reviewsList && reviewsList.map((reviewContent, index) => (
                             <div className="review-content-block" key={index}>
                                 <h3>{reviewContent.title}</h3>
-                                <div class="Stars" style={{"--rating": reviewContent.rating}}></div>
+                                <div className="Stars" style={{"--rating": reviewContent.rating}}></div>
                                 <p className="review-text">{reviewContent.body}</p>
                                 <p className="reviewer-name">-{reviewContent.reviewer.displayName}</p>
                             </div>

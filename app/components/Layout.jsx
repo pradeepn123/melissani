@@ -130,6 +130,7 @@ export function Layout({children, layout}) {
             Skip to content
           </a>
         </div>
+        {console.log("header: ", layout?.headerMenu)}
         <Header
           menu={layout?.headerMenu}
           logo={logo}
