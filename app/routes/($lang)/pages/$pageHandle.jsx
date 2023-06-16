@@ -3,9 +3,10 @@ import { useEffect, useContext } from 'react';
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
-import {Faq, Purifier, About, FilterClub, Contact, ProductRegistration, Filter, FooterContact, Section, LabPFAsReport, RequestContext } from '~/components';
+import {Faq, Purifier, About, FilterClub, Affiliate, Contact, ProductRegistration, Filter, FooterContact, Section, LabPFAsReport, RequestContext } from '~/components';
 import FaqStyles from '~/components/Faq/Faq.css';
 import AboutUsStyles from '~/components/About/About.css';
+import AffiliateStyles from '~/components/Affiliate/Affiliate.css';
 import FilterClubStyles from '~/components/FilterClub/FilterClub.css';
 import BackgroundImgWithTextStyles from '~/components/BackgroundImgWithText/BackgroundImgWithText.css';
 import PurifierStyles from '~/components/Purifier/Purifier.css';
@@ -29,6 +30,7 @@ import LabPFAsReportStyles from '~/components/LabPFAsReport/LabPFAsReport.css';
 export const links = () => {
   return [
     {rel: 'stylesheet', href: FaqStyles},
+    {rel: 'stylesheet', href: AffiliateStyles},
     {rel: 'stylesheet', href: PurifierStyles},
     {rel: 'stylesheet', href: HeroStyles},
     {rel: 'stylesheet', href: ImageCenterWithTextStyles},
@@ -104,9 +106,15 @@ export async function loader({request, params, context}) {
     }
   }) 
 
-  const hero = (page.handle == 'purifier' ||  page.handle == 'filter-club' || page.handle == "melissani-m1-filter") && page.metafields.find(item => {
+  const hero = (page.handle == 'purifier' || page.handle == 'affiliate' ||  page.handle == 'filter-club' || page.handle == "melissani-m1-filter") && page.metafields.find(item => {    
     if(item !== null) {
       return item.key == "hero"
+    }
+  })
+  
+  const affiliate_banner = (page.handle == 'affiliate') && page.metafields.find(item => {    
+    if(item !== null) {
+      return item.key == "affiliate_banner"
     }
   })
 
@@ -199,6 +207,7 @@ export async function loader({request, params, context}) {
       page, 
       faq, 
       hero, 
+      affiliate_banner,
       installation, 
       temperature, 
       volume, 
@@ -234,6 +243,7 @@ export default function Page() {
     page, 
     faq, 
     hero, 
+    affiliate_banner,
     installation, 
     temperature, 
     volume, 
@@ -255,7 +265,7 @@ export default function Page() {
   } = useLoaderData();
 
 
-  let parsed_faq, parsed_installation, parsed_hero, parsed_temperature, parsed_volume, parsed_video_section, 
+  let parsed_faq, parsed_installation, parsed_hero, parsed_affiliate_banner, parsed_temperature, parsed_volume, parsed_video_section, 
     parsed_about, parsed_carousel, parsed_contact_form, parsed_product_registration_form, parsed_filter_changes, 
     parsed_filterclub, parsed_filterclubsupportinfo, parsed_textwithbutton, parsed_filterreplacementcycle, 
     parsed_filterclubwarrenty, parsed_sticky_bar_bottom, parsed_footer_contact, parsed_features, parsed_popup_content;
@@ -296,6 +306,10 @@ export default function Page() {
 
   if(hero) {
     parsed_hero = JSON.parse(hero?.value);
+  }
+
+  if(affiliate_banner) {
+    parsed_affiliate_banner = JSON.parse(affiliate_banner?.value);
   }
   
   if(sticky_bar_bottom) {
@@ -355,6 +369,9 @@ export default function Page() {
       page.handle == 'about-us' ? (<>
         <About data={parsed_about} />
         {/* <FooterContact data={parsed_footer_contact} /> */}
+      </>) :
+      page.handle == 'affiliate' ? (<>
+        <Affiliate affiliate_banner={parsed_affiliate_banner} />        
       </>) :
       page.handle == 'filter-club' ? (
         <FilterClub hero={parsed_hero} data={parsed_faq} supportinfo={parsed_filterclubsupportinfo} 
@@ -419,6 +436,7 @@ const PAGE_QUERY = `#graphql
           { namespace: "faq", key: "qna" },
           { namespace: "home", key: "installation" },
           { namespace: "global", key: "hero" },
+          { namespace: "global", key: "affiliate_banner" },
           { namespace: "global", key: "temperature" },
           { namespace: "purifier", key: "volume" },
           { namespace: "global", key: "video_section" },
