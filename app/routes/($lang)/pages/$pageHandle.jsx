@@ -3,10 +3,10 @@ import { useEffect, useContext } from 'react';
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
-import {Faq, Purifier, About, FilterClub, Affiliate, Contact, ProductRegistration, Filter, FooterContact, Section, LabPFAsReport, RequestContext } from '~/components';
+import {Faq, Purifier, About, FilterClub, AmbassadorsProgram, Contact, ProductRegistration, Filter, FooterContact, Section, LabPFAsReport, RequestContext } from '~/components';
 import FaqStyles from '~/components/Faq/Faq.css';
 import AboutUsStyles from '~/components/About/About.css';
-import AffiliateStyles from '~/components/Affiliate/Affiliate.css';
+import AmbassadorsProgramStyles from '~/components/AmbassadorsProgram/AmbassadorsProgram.css';
 import FilterClubStyles from '~/components/FilterClub/FilterClub.css';
 import BackgroundImgWithTextStyles from '~/components/BackgroundImgWithText/BackgroundImgWithText.css';
 import PurifierStyles from '~/components/Purifier/Purifier.css';
@@ -30,7 +30,7 @@ import LabPFAsReportStyles from '~/components/LabPFAsReport/LabPFAsReport.css';
 export const links = () => {
   return [
     {rel: 'stylesheet', href: FaqStyles},
-    {rel: 'stylesheet', href: AffiliateStyles},
+    {rel: 'stylesheet', href: AmbassadorsProgramStyles},
     {rel: 'stylesheet', href: PurifierStyles},
     {rel: 'stylesheet', href: HeroStyles},
     {rel: 'stylesheet', href: ImageCenterWithTextStyles},
@@ -106,13 +106,13 @@ export async function loader({request, params, context}) {
     }
   }) 
 
-  const hero = (page.handle == 'purifier' || page.handle == 'affiliate' ||  page.handle == 'filter-club' || page.handle == "melissani-m1-filter") && page.metafields.find(item => {    
+  const hero = (page.handle == 'purifier' ||  page.handle == 'filter-club' || page.handle == "melissani-m1-filter") && page.metafields.find(item => {    
     if(item !== null) {
       return item.key == "hero"
     }
   })
   
-  const affiliate_banner = (page.handle == 'affiliate') && page.metafields.find(item => {    
+  const affiliate_banner = (page.handle == 'ambassadors-program') && page.metafields.find(item => {    
     if(item !== null) {
       return item.key == "affiliate_banner"
     }
@@ -370,8 +370,8 @@ export default function Page() {
         <About data={parsed_about} />
         {/* <FooterContact data={parsed_footer_contact} /> */}
       </>) :
-      page.handle == 'affiliate' ? (<>
-        <Affiliate affiliate_banner={parsed_affiliate_banner} />        
+      page.handle == 'ambassadors-program' ? (<>
+        <AmbassadorsProgram affiliate_banner={parsed_affiliate_banner} />        
       </>) :
       page.handle == 'filter-club' ? (
         <FilterClub hero={parsed_hero} data={parsed_faq} supportinfo={parsed_filterclubsupportinfo} 
