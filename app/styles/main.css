@@ -1403,3 +1403,13 @@ form .field-input::placeholder {
   height: 100vh;
 }
 /* End: PDF Popup Modal */
+
+.sticky-product-footer-attached .needsclick,
+.sticky-footer-attached .needsclick {
+  z-index: 1 !important;
+}
+
+.sticky-product-footer-attached .needsclick.klaviyo-close-form,
+.sticky-footer-attached .needsclick.klaviyo-close-form  {
+  z-index: 6 !important;
+}
