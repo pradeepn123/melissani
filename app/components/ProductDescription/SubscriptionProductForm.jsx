@@ -207,7 +207,7 @@ const SubscriptionProductForm = (props) => {
                 </div>
                 <div className="grid gap-4 py-1">
                     <div className="font-tertiary product-description">
-                        One time purchase buy filters seperatley
+                        One time purchase buy filters separately
                     </div>
                 </div>
             </div>
