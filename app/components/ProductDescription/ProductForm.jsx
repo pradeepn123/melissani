@@ -114,11 +114,11 @@ export function ProductForm() {
                   as="span"
                   className="flex items-center justify-center gap-2"
                 >
-                  {selectedVariant.quantityAvailable < 3 ? <span>Pre-Order</span> : <span>Add to Cart</span>}
+                  {selectedVariant.quantityAvailable < 5 ? <span>Pre-Order</span> : <span>Add to Cart</span>}
                 </Text>
               )}
             </AddToCartButton>
-            {selectedVariant.quantityAvailable < 3 && <p style={{"gridColumn": "1 / span 2"}}>*Product out of stock. Pre-order now for delayed delivery. Thank you for your patience!</p>}
+            {selectedVariant.quantityAvailable < 5 && <p style={{"gridColumn": "1 / span 2"}}>Sold Out, Order Now to ship July 12th</p>}
           </div>
         </>}
       </div>

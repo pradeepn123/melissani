@@ -147,7 +147,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
                             isAddingToCart={isAddingToCart}
                             onClick={handleAddToCartClick}
                         >
-                            {props.selectedVariant.quantityAvailable < 3 ? "Pre-Order" : "Add to Cart"}
+                            {props.selectedVariant.quantityAvailable < 5 ? "Pre-Order" : "Add to Cart"}
                         </AddToCartButton>
                     </div>
                 </div>
