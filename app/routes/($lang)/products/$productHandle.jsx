@@ -208,31 +208,31 @@ export default function Product() {
             />
           </div>
         </div>
-        {parsedProductDetails?.carousel && 
-        <TextCarousel 
+        {parsedProductDetails?.carousel && <TextCarousel
           data={parsedProductDetails.carousel} 
           className="purifier-carousel" 
           height="full" 
           top 
-          loading="eager" />}
+          loading="eager"
+        />}
 
-        {parsedProductDetails?.temperature && 
-        <ImageWithText 
+        {parsedProductDetails?.temperature && <ImageWithText 
           temperature={parsedProductDetails?.temperature} 
           className={"flex text-main-section"} 
           id="temperature-control-section" 
           height="full" 
           top 
-          loading="eager" />}
+          loading="eager"
+        />}
 
-        {parsedProductDetails?.volume && 
-        <ImageWithText 
+        {parsedProductDetails?.volume && <ImageWithText
           volume={parsedProductDetails?.volume} 
           className={"flex volume-main-section"} 
           alignment="rtl" 
           height="full" 
           top 
-          loading="eager" />}
+          loading="eager"
+        />}
 
         {parsedProductDetails?.boxContents && <ImageCarousel
           boxContents={parsedProductDetails.boxContents[0]}
@@ -263,6 +263,7 @@ export default function Product() {
 const PRODUCT_VARIANT_FRAGMENT = `#graphql
   fragment ProductVariantFragment on ProductVariant {
     id
+    quantityAvailable
     availableForSale
     selectedOptions {
       name

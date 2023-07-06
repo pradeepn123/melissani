@@ -90,7 +90,7 @@ export function ProductForm() {
           options={product.options}
           searchParamsWithDefaults={searchParamsWithDefaults}
         />
-        {selectedVariant && (
+        {selectedVariant && <>
           <div className="grid gap-4 add-to-cart-wrapper">
             <QuantityAdjust quantity={quantity} setQuantity={setQuantity} />
             <AddToCartButton className="cart-btn"
@@ -114,12 +114,13 @@ export function ProductForm() {
                   as="span"
                   className="flex items-center justify-center gap-2"
                 >
-                  <span>Add to Cart</span>
+                  {selectedVariant.quantityAvailable < 5 ? <span>Pre-Order</span> : <span>Add to Cart</span>}
                 </Text>
               )}
             </AddToCartButton>
+            {selectedVariant.quantityAvailable < 5 && <p style={{"gridColumn": "1 / span 2"}}>Sold Out, Order Now to ship July 12th</p>}
           </div>
-        )}
+        </>}
       </div>
     </div>
   );
