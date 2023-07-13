@@ -69,6 +69,8 @@ export { ArticleCarousel } from './ArticleCarousel/ArticleCarousel';
 export { LabPFAsReport };
 export { KeyFeaturesCarousel } from './KeyFeaturesCarousel/KeyFeaturesCarousel';
 export { ReviewCarousel } from './ReviewCarousel/ReviewCarousel';
+export { ImageWithFourBlocks } from "./ImageWithFourBlocks/ImageWithFourBlocks";
+export { TwoSidedImageWithText } from "./TwoSidedImageWithText/TwoSidedImageWithText";
 
 // Sue me
 export * from './Icon';

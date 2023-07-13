@@ -13,7 +13,7 @@ export function TemperatureTextSection({data}) {
                     x: { duration: 1 }
                 }}
                 exit={{ opacity: 0, transform: "translateY(60px)" }}
-                className="text-section"
+                className="text-section" id={data.id && data.id}
             >
                 <div className="warrentyIcon_section md:hidden block">
                     <img src={data.warrenty_icon} alt="" />
@@ -21,17 +21,20 @@ export function TemperatureTextSection({data}) {
                 <h2 className="text-section-heading text-section-title">
                     {data.title}
                 </h2>
-                <p className="text-section-description font-tertiary">
+                {data.description && <p className="text-section-description font-tertiary">
                     {data.description}
-                </p>
+                </p>}
                 
                 <div className="text-section-icons">
                 {data.iconWithText.map((item, index) => (
-                    <div className="text-section-icon" key={index}>
+                    <div className="text-section-icon" id="temp-section-icon" key={index}>
                         <img src={item.icon} />
-                        <div className="text-section-icon-text font-tertiary">
+                        { item.text && <div className="text-section-icon-text font-tertiary">
                             {item.text}
-                        </div>
+                        </div> }
+                        { item.html_text && <div className="text-section-icon-text font-tertiary"
+                            dangerouslySetInnerHTML={{ __html: item.html_text}}>
+                        </div> }
                     </div>))}
                 </div>
             </motion.div>

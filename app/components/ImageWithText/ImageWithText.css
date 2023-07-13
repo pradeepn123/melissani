@@ -212,12 +212,20 @@ ul.filter-club-list {
     row-gap: 5em;
     justify-content: flex-start;
 }
+#volume-text-section-icon:first-child {
+    transform: scale(1.1);
+    display: flex;
+    align-self: center;
+}
 .text-section-icon {
     display: flex;
     flex-direction: column;
     justify-content: end;
     row-gap: 1em;
     align-items: baseline;
+}
+#temp-section-icon, #volume-text-section-icon {
+    row-gap: 0;
 }
 .text-section-icon img{
     margin: 0 auto;
@@ -249,6 +257,33 @@ ul.filter-club-list {
         width: 82px;
         height: 82px;
     }
+    /* #volume-text-section-icon:first-child img{
+        width: 104px;
+        height: 104px;
+    }
+
+    #volume-text-section-icon:not(:first-child) img{
+        width: 66px;
+        height: 66px;
+    } */
+    .text-section-title {
+        font-size: 40px;
+        line-height: 42px;
+    }
+    .text-section-description {
+        padding: 0;
+        font-size: 20px;
+        line-height: 24px;
+    }
+    #volume-text-section-icon:first-child img {
+        width: 85px;
+        height: 85px;
+    }
+    #volume-text-section-icon:not(:first-child) img {
+        width: 78px;
+        height: 78px;
+    }
+    
 }
 
 @media screen and (max-width: 767px) {
@@ -345,6 +380,9 @@ ul.filter-club-list {
     .filter-club-anouncement {
         font-size: 16px;
         line-height: 24px;
+    }
+    #volume-text-section-icon:first-child {
+        transform: scale(0.9);
     }
 }
 
@@ -455,6 +493,22 @@ ul.filter-club-list {
     .filter-club-description {
         width: 100%;
     }
+
+    /* #volume-text-section-icon:first-child img{
+        width: 104px;
+        height: 104px;
+    }
+
+    #volume-text-section-icon:not(:first-child) img{
+        width: 66px;
+        height: 66px;
+    } */
+    #design-text-section {
+        padding: 2.5em 1em 8px 1em;
+    }
+    .text-section {
+        padding-bottom: 8px !important;
+    }
 }
 
 @media (min-width: 320px) and (max-width: 425px) {
@@ -536,7 +590,8 @@ ul.filter-club-list {
     }
     .text-section-icons {
         margin: 1em 0 0;
-        column-gap: 1em;
+        /* column-gap: 1em; */
+        column-gap: 0;
     }
     .text-section-icon {
         display: flex;
@@ -613,9 +668,18 @@ ul.filter-club-list {
      }
 
     .text-section {
-        padding: 3em 1em;
+        /* padding: 3em 1em; */
+        padding: 1em 1em 0;
     }
-
+    .text-section-icons {
+        margin: 0em 0 0;
+    }
+    .text-section-title {
+        line-height: 35px;
+    }
+    .text-section-description {
+        line-height: 20px;
+    }
     .contaminants-list{
         font-size: 20px;
         font-weight: 510;
@@ -682,6 +746,24 @@ ul.filter-club-list {
     #volume-control-section {
         padding-left: 3.5em;
     }
+    #volume-text-section-icon:first-child img{
+        /* width: 138px;
+        height: 138px; */
+        width: 110px;
+        height: 110px;
+    }
+    #volume-text-section-icon:not(:first-child) img{
+        width: 88px;
+        height: 88px;
+    }
+    #volume-text-section-icon .text-section-icon-text {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 14px;
+    }
+    #volume-control-section .text-section-icons {
+        align-items: center;
+    }
 }
 
 @media screen and (min-width: 820px) {
@@ -718,6 +800,20 @@ ul.filter-club-list {
         height: 84px;
         margin: 0 auto;
     }
+    #volume-control-section .text-section-icons {
+        align-items: normal;
+    }
+    .text-section {
+        padding: 2.7em 1em;
+    }
+    #volume-text-section-icon:first-child img,
+    #volume-text-section-icon:not(:first-child) img {
+        width: 80px;
+        height: 80px;
+    }
+    .text-section-icons {
+        margin: 1em 0 0;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -740,7 +836,7 @@ ul.filter-club-list {
         line-height: 24px;
         max-width: 92%;
     }
-    .text-section-title {
+    /* .text-section-title {
         font-size: 40px;
         line-height: 58px;
     }
@@ -748,10 +844,10 @@ ul.filter-club-list {
         padding: 0;
         font-size: 20px;
         line-height: 36px;
-    }
+    } */
     .text-section-icons {
         margin: 1em 0 0;
-        column-gap: 3em;
+        column-gap: 0;
     }
     .text-section-icon {
         display: flex;
@@ -761,10 +857,27 @@ ul.filter-club-list {
         align-items: baseline;
         transform: scale(0.8);
     }
-    .text-section-icon-text {
+    .text-section-icon-text, #volume-text-section-icon .text-section-icon-text {
         font-size: 22px;
         line-height: 36px;
     }
+    /* .text-section-title {
+        font-size: 40px;
+        line-height: 42px;
+    }
+    .text-section-description {
+        padding: 0;
+        font-size: 20px;
+        line-height: 24px;
+    }
+    #volume-text-section-icon:first-child img {
+        width: 85px;
+        height: 85px;
+    }
+    #volume-text-section-icon:not(:first-child) img {
+        width: 78px;
+        height: 78px;
+    } */
 }
 
 @media screen and (min-width: 1400px) {
@@ -794,6 +907,11 @@ ul.filter-club-list {
         line-height: 51px;
     }
    
+}
+@media screen and (max-width: 1280px) {
+    .image-with-four-blocks-section {
+        display: block;
+    }
 }
 
 @media screen and (min-width: 1280px) {
@@ -839,7 +957,7 @@ ul.filter-club-list {
         padding: 0 3em 0 0;
     }
     .text-section-icons {
-        column-gap: 4em;
+        column-gap: 1.8em;
         margin: 2em 0 0;
     }
     .text-section-icon {
@@ -863,6 +981,14 @@ ul.filter-club-list {
     .filter-club-img {
         width: 80%;
         padding-left: 1em;
+    }
+    #volume-text-section-icon:first-child img{
+        width: 125px;
+        height: 125px;
+    }
+    #volume-text-section-icon:not(:first-child) img{
+        width: 88px;
+        height: 88px;
     }
 }
 

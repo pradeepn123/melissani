@@ -23,11 +23,11 @@ export function VolumeTextSection({data}) {
             
             <div className="text-section-icons">
             {data.iconWithText.map((item, index) => (
-                <div className="text-section-icon" key={index}>
+                <div className="text-section-icon"  id={data.id && `${data.id}`} key={index}>
                     <img src={item.icon} />
-                    <div className="text-section-icon-text font-tertiary">
+                    { item.text && <div className="text-section-icon-text font-tertiary">
                         {item.text}
-                    </div>
+                </div> }
                 </div>))}
             </div>
         </motion.div>

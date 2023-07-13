@@ -20,7 +20,10 @@ import {
   OkendoReviewsWidget,
   ImageGallery,
   TextCarousel,
-  ImageWithText
+  ImageWithText,
+  VideoPlayer,
+  ImageWithFourBlocks,
+  TwoSidedImageWithText
 } from '~/components';
 
 import invariant from 'tiny-invariant';
@@ -36,7 +39,9 @@ import SwiperNavigation from "swiper/css/navigation";
 import SwiperPagination from "swiper/css/pagination";
 import TextCarouselStyles from '~/components/TextCarousel/TextCarousel.css';
 import ImageWithTextStyles from '~/components/ImageWithText/ImageWithText.css';
-
+import VideoPlayerStyles from '~/components/VideoPlayer/VideoPlayer.css';
+import ImageWithFourBlocksStyles from '~/components/ImageWithFourBlocks/ImageWithFourBlocks.css';
+import TwoSidedImageWithTextStyles from '~/components/TwoSidedImageWithText/TwoSidedImageWithText.css';
 
 export const links = () => [
   {rel: 'stylesheet', href: ProductHeaderStyles},
@@ -48,7 +53,10 @@ export const links = () => [
   {rel: 'styleSheet', href: SwiperPagination},
   {rel: 'stylesheet', href: ImageGalleryStyles},
   {rel: 'stylesheet', href: TextCarouselStyles},
-  {rel: 'stylesheet', href: ImageWithTextStyles}
+  {rel: 'stylesheet', href: ImageWithTextStyles},
+  {rel: 'stylesheet', href: VideoPlayerStyles},
+  {rel: 'stylesheet', href: ImageWithFourBlocksStyles},
+  {rel: 'stylesheet', href: TwoSidedImageWithTextStyles}
 ]
 
 const seo = ({data}) => {
@@ -207,14 +215,29 @@ export default function Product() {
               productId={productId}
             />
           </div>
+          {console.log('data..', parsedProductDetails)}
         </div>
-        {parsedProductDetails?.carousel && <TextCarousel
+
+        {parsedProductDetails?.videosection &&
+         <VideoPlayer data={parsedProductDetails?.videosection}
+         />}
+
+        {parsedProductDetails?.reverseOsmosis && <ImageWithText
+          reverseOsmosis={parsedProductDetails?.reverseOsmosis} 
+          className={"flex volume-main-section"} 
+          alignment="rtl" 
+          height="full" 
+          top 
+          loading="eager"
+        />}
+
+        {/* {parsedProductDetails?.carousel && <TextCarousel
           data={parsedProductDetails.carousel} 
           className="purifier-carousel" 
           height="full" 
           top 
           loading="eager"
-        />}
+        />} */}
 
         {parsedProductDetails?.temperature && <ImageWithText 
           temperature={parsedProductDetails?.temperature} 
@@ -232,6 +255,46 @@ export default function Product() {
           height="full" 
           top 
           loading="eager"
+        />}
+
+        {parsedProductDetails?.design && <ImageWithText 
+          design={parsedProductDetails?.design} 
+          className={"flex text-main-section"} 
+          id="temperature-control-section" 
+          height="full" 
+          top 
+          loading="eager"
+        />}
+
+        {parsedProductDetails?.capacity && <ImageWithText 
+          capacity={parsedProductDetails?.capacity}
+          className={"flex volume-main-section"} 
+          alignment="rtl"
+          height="full" 
+          top 
+          loading="eager"
+        />}
+
+        {parsedProductDetails?.advancedFiltration && <ImageWithFourBlocks 
+          advancedFiltration={parsedProductDetails?.advancedFiltration} 
+          className={"flex image-with-four-blocks-section"}
+          height="full" 
+          top 
+          loading="eager"
+        />}
+
+        {parsedProductDetails?.labTest && <ImageWithText 
+          labTest={parsedProductDetails?.labTest} 
+          className={"flex text-main-section"} 
+          id="temperature-control-section" 
+          height="full" 
+          top 
+          loading="eager"
+        />}
+
+        {parsedProductDetails?.twoSidedContent && <TwoSidedImageWithText
+          twoSidedContent={parsedProductDetails.twoSidedContent}
+          className={"flex two-sided-content-section"}
         />}
 
         {parsedProductDetails?.boxContents && <ImageCarousel

@@ -90,7 +90,6 @@ export function Layout({children, layout}) {
   }, [fetchers.length > 0 && addToCartFetchers.length == 0 && (isNoSubscriptionModalOpen || isFilterClubRightModalOpen || isSubscriptionModalOpen)])
 
   const {pathname} = useLocation();
-  console.log("header menu: ", layout.headerMenu);
   return (
     <RequestContext.Provider
       value={{
