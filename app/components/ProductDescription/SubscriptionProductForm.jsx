@@ -25,12 +25,14 @@ const SubscriptionProductForm = (props) => {
     const context = useContext(RequestContext)
     useEffect(() => {
         let filterClubPrice = 0
+        let filterClubCompareAtPrice = 0
         const subscriptionItems = props.products.filter((p) => {
 
             return props.parsedProductDetails.linkedProducts.subscription.includes(p.handle)
         }).map((item) => {
             const itemMetafield = JSON.parse(item.metafields[0].value)
             filterClubPrice += itemMetafield.price
+            filterClubCompareAtPrice += itemMetafield.compareAtPrice
             return {
                 merchandiseId: item.variants.nodes[0].id,
                 sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
@@ -55,10 +57,7 @@ const SubscriptionProductForm = (props) => {
         }))
         setProductAmount(productAmountUnit)
 
-        setAmount({compareAtPrice: oneTimeProducts.reduce((acc, lineProduct) => {
-            const firstVariant = lineProduct.variants.nodes[0];
-            return acc + parseFloat(firstVariant.price?.amount)
-        }, 0), price: filterClubPrice})
+        setAmount({compareAtPrice: filterClubCompareAtPrice, price: filterClubPrice})
         setIsSubscriptionSelected(true)
     }, [])
 
@@ -85,7 +84,6 @@ const SubscriptionProductForm = (props) => {
         }
         setIsSubscriptionSelected(isSubscription)
     }
-
     const updateQuantity = (handle, quantity) => {
         const updateOneTimeProducts = oneTimeProducts.map((oneTimeProduct) => {
             if (handle == oneTimeProduct.handle) {
@@ -156,6 +154,7 @@ const SubscriptionProductForm = (props) => {
                         }}
                         as="span"
                     />
+                    <span className="price-sub-text">per year</span>
                 </div>
                 <div className="grid gap-4 py-1">
                     {props.parsedProductDetails?.productDescription && <div
@@ -189,7 +188,7 @@ const SubscriptionProductForm = (props) => {
             name="subscription-form"
             id="onetime-input"
             value="onetime"
-            onChange={handleInputChange}         
+            onChange={handleInputChange}
         />
         <label className="product-form-wrapper mt-8" htmlFor="onetime-input">
             <div className="grid gap-2">

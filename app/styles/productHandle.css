@@ -54,6 +54,12 @@
   color: #717070;
 }
 
+.product-form-wrapper .product-price span.price-sub-text {
+  font-size: 16px;
+  line-height: 22px;
+  margin-left: 5px;
+}
+
 .stike-out {
   color: #F62727 !important;
   text-decoration: line-through;
