@@ -13,7 +13,7 @@ import { IconClose } from '~/components';
  * @param openFrom - bottom
  * @param children - react children node.
  */
-export function DrawerFromBottom({open, onClose, openFrom = 'bottom', children, ...props}) {
+export function DrawerFromBottom({open, onClose, openFrom = 'bottom', isFilterClubModalOpen=false, children, ...props}) {
   const offScreen = {
     right: 'translate-y-full',
     left: '-translate-y-full',
@@ -76,14 +76,16 @@ export function DrawerFromBottom({open, onClose, openFrom = 'bottom', children, 
                         {props.subHeading}
                       </p>}
                     </div>}
+                    {isFilterClubModalOpen && 
                     <button
                       type="button"
-                      className="menu-cart-icon m-4"
+                      className="menu-cart-icon filterClubCloseButton m-4"
                       onClick={onClose}
                       data-test="close-cart"
                     >
                       <IconClose aria-label="Close panel" />
                     </button>
+                    }
                   </header>
                   {children}
                 </Dialog.Panel>
