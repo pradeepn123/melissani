@@ -34,7 +34,7 @@ export function DrawerFromBottom({open, onClose, openFrom = 'bottom', isFilterCl
   ]
 
   if (props.isCartOpen) {
-    panelClasses = panelClasses.concat(["w-screen", "max-w-md", "lg:max-w-lg", "xl:max-w-xl", "2xl:max-w-3xl"])
+    panelClasses = panelClasses.concat(["w-screen", "max-w-md", "lg:max-w-lg", "xl:max-w-xl", "2xl:max-w-xl"])
   }
 
   return (
