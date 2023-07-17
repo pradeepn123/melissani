@@ -22,7 +22,7 @@ export function ProductSwimlane({...props}) {
               className="product-card-wrapper single-product-card-wrapper"
               showLabel={false}
               quickAdd={false}
-              learnMore={true}
+              learnMore={products[0].handle == 'melissani-m1-countertop-ro-system-water-purifier' ? false : true}
             />}
 
             {products.length > 1 && <MultipleProductsCard
