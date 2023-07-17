@@ -23,7 +23,8 @@ import {
   ImageWithText,
   VideoPlayer,
   ImageWithFourBlocks,
-  TwoSidedImageWithText
+  TwoSidedImageWithText,
+  CompareTable
 } from '~/components';
 
 import invariant from 'tiny-invariant';
@@ -42,6 +43,7 @@ import ImageWithTextStyles from '~/components/ImageWithText/ImageWithText.css';
 import VideoPlayerStyles from '~/components/VideoPlayer/VideoPlayer.css';
 import ImageWithFourBlocksStyles from '~/components/ImageWithFourBlocks/ImageWithFourBlocks.css';
 import TwoSidedImageWithTextStyles from '~/components/TwoSidedImageWithText/TwoSidedImageWithText.css';
+import CompareTableStyles from '~/components/CompareTable/CompareTable.css';
 
 export const links = () => [
   {rel: 'stylesheet', href: ProductHeaderStyles},
@@ -56,7 +58,8 @@ export const links = () => [
   {rel: 'stylesheet', href: ImageWithTextStyles},
   {rel: 'stylesheet', href: VideoPlayerStyles},
   {rel: 'stylesheet', href: ImageWithFourBlocksStyles},
-  {rel: 'stylesheet', href: TwoSidedImageWithTextStyles}
+  {rel: 'stylesheet', href: TwoSidedImageWithTextStyles},
+  {rel: 'stylesheet', href: CompareTableStyles}
 ]
 
 const seo = ({data}) => {
@@ -270,6 +273,14 @@ export default function Product() {
           capacity={parsedProductDetails?.capacity}
           className={"flex volume-main-section"} 
           alignment="rtl"
+          height="full" 
+          top 
+          loading="eager"
+        />}
+
+        {parsedProductDetails?.productComparison && <CompareTable
+          productCompareContent={parsedProductDetails?.productComparison}
+          className={""}
           height="full" 
           top 
           loading="eager"

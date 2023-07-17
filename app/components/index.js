@@ -71,6 +71,7 @@ export { KeyFeaturesCarousel } from './KeyFeaturesCarousel/KeyFeaturesCarousel';
 export { ReviewCarousel } from './ReviewCarousel/ReviewCarousel';
 export { ImageWithFourBlocks } from "./ImageWithFourBlocks/ImageWithFourBlocks";
 export { TwoSidedImageWithText } from "./TwoSidedImageWithText/TwoSidedImageWithText";
+export { CompareTable } from "./CompareTable/CompareTable";
 
 // Sue me
 export * from './Icon';

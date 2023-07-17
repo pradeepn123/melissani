@@ -15,7 +15,6 @@ export function FourBlocksSection({ data }) {
         className="flex-auto w-full right_text_blocks">
             {data.blocks.map((blockItem, blockIndex) => (
                 <div className="block-content" key={blockIndex}>
-                    {console.log("data in blocks...", blockItem, blockIndex)}
                     <img src={blockItem.blockIcon} className="block-icon" />
                     <div className="block-text pt-6 pb-3">
                         <h2 className='text_block_heading'>{blockItem.blockTitle}</h2>
