@@ -349,6 +349,7 @@ const FilterClubBenifitsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
     openFrom="right"
     heading="Filter Club"
     subHeading="Membership Benefits"
+    isFilterClubModalOpen = {true} 
   >
     <div className="grid grid-cols-1 grid-rows-[1fr_auto]">
       <div className="filter-club-membership-benefits-small">
@@ -376,6 +377,7 @@ const FilterClubItemsModal = ({isOpen, open, onClose, filterClubItems, isCartOpe
     openFrom="right"
     heading="Filter Club"
     subHeading="What's included"
+    isFilterClubModalOpen = {true}
   >
     <div className="grid grid-cols-1 grid-rows-[1fr_auto]">
       <div className="filter-club-modal-items">
