@@ -92,11 +92,11 @@ export function ImageWithText({ goodbye, alignment, filterClub, discover, classN
     {
       reverseOsmosis && <>
         { alignment == "rtl" ? <>
-          <VolumeTextSection data={reverseOsmosis} />
+          <VolumeTextSection data={reverseOsmosis} className={className}/>
           <ImageSection data={reverseOsmosis}/>
         </> : <>
           <ImageSection data={reverseOsmosis}/>
-          <VolumeTextSection data={reverseOsmosis} />
+          <VolumeTextSection data={reverseOsmosis} className={className}/>
         </>
         }
       </>
@@ -128,11 +128,11 @@ export function ImageWithText({ goodbye, alignment, filterClub, discover, classN
     {
       labTest && <>
         { alignment == "rtl" ? <>
-          <TemperatureTextSection data={labTest} />
+          <TemperatureTextSection data={labTest} className={className}/>
           <ImageSection data={labTest}/>
         </> : <>
           <ImageSection data={labTest}/>
-          <TemperatureTextSection data={labTest} />
+          <TemperatureTextSection data={labTest} className={className}/>
         </>
         }
       </>

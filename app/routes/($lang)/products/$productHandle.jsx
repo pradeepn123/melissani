@@ -227,7 +227,7 @@ export default function Product() {
 
         {parsedProductDetails?.reverseOsmosis && <ImageWithText
           reverseOsmosis={parsedProductDetails?.reverseOsmosis} 
-          className={"flex volume-main-section"} 
+          className={"flex volume-main-section osmosis-section"} 
           alignment="rtl" 
           height="full" 
           top 
@@ -296,7 +296,7 @@ export default function Product() {
 
         {parsedProductDetails?.labTest && <ImageWithText 
           labTest={parsedProductDetails?.labTest} 
-          className={"flex text-main-section"} 
+          className={"flex text-main-section lab-test-section"} 
           id="temperature-control-section" 
           height="full" 
           top 

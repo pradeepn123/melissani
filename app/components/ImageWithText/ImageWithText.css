@@ -271,8 +271,10 @@ ul.filter-club-list {
         height: 104px;
     }
     #volume-text-section-icon:not(:first-child) img {
-        width: 88px;
-        height: 88px;
+        /* width: 88px;
+        height: 88px; */
+        width: 66px;
+        height: 66px;
     }
     
 }
@@ -473,12 +475,13 @@ ul.filter-club-list {
     }
     .text-section-icons {
         margin: 2em 0 0;
-        column-gap: 1em;
+        column-gap: 0;
     }
     .text-section-icon {
         display: flex;
         flex-direction: column;
-        justify-content: end;
+        /* justify-content: end; */
+        justify-content: center;
         row-gap: 1em;
         align-items: baseline;
     }
@@ -499,6 +502,7 @@ ul.filter-club-list {
     }
     .text-section-icons {
         max-height: 135px;
+        column-gap: 0;
     }
 }
 
@@ -559,10 +563,10 @@ ul.filter-club-list {
      }
 
     .text-section {
-        padding: 1em 1em 0;
+        padding: 1em 0 0;
     }
     .text-section-icons {
-        margin: 40px 0 0 0;
+        margin: 0;
     }
     .text-section-title {
         line-height: 35px;
@@ -641,8 +645,8 @@ ul.filter-club-list {
         height: 110px;
     }
     #volume-text-section-icon:not(:first-child) img{
-        width: 88px;
-        height: 88px;
+        width: 66px;
+        height: 66px;
     }
     #volume-text-section-icon .text-section-icon-text {
         font-size: 14px;
@@ -651,6 +655,9 @@ ul.filter-club-list {
     }
     #volume-control-section .text-section-icons {
         align-items: center;
+    }
+    .osmosis-section .text-section-icons, .lab-test-section .text-section-icons{
+        column-gap: 1em;
     }
 }
 
@@ -679,6 +686,10 @@ ul.filter-club-list {
         font-size: 10px;
         line-height: 14px;
         width:max-content;
+    }
+    .text-section-icons {
+        /* margin: 40px 0 0 0; */
+        margin: 20px 0 0 0;
     }
 }
 
@@ -890,7 +901,9 @@ ul.filter-club-list {
         display: flex;
         flex-direction: column-reverse;
     }
-
+    .osmosis-section .text-section-icons, .lab-test-section .text-section-icons{
+        column-gap: 1em;
+    }
     .discover-section {
         width: 100%;
         padding: 3em 1em;
