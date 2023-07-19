@@ -278,13 +278,13 @@ export default function Product() {
           loading="eager"
         />}
 
-        {parsedProductDetails?.productComparison && <CompareTable
+        {/* {parsedProductDetails?.productComparison && <CompareTable
           productCompareContent={parsedProductDetails?.productComparison}
           className={""}
           height="full" 
           top 
           loading="eager"
-        />}
+        />} */}
 
         {parsedProductDetails?.advancedFiltration && <ImageWithFourBlocks 
           advancedFiltration={parsedProductDetails?.advancedFiltration} 

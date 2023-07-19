@@ -127,6 +127,9 @@ label.product-form-wrapper {
   }
 }
 @media (min-width: 768px) {
+  .product-content {
+    margin-bottom: 2rem;
+  }
   .product__media-sticky {
     display: block;
     position: sticky;
@@ -142,6 +145,10 @@ label.product-form-wrapper {
 }
 
 @media screen and (max-width: 767px) {
+  .product-content {
+    margin-bottom: 1rem;
+  }
+
   .media-gallery {
     width: 100%;
   }
