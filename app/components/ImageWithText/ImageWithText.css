@@ -790,7 +790,7 @@ ul.filter-club-list {
     .adv-filter-mobile-img {
         display: block;
         width: 100%;
-        padding: 0 20px;
+        padding: 0;
     }
     .four-blocks-image .desktop-img {
         display: none;
