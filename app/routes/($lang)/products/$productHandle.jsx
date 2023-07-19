@@ -218,7 +218,6 @@ export default function Product() {
               productId={productId}
             />
           </div>
-          {console.log('data..', parsedProductDetails)}
         </div>
 
         {parsedProductDetails?.videosection &&
