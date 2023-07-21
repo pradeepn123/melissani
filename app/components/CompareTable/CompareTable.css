@@ -258,7 +258,6 @@ tr.compare-property-row>td:first-child {
     .mobile-compare-table-y {
         width: 100%;
         display: block;
-        border-collapse: separate;
     }
     .mobile-compare-table-container {
         width: 100%;
@@ -266,7 +265,8 @@ tr.compare-property-row>td:first-child {
         margin: 50px 0 27px 18px;
     }
     table.mobile-compare-table {
-        width: 575px;;
+        width: 575px;
+        border-collapse: separate;
     }
     .mobile-compare-table .left-top-td {
         width: 131px
