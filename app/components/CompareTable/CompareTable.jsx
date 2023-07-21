@@ -10,7 +10,6 @@ export function CompareTable({ productCompareContent }) {
         <>
         {productCompareContent &&
         <section className='compare-section h-full'>
-            {console.log("productCompareContent..", productCompareContent)}
             <div className="desktop-compare-table">
                 <div className="compare-table-container">
                     <table className="compare-table" cellSpacing={0}>
