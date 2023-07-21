@@ -435,6 +435,10 @@ ul.filter-club-list {
         flex-direction: column;
         padding: 1.5em 1em;
     }
+    .lab-test-section .text-section-title {
+        font-size: 26px;
+        line-height: 35.6px;
+    }
     .text-section-title {
         font-size: 26px;
         line-height: 36px;
@@ -470,6 +474,10 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 321px) and (max-width: 390px) {
+    .lab-test-section .text-section-title {
+        font-size: 26px;
+        line-height: 35.6px;
+    }
     .text-section-title {
         font-size: 30px;
         line-height: 39.6px;
@@ -497,6 +505,10 @@ ul.filter-club-list {
 @media screen and (min-width: 390px) {
     .learn-more-btn {
         font-size: 18px;
+    }
+    .lab-test-section .text-section-title {
+        font-size: 30px;
+        line-height: 39.6px;
     }
 }
 
@@ -542,8 +554,9 @@ ul.filter-club-list {
         column-gap: 1rem;
         margin: 20px 0 0 0;
     }
-    .text-section-title {
-        line-height: 35px;
+    .text-section-title, .lab-test-section .text-section-title {
+        line-height: 33px;
+        font-size: 26px;
     }
     .text-section-description {
         line-height: 20px;
@@ -636,6 +649,9 @@ ul.filter-club-list {
     .four-blocks-image .adv-filter-mobile-img {
         display: none;
     }
+    #design-text-section h2 {
+        width: 70%;
+    }
 }
 
 @media screen and (min-width: 820px) {
@@ -714,9 +730,9 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 1024px) {
-    .text-section-title {
-        font-size: 40px;
-        line-height: 42px;
+    .text-section-title, .lab-test-section .text-section-title {
+        font-size: 34px;
+        line-height: 36px;
     }
     .text-section-description {
         padding: 0;
@@ -803,7 +819,7 @@ ul.filter-club-list {
 }
 @media screen and (max-width: 1680px) {
     #design-text-section h2 {
-        width: 85%;
+        width: 70%;
     }
 }
 @media screen and (max-width: 1280px) {
@@ -853,9 +869,7 @@ ul.filter-club-list {
         width: 50%;
         padding: 0 0 2em 6em;
     }
-    .text-section-title {
-        /* font-size: 48px;
-        line-height: 66px; */
+    .text-section-title, .lab-test-section .text-section-title {
         font-size: 44px;
         line-height: 60px;
     }
@@ -1002,12 +1016,11 @@ ul.filter-club-list {
         line-height: 24px;
     }
     #volume-text-section-icon:first-child {
-        /* transform: scale(0.9); */
         transform: scale(1);
     }
-    /* .adv-filter-tablet-img {
-        padding: 0;
-    } */
+    #design-text-section h2 {
+        width: 50%;
+    }
     .adv-filter-tablet-img {
         display: none;
     }
@@ -1031,7 +1044,7 @@ ul.filter-club-list {
 
 
 @media screen and (min-width: 1440px) {
-    .text-section-title {
+    .text-section-title, .lab-test-section .text-section-title {
         font-size: 48px;
         line-height: 66px;
     }
@@ -1088,7 +1101,7 @@ ul.filter-club-list {
         font-size: 2rem;
         line-height: 2.5rem;
     }
-    .text-section-title {
+    .text-section-title, .lab-test-section .text-section-title {
         font-size: 52px;
         line-height: 70px;
     }
