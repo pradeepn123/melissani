@@ -56,11 +56,11 @@ export function ImageWithText({ goodbye, alignment, filterClub, discover, classN
     {
       temperature && <>
         { alignment == "rtl" ? <>
-          <TemperatureTextSection data={temperature} />
+          <TemperatureTextSection data={temperature} id="temp-section-icon" />
           <ImageSection data={temperature}/>
         </> : <>
           <ImageSection data={temperature}/>
-          <TemperatureTextSection data={temperature} />
+          <TemperatureTextSection data={temperature} id="temp-section-icon" />
         </>
         }
       </>
@@ -104,11 +104,11 @@ export function ImageWithText({ goodbye, alignment, filterClub, discover, classN
     {
       design && <>
         { alignment == "rtl" ? <>
-          <TemperatureTextSection data={design} />
+          <TemperatureTextSection data={design} id="design-section-icon" />
           <ImageSection data={design}/>
         </> : <>
           <ImageSection data={design}/>
-          <TemperatureTextSection data={design} />
+          <TemperatureTextSection data={design} id="design-section-icon" />
         </>
         }
       </>
@@ -116,11 +116,11 @@ export function ImageWithText({ goodbye, alignment, filterClub, discover, classN
     {
       capacity && <>
         { alignment == "rtl" ? <>
-        <VolumeTextSection data={capacity} />
+        <VolumeTextSection data={capacity} id="capacity-section-icon"/>
           <ImageSection data={capacity}/>
         </> : <>
           <ImageSection data={capacity}/>
-          <VolumeTextSection data={capacity} />
+          <VolumeTextSection data={capacity} id="capacity-section-icon"/>
         </>
         }
       </>
@@ -128,11 +128,11 @@ export function ImageWithText({ goodbye, alignment, filterClub, discover, classN
     {
       labTest && <>
         { alignment == "rtl" ? <>
-          <TemperatureTextSection data={labTest} className={className}/>
+          <TemperatureTextSection data={labTest} className={className} id="lab-test-section-icon" />
           <ImageSection data={labTest}/>
         </> : <>
           <ImageSection data={labTest}/>
-          <TemperatureTextSection data={labTest} className={className}/>
+          <TemperatureTextSection data={labTest} className={className} id="lab-test-section-icon" />
         </>
         }
       </>

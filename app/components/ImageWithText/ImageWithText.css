@@ -190,7 +190,7 @@ ul.filter-club-list {
     line-height: 70px;
     letter-spacing: 0em;
     text-align: left;
-    color: #000;
+    color: #11223D;
     width: 90%;
 }
 .text-section-description {
@@ -237,49 +237,12 @@ ul.filter-club-list {
     letter-spacing: 0em;
     text-align: center;
     margin: 0 auto;
-    color: #1B2943;
+    /* color: #1B2943; */
+    color: #231F20;
 }
 /* End: Temperature Section */
 
 /* Begin: Media Query */
-@media screen and (max-width: 1024px) {
-    .discover-description {
-        font-size: 16px;
-        line-height: 32px;
-    }
-    .discover-icons {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-    .discover-icon-text {
-        width: 100%;
-    }
-    .discover-icons .discover-icon img {
-        width: 82px;
-        height: 82px;
-    }
-    .text-section-title {
-        font-size: 40px;
-        line-height: 42px;
-    }
-    .text-section-description {
-        padding: 0;
-        font-size: 20px;
-        line-height: 24px;
-    }
-    #volume-text-section-icon:first-child img {
-        width: 104px;
-        height: 104px;
-    }
-    #volume-text-section-icon:not(:first-child) img {
-        /* width: 88px;
-        height: 88px; */
-        width: 66px;
-        height: 66px;
-    }
-    
-}
-
-
 @media screen and (max-width: 615px) {
     .discover-icon:first-child .discover-icon-text {
         width: 30%;
@@ -395,7 +358,16 @@ ul.filter-club-list {
         padding-bottom: 8px !important;
     }
 }
-
+@media (min-width: 381px) and (max-width: 767px) {
+    .text-section-icons {
+        column-gap: 12px;
+    }
+}
+@media (min-width: 320px) and (max-width: 380px) {
+    .text-section-icons {
+        column-gap: 6px;
+    }
+}
 @media (min-width: 320px) and (max-width: 425px) {
     .filter-club-img {
         padding: 2em 0 2em 0em;
@@ -461,11 +433,11 @@ ul.filter-club-list {
         width: 100%;
         display: flex;
         flex-direction: column;
-        padding: 2.5em 1em;
+        padding: 1.5em 1em;
     }
     .text-section-title {
-        font-size: 30px;
-        line-height: 40px;
+        font-size: 26px;
+        line-height: 36px;
     }
     .text-section-description {
         padding: 0;
@@ -475,20 +447,25 @@ ul.filter-club-list {
     }
     .text-section-icons {
         margin: 2em 0 0;
-        column-gap: 0;
+    }
+    #temperature-control-section .text-section-icons {
+        column-gap: 1rem;
     }
     .text-section-icon {
         display: flex;
         flex-direction: column;
-        /* justify-content: end; */
         justify-content: center;
         row-gap: 1em;
         align-items: baseline;
     }
+    .osmosis-section .text-section-icon, #lab-test-section-icon {  
+        width: 107px;
+        height: 107px;
+    }
     .text-section-icon-text {
-        font-size: 22px;
+        font-size: 15px;
         font-weight: 500;
-        line-height: 18px;
+        line-height: normal;
     }
     .filter-club-section {
         width: 92%;
@@ -497,12 +474,11 @@ ul.filter-club-list {
 
 @media screen and (min-width: 321px) and (max-width: 390px) {
     .text-section-title {
-        font-size: 32px;
-        line-height: 41.6px;
+        font-size: 30px;
+        line-height: 39.6px;
     }
     .text-section-icons {
         max-height: 135px;
-        column-gap: 0;
     }
 }
 
@@ -566,7 +542,8 @@ ul.filter-club-list {
         padding: 1em 0 0;
     }
     .text-section-icons {
-        margin: 0;
+        column-gap: 1rem;
+        margin: 20px 0 0 0;
     }
     .text-section-title {
         line-height: 35px;
@@ -657,7 +634,10 @@ ul.filter-club-list {
         align-items: center;
     }
     .osmosis-section .text-section-icons, .lab-test-section .text-section-icons{
-        column-gap: 1em;
+        column-gap: 2em;
+    }
+    .four-blocks-image .adv-filter-mobile-img {
+        display: none;
     }
 }
 
@@ -687,10 +667,6 @@ ul.filter-club-list {
         line-height: 14px;
         width:max-content;
     }
-    .text-section-icons {
-        /* margin: 40px 0 0 0; */
-        margin: 20px 0 0 0;
-    }
 }
 
 @media screen and (min-width: 912px) {
@@ -715,7 +691,41 @@ ul.filter-club-list {
     }
 }
 
+@media screen and (max-width: 1024px) {
+    .discover-description {
+        font-size: 16px;
+        line-height: 32px;
+    }
+    .discover-icons {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .discover-icon-text {
+        width: 100%;
+    }
+    .discover-icons .discover-icon img {
+        width: 82px;
+        height: 82px;
+    }
+    #volume-text-section-icon:first-child img {
+        width: 104px;
+        height: 104px;
+    }
+    #volume-text-section-icon:not(:first-child) img {
+        width: 66px;
+        height: 66px;
+    }   
+}
+
 @media screen and (min-width: 1024px) {
+    .text-section-title {
+        font-size: 40px;
+        line-height: 42px;
+    }
+    .text-section-description {
+        padding: 0;
+        font-size: 20px;
+        line-height: 24px;
+    }
     .contaminants-list{
         font-size: 18px;
     }
@@ -786,9 +796,10 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 1281px) {
-    .adv-filter-mobile-img {
+    .adv-filter-tablet-img {
         display: none;
     }
+
     .four-blocks-image .desktop-img {
         display: block;
     }
@@ -798,7 +809,7 @@ ul.filter-club-list {
     .image-with-four-blocks-section {
         display: block;
     }
-    .adv-filter-mobile-img {
+    .adv-filter-tablet-img {
         display: block;
         width: 100%;
         padding: 0;
@@ -842,8 +853,8 @@ ul.filter-club-list {
         padding: 0 0 2em 6em;
     }
     .text-section-title {
-        font-size: 52px;
-        line-height: 70px;
+        font-size: 48px;
+        line-height: 66px;
     }
     .text-section-description {
         font-size: 20px;
@@ -851,7 +862,7 @@ ul.filter-club-list {
         padding: 0 3em 0 0;
     }
     .text-section-icons {
-        column-gap: 1.8em;
+        column-gap: 1em;
         margin: 2em 0 0;
     }
     .text-section-icon {
@@ -885,6 +896,7 @@ ul.filter-club-list {
         height: 88px;
     }
 }
+
 @media screen and (max-width: 767px) {
     .gb_bg_color .right_text_block .right_text_heading {
         font-size: 52px;
@@ -986,18 +998,37 @@ ul.filter-club-list {
         /* transform: scale(0.9); */
         transform: scale(1);
     }
+    /* .adv-filter-tablet-img {
+        padding: 0;
+    } */
+    .adv-filter-tablet-img {
+        display: none;
+    }
     .adv-filter-mobile-img {
+        display: block;
+        width: 100%;
         padding: 0;
     }
     .img-sec {
         width: 100%;
+    }
+    #temp-section-icon {
+        width: 66px;
+        height: 66px;
+    }
+    #design-section-icon, #capacity-section-icon .text-section-icon {
+        width: 104px;
+        height: 104px;
+    }
+    #design-text-section h2 {
+        width: 85%;
     }
 }
 
 
 @media screen and (min-width: 1440px) {
     .text-section {
-        padding: 2.7em 4.35em 2.7em 4em;
+        padding: 2.7em 1.2em 2.7em 4em;
     }
     .discover-icon-text {
         font-size: 16px;
@@ -1049,8 +1080,12 @@ ul.filter-club-list {
         font-size: 2rem;
         line-height: 2.5rem;
     }
+    .text-section-title {
+        font-size: 52px;
+        line-height: 70px;
+    }
     .text-section-description {
-        padding: 0 9em 0 0;
+        padding: 0 3em 0 0;
     }
 }
 

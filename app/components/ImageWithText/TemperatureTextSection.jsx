@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export function TemperatureTextSection({data}) {
+export function TemperatureTextSection({data, id}) {
     return (
         <>
             <motion.div 
@@ -27,7 +27,7 @@ export function TemperatureTextSection({data}) {
                 
                 <div className="text-section-icons">
                 {data.iconWithText.map((item, index) => (
-                    <div className="text-section-icon" id="temp-section-icon" key={index}>
+                    <div className="text-section-icon" id={id && id} key={index}>
                         <img src={item.icon} />
                         { item.text && <div className="text-section-icon-text font-tertiary">
                             {item.text}

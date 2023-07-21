@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export function VolumeTextSection({data}) {
+export function VolumeTextSection({data, id}) {
     return (
         <motion.div 
             initial={{ opacity: 0, transform: "translateY(60px)" }}
@@ -21,7 +21,7 @@ export function VolumeTextSection({data}) {
                 {data.description}
             </p>
             
-            <div className="text-section-icons">
+            <div className="text-section-icons" id={id && id}>
             {data.iconWithText.map((item, index) => (
                 <div className="text-section-icon"  id={data.id && `${data.id}`} key={index}>
                     <img src={item.icon} />

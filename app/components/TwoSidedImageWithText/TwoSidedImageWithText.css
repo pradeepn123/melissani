@@ -20,8 +20,17 @@
     border-bottom: 2px solid #11223d;
 }
 
-
-
+@media screen and (min-width: 1440px) {
+    .two-sided-content-section {
+        gap: 1rem;
+    }
+    .content-title {
+        font-size: 40px;
+        line-height: 65px;
+        margin-left: 60px;
+        margin-right: 70px;
+    }
+}
 
 @media screen and (min-width: 1680px) {
     .content-title {
@@ -32,15 +41,13 @@
     }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1920px) {
     .two-sided-content-section {
-        gap: 1rem;
+        gap: 8.5rem;
     }
-    .content-title {
-        font-size: 40px;
-        line-height: 65px;
-        margin-left: 60px;
-        margin-right: 70px;
+    .individual-side-content:nth-child(2) {
+        background-color: #e6f1f9;
+        padding-right: 14.5rem;
     }
 }
 
@@ -123,6 +130,6 @@
     .individual-side-content:nth-child(2) .content-title {
         margin: 0 !important;
         font-size: 32px;
-        line-height: 70px;
+        line-height: 50px;
     }
 }
