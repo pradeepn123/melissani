@@ -32,12 +32,13 @@
     }
 }
 
-@media screen and (min-width: 1680px) {
-    .content-title {
-        font-size: 48px;
-        line-height: 70px;
-        margin-left: 84px;
-        margin-right: 81px;
+@media screen and (min-width: 1980px) {
+    .two-sided-content-section.individual-side-content:first-child {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .two-sided-content-section {
+        gap: 8rem;
     }
 }
 
@@ -48,6 +49,15 @@
     .individual-side-content:nth-child(2) {
         background-color: #e6f1f9;
         padding-right: 14.5rem;
+    }
+}
+
+@media screen and (min-width: 1680px) {
+    .content-title {
+        font-size: 48px;
+        line-height: 70px;
+        margin-left: 84px;
+        margin-right: 81px;
     }
 }
 

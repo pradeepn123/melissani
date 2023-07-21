@@ -13,7 +13,7 @@ export function CompareTable({ productCompareContent }) {
             {console.log("productCompareContent..", productCompareContent)}
             <div className="desktop-compare-table">
                 <div className="compare-table-container">
-                    <table className="compare-table">
+                    <table className="compare-table" cellSpacing={0}>
                         <tr>
                             { productCompareContent?.tableHeader.map((tableHeadContent, tableHeadIndex) => (
                                 <th className={tableHeadIndex == 0 ? "fixed-td fixed-hd left-top-td": "scrollable-td fixed-hd"} key={tableHeadIndex}>
@@ -43,7 +43,7 @@ export function CompareTable({ productCompareContent }) {
             <div className="mobile-compare-table-y">
                 <h2 className='mobile-table-heading'>{productCompareContent?.mobileTableHeading}</h2>
                     <div className="mobile-compare-table-container">
-                        <table className="mobile-compare-table">
+                        <table className="mobile-compare-table" cellSpacing={0}>
                             <tr>
                             { mobileTableHeadings?.map((tableHeadContent, tableHeadIndex) => (
                                 <th className={tableHeadIndex == 0 ? "fixed-td fixed-hd left-top-td": "scrollable-td fixed-hd"} key={tableHeadIndex}>

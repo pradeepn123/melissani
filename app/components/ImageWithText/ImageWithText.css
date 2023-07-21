@@ -450,6 +450,7 @@ ul.filter-club-list {
     }
     #temperature-control-section .text-section-icons {
         column-gap: 1rem;
+        margin-bottom: 0.5rem;
     }
     .text-section-icon {
         display: flex;
@@ -457,10 +458,6 @@ ul.filter-club-list {
         justify-content: center;
         row-gap: 1em;
         align-items: baseline;
-    }
-    .osmosis-section .text-section-icon, #lab-test-section-icon {  
-        width: 107px;
-        height: 107px;
     }
     .text-section-icon-text {
         font-size: 15px;
@@ -634,7 +631,7 @@ ul.filter-club-list {
         align-items: center;
     }
     .osmosis-section .text-section-icons, .lab-test-section .text-section-icons{
-        column-gap: 2em;
+        column-gap: 1em;
     }
     .four-blocks-image .adv-filter-mobile-img {
         display: none;
@@ -804,7 +801,11 @@ ul.filter-club-list {
         display: block;
     }
 }
-
+@media screen and (max-width: 1680px) {
+    #design-text-section h2 {
+        width: 85%;
+    }
+}
 @media screen and (max-width: 1280px) {
     .image-with-four-blocks-section {
         display: block;
@@ -853,8 +854,10 @@ ul.filter-club-list {
         padding: 0 0 2em 6em;
     }
     .text-section-title {
-        font-size: 48px;
-        line-height: 66px;
+        /* font-size: 48px;
+        line-height: 66px; */
+        font-size: 44px;
+        line-height: 60px;
     }
     .text-section-description {
         font-size: 20px;
@@ -898,6 +901,10 @@ ul.filter-club-list {
 }
 
 @media screen and (max-width: 767px) {
+    .osmosis-section .text-section-icon, #lab-test-section-icon {  
+        width: 107px;
+        height: 107px;
+    }
     .gb_bg_color .right_text_block .right_text_heading {
         font-size: 52px;
         font-weight: 300;
@@ -914,7 +921,7 @@ ul.filter-club-list {
         flex-direction: column-reverse;
     }
     .osmosis-section .text-section-icons, .lab-test-section .text-section-icons{
-        column-gap: 1em;
+        column-gap: 2em;
     }
     .discover-section {
         width: 100%;
@@ -1020,13 +1027,14 @@ ul.filter-club-list {
         width: 104px;
         height: 104px;
     }
-    #design-text-section h2 {
-        width: 85%;
-    }
 }
 
 
 @media screen and (min-width: 1440px) {
+    .text-section-title {
+        font-size: 48px;
+        line-height: 66px;
+    }
     .text-section {
         padding: 2.7em 1.2em 2.7em 4em;
     }

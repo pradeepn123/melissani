@@ -824,6 +824,7 @@ form .field-input::placeholder {
 
 .okendo-reviews {
   padding: 0 1rem;
+  overflow: hidden;
 }
 
 /* End: Common Styles */
