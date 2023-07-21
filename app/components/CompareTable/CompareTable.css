@@ -207,9 +207,8 @@
 
 .mobile-compare-table .mobile-compare-table-container table.compare-table {
     table-layout: fixed;
-
     overflow-x: scroll;
-    border-collapse: collapse;
+    border-collapse: separate;
 }
 
 .first-column-heading {
