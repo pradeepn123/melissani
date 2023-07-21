@@ -112,7 +112,6 @@
     font-weight: 800;
     line-height: 19px;
     text-transform: uppercase;
-    margin-top: 15px;
 }
 
 
@@ -333,6 +332,20 @@ tr.compare-property-row>td:first-child {
     }
     .desktop-compare-table .left-top-td {
         width: 627px;
+    }
+}
+
+@media screen and (min-width: 1680px) {
+    .desktop-compare-table .scrollable-td:nth-child(3n) #table-header-product-name {
+        width: 85%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .desktop-compare-table .scrollable-td:nth-child(3n) #table-header-product-name {
+        width: 75%;
+        margin: 0 auto;
     }
 }
 
