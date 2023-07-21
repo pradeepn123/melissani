@@ -115,6 +115,13 @@
     margin-top: 15px;
 }
 
+
+.desktop-compare-table .scrollable-td:nth-child(2n) #table-header-product-name,
+.desktop-compare-table .scrollable-td:last-child #table-header-product-name {
+    width: 50%;
+    margin: 0 auto;
+}
+
 .mobile-compare-table .table-header-title, .mobile-compare-table .table-header-product-name {
     color: #000;
     text-align: center;
