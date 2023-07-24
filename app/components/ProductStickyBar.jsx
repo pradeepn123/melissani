@@ -26,6 +26,22 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
         } else {
             setIsSticky(false)
         }
+
+        const compareContainer = document.querySelector('.mobile-grid-container');
+        const compareHeadingRow = document.querySelector('.grid-heading-row');
+        const rectVal = compareContainer.getBoundingClientRect();
+        if(rectVal.top <= 0) {
+            compareHeadingRow.style.position = 'sticky';
+            compareHeadingRow.style.top = '0';
+            compareHeadingRow.style.margin = '0';
+            compareHeadingRow.style.zIndex = '5';
+            compareContainer.style.height = '100vh';
+            compareHeadingRow.style.backgroundColor = '#fff';
+        } else {
+            compareHeadingRow.style.position = 'relative';
+            compareHeadingRow.style.width = '100%';
+            compareContainer.style.height = '';
+        }
     }
 
     function checkOffset() {        
