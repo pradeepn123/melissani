@@ -30,7 +30,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
         const compareContainer = document.querySelector('.mobile-grid-container');
         const compareHeadingRow = document.querySelector('.grid-heading-row');
         const rectVal = compareContainer.getBoundingClientRect();
-        if(rectVal.top <= 0) {
+        if ((rectVal.bottom - 300) < 0) {
             compareHeadingRow.style.position = 'sticky';
             compareHeadingRow.style.top = '0';
             compareHeadingRow.style.margin = '0';
