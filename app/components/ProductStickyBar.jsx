@@ -29,13 +29,15 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
 
         const compareContainer = document.querySelector('.mobile-grid-container');
         const compareHeadingRow = document.querySelector('.grid-heading-row');
-        const rectVal = compareContainer.getBoundingClientRect();
-        if (rectVal.top >= 0) {
+        const prevSectionContainer = document.querySelector('#capacity-section-icon');
+        const prevRectVal = prevSectionContainer.getBoundingClientRect();
+
+        if (prevRectVal.top <= -168) {
             compareHeadingRow.style.position = 'sticky';
             compareHeadingRow.style.top = '0';
             compareHeadingRow.style.margin = '0';
             compareHeadingRow.style.zIndex = '5';
-            compareContainer.style.height = '100vh';
+            compareContainer.style.height = window?.outerHeight+'px';
             compareHeadingRow.style.backgroundColor = '#fff';
         } else {
             compareHeadingRow.style.position = 'relative';
