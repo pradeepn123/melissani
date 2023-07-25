@@ -38,7 +38,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
             compareHeadingRow.style.margin = '0';
             compareHeadingRow.style.zIndex = '5';
             compareContainer.style.height = window?.outerHeight+'px';
-            compareContainer.style.touchAction = 'none';
+            compareContainer.style.touchAction = 'auto';
             compareHeadingRow.style.backgroundColor = '#fff';
         } else {
             compareHeadingRow.style.position = 'relative';
