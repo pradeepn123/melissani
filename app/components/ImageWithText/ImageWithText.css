@@ -212,6 +212,9 @@ ul.filter-club-list {
     row-gap: 5em;
     justify-content: flex-start;
 }
+.text-section-cta {
+    margin-top: 54px;
+}
 #volume-text-section-icon:first-child {
     transform: scale(1.1);
     display: flex;
@@ -915,6 +918,9 @@ ul.filter-club-list {
 }
 
 @media screen and (max-width: 767px) {
+    .text-section-cta {
+        margin-top: 34px;
+    }
     .osmosis-section .text-section-icon, #lab-test-section-icon {  
         width: 107px;
         height: 107px;

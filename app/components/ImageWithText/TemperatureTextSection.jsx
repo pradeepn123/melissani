@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
+import { Button, Link } from '~/components';
 
-export function TemperatureTextSection({data, id}) {
+export function TemperatureTextSection({data, id, cta}) {
     return (
         <>
             <motion.div 
@@ -26,17 +27,29 @@ export function TemperatureTextSection({data, id}) {
                 </p>}
                 
                 <div className="text-section-icons">
-                {data.iconWithText.map((item, index) => (
-                    <div className="text-section-icon" id={id && id} key={index}>
-                        <img src={item.icon} />
-                        { item.text && <div className="text-section-icon-text font-tertiary">
-                            {item.text}
-                        </div> }
-                        { item.html_text && <div className="text-section-icon-text font-tertiary"
-                            dangerouslySetInnerHTML={{ __html: item.html_text}}>
-                        </div> }
-                    </div>))}
+                    {data.iconWithText.map((item, index) => (
+                        <div className="text-section-icon" id={id && id} key={index}>
+                            <img src={item.icon} />
+                            { item.text && <div className="text-section-icon-text font-tertiary">
+                                {item.text}
+                            </div> }
+                            { item.html_text && <div className="text-section-icon-text font-tertiary"
+                                dangerouslySetInnerHTML={{ __html: item.html_text}}>
+                            </div> }
+                        </div>))}
                 </div>
+
+                {data.cta &&
+                    data.cta.map((ctaItem, ctaIndex) => (
+                        <Link
+                          to={ctaItem.cta_link} key={ctaIndex} className="text-section-cta" target="_blank">
+                          {console.log("data.cta..", data.cta)}
+                            <Button variant='primary' className="font-medium">
+                            {ctaItem.cta_text}
+                            </Button>
+                        </Link>
+                    ))
+                }
             </motion.div>
             <div className="warrentyIcon_section hidden md:block">
                 <img src={data.warrenty_icon} alt="" />

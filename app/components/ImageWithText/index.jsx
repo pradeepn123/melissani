@@ -128,11 +128,11 @@ export function ImageWithText({ goodbye, alignment, filterClub, discover, classN
     {
       labTest && <>
         { alignment == "rtl" ? <>
-          <TemperatureTextSection data={labTest} className={className} id="lab-test-section-icon" />
+          <TemperatureTextSection data={labTest} className={className} id="lab-test-section-icon" cta={true} />
           <ImageSection data={labTest}/>
         </> : <>
           <ImageSection data={labTest}/>
-          <TemperatureTextSection data={labTest} className={className} id="lab-test-section-icon" />
+          <TemperatureTextSection data={labTest} className={className} id="lab-test-section-icon" cta={true} />
         </>
         }
       </>
