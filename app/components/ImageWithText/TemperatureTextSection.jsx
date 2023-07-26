@@ -43,7 +43,6 @@ export function TemperatureTextSection({data, id, cta}) {
                     data.cta.map((ctaItem, ctaIndex) => (
                         <Link
                           to={ctaItem.cta_link} key={ctaIndex} className="text-section-cta" target="_blank">
-                          {console.log("data.cta..", data.cta)}
                             <Button variant='primary' className="font-medium">
                             {ctaItem.cta_text}
                             </Button>

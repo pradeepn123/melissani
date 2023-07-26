@@ -41,9 +41,9 @@ export function CompareTable({ productCompareContent }) {
             </div>
             <div className="mobile-grid-compare">
                 <h2 className="mobile-table-heading">{productCompareContent?.mobileTableHeading}</h2>
-                <div className="mobile-grid-container">
+                <div className="mobile-grid-container" data-target data-scroll>
                     <div className="mobile-grid-table">
-                        <div className="grid-heading-row">
+                        <div className="grid-heading-row" data-target data-scroll>
                             { mobileTableHeadings?.map((tableHeadContent, tableHeadIndex) => (
                             <div className="grid-heading-row-data" key={tableHeadIndex}>
                             <img className="table-header-image table-header-product-image" src={tableHeadContent.mobile_image} />
