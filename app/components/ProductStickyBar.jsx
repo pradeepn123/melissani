@@ -13,9 +13,7 @@ import { useCartFetchers } from '~/hooks/useCartFetchers';
 export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...props}) {
     const [isSticky, setIsSticky] = useState(false);
     const [isAddingToCart, setIsAddingToCart] = useState(false);
-    var stickyFloat;
-    var footer;
-    var compareContainer;
+    let stickyFloat, footer, compareContainer, scrollElements, targetElements, mobileGridTable, gridPropertyValueRow;
 
     const context = useContext(RequestContext)
     let elInView = false;
@@ -30,21 +28,30 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
         }
 
         const compareHeadingRow = document.querySelector('.grid-heading-row');
-      
+        const compareHeadingRowDummy = document.querySelector('.grid-heading-row__dummy');
+        let getscrollLeft = 0;
         let callback = (entries, observer) => {
             entries.forEach((entry) => {
+
               // Added static numbers by checking on the scroll position
-              if(entry.isIntersecting && (entry.boundingClientRect.top <= 45 && entry.boundingClientRect.top >= -829)){
+              if(entry.isIntersecting && (entry.boundingClientRect.top <= 35 && entry.boundingClientRect.top >= -829)){
                 compareHeadingRow.classList.add('grid-heading-row--fixed');
-                let compareValueWidth = document.querySelector('.mobile-grid-container .grid-properties-row .grid-property-value-row .compare-value').getBoundingClientRect().width;               
-                document.querySelector('.grid-heading-row--fixed').style['grid-template-columns'] = `repeat( 4, minmax(${compareValueWidth}px, 1fr) )`;
+                compareHeadingRowDummy?.classList.add('grid-heading-row__dummy--active');
+                getscrollLeft = compareContainer.scrollLeft;
+                targetElements.forEach(targetElement => targetElement.scrollLeft = getscrollLeft);
+                // let compareValueWidth = document.querySelector('.mobile-grid-container .grid-properties-row .grid-property-value-row .compare-value').getBoundingClientRect().width;
+                // document.querySelector('.grid-heading-row--fixed').style['grid-template-columns'] = `repeat( 4, minmax(${compareValueWidth}px, 1fr) )`;
                 elInView = true;
               }
               else {
                 if(compareHeadingRow.classList.contains('grid-heading-row--fixed')) {
                     compareHeadingRow.classList.remove('grid-heading-row--fixed');
-                    elInView = false;
+                  
                 }
+                if(compareHeadingRowDummy?.classList.contains('grid-heading-row__dummy--active')) {
+                    compareHeadingRowDummy.classList.remove('grid-heading-row__dummy--active');
+                }
+                elInView = false;
               }
             });
           };
@@ -55,7 +62,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
 
     function checkOffset() {        
         function getRectTop(el){
-            var rect = el.getBoundingClientRect();
+            let rect = el.getBoundingClientRect();
             return rect.top;
         }
         
@@ -72,22 +79,28 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
         stickyFloat = document.querySelector('.stickybar_main_section');
         footer = document.querySelector('footer');
         compareContainer = document.querySelector('.mobile-grid-container');
+        mobileGridTable = document.querySelector('.mobile-grid-container .mobile-grid-table');
+        gridPropertyValueRow =  document.querySelector('.grid-property-value-row');
+
+        mobileGridTable.style.width = gridPropertyValueRow.getBoundingClientRect().width+'px';
 
         window.addEventListener("scroll", function (ev) {
             handleWindowScroll(ev);
             checkOffset();
         });
-        const scrollElements = document.querySelectorAll('[data-scroll');
-        const targetElements = document.querySelectorAll('[data-target]');
+        scrollElements = document.querySelectorAll('[data-scroll');
+        targetElements = document.querySelectorAll('[data-target]');
     
         scrollElements?.forEach(scrollElement => {
             scrollElement.addEventListener('scroll', (e) => {
+                if(e?.target?.scrollLeft > 0) {
                 const scrollLeft = e?.target?.scrollLeft;
                 targetElements?.forEach(targetElement => {
                     if(e?.target != targetElement) {
                         targetElement.scrollLeft = scrollLeft;
                     }
                 })
+              }
             })
         })
         return () => {
