@@ -74,6 +74,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
               if(entry.isIntersecting && (entry.boundingClientRect.top <= 35 && entry.boundingClientRect.top >= -829) ){
                 if (!elInView) {
                     compareHeadingRow.classList.add('grid-heading-row--fixed');
+                    targetElements.scrollLeft = scrollElement.scrollLeft
                     compareHeadingRowDummy?.classList.add('grid-heading-row__dummy--active');
                     scrollElement.addEventListener('scroll', handleScrollElementScroll);
                     targetElements.addEventListener('scroll', handleTargetElementScroll);
