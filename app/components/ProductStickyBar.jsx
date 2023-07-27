@@ -39,8 +39,8 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
                 compareHeadingRowDummy?.classList.add('grid-heading-row__dummy--active');
                 getscrollLeft = compareContainer.scrollLeft;
                 targetElements.forEach(targetElement => targetElement.scrollLeft = getscrollLeft);
-                // let compareValueWidth = document.querySelector('.mobile-grid-container .grid-properties-row .grid-property-value-row .compare-value').getBoundingClientRect().width;
-                // document.querySelector('.grid-heading-row--fixed').style['grid-template-columns'] = `repeat( 4, minmax(${compareValueWidth}px, 1fr) )`;
+                let compareValueWidth = document.querySelector('.mobile-grid-container .grid-properties-row .grid-property-value-row .compare-value').getBoundingClientRect().width;
+                document.querySelector('.grid-heading-row--fixed').style['grid-template-columns'] = `repeat( 4, minmax(${compareValueWidth}px, 1fr) )`;
                 elInView = true;
               }
               else {
