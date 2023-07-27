@@ -65,11 +65,6 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
         let getscrollLeft = 0;
         let callback = (entries, observer) => {
             entries.forEach((entry) => {
-                // getscrollLeft = compareContainer.scrollLeft;
-                // console.log("getscrollLeft//", getscrollLeft)
-                // console.log("targetElements//", targetElements)
-                // targetElements.forEach(targetElement => targetElement.scrollLeft = getscrollLeft);
-
               // Added static numbers by checking on the scroll position
               if(entry.isIntersecting && (entry.boundingClientRect.top <= 35 && entry.boundingClientRect.top >= -829) ){
                 if (!elInView) {
@@ -79,7 +74,6 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
                     scrollElement.addEventListener('scroll', handleScrollElementScroll);
                     targetElements.addEventListener('scroll', handleTargetElementScroll);
                     let compareValueWidth = document.querySelector('.mobile-grid-container .grid-properties-row .grid-property-value-row .compare-value').getBoundingClientRect().width;
-                    // document.querySelector('.grid-heading-row--fixed').style['grid-template-columns'] = `repeat( 4, minmax(${compareValueWidth}px, 1fr) )`;
                     document.querySelector('.grid-heading-row--fixed').style['grid-template-columns'] = `repeat( 4, minmax(${compareValueWidth}px, ${compareValueWidth}px) )`;
                     elInView = true;
                 }

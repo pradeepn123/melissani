@@ -202,7 +202,6 @@
 }
 
 .mobile-grid-container .grid-heading-row .grid-heading-row-data {
-    /* padding: 0 12px 24px 0; */
     padding: 0 12px 24px 12px;
 }
 
@@ -484,8 +483,6 @@ tr.compare-property-row>td:first-child {
     }
 }
 
-
-
 /* End: Mobile Table */
 
 /* Begin: Media Query */
@@ -495,7 +492,6 @@ tr.compare-property-row>td:first-child {
         width: 85%;
     }
 }
-
 
 @media screen and (min-width: 360px) and (max-width: 393px) {
     .mobile-grid-container .grid-properties-row .grid-property-row {
@@ -581,74 +577,3 @@ tr.compare-property-row>td:first-child {
 }
 
 /* End: Media Query */
-
-
-
-/* Begin: New table css */
-
-
-/* table.new-mobile-compare-table  {
-    white-space: nowrap;
-    margin: 0;
-    border: none;
-    border-collapse: separate;
-    border-spacing: 0;
-    table-layout: fixed;
-    border: 1px solid black;
-  }
-  table .new-mobile-compare-table td,
-  table .new-mobile-compare-table th {
-    border: 1px solid black;
-    padding: 0.5rem 1rem;
-  }
-  table .new-mobile-compare-table thead th {
-    padding: 3px;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    width: 25vw;
-    background: white;
-  }
-  table .new-mobile-compare-table td {
-    background: #fff;
-    padding: 4px 5px;
-    text-align: center;
-  }
-  
-  table .new-mobile-compare-table tbody th {
-    font-weight: 100;
-    font-style: italic;
-    text-align: left;
-    position: relative;
-  }
-  table .new-mobile-compare-table thead th:first-child {
-    position: sticky;
-    left: 0;
-    z-index: 2;
-  }
-  table .new-mobile-compare-table tbody th {
-    position: sticky;
-    left: 0;
-    background: white;
-    z-index: 1;
-  }
-  
-  [role="compare-property"][aria-labelledby][tabindex] {
-    width: 100%;
-    max-height: 98vh;
-    overflow: auto;
-  }
-  [role="compare-property"][aria-labelledby][tabindex]:focus {
-    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
-    outline: 0;
-  }
-  
-  table .new-mobile-compare-table .sticky-side-header {
-    position: sticky;
-    width: 600px;
-    overflow: auto;
-    border-right: none;
-  } */
-
-  
-/* End: New table css */
