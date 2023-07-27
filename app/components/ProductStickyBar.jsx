@@ -120,7 +120,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
         mobileGridTable = document.querySelector('.mobile-grid-container .mobile-grid-table');
         gridPropertyValueRow =  document.querySelector('.grid-property-value-row');
 
-        mobileGridTable.style.width = gridPropertyValueRow.getBoundingClientRect().width+'px';
+        mobileGridTable.style.width = gridPropertyValueRow.getBoundingClientRect().width + 'px';
 
         window.addEventListener("scroll", function (ev) {
             handleWindowScroll(ev);
