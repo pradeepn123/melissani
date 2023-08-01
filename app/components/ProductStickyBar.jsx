@@ -30,7 +30,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
         const compareHeadingRow = document.querySelector('.grid-heading-row');
         const compareHeadingRowDummy = document.querySelector('.grid-heading-row__dummy');
 
-        const scrollElement = document.querySelector('[data-scroll');
+        const scrollElements = document.querySelector('[data-scroll');
         const targetElements = document.querySelector('[data-target]');
         let isFirstScrolling = false;
         let isSecondScrolling = false;
@@ -58,7 +58,6 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
           if(!isFirstScrolling) {
               isSecondScrolling = true;
               customDebounce("second");
-              debugger;
               if(scrollElements){scrollElements?.scrollLeft = e.target.scrollLeft;}
           }
         }
@@ -71,9 +70,9 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
               if(entry.isIntersecting && (entry.boundingClientRect.top <= 35 && entry.boundingClientRect.top >= -829) ){
                 if (!elInView) {
                     compareHeadingRow.classList.add('grid-heading-row--fixed');
-                    targetElements.scrollLeft = scrollElement.scrollLeft
+                    targetElements.scrollLeft = scrollElements.scrollLeft
                     compareHeadingRowDummy?.classList.add('grid-heading-row__dummy--active');
-                    scrollElement.addEventListener('scroll', handleScrollElementScroll);
+                    scrollElements.addEventListener('scroll', handleScrollElementScroll);
                     targetElements.addEventListener('scroll', handleTargetElementScroll);
                     let compareValueWidth = document.querySelector('.mobile-grid-container .grid-properties-row .grid-property-value-row .compare-value').getBoundingClientRect().width;
                     document.querySelector('.grid-heading-row--fixed').style['grid-template-columns'] = `repeat( 4, minmax(${compareValueWidth}px, ${compareValueWidth}px) )`;
