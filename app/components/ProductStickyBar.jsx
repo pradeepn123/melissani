@@ -50,7 +50,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
           if(!isSecondScrolling) {
               isFirstScrolling = true;
               customDebounce("first");
-              if(targetElements){targetElements.scrollLeft = e.target.scrollLeft;}
+              if(targetElements != null){targetElements.scrollLeft = e.target.scrollLeft;}
           }
         }
 
@@ -58,7 +58,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
           if(!isFirstScrolling) {
               isSecondScrolling = true;
               customDebounce("second");
-              if(scrollElements){scrollElements?.scrollLeft = e.target.scrollLeft;}
+              if(scrollElements != null){scrollElements?.scrollLeft = e.target.scrollLeft;}
           }
         }
 
@@ -95,7 +95,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
             });
           };
           let observer = new IntersectionObserver(callback);
-          if(compareContainer){observer.observe(compareContainer);}
+          if(compareContainer != nul){observer.observe(compareContainer);}
     }
 
     function checkOffset() {        
@@ -120,7 +120,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
         compareContainer = document.querySelector('.mobile-grid-container');
         mobileGridTable = document.querySelector('.mobile-grid-container .mobile-grid-table');
         gridPropertyValueRow =  document.querySelector('.grid-property-value-row');
-        if(mobileGridTable) { mobileGridTable.style.width = gridPropertyValueRow?.getBoundingClientRect().width + 'px'; }
+        if(mobileGridTable != null) { mobileGridTable.style.width = gridPropertyValueRow?.getBoundingClientRect().width + 'px'; }
 
         window.addEventListener("scroll", function (ev) {
             handleWindowScroll(ev);
