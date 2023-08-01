@@ -123,7 +123,9 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
         compareContainer = document.querySelector('.mobile-grid-container');
         mobileGridTable = document.querySelector('.mobile-grid-container .mobile-grid-table');
         gridPropertyValueRow =  document.querySelector('.grid-property-value-row');
-        mobileGridTable?.style.width = gridPropertyValueRow?.getBoundingClientRect().width + 'px';
+        if(body.classList.contains('.mobile-grid-container .mobile-grid-table')) {
+            mobileGridTable.style.width = gridPropertyValueRow?.getBoundingClientRect().width + 'px';
+        }
 
         window.addEventListener("scroll", function (ev) {
             handleWindowScroll(ev);
