@@ -833,7 +833,7 @@ function Footer({footerCustomersMenu, footerInfoMenu, metafields}) {
 
   function checkOffset() {        
       var offerTag = document.querySelector(".needsclick")
-        if(offerTag.getBoundingClientRect().bottom > footer.getBoundingClientRect().top){
+        if(offerTag?.getBoundingClientRect().bottom > footer.getBoundingClientRect().top){
           offerTag.style.opacity = 0;
       }
       else{

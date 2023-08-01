@@ -13,7 +13,7 @@ import { useCartFetchers } from '~/hooks/useCartFetchers';
 export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...props}) {
     const [isSticky, setIsSticky] = useState(false);
     const [isAddingToCart, setIsAddingToCart] = useState(false);
-    let stickyFloat, footer, compareContainer, scrollElements, targetElements, mobileGridTable, gridPropertyValueRow;
+    let body, stickyFloat, footer, compareContainer, mobileGridTable, gridPropertyValueRow;
 
     const context = useContext(RequestContext)
     let elInView = false;
@@ -50,7 +50,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
           if(!isSecondScrolling) {
               isFirstScrolling = true;
               customDebounce("first");
-              targetElements.scrollLeft = e.target.scrollLeft;
+              if(targetElements){targetElements.scrollLeft = e.target.scrollLeft;}
           }
         }
 
@@ -58,11 +58,13 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
           if(!isFirstScrolling) {
               isSecondScrolling = true;
               customDebounce("second");
-              scrollElement.scrollLeft = e.target.scrollLeft;
+              debugger;
+              if(scrollElements){scrollElements?.scrollLeft = e.target.scrollLeft;}
           }
         }
 
         let getscrollLeft = 0;
+        body = document.querySelector('body');
         let callback = (entries, observer) => {
             entries.forEach((entry) => {
               // Added static numbers by checking on the scroll position
@@ -79,8 +81,8 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
                 }
               }
               else {
-                scrollElement.removeEventListener('scroll', handleScrollElementScroll);
-                targetElements.removeEventListener('scroll', handleTargetElementScroll);
+                scrollElements?.removeEventListener('scroll', handleScrollElementScroll);
+                targetElements?.removeEventListener('scroll', handleTargetElementScroll);
 
                 if(compareHeadingRow.classList.contains('grid-heading-row--fixed')) {
                     compareHeadingRow.classList.remove('grid-heading-row--fixed');
@@ -94,8 +96,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
             });
           };
           let observer = new IntersectionObserver(callback);
-          observer.observe(compareContainer);
-
+          if(compareContainer){observer.observe(compareContainer);}
     }
 
     function checkOffset() {        
@@ -114,13 +115,13 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
     }
 
     useEffect(() => {
+        body = document.querySelector('body');
         stickyFloat = document.querySelector('.stickybar_main_section');
         footer = document.querySelector('footer');
         compareContainer = document.querySelector('.mobile-grid-container');
         mobileGridTable = document.querySelector('.mobile-grid-container .mobile-grid-table');
         gridPropertyValueRow =  document.querySelector('.grid-property-value-row');
-
-        mobileGridTable.style.width = gridPropertyValueRow.getBoundingClientRect().width + 'px';
+        if(mobileGridTable) { mobileGridTable.style.width = gridPropertyValueRow?.getBoundingClientRect().width + 'px'; }
 
         window.addEventListener("scroll", function (ev) {
             handleWindowScroll(ev);

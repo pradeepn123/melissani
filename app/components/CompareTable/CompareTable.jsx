@@ -55,8 +55,8 @@ export function CompareTable({ productCompareContent }) {
                     </div>
                     <div className="grid-heading-row__dummy"></div>
                     { productCompareContent?.tableRow.map((tableRowContent, tableRowIndex) => (
-                        <div className="grid-properties-row">
-                            <div className="grid-property-row" key={tableRowIndex}>
+                        <div className="grid-properties-row" key={tableRowIndex}>
+                            <div className="grid-property-row">
                                 <p>{tableRowContent?.property}</p>
                             </div>
                             <div className="grid-property-value-row">

@@ -8,11 +8,13 @@ export function StickyBarBottom({stickybarbottom}) {
     
     const handleWindowScroll = () => {
         const stickybar = document.querySelector(".hero");
-        const rect = stickybar.getBoundingClientRect();
-        if (rect.bottom < 0) {
-            setIsSticky(true)
-        } else {
-            setIsSticky(false)
+        if (stickybar) {
+            const rect = stickybar.getBoundingClientRect();
+            if (rect.bottom < 0) {
+                setIsSticky(true)
+            } else {
+                setIsSticky(false)
+            }
         }
     }
 

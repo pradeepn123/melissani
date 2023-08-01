@@ -444,7 +444,7 @@ export function CheckIcon({innerRef, ...props}) {
   return <span {...props} ref={innerRef}>
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="Interface / Check">
-      <path id="Vector" d="M6 12L10.2426 16.2426L18.727 7.75732" stroke="#1B2943" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="Vector" d="M6 12L10.2426 16.2426L18.727 7.75732" stroke="#1B2943" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
     </svg>
   </span>
@@ -453,7 +453,7 @@ export function CheckIcon({innerRef, ...props}) {
 export function CompareYesIcon({innerRef, ...props}) {
   return <span {...props} ref={innerRef}>
     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13" fill="none">
-      <path d="M2 6.5L5.5 10L13.5 2" stroke="#47933B" stroke-width="3"/>
+      <path d="M2 6.5L5.5 10L13.5 2" stroke="#47933B" strokeWidth="3"/>
     </svg>
   </span>
 }
@@ -461,8 +461,8 @@ export function CompareYesIcon({innerRef, ...props}) {
 export function CompareNoIcon({innerRef, ...props}) {
   return <span {...props} ref={innerRef}>
     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
-      <path d="M2 10.5L11 1.5" stroke="#BA1323" stroke-width="3"/>
-      <path d="M11 10.5L2 1.5" stroke="#BA1323" stroke-width="3"/>
+      <path d="M2 10.5L11 1.5" stroke="#BA1323" strokeWidth="3"/>
+      <path d="M11 10.5L2 1.5" stroke="#BA1323" strokeWidth="3"/>
     </svg>
   </span>
 }
@@ -470,7 +470,7 @@ export function CompareNoIcon({innerRef, ...props}) {
 export function CompareSomeIcon({innerRef, ...props}) {
   return <span {...props} ref={innerRef}>
     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-      <circle cx="7" cy="7" r="6" stroke="#F38928" stroke-width="2"/>
+      <circle cx="7" cy="7" r="6" stroke="#F38928" strokeWidth="2"/>
       <path d="M7 -3.0598e-07C7.91925 -3.46162e-07 8.8295 0.18106 9.67878 0.532843C10.5281 0.884626 11.2997 1.40024 11.9497 2.05025C12.5998 2.70026 13.1154 3.47194 13.4672 4.32122C13.8189 5.17049 14 6.08075 14 7C14 7.91925 13.8189 8.8295 13.4672 9.67878C13.1154 10.5281 12.5998 11.2997 11.9497 11.9497C11.2997 12.5998 10.5281 13.1154 9.67878 13.4672C8.8295 13.8189 7.91925 14 7 14L7 7L7 -3.0598e-07Z" fill="#F38928"/>
     </svg>
   </span>
