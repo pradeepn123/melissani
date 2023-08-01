@@ -50,7 +50,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
           if(!isSecondScrolling) {
               isFirstScrolling = true;
               customDebounce("first");
-              if(targetElements != null){targetElements.scrollLeft = e.target.scrollLeft;}
+              targetElements.scrollLeft = e.target.scrollLeft;
           }
         }
 
@@ -58,7 +58,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
           if(!isFirstScrolling) {
               isSecondScrolling = true;
               customDebounce("second");
-              if(scrollElements != null){scrollElements?.scrollLeft = e.target.scrollLeft;}
+              scrollElements?.scrollLeft = e.target.scrollLeft;
           }
         }
 
