@@ -58,7 +58,10 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
           if(!isFirstScrolling) {
               isSecondScrolling = true;
               customDebounce("second");
-              scrollElements?.scrollLeft = e.target.scrollLeft;
+              console.log("scrollElements", scrollElements)
+              if(scrollElements != null) {
+                scrollElements.scrollLeft = e.target.scrollLeft;
+              }
           }
         }
 
@@ -80,8 +83,8 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
                 }
               }
               else {
-                scrollElements?.removeEventListener('scroll', handleScrollElementScroll);
-                targetElements?.removeEventListener('scroll', handleTargetElementScroll);
+                scrollElements.removeEventListener('scroll', handleScrollElementScroll);
+                targetElements.removeEventListener('scroll', handleTargetElementScroll);
 
                 if(compareHeadingRow.classList.contains('grid-heading-row--fixed')) {
                     compareHeadingRow.classList.remove('grid-heading-row--fixed');
@@ -95,7 +98,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
             });
           };
           let observer = new IntersectionObserver(callback);
-          if(compareContainer != nul){observer.observe(compareContainer);}
+          if(compareContainer != null){observer.observe(compareContainer);}
     }
 
     function checkOffset() {        
@@ -120,7 +123,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
         compareContainer = document.querySelector('.mobile-grid-container');
         mobileGridTable = document.querySelector('.mobile-grid-container .mobile-grid-table');
         gridPropertyValueRow =  document.querySelector('.grid-property-value-row');
-        if(mobileGridTable != null) { mobileGridTable.style.width = gridPropertyValueRow?.getBoundingClientRect().width + 'px'; }
+        mobileGridTable?.style.width = gridPropertyValueRow?.getBoundingClientRect().width + 'px';
 
         window.addEventListener("scroll", function (ev) {
             handleWindowScroll(ev);
