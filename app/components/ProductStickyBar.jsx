@@ -13,43 +13,124 @@ import { useCartFetchers } from '~/hooks/useCartFetchers';
 export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...props}) {
     const [isSticky, setIsSticky] = useState(false);
     const [isAddingToCart, setIsAddingToCart] = useState(false);
-    var stickyFloat;
-    var footer;
+    let body, stickyFloat, footer, compareContainer, mobileGridTable, gridPropertyValueRow;
 
     const context = useContext(RequestContext)
+    let elInView = false;
 
-    const handleWindowScroll = () => {
+    const handleWindowScroll = (ev) => {
         const stickybar = document.querySelector(".product-content");
-        const rect = stickybar.getBoundingClientRect();
+        const rect = stickybar?.getBoundingClientRect();
         if ((rect.bottom - 300) < 0) {
             setIsSticky(true)
         } else {
             setIsSticky(false)
         }
+
+        const compareHeadingRow = document.querySelector('.grid-heading-row');
+        const compareHeadingRowDummy = document.querySelector('.grid-heading-row__dummy');
+
+        const scrollElements = document.querySelector('[data-scroll');
+        const targetElements = document.querySelector('[data-target]');
+        let isFirstScrolling = false;
+        let isSecondScrolling = false;
+
+        let timeOut;
+        const customDebounce = (tracker) => {
+            clearTimeout(timeOut);
+            timeOut = setTimeout(() => {
+                if(tracker === "first")
+                    isFirstScrolling = !isFirstScrolling;
+                else
+                    isSecondScrolling = !isSecondScrolling;
+            }, 700);
+        }
+
+        const handleScrollElementScroll = function (e) {
+          if(!isSecondScrolling) {
+              isFirstScrolling = true;
+              customDebounce("first");
+              targetElements.scrollLeft = e.target.scrollLeft;
+          }
+        }
+
+        const handleTargetElementScroll = function(e) {
+          if(!isFirstScrolling) {
+              isSecondScrolling = true;
+              customDebounce("second");
+              console.log("scrollElements", scrollElements)
+              if(scrollElements != null) {
+                scrollElements.scrollLeft = e.target.scrollLeft;
+              }
+          }
+        }
+
+        let getscrollLeft = 0;
+        body = document.querySelector('body');
+        let callback = (entries, observer) => {
+            entries.forEach((entry) => {
+              // Added static numbers by checking on the scroll position
+              if(entry.isIntersecting && (entry.boundingClientRect.top <= 35 && entry.boundingClientRect.top >= -829) ){
+                if (!elInView) {
+                    compareHeadingRow.classList.add('grid-heading-row--fixed');
+                    targetElements.scrollLeft = scrollElements.scrollLeft
+                    compareHeadingRowDummy?.classList.add('grid-heading-row__dummy--active');
+                    scrollElements.addEventListener('scroll', handleScrollElementScroll);
+                    targetElements.addEventListener('scroll', handleTargetElementScroll);
+                    let compareValueWidth = document.querySelector('.mobile-grid-container .grid-properties-row .grid-property-value-row .compare-value').getBoundingClientRect().width;
+                    document.querySelector('.grid-heading-row--fixed').style['grid-template-columns'] = `repeat( 4, minmax(${compareValueWidth}px, ${compareValueWidth}px) )`;
+                    elInView = true;
+                }
+              }
+              else {
+                scrollElements.removeEventListener('scroll', handleScrollElementScroll);
+                targetElements.removeEventListener('scroll', handleTargetElementScroll);
+
+                if(compareHeadingRow.classList.contains('grid-heading-row--fixed')) {
+                    compareHeadingRow.classList.remove('grid-heading-row--fixed');
+                  
+                }
+                if(compareHeadingRowDummy?.classList.contains('grid-heading-row__dummy--active')) {
+                    compareHeadingRowDummy.classList.remove('grid-heading-row__dummy--active');
+                }
+                elInView = false;
+              }
+            });
+          };
+          let observer = new IntersectionObserver(callback);
+          if(compareContainer != null){observer.observe(compareContainer);}
     }
 
     function checkOffset() {        
         function getRectTop(el){
-            var rect = el.getBoundingClientRect();
+            let rect = el?.getBoundingClientRect();
             return rect.top;
         }
         
         if((getRectTop(stickyFloat) + document.body.scrollTop) + stickyFloat.offsetHeight >= (getRectTop(footer) + document.body.scrollTop) - 10) {
             stickyFloat.style.transform = 'translateY(calc(100% + 30px))';
         }
+
         if(document.body.scrollTop + window.innerHeight < (getRectTop(footer) + document.body.scrollTop)){
             stickyFloat.style.transform = 'translateY(0)';
         }
     }
-    
+
     useEffect(() => {
+        body = document.querySelector('body');
         stickyFloat = document.querySelector('.stickybar_main_section');
         footer = document.querySelector('footer');
-
-        window.addEventListener("scroll", function () {
-            handleWindowScroll();
+        compareContainer = document.querySelector('.mobile-grid-container');
+        mobileGridTable = document.querySelector('.mobile-grid-container .mobile-grid-table');
+        gridPropertyValueRow =  document.querySelector('.grid-property-value-row');
+        if(body.classList.contains('.mobile-grid-container .mobile-grid-table')) {
+            mobileGridTable.style.width = gridPropertyValueRow?.getBoundingClientRect().width + 'px';
+        }
+        window.addEventListener("scroll", function (ev) {
+            handleWindowScroll(ev);
             checkOffset();
         });
+
         return () => {
             window.removeEventListener("scroll", handleWindowScroll)
         }

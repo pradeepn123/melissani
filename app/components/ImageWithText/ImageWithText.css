@@ -190,7 +190,7 @@ ul.filter-club-list {
     line-height: 70px;
     letter-spacing: 0em;
     text-align: left;
-    color: #000;
+    color: #11223D;
     width: 90%;
 }
 .text-section-description {
@@ -212,12 +212,23 @@ ul.filter-club-list {
     row-gap: 5em;
     justify-content: flex-start;
 }
+.text-section-cta {
+    margin-top: 54px;
+}
+#volume-text-section-icon:first-child {
+    transform: scale(1.1);
+    display: flex;
+    align-self: center;
+}
 .text-section-icon {
     display: flex;
     flex-direction: column;
     justify-content: end;
     row-gap: 1em;
     align-items: baseline;
+}
+#temp-section-icon, #volume-text-section-icon {
+    row-gap: 0;
 }
 .text-section-icon img{
     margin: 0 auto;
@@ -229,125 +240,12 @@ ul.filter-club-list {
     letter-spacing: 0em;
     text-align: center;
     margin: 0 auto;
-    color: #1B2943;
+    /* color: #1B2943; */
+    color: #231F20;
 }
 /* End: Temperature Section */
 
 /* Begin: Media Query */
-@media screen and (max-width: 1024px) {
-    .discover-description {
-        font-size: 16px;
-        line-height: 32px;
-    }
-    .discover-icons {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-    .discover-icon-text {
-        width: 100%;
-    }
-    .discover-icons .discover-icon img {
-        width: 82px;
-        height: 82px;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    .gb_bg_color .right_text_block .right_text_heading {
-        font-size: 52px;
-        font-weight: 300;
-    }
-    .discover-main-section{
-        padding-top: 2em;
-    }
-    .discover-main-section, .text-main-section {
-        display: block;
-    }
-
-    .volume-main-section {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    .discover-section {
-        width: 100%;
-        padding: 3em 1em;
-    }
-    .discover-heading {
-        font-size: 32px;
-        font-weight: 700;
-        line-height: 41px;
-        letter-spacing: 0em;
-        text-align: left;
-        width: 100%;
-    }
-
-    .discover-description {
-        font-size: 16px;
-        line-height: 24px;
-    }
-
-    .discover-icons {
-        grid-template-columns: 1fr 1fr;
-        grid-row-gap: 2em;
-        display: grid;
-        margin-top: 1em;
-    }
-
-    .discover-icons .discover-icon {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        row-gap: 0.5em;
-    }
-
-    .filter-club-list-icon img {
-        width: 70.29px;
-        height: 70.29px;
-    }
-
-    .discover-icon-text {
-        font-size: 12px;
-        line-height: 14px;
-        max-width: 95px;
-    }
-
-    .discover-icon:first-child .discover-icon-text{
-        width: 20%;
-    }
-
-    .filter-club-section {
-        width: 80%;
-        padding: 3em 0 1em 1.5em;
-    }
-
-    .filter-club-img {
-        padding: 5em 0 5em 5em;
-    }
-
-    .filter-club-btns {
-        display: flex;
-        column-gap: 0;
-        flex-direction: row;
-        width: 100%;
-        column-gap: 2em;
-    }
-
-    .subscribe-btn button{
-        width: 100%;
-        text-align: center;
-    }
-
-    .filter-club-learn-more-btn {
-        text-align: center;
-    }
-
-    .filter-club-anouncement {
-        font-size: 16px;
-        line-height: 24px;
-    }
-}
-
 @media screen and (max-width: 615px) {
     .discover-icon:first-child .discover-icon-text {
         width: 30%;
@@ -455,8 +353,24 @@ ul.filter-club-list {
     .filter-club-description {
         width: 100%;
     }
-}
 
+    #design-text-section {
+        padding: 2.5em 1em 8px 1em;
+    }
+    .text-section {
+        padding-bottom: 8px !important;
+    }
+}
+@media (min-width: 381px) and (max-width: 767px) {
+    .text-section-icons {
+        column-gap: 12px;
+    }
+}
+@media (min-width: 320px) and (max-width: 380px) {
+    .text-section-icons {
+        column-gap: 6px;
+    }
+}
 @media (min-width: 320px) and (max-width: 425px) {
     .filter-club-img {
         padding: 2em 0 2em 0em;
@@ -522,11 +436,15 @@ ul.filter-club-list {
         width: 100%;
         display: flex;
         flex-direction: column;
-        padding: 2.5em 1em;
+        padding: 1.5em 1em;
+    }
+    .lab-test-section .text-section-title {
+        font-size: 26px;
+        line-height: 35.6px;
     }
     .text-section-title {
-        font-size: 30px;
-        line-height: 40px;
+        font-size: 26px;
+        line-height: 36px;
     }
     .text-section-description {
         padding: 0;
@@ -535,24 +453,40 @@ ul.filter-club-list {
         margin-top: 1em;
     }
     .text-section-icons {
-        margin: 1em 0 0;
-        column-gap: 1em;
+        margin: 2em 0 0;
+    }
+    #temperature-control-section .text-section-icons {
+        column-gap: 1rem;
+        margin-bottom: 0.5rem;
     }
     .text-section-icon {
         display: flex;
         flex-direction: column;
-        justify-content: end;
+        justify-content: center;
         row-gap: 1em;
         align-items: baseline;
-        transform: scale(0.75);
     }
     .text-section-icon-text {
-        font-size: 22px;
+        font-size: 15px;
         font-weight: 500;
-        line-height: 18px;
+        line-height: normal;
     }
     .filter-club-section {
         width: 92%;
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 390px) {
+    .lab-test-section .text-section-title {
+        font-size: 26px;
+        line-height: 35.6px;
+    }
+    .text-section-title {
+        font-size: 30px;
+        line-height: 39.6px;
+    }
+    .text-section-icons {
+        max-height: 135px;
     }
 }
 
@@ -574,6 +508,10 @@ ul.filter-club-list {
 @media screen and (min-width: 390px) {
     .learn-more-btn {
         font-size: 18px;
+    }
+    .lab-test-section .text-section-title {
+        font-size: 30px;
+        line-height: 39.6px;
     }
 }
 
@@ -613,9 +551,19 @@ ul.filter-club-list {
      }
 
     .text-section {
-        padding: 3em 1em;
+        padding: 1em 0 0;
     }
-
+    .text-section-icons {
+        column-gap: 1rem;
+        margin: 20px 0 0 0;
+    }
+    .text-section-title, .lab-test-section .text-section-title {
+        line-height: 33px;
+        font-size: 26px;
+    }
+    .text-section-description {
+        line-height: 20px;
+    }
     .contaminants-list{
         font-size: 20px;
         font-weight: 510;
@@ -682,6 +630,31 @@ ul.filter-club-list {
     #volume-control-section {
         padding-left: 3.5em;
     }
+    #volume-text-section-icon:first-child img{
+        width: 110px;
+        height: 110px;
+    }
+    #volume-text-section-icon:not(:first-child) img{
+        width: 66px;
+        height: 66px;
+    }
+    #volume-text-section-icon .text-section-icon-text {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 14px;
+    }
+    #volume-control-section .text-section-icons {
+        align-items: center;
+    }
+    .osmosis-section .text-section-icons, .lab-test-section .text-section-icons{
+        column-gap: 1em;
+    }
+    .four-blocks-image .adv-filter-mobile-img {
+        display: none;
+    }
+    #design-text-section h2 {
+        width: 70%;
+    }
 }
 
 @media screen and (min-width: 820px) {
@@ -718,9 +691,57 @@ ul.filter-club-list {
         height: 84px;
         margin: 0 auto;
     }
+    #volume-control-section .text-section-icons {
+        align-items: normal;
+    }
+    .text-section {
+        padding: 2.7em 1em;
+    }
+    #volume-text-section-icon:first-child img,
+    #volume-text-section-icon:not(:first-child) img {
+        width: 80px;
+        height: 80px;
+    }
+    .text-section-icons {
+        margin: 40px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .discover-description {
+        font-size: 16px;
+        line-height: 32px;
+    }
+    .discover-icons {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .discover-icon-text {
+        width: 100%;
+    }
+    .discover-icons .discover-icon img {
+        width: 82px;
+        height: 82px;
+    }
+    #volume-text-section-icon:first-child img {
+        width: 104px;
+        height: 104px;
+    }
+    #volume-text-section-icon:not(:first-child) img {
+        width: 66px;
+        height: 66px;
+    }   
 }
 
 @media screen and (min-width: 1024px) {
+    .text-section-title, .lab-test-section .text-section-title {
+        font-size: 34px;
+        line-height: 36px;
+    }
+    .text-section-description {
+        padding: 0;
+        font-size: 20px;
+        line-height: 24px;
+    }
     .contaminants-list{
         font-size: 18px;
     }
@@ -740,18 +761,9 @@ ul.filter-club-list {
         line-height: 24px;
         max-width: 92%;
     }
-    .text-section-title {
-        font-size: 40px;
-        line-height: 58px;
-    }
-    .text-section-description {
-        padding: 0;
-        font-size: 20px;
-        line-height: 36px;
-    }
     .text-section-icons {
         margin: 1em 0 0;
-        column-gap: 3em;
+        column-gap: 0;
     }
     .text-section-icon {
         display: flex;
@@ -761,9 +773,13 @@ ul.filter-club-list {
         align-items: baseline;
         transform: scale(0.8);
     }
-    .text-section-icon-text {
-        font-size: 22px;
-        line-height: 36px;
+    .text-section-icon-text, #volume-text-section-icon .text-section-icon-text {
+        font-size: 20px;
+        line-height: normal;
+    }
+    #volume-text-section-icon:first-child img {
+        width: 104px;
+        height: 104px;
     }
 }
 
@@ -793,7 +809,34 @@ ul.filter-club-list {
         font-weight: 300;
         line-height: 51px;
     }
-   
+}
+
+@media screen and (min-width: 1281px) {
+    .adv-filter-tablet-img {
+        display: none;
+    }
+
+    .four-blocks-image .desktop-img {
+        display: block;
+    }
+}
+@media screen and (max-width: 1680px) {
+    #design-text-section h2 {
+        width: 70%;
+    }
+}
+@media screen and (max-width: 1280px) {
+    .image-with-four-blocks-section {
+        display: block;
+    }
+    .adv-filter-tablet-img {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+    .four-blocks-image .desktop-img {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 1280px) {
@@ -829,9 +872,9 @@ ul.filter-club-list {
         width: 50%;
         padding: 0 0 2em 6em;
     }
-    .text-section-title {
-        font-size: 52px;
-        line-height: 70px;
+    .text-section-title, .lab-test-section .text-section-title {
+        font-size: 44px;
+        line-height: 60px;
     }
     .text-section-description {
         font-size: 20px;
@@ -839,7 +882,7 @@ ul.filter-club-list {
         padding: 0 3em 0 0;
     }
     .text-section-icons {
-        column-gap: 4em;
+        column-gap: 1em;
         margin: 2em 0 0;
     }
     .text-section-icon {
@@ -864,9 +907,156 @@ ul.filter-club-list {
         width: 80%;
         padding-left: 1em;
     }
+    #volume-text-section-icon:first-child img{
+        width: 125px;
+        height: 125px;
+    }
+    #volume-text-section-icon:not(:first-child) img{
+        width: 88px;
+        height: 88px;
+    }
 }
 
+@media screen and (max-width: 767px) {
+    .text-section-cta {
+        margin-top: 34px;
+    }
+    .osmosis-section .text-section-icon, #lab-test-section-icon {  
+        width: 107px;
+        height: 107px;
+    }
+    .gb_bg_color .right_text_block .right_text_heading {
+        font-size: 52px;
+        font-weight: 300;
+    }
+    .discover-main-section{
+        padding-top: 2em;
+    }
+    .discover-main-section, .text-main-section {
+        display: block;
+    }
+
+    .volume-main-section {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .osmosis-section .text-section-icons, .lab-test-section .text-section-icons{
+        column-gap: 2em;
+    }
+    .discover-section {
+        width: 100%;
+        padding: 3em 1em;
+    }
+    .discover-heading {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 41px;
+        letter-spacing: 0em;
+        text-align: left;
+        width: 100%;
+    }
+
+    .discover-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .discover-icons {
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 2em;
+        display: grid;
+        margin-top: 1em;
+    }
+
+    .discover-icons .discover-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 0.5em;
+    }
+
+    .filter-club-list-icon img {
+        width: 70.29px;
+        height: 70.29px;
+    }
+
+    .discover-icon-text {
+        font-size: 12px;
+        line-height: 14px;
+        max-width: 95px;
+    }
+
+    .discover-icon:first-child .discover-icon-text{
+        width: 20%;
+    }
+
+    .filter-club-section {
+        width: 80%;
+        padding: 3em 0 1em 1.5em;
+    }
+
+    .filter-club-img {
+        padding: 5em 0 5em 5em;
+    }
+
+    .filter-club-btns {
+        display: flex;
+        column-gap: 0;
+        flex-direction: row;
+        width: 100%;
+        column-gap: 2em;
+    }
+
+    .subscribe-btn button{
+        width: 100%;
+        text-align: center;
+    }
+
+    .filter-club-learn-more-btn {
+        text-align: center;
+    }
+
+    .filter-club-anouncement {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    #volume-text-section-icon:first-child {
+        transform: scale(1);
+    }
+    #design-text-section h2 {
+        width: 50%;
+    }
+    .adv-filter-tablet-img {
+        display: none;
+    }
+    .adv-filter-mobile-img {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+    .img-sec {
+        width: 100%;
+    }
+    #temp-section-icon {
+        width: 66px;
+        height: 66px;
+    }
+    #design-section-icon, #capacity-section-icon .text-section-icon {
+        width: 104px;
+        height: 104px;
+    }
+}
+
+
 @media screen and (min-width: 1440px) {
+    .text-section-title, .lab-test-section .text-section-title {
+        font-size: 48px;
+        line-height: 66px;
+    }
+    .text-section {
+        padding: 2.7em 1.2em 2.7em 4em;
+    }
     .discover-icon-text {
         font-size: 16px;
         line-height: 24px;
@@ -884,7 +1074,13 @@ ul.filter-club-list {
         font-size: 1.5rem
     }
     .text-section-description {
-        padding: 0 5em 0 0;
+        padding: 0;
+        font-size: 24px;
+        line-height: 36px;
+    }
+    #volume-control-section {
+        padding-left: 6.2em;
+        padding-right: 6.15em;
     }
 }
 
@@ -911,8 +1107,12 @@ ul.filter-club-list {
         font-size: 2rem;
         line-height: 2.5rem;
     }
+    .text-section-title, .lab-test-section .text-section-title {
+        font-size: 52px;
+        line-height: 70px;
+    }
     .text-section-description {
-        padding: 0 9em 0 0;
+        padding: 0 3em 0 0;
     }
 }
 

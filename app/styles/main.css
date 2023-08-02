@@ -824,6 +824,7 @@ form .field-input::placeholder {
 
 .okendo-reviews {
   padding: 0 1rem;
+  overflow: hidden;
 }
 
 /* End: Common Styles */
@@ -1406,10 +1407,10 @@ form .field-input::placeholder {
 
 .sticky-product-footer-attached .needsclick,
 .sticky-footer-attached .needsclick {
-  z-index: 1 !important;
+  z-index:  6 !important;
 }
 
 .sticky-product-footer-attached .needsclick.klaviyo-close-form,
 .sticky-footer-attached .needsclick.klaviyo-close-form  {
-  z-index: 6 !important;
+  z-index: 10 !important;
 }

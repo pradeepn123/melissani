@@ -2,6 +2,7 @@
 
 .video-player-wrapper {
     position: relative;
+    max-height: 768px;
 }
 
 .video-player-wrapper img.video-thumbnail {
@@ -31,6 +32,9 @@
 
 /* Begin: Media Query */
 @media screen and (max-width: 540px) {
+    .video-player-wrapper {
+        margin-bottom: 0.47rem;
+    }
     .video-player-wrapper svg.play-icon {
         width: 75px;
         height: 75px;

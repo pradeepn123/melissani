@@ -315,7 +315,6 @@ async function getLayoutData({storefront}) {
   ? data.metafields
   : undefined;
 
-  console.log("header menu: ", headerMenu);
   return {shop: data.shop, headerMenu, sidebarMenu, footerMenu, footerCustomersMenu, footerInfoMenu, metafields};
 }
 
