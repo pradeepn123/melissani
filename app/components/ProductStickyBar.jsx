@@ -13,7 +13,7 @@ import { useCartFetchers } from '~/hooks/useCartFetchers';
 export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...props}) {
     const [isSticky, setIsSticky] = useState(false);
     const [isAddingToCart, setIsAddingToCart] = useState(false);
-    let body, stickyFloat, footer, compareContainer, mobileGridTable, gridPropertyValueRow;
+    let stickyFloat, footer, compareContainer, mobileGridTable, gridPropertyValueRow;
 
     const context = useContext(RequestContext)
     let elInView = false;
@@ -58,7 +58,6 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
           if(!isFirstScrolling) {
               isSecondScrolling = true;
               customDebounce("second");
-              console.log("scrollElements", scrollElements)
               if(scrollElements != null) {
                 scrollElements.scrollLeft = e.target.scrollLeft;
               }
@@ -66,7 +65,6 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
         }
 
         let getscrollLeft = 0;
-        body = document.querySelector('body');
         let callback = (entries, observer) => {
             entries.forEach((entry) => {
               // Added static numbers by checking on the scroll position
@@ -117,13 +115,12 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
     }
 
     useEffect(() => {
-        body = document.querySelector('body');
         stickyFloat = document.querySelector('.stickybar_main_section');
         footer = document.querySelector('footer');
         compareContainer = document.querySelector('.mobile-grid-container');
         mobileGridTable = document.querySelector('.mobile-grid-container .mobile-grid-table');
         gridPropertyValueRow =  document.querySelector('.grid-property-value-row');
-        if(body.classList.contains('.mobile-grid-container .mobile-grid-table')) {
+        if(document.querySelector('.mobile-grid-table')) {
             mobileGridTable.style.width = gridPropertyValueRow?.getBoundingClientRect().width + 'px';
         }
         window.addEventListener("scroll", function (ev) {
