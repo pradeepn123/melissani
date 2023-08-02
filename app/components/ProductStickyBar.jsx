@@ -58,7 +58,6 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
           if(!isFirstScrolling) {
               isSecondScrolling = true;
               customDebounce("second");
-              console.log("scrollElements", scrollElements)
               if(scrollElements != null) {
                 scrollElements.scrollLeft = e.target.scrollLeft;
               }
