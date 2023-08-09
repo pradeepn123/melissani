@@ -263,12 +263,6 @@ function Header({logo, menu, sidebarMenu, metafields}) {
         openFilterClubSavingsRightModal={context.openFilterClubSavingsRightModal}
         closeFilterClubSavingsRightModal={context.closeFilterClubSavingsRightModal}
       />
-      <FilterClubBenifitsBottomModal 
-        isOpen={context.isFilterClubBenifitsBottomModalOpen} 
-        open={context.openFilterClubBenifitsBottomModal}
-        onClose={context.closeFilterClubBenifitsModal}
-        isCartOpen={isCartOpen}
-      />
       <FilterClubSavingsBottomModal
         isOpen={context.isFilterClubSavingsBottomModalOpen} 
         open={context.openFilterClubSavingsBottomModal}
@@ -533,33 +527,6 @@ function FilterClubSavingsRightModal({isOpen, openFilterClubSavingsRightModal, c
       </section>
     </div>
   </Drawer>
-}
-
-const FilterClubBenifitsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
-  return <DrawerFromBottom
-    open={isOpen}
-    onClose={onClose}
-    openMenu={open}
-    isCartOpen={isCartOpen}
-    openFrom="right"
-    heading="Filter Club"
-    subHeading="Benefits"
-    isFilterClubModalOpen = {true} 
-  >
-    <div className="grid grid-cols-1 grid-rows-[1fr_auto]">
-      <div className="filter-club-membership-benefits-small">
-          <ul className='px-4 sm:px-8 md:px-8'>
-            <li>10% Discount</li>
-            <li>Free Shipping</li>
-            <li>Automated Delivery</li>
-            <li>Pay on Shipment</li>
-            <li>Lifetime Support</li>
-            <li>Email Us to Customise</li>
-            <li>1 Year Extended Warranty</li>
-          </ul>
-      </div>
-    </div>
-  </DrawerFromBottom>
 }
 
 const FilterClubSavingsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
