@@ -10,7 +10,8 @@ import {
   Link,
   RequestContext,
   CartClubMembership,
-  CartLoading
+  CartLoading,
+  ClockIcon
 } from '~/components';
 import { getInputStyleClasses } from '~/lib/utils';
 import { useFetcher, Await, useMatches } from '@remix-run/react';
@@ -42,7 +43,7 @@ export function CartDetails({layout, cart}) {
   };
 
   return <div className={container[layout]}>
-      <CartLines lines={cart?.lines} layout={layout} />
+      <CartLines lines={cart?.lines} layout={layout}  />
   </div>
 }
 
@@ -150,16 +151,19 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
       aria-labelledby="cart-contents"
       className={className}
     >
+      {filterClubLineItems.length > 0 && <span className='shipment-label'>
+        <ClockIcon />
+        <p className='shipment-label-text'>Charged on shipment</p>
+      </span>}
       <ul className="flex flex-col gap-6 md:gap-10">
         {oneTimeLineItems.map((line) => (
           <CartLineItem key={line.id} line={line} />
         ))}
-
-        {filterClubLineItems.length > 0 && <SubsctiptionLineItem lines={filterClubLineItems} />}
+        {filterClubLineItems.length > 0 && <SubsctiptionLineItem lines={filterClubLineItems} productDetails={productDetails} products={products} />}
       </ul>
       {filterClubLineItems.length > 0 && <div className="cart-shipment-info">
         <p className="font-tertiary">
-          Want to customise your shipment cycle? Buy filter club and Contact us to get your shipment plan personalised .
+          Email team@melissaniwater.com to customize your subscription, or edit it in your account after subscription.
         </p>
       </div>}
     </section>
@@ -176,9 +180,7 @@ function CartCheckoutActions({cost, checkoutUrl}) {
     <div className="flex flex-col mt-2">
       <a href={checkoutUrl} target="_self">
         <Button variant="primary" as="span" width="full" className="flex items-center justify-center checkout-btn">
-          {"Checkout -  "} {cost?.subtotalAmount?.amount ? (
-            <Money data={cost?.subtotalAmount} as="span"/>
-          ) : (' ')}
+          {"Checkout"}
         </Button>
       </a>
       {/* @todo: <CartShopPayButton cart={cart} /> */}
@@ -232,9 +234,8 @@ function SubsctiptionLineItem({lines}) {
       <div className="flex justify-between items-center flex-grow">
         <div className="grid gap-2">
           <Heading as="h3" size="copy" className="font-primary cart-product-title">
-            Filter Club Membership
+            Filter Club
           </Heading>
-
           <div className="grid pb-2">
             <Text className="font-tertiary cart-product-price club-membership-price">
               <span className="price">

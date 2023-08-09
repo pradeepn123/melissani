@@ -446,7 +446,9 @@ iframe {
   border-top: 1px solid #D8D8D8;
   background-color: #ffffff;
 }
-
+.filter-club-membership-savings .cart-summary-footer {
+  padding: 32px 46px;
+}
 .page-title {
   font-size: 64px;
   font-weight: 700;
@@ -625,9 +627,149 @@ iframe {
   background-repeat: no-repeat;
 }
 
+.filter-club-membership-savings {
+  margin: 0 46px;
+}
+
+.filter-club-savings-small table.filterclub-savings-price-table {
+  border-radius: 11.25px;
+  box-shadow: 0 0 0 0.75px #D1D1D1;
+  margin: 8px 0 5px;
+}
+
+.filter-club-savings-small table.filterclub-savings-price-table tr {
+  border-bottom: 0.75px solid #D1D1D1;
+}
+
+.filter-club-savings-small table.filterclub-savings-price-table th {
+  padding: 10.5px 16px;
+  border-bottom: 1px solid #D1D1D1;
+  color: #161616;
+  font-family: 'Peachi-Medium';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22.5px;
+  width: 50%;
+}
+
+.filter-club-savings-small table.filterclub-savings-price-table th:last-child {
+  text-align: end;
+}
+
+.filter-club-savings-small table.filterclub-savings-price-table tr:not(:last-child) td {
+  border-right: 0.75px solid #D1D1D1;
+  padding: 10.5px 16px;
+  color: #161616;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22.5px;
+  text-transform: uppercase;
+}
+
+.filter-club-savings-small table.filterclub-savings-price-table tr:last-child td {
+  padding: 10.5px 16px;
+  color: #161616;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22.5px;
+  text-transform: unset;
+}
+
+.filter-club-savings-small table.filterclub-savings-price-table tr td:last-child {
+  color: #000;
+  text-align: right;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22.5px;
+  text-transform: unset;
+}
+.filter-club-savings-toggle-text {
+  color: #4B4B4B;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 24px;
+  margin: 0;
+}
+.show_disc_price {
+  color: #7B7B7B;
+  text-align: right;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22.5px;
+  text-decoration: line-through;
+}
+.filter-club-savings-switcher {
+  border-radius: 11.13px;
+  background: #E1E9EB;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+}
+
+.filter-club-savings-switcher .filter-club-switcher-title {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 13px;
+  align-items: center;
+  padding: 1em .95em;
+  margin-top: 5px;
+}
+
+.filter-club-savings-switcher span.filter-club-switcher-title-text {
+  color: #161616;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22.5px;
+}
+
+.bg-blue {
+  background-color: #1B2943;
+  --tw-bg-opacity: 1;
+}
+
+.active-toggle-bg {
+  background-color: #1B2943;
+  --tw-bg-opacity: 1;
+}
+
+.inactive-toggle-bg {
+  background-color: transparent;
+  border: 1px solid #1B2943;
+  --tw-bg-opacity: 1;
+}
+
+.filter-club-savings-switcher .filter-club-switch {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  padding: 1em .95em;
+  justify-items: flex-end;
+}
+
 .filter-club-modal-items ul {
   margin: 20px 0;
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 4em;
 }
+
+.filter-club-modal-items ul li:first-child {
+  padding: 10px 0;
+}
+
 .filter-club-modal-items ul li div span {
   font-weight: 400;
   margin-left: 5px;
@@ -818,6 +960,28 @@ form .field-input::placeholder {
   .Marquee-tag p {
     object-fit: contain;
   }
+  .filter-club-modal-items ul {
+    flex-direction: column;
+  }
+  .filter-club-modal-items ul li {
+    padding: 10px 0;
+  }
+  .filter-club-subscription-modal-content .additional-information .include-benifits {
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  .filter-club-subscription-modal-content .additional-information .include-benifits span {
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 18px;
+  }
 }
 /*End: Announcement Marquee*/
 
@@ -942,6 +1106,10 @@ form .field-input::placeholder {
   }
   .mobile-social-section-wrapper {
     display: none;
+  }
+  .show_disc_price {
+    font-size: 20px;
+    line-height: 30px;
   }
 }
 
@@ -1086,17 +1254,35 @@ form .field-input::placeholder {
       letter-spacing: 0em;
   }
 
-.footer-wrapper .footer-text p span {
-      font-size: 24px;
-      line-height: 26px;
-      margin-top: 1rem;
-}
-.footer-menus #optin-form input#customer_email{
-  min-width: 199px;
-}
-.lab_pfas_report_section .pdf_modal {
-  position: absolute;
-}
+  .footer-wrapper .footer-text p span {
+        font-size: 24px;
+        line-height: 26px;
+        margin-top: 1rem;
+  }
+  .footer-menus #optin-form input#customer_email{
+    min-width: 199px;
+  }
+  .lab_pfas_report_section .pdf_modal {
+    position: absolute;
+  }
+  .filter-club-savings-switcher span.filter-club-switcher-title-text,
+  .filter-club-savings-small table.filterclub-savings-price-table th,
+  .filter-club-savings-small table.filterclub-savings-price-table tr:not(:last-child) td,
+  .filter-club-savings-small table.filterclub-savings-price-table tr:last-child td {
+    font-size: 20px;
+    line-height: 24px;
+    padding: 17px 22px;
+  }
+  .filter-club-savings-small table.filterclub-savings-price-table tr td:last-child {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .filter-club-savings-toggle-text {
+    font-size: 16px;
+  }
+  .filter-club-savings-small table.filterclub-savings-price-table {
+    margin: 0 0 10px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1250,8 +1436,38 @@ form .field-input::placeholder {
   width: 15px;
 }
 
-.drawer-bottom-dialog-panel .drawer-header .filter-club-membership {
-  padding-top: 1rem;
+.drawer-bottom-dialog-panel .filter-club-membership {
+  padding-top: 2rem;
+}
+
+.drawer-bottom-dialog-panel .product-label-banner {
+  background-color: #e1e9eb;
+  padding: 8px 10px;
+}
+
+.drawer-bottom-dialog-panel .product-label-banner .icon-with-text {
+  display: flex;
+  flex-direction: row;
+  column-gap: 3px;
+  align-items: center;
+}
+
+.drawer-bottom-dialog-panel .product-label-banner .icon-text {
+  color: #1B2943;
+  font-family: 'Peachi-Bold';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.drawer-bottom-dialog-panel .product-label-banner p {
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 18px;
 }
 
 .drawer-bottom-dialog-panel .drawer-header .filter-club-membership .cart-heading{
@@ -1262,6 +1478,12 @@ form .field-input::placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.subscription-benefits {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .include-benifits {
@@ -1293,19 +1515,38 @@ form .field-input::placeholder {
 }
 
 .one-time-products-wrapper {
-  padding: 0 1.5rem .5rem 1.5rem;
+  padding: 0 1.5rem .5rem;
 }
 
 .filter-club-subscription-modal-content {
-  padding: 0 1.2rem;
+  padding: 0 1.5rem;
+}
+.filter-club-subscription-modal-content .product-price span.compare-at-price-amount {
+  color: #E23F35;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  text-decoration: line-through;
 }
 
-.filter-club-subscription-modal-content .product-price span {
-  font-size: 24px;
+.filter-club-subscription-modal-content .product-price span.price-amount {
+  color: #727171;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-style: normal;
   font-weight: 400;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #717070;
+  line-height: 30px;
+}
+
+.filter-club-subscription-modal-content .product-price span.price-sub-text {
+  color: #727171;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
 }
 
 .add-to-cart-generic {

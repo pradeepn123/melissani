@@ -13,7 +13,7 @@ import {CartCount} from '~/components/CartCount'
  * @param openFrom - right, left
  * @param children - react children node.
  */
-export function Drawer({isHome, isCartDrawer, openCart, open, onClose, openFrom = 'right', children, isFilterClubModal=false}) {
+export function Drawer({isHome, isCartDrawer, openCart, open, onClose, openFrom = 'right', children, isFilterClubModal=false, isFilterClubSavingsModal=false}) {
   const offScreen = {
     right: 'translate-x-full',
     left: '-translate-x-full',
@@ -51,12 +51,12 @@ export function Drawer({isHome, isCartDrawer, openCart, open, onClose, openFrom 
                 leaveTo={offScreen[openFrom]}
               >
                 <Dialog.Panel className={`drawer-dialog-panel w-screen max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-xl text-left align-middle transition-all transform shadow-xl h-screen-dynamic bg-contrast ${isCartDrawer ? 'cart-drawer-dialog-panel' : ''}`}>
-                  <header className={`menuDrawer-nav sticky top-0 flex px-4 h-nav gap-x-4 sm:px-8 md:px-8 items-center relative ${isCartDrawer || isFilterClubModal ? 'justify-between' : 'justify-end'}`}>
+                  <header className={`menuDrawer-nav sticky top-0 flex px-4 h-nav gap-x-4 sm:px-8 md:px-8 items-center relative ${isCartDrawer || isFilterClubModal || isFilterClubSavingsModal ? 'justify-between' : 'justify-end'}`}>
                     {isCartDrawer && <div className="cart-heading-wrapper">
                       <p className="font-primary cart-heading">Cart</p>
                       <p className="font-tertiary cart-count"><CartCount isCartDrawer={isCartDrawer} /> Items</p>  
                     </div>}
-                    {!isCartDrawer && !isFilterClubModal && <>
+                    {!isCartDrawer && !isFilterClubModal && !isFilterClubSavingsModal && <>
                       <Link to="/account/login" 
                         className="menu-drawer-account relative items-center justify-center w-8 flex" onClick={onClose}>
                         <img src={account} />
@@ -66,12 +66,12 @@ export function Drawer({isHome, isCartDrawer, openCart, open, onClose, openFrom 
                         className="menu-drawer-cart mr-4 absolute top-1/2" isHome={isHome} openCart={openCart}/>
                       </span>
                     </>}
-                    {isFilterClubModal && <div className="filter-club-membership">
+                    {(isFilterClubModal || isFilterClubSavingsModal) && <div className="filter-club-membership">
                       <div className="cart-heading">
                         Filter Club
                       </div>
                       <p>
-                        Membership Benefits
+                      { isFilterClubModal ? 'Benefits' : 'Savings Per Year' }
                       </p>
                     </div>}
                     <button

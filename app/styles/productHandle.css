@@ -41,12 +41,17 @@
 
 .product-form-wrapper {
   border: 1px solid #DDDDDD;
-  /* padding: 1rem 1.2rem; */
   padding: 3.25rem 2.87rem;
   border-radius: 10px;
 }
 
-.product-form-wrapper .product-price span {
+.subscription-product-form-wrapper {
+  border: 1px solid #DDDDDD;
+  border-radius: 10px;
+}
+
+
+.product-form-wrapper .product-price span, .subscription-product-form-wrapper .product-price span {
   font-size: 24px;
   font-weight: 400;
   letter-spacing: 0em;
@@ -54,7 +59,7 @@
   color: #717070;
 }
 
-.product-form-wrapper .product-price span.price-sub-text {
+.product-form-wrapper .product-price span.price-sub-text, .subscription-product-form-wrapper .product-price span.price-sub-text {
   font-size: 16px;
   line-height: 22px;
   margin-left: 5px;
@@ -71,7 +76,7 @@
   font-size: 20px !important;
 }
 
-label.product-form-wrapper {
+label.product-form-wrapper, label.subscription-product-form-wrapper {
   display: block;
   cursor: pointer;
 }
@@ -104,6 +109,11 @@ label.product-form-wrapper {
   display: flex;
   align-items: center;
   column-gap: 4px;
+  margin-top: 32px;
+}
+
+.filter-club-subscription-modal-content .additional-information .filter_club_benefits:last-child {
+  margin-top: 0;
 }
 
 .additional-information .include-benifits span {
@@ -190,41 +200,60 @@ label.product-form-wrapper {
     border: 2px solid #1B2943;
     border-radius: 50px;
   }
+  /* .additional-information:first .filter_club_benefits {
+    margin-top: 32px;
+  } */
+  .filter-club-subscription-modal-content .additional-information:not(:first) .filter_club_benefits {
+    margin-top: 0 !important;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .subscription-form .subscription-product-form-wrapper .product-form-wrapper-grid {
+    width: 437px;
+  }
 }
 
 /* Begin: Product Form Section */
   
-.product-form-wrapper .product-title {
-  font-family: 'Peachi-Medium';
+.product-form-wrapper .product-title, .subscription-product-form-wrapper .product-title {
+  /* font-family: 'Peachi-Medium';
   font-size: 32px;
   line-height: 41px;
-  color: #000;
+  color: #000; */
+  color: #1B2943;
+  font-family: 'Peachi-Medium';
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
 }
 
-.product-form-wrapper .add-to-cart-wrapper {
+.product-form-wrapper .add-to-cart-wrapper, .subscription-product-form-wrapper .add-to-cart-wrapper {
   grid-template-columns: auto auto;
   margin: 20px 0 30px;
 }
   
-.product-form-wrapper .add-to-cart-wrapper .quantity-selector {
+.product-form-wrapper .add-to-cart-wrapper .quantity-selector, .subscription-product-form-wrapper .add-to-cart-wrapper .quantity-selector {
   border: 1px solid #000;
   justify-content: space-between;
   font-family: Montserrat, sans-serif;
 }
   
-.product-form-wrapper .desc-list ul {
+.product-form-wrapper .desc-list ul, .subscription-product-form-wrapper .desc-list ul {
   list-style: disc;
   margin-left: 15px;
 }
   
-.product-form-wrapper .desc-list ul li {
+.product-form-wrapper .desc-list ul li, .subscription-product-form-wrapper .desc-list ul li {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #000;
 }
   
-.product-form-wrapper .desc-list ul li:not(:last-child) {
+.product-form-wrapper .desc-list ul li:not(:last-child), .subscription-product-form-wrapper .desc-list ul li:not(:last-child) {
   margin-bottom: 20px;
 }
   /* End: Product Form Section */
@@ -293,6 +322,43 @@ label.product-form-wrapper {
   padding: 2rem;
 }
 
+.subscription-form .subscription-product-form-wrapper .product-form-wrapper-grid {
+  padding: 1rem 2rem 1.75rem;
+}
+
+.subscription-form .subscription-product-form-wrapper .product-label-banner {
+  background-color: #e1e9eb;
+  padding: 9px 22px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.subscription-form .subscription-product-form-wrapper .product-label-banner .icon-with-text {
+  display: flex;
+  flex-direction: row;
+  column-gap: 3px;
+  align-items: center;
+}
+
+.subscription-form .subscription-product-form-wrapper .product-label-banner .icon-text {
+  color: #1B2943;
+  font-family: 'Peachi-Bold';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.subscription-form .subscription-product-form-wrapper .product-label-banner p {
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 18px;
+}
+
+
 .subscription-form .subscription-title {
   margin: 0.5rem auto;
 }
@@ -305,7 +371,7 @@ label.product-form-wrapper {
   display: none;
 }
 
-.subscription-form input[name="subscription-form"]:checked + label.product-form-wrapper {
+.subscription-form input[name="subscription-form"]:checked + label.subscription-product-form-wrapper {
   border: 2px solid #1B2943;
   cursor: initial;
 }
