@@ -275,13 +275,6 @@ function Header({logo, menu, sidebarMenu, metafields}) {
         onClose={context.closeFilterClubSavingsBottomModal}
         isCartOpen={isCartOpen}
       />
-      <FilterClubItemsModal 
-        isOpen={context.isFilterClubItemsModalOpen} 
-        open={context.openFilterClubItemsModal}
-        onClose={context.closeFilterClubItemsModal}
-        filterClubItems={context.filterClubItems}
-        isCartOpen={isCartOpen}
-      />
       <NoSubscriptionModal
         isOpen={context.isNoSubscriptionModalOpen}
         open={context.openNoSubscriptionModalOpen}
@@ -597,7 +590,6 @@ const FilterClubSavingsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
     subHeading="Savings Per Year"
     isFilterClubModalOpen = {true} 
   >
-    {console.log("toggle", toggle)}
     <div className="grid grid-cols-1 grid-rows-[1fr_auto] mx-5 justify-between">
       <div className="filter-club-savings-small">
           <table className='px-4 sm:px-8 md:px-8 w-full filterclub-savings-price-table'>
@@ -696,117 +688,6 @@ const FilterClubSavingsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
     </div>
   </DrawerFromBottom>
 }
-
-const FilterClubItemsModal = ({isOpen, open, onClose, filterClubItems, isCartOpen}) => {
-  const shipmentDate = new Date()
-  shipmentDate.setMonth(shipmentDate.getMonth() + 6)
-  const [root] = useMatches();
-
-  let pac_cf_total = 0.0;
-  let pac_cf_total_after_discount = 0.0;
-  let filters_total = 0.0;
-  let filters_total_after_discount = 0.0;
-
-  return <DrawerFromBottom
-    open={isOpen}
-    openMenu={open}
-    onClose={onClose}
-    isCartOpen={isCartOpen}
-    openFrom="right"
-    heading="Filter Club"
-    subHeading="What's included?"
-    isFilterClubModalOpen = {true}
-  >
-    <div className='filterclub-included-shipment'>
-      <div className='filterclub-included-shipment-label'>
-        <p className='shipment-label-title'>
-          Upcoming shipment
-        </p>
-        <p className='shipment-label-title'>
-          Amount Charged
-        </p>
-      </div>
-      <div className='filterclub-included-shipment-label'>
-        <p className='shipment-label-text'>
-          {shipmentDate.toDateString()}
-        </p>
-        <Await resolve={root.data?.products}>
-              {(products) => {
-                products.nodes.filter((p) => {
-                  return p.handle == "melissani-m1-filter-pac-1" || p.handle == "melissani-m1-filter-cf-1"
-                }).map((item) => {
-                  let price = parseFloat(item.variants.nodes[0].price.amount);
-                  pac_cf_total = parseFloat(pac_cf_total) + price;
-                  
-                })
-                pac_cf_total_after_discount = (pac_cf_total - (0.10 * pac_cf_total)).toFixed(2);
-                return <p className='shipment-label-text'>
-                      $ {pac_cf_total_after_discount}
-                </p>
-              }}
-        </Await>
-      </div>
-    </div>
-    <div className="grid grid-cols-1 grid-rows-[1fr_auto]">
-      <div className="filter-club-modal-items">
-          <ul className='px-6 sm:px-6 md:px-6'>
-            {filterClubItems
-            .filter((line) => line.merchandise.product.handle != 'melissani-m1-filter-ro')
-            .map((line) => (
-            <li
-              className="flex gap-8 subscription_filter_club_member drawer"
-              key={`filter-club-${line.id}`}
-            >
-              <div className="flex-shrink">
-                <div className="cart-product-img-wrapper">
-                  <Image
-                    data={line.merchandise.image}
-                    className="cart-product-img"
-                    />
-                </div>
-              </div>
-              <div className="flex items-center flex-grow include-benifits">
-                {line.quantity} X {line.merchandise.product.productType} <span>
-                </span>
-              </div>
-            </li>))}
-          </ul>
-      </div>
-    </div>
-    <div className='filterclub-next-shipment'>
-        <div className='filterclub-included-shipment-label'>
-          <p className='next-shipment-label-title'>
-            Next shipment
-          </p>
-          <p className='next-shipment-label-title'>
-            Amount Charged
-          </p>
-        </div>
-        <div className='filterclub-included-shipment-label'>
-          <p className='next-shipment-label-text'>
-            1 x RO Filter , 1 x PAC Filter , 1 x CF Filter 
-          </p>
-          <p className='next-shipment-label-title'>
-            <Await resolve={root.data?.products}>
-                {(products) => {
-                  products.nodes.filter((p) => {
-                    return p.handle == "melissani-m1-filter-pac-1" || p.handle == "melissani-m1-filter-cf-1" || p.handle == "melissani-m1-filter-ro-1"
-                  }).map((item) => {
-                    let price = parseFloat(item.variants.nodes[0].price.amount);
-                    filters_total = parseFloat(filters_total) + price;
-                  })
-                  filters_total_after_discount = (filters_total - (0.10 * filters_total)).toFixed(2);
-                  return <p className='next-shipment-label-text'>
-                        $ {filters_total_after_discount}
-                  </p>
-                }}
-          </Await>
-          </p>
-        </div>
-    </div>
-  </DrawerFromBottom>
-}
-
 
 const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
   const context = useContext(RequestContext)
@@ -1074,7 +955,7 @@ function CartDrawer({isOpen, isHome, onClose, openCart }) {
       <div className="grid cart-body-content">
         <Suspense fallback={<CartLoading />}>
           <Await resolve={root.data?.cart}>
-            {(cart) => <Cart layout="drawer" onClose={onClose} cart={cart} />}
+            {(cart) => <Cart layout="drawer" onClose={onClose} cart={cart} isCartOpen={isOpen} />}
           </Await>
         </Suspense>
       </div>

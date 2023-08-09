@@ -28,7 +28,6 @@ const SubscriptionProductForm = (props) => {
         let filterClubPrice = 0
         let filterClubCompareAtPrice = 0
         const subscriptionItems = props.products.filter((p) => {
-
             return props.parsedProductDetails.linkedProducts.subscription.includes(p.handle)
         }).map((item) => {
             const itemMetafield = JSON.parse(item.metafields[0].value)
