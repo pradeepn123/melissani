@@ -159,7 +159,7 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
         {oneTimeLineItems.map((line) => (
           <CartLineItem key={line.id} line={line} />
         ))}
-        {filterClubLineItems.length > 0 && <SubsctiptionLineItem lines={filterClubLineItems} productDetails={productDetails} products={products} />}
+        {filterClubLineItems.length > 0 && <SubsctiptionLineItem lines={filterClubLineItems} />}
       </ul>
       {filterClubLineItems.length > 0 && <div className="cart-shipment-info">
         <p className="font-tertiary">
