@@ -531,6 +531,7 @@ function FilterClubSavingsRightModal({isOpen, openFilterClubSavingsRightModal, c
 }
 
 function FilterClubBenifitsBottomModal({isOpen, open, onClose, isCartOpen}) {
+  debugger;
   return <DrawerFromBottom
     open={isOpen}
     onClose={onClose}
