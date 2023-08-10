@@ -714,7 +714,7 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
     }
   }, [isAddingToCart == true && context.isAddingToCart])
 
-  return <><DrawerFromBottom
+  return <DrawerFromBottom
     open={isOpen}
     openMenu={open}
     onClose={onClose}
@@ -796,14 +796,13 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
         </div>
       </div>
     </div>
-  </DrawerFromBottom>
-  <FilterClubBenifitsBottomModal
+    <FilterClubBenifitsBottomModal
     isOpen={context.isFilterClubBenifitsBottomModalOpen} 
     open={context.openFilterClubBenifitsBottomModal}
     onClose={context.closeFilterClubBenifitsModal}
     isFilterClubSubscriptionOpen={context.isSubscriptionModalOpen}
   />
-  </>
+  </DrawerFromBottom>
 }
 
 const NoSubscriptionModal = ({isOpen, open, onClose, oneTimeProducts, setOneTimeProducts}) => {
