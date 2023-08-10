@@ -380,6 +380,7 @@ iframe {
 }
 .filter-club-membership > p{
     font-family: 'Montserrat', sans-serif;
+    color: #000;
 }
 
 .cart-count {
@@ -568,7 +569,6 @@ iframe {
   color: #737373;
 }
 
-
 /* End Cart Drawer */
 
 .filter-club-membership-benefits{
@@ -723,7 +723,6 @@ iframe {
   column-gap: 13px;
   align-items: center;
   padding: 1em .95em;
-  margin-top: 5px;
 }
 
 .filter-club-savings-switcher span.filter-club-switcher-title-text {
@@ -1111,6 +1110,24 @@ form .field-input::placeholder {
     font-size: 20px;
     line-height: 30px;
   }
+  .filter-club-savings-switcher span.filter-club-switcher-title-text,
+  .filter-club-savings-small table.filterclub-savings-price-table th,
+  .filter-club-savings-small table.filterclub-savings-price-table tr:not(:last-child) td,
+  .filter-club-savings-small table.filterclub-savings-price-table tr:last-child td {
+    font-size: 20px;
+    line-height: 24px;
+    padding: 17px 22px;
+  }
+  .filter-club-savings-small table.filterclub-savings-price-table tr td:last-child {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .filter-club-savings-toggle-text {
+    font-size: 16px;
+  }
+  .filter-club-savings-small table.filterclub-savings-price-table {
+    margin: 0 0 10px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -1122,6 +1139,18 @@ form .field-input::placeholder {
   }
   .footer-list-item {
     font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .filter-club-savings-small table.filterclub-savings-price-table tr:not(:last-child) td,
+  .filter-club-savings-small table.filterclub-savings-price-table tr:last-child td {
+    font-size: 16px;
+    line-height: normal;
+  }
+  .filter-club-savings-small table.filterclub-savings-price-table tr td:last-child, .show_disc_price {
+    font-size: 15px;
+    line-height: normal;
   }
 }
 
@@ -1202,6 +1231,22 @@ form .field-input::placeholder {
   .not_found_header{
     padding: 18% 21%;
   }
+  .filter-club-savings-small table.filterclub-savings-price-table tr td:last-child {
+    font-size: 15px;
+    line-height: 30px;
+  }
+  .filter-club-savings-switcher span.filter-club-switcher-title-text {
+    font-size: 18px;
+    line-height: 24px;
+    padding: 17px 18px;
+  }
+  .filter-club-savings-small table.filterclub-savings-price-table th,
+  .filter-club-savings-small table.filterclub-savings-price-table tr:not(:last-child) td,
+  .filter-club-savings-small table.filterclub-savings-price-table tr:last-child td {
+    font-size: 15px;
+    line-height: 24px;
+    padding: 17px 22px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -1264,24 +1309,6 @@ form .field-input::placeholder {
   }
   .lab_pfas_report_section .pdf_modal {
     position: absolute;
-  }
-  .filter-club-savings-switcher span.filter-club-switcher-title-text,
-  .filter-club-savings-small table.filterclub-savings-price-table th,
-  .filter-club-savings-small table.filterclub-savings-price-table tr:not(:last-child) td,
-  .filter-club-savings-small table.filterclub-savings-price-table tr:last-child td {
-    font-size: 20px;
-    line-height: 24px;
-    padding: 17px 22px;
-  }
-  .filter-club-savings-small table.filterclub-savings-price-table tr td:last-child {
-    font-size: 20px;
-    line-height: 30px;
-  }
-  .filter-club-savings-toggle-text {
-    font-size: 16px;
-  }
-  .filter-club-savings-small table.filterclub-savings-price-table {
-    margin: 0 0 10px;
   }
 }
 
@@ -1407,11 +1434,6 @@ form .field-input::placeholder {
   .menu-cart-icon {
     margin: 0;
   }
-
-  /* .menuDrawer-nav {
-     align-content: center;
-     flex-wrap: wrap;
-    } */
 }
 
 @media screen and (max-width: 320px) {
@@ -1420,6 +1442,29 @@ form .field-input::placeholder {
   }
   .footer-menus #optin-form input#customer_email {
     min-width: unset;
+  }
+  .filter-club-savings-small table.filterclub-savings-price-table tr:not(:last-child) td {
+    padding: 8.5px 16px;
+    font-size: 14px;
+    line-height: normal;
+  }
+  .filter-club-savings-small table.filterclub-savings-price-table tr:last-child td {
+    padding: 10.5px 16px;
+    font-size: 14px;
+  }
+  .filter-club-savings-small table.filterclub-savings-price-table tr td:last-child {
+    font-size: 12px;
+    line-height: 16.5px;
+  }
+  .show_disc_price {
+    font-size: 12px;
+    line-height: 14.5px;
+  }
+  .filter-club-savings-switcher span.filter-club-switcher-title-text {
+    font-size: 16px;
+  }
+  .filter-club-savings-switcher .filter-club-switcher-title {
+    padding: 0.5em .95em;
   }
 }
 /* End: Media Query */
@@ -1470,6 +1515,10 @@ form .field-input::placeholder {
   line-height: 18px;
 }
 
+.drawer-bottom-dialog-panel .product-label-banner .product-label-banner-text {
+  margin-left: 27px;
+}
+
 .drawer-bottom-dialog-panel .drawer-header .filter-club-membership .cart-heading{
     text-transform: capitalize;
 }
@@ -1490,6 +1539,11 @@ form .field-input::placeholder {
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
+  color: #000;
+}
+
+.include-benifits:first {
+  margin-bottom: 6px;
 }
 
 .include-benifits span {
@@ -1508,6 +1562,7 @@ form .field-input::placeholder {
 
 .drawer-header .cart-heading {
   font-size: 26px;
+  line-height: 37.5px;
 }
 
 .drawer-header.px-4 {

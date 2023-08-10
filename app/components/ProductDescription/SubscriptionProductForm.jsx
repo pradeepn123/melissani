@@ -144,7 +144,7 @@ const SubscriptionProductForm = (props) => {
                     <ClockIcon />
                     <p className='icon-text'>Zero upfront charges!</p>
                 </span>
-                <p>You will only be charged when filters ship.</p>
+                <p className='product-label-banner-text'>You will only be charged when filters ship.</p>
             </div>
             <div className="grid gap-2 product-form-wrapper-grid">
                 <Heading as="h1" className="whitespace-normal product-title">
@@ -168,16 +168,16 @@ const SubscriptionProductForm = (props) => {
                         }}
                         as="span"
                     />
-                    <span className="price-sub-text">per year</span>
+                    <span className="price-sub-text">/ year</span>
                 </div>
-                <div className="grid gap-4 py-1">
+                <div className="grid gap-4 py-1 pb-2">
                     {props.parsedProductDetails?.productDescription && <div
                         className="font-tertiary product-description"
                         dangerouslySetInnerHTML={{ __html: props.parsedProductDetails.productDescription}}
                     ></div>}
                 </div>
                 <hr/>
-                <div className="additional-information">
+                <div className="additional-information pt-2">
                     <Heading as="h5" className="whitespace-normal product-information">
                         Includes:
                     </Heading>
@@ -211,7 +211,7 @@ const SubscriptionProductForm = (props) => {
             value="onetime"
             onChange={handleInputChange}
         />
-        <label className="product-form-wrapper mt-8" htmlFor="onetime-input">
+        <label className="product-form-wrapper mt-12" htmlFor="onetime-input">
             <div className="grid gap-2">
                 <Heading as="h1" className="whitespace-normal product-title">
                     No Subscription
@@ -226,8 +226,8 @@ const SubscriptionProductForm = (props) => {
                     />
                 </div> : <></>}
                 <div className="grid gap-4 py-1">
-                    <div className="font-tertiary product-description">
-                        One time purchase buy filters separately
+                    <div className="font-tertiary product-description text-black">
+                        One - Time Purchase
                     </div>
                 </div>
             </div>

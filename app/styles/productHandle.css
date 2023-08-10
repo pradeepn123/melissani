@@ -90,6 +90,10 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
   background: #DBE3E9;
 }
 
+.text-black {
+  color: #000 !important;
+}
+
 .product-description {
   color: #4B4B4B;
   font-style: normal;
@@ -100,7 +104,7 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
   font-family: 'Peachi-Medium';
   font-size: 18px;
   color: #000;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .additional-information .filter_club_benefits {
@@ -130,12 +134,35 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+
+@media screen and (max-width: 320px) {
+  .product-description {
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 375px) {
   .cart-btn {
     padding-left: 1.4rem;
     padding-right: 1.4rem;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .subscription-form .subscription-product-form-wrapper .product-form-wrapper-grid {
+    padding: 1rem 1rem 1.75rem;
+  }
+  .product-form-wrapper .product-price span, .subscription-product-form-wrapper .product-price span {
+    font-size: 20px;
+  }
+  .subscription-benefits {
+    flex-direction: column;
+  }
+  .additional-information .filter_club_benefits {
+    margin-top: 16px;
+  }
+}
+
 @media (min-width: 768px) {
   .product-content {
     margin-bottom: 2rem;
@@ -152,6 +179,7 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
     height: 35px;
     padding: 8px;
   }
+
 }
 
 @media screen and (max-width: 767px) {
@@ -352,6 +380,10 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
   line-height: 18px;
 }
 
+.subscription-form .subscription-product-form-wrapper .product-label-banner .product-label-banner-text {
+  margin-left: 27px;
+}
+
 .subscription-form .subscription-title {
   margin: 0.5rem auto;
 }
@@ -364,7 +396,8 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
   display: none;
 }
 
-.subscription-form input[name="subscription-form"]:checked + label.subscription-product-form-wrapper {
+.subscription-form input[name="subscription-form"]:checked + label.subscription-product-form-wrapper,
+.subscription-form input[name="subscription-form"]:checked + label.product-form-wrapper {
   border: 2px solid #1B2943;
   cursor: initial;
 }

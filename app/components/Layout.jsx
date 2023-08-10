@@ -263,6 +263,12 @@ function Header({logo, menu, sidebarMenu, metafields}) {
         openFilterClubSavingsRightModal={context.openFilterClubSavingsRightModal}
         closeFilterClubSavingsRightModal={context.closeFilterClubSavingsRightModal}
       />
+      <FilterClubBenifitsBottomModal
+        isOpen={context.isFilterClubBenifitsBottomModalOpen} 
+        open={context.openFilterClubBenifitsBottomModal}
+        onClose={context.closeFilterClubBenifitsModal}
+        isCartOpen={isCartOpen}
+      />
       <FilterClubSavingsBottomModal
         isOpen={context.isFilterClubSavingsBottomModalOpen} 
         open={context.openFilterClubSavingsBottomModal}
@@ -529,6 +535,33 @@ function FilterClubSavingsRightModal({isOpen, openFilterClubSavingsRightModal, c
   </Drawer>
 }
 
+function FilterClubBenifitsBottomModal({isOpen, open, onClose, isCartOpen}) {
+  return <DrawerFromBottom
+    open={isOpen}
+    onClose={onClose}
+    openMenu={open}
+    isCartOpen={isCartOpen}
+    openFrom="right"
+    heading="Filter Club"
+    subHeading="Benefits"
+    isFilterClubModalOpen = {true} 
+  >
+    <div className="grid grid-cols-1 grid-rows-[1fr_auto]">
+      <div className="filter-club-membership-benefits-small">
+          <ul className='px-4 sm:px-8 md:px-8'>
+            <li>10% Discount</li>
+            <li>Free Shipping</li>
+            <li>Automated Delivery</li>
+            <li>Pay on Shipment</li>
+            <li>Lifetime Support</li>
+            <li>Email Us to Customise</li>
+            <li>1 Year Extended Warranty</li>
+          </ul>
+      </div>
+    </div>
+  </DrawerFromBottom>
+}
+
 const FilterClubSavingsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
   const [root] = useMatches();
 
@@ -730,7 +763,7 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
               <Heading as="h5" className="whitespace-normal product-information">
                 Includes:
                 </Heading>
-                <p className="font-tertiary include-benifits">PAC & CF Filter <span>/ Every 6 months</span></p>
+                <p className="font-tertiary include-benifits mb-1">PAC & CF Filter <span>/ Every 6 months</span></p>
                 <p className="font-tertiary include-benifits">RO Filter <span>/ Every 12 months</span></p>
                 <p
                   className="font-tertiary include-benifits filter_club_benefits mt-8 mb-3.5"

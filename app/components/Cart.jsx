@@ -133,7 +133,7 @@ const FilterClubItemsModal = ({isOpen, open, onClose, filterClubItems, isCartOpe
         </div>
         <div className='filterclub-included-shipment-label'>
           <p className='next-shipment-label-text'>
-            1 x RO Filter , 1 x PAC Filter , 1 x CF Filter 
+            1 x RO Filter, 1 x PAC Filter, 1 x CF Filter 
           </p>
           <p className='next-shipment-label-title'>
             <Await resolve={root.data?.products}>
@@ -301,10 +301,6 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
       aria-labelledby="cart-contents"
       className={className}
     >
-      {filterClubLineItems.length > 0 && <span className='shipment-label'>
-        <ClockIcon />
-        <p className='shipment-label-text'>Charged on shipment</p>
-      </span>}
       <ul className="flex flex-col gap-6 md:gap-10">
         {oneTimeLineItems.map((line) => (
           <CartLineItem key={line.id} line={line} />
@@ -313,7 +309,7 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
       </ul>
       {filterClubLineItems.length > 0 && <div className="cart-shipment-info">
         <p className="font-tertiary">
-          Email team@melissaniwater.com to customize your subscription, or edit it in your account after subscription.
+          Email <u><a href="mailto:team@melissaniwater.com">team@melissaniwater.com</a></u> to customize your subscription, or edit it in your account after subscription.
         </p>
       </div>}
     </section>
@@ -382,20 +378,13 @@ function SubsctiptionLineItem({lines}) {
       </div>
       <div className="flex justify-between items-center flex-grow">
         <div className="grid gap-2">
+          {lines.length > 0 && <span className='shipment-label'>
+            <ClockIcon />
+            <p className='shipment-label-text'>Charged on shipment</p>
+          </span>}
           <Heading as="h3" size="copy" className="font-primary cart-product-title">
             Filter Club
           </Heading>
-          <div className="grid pb-2">
-            <Text className="font-tertiary cart-product-price club-membership-price">
-              <span className="price">
-                <SubscriptionLinesCompareAtPrice lines={lines} as="span" />
-              </span>
-              <span className="offer-price">
-                <SubscriptionLinesPrice lines={lines} as="span" />
-              </span>
-            </Text>
-          </div>
-
           <div className="grid gap-2 pb-2">
             <Text className="font-tertiary filter-club-text">
               Filters ship based on the <strong>Optimum service cycle</strong>

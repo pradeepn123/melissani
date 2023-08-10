@@ -72,7 +72,7 @@ export function DrawerFromBottom({open, onClose, openFrom = 'bottom', isFilterCl
                             <ClockIcon />
                             <p className='icon-text'>Zero upfront charges!</p>
                         </span>
-                        <p>You will only be charged when filters ship.</p>
+                        <p className='product-label-banner-text'>You will only be charged when filters ship.</p>
                   </div>}
                   <header className={headerClass}>
                     {props.heading && <div className="filter-club-membership">
