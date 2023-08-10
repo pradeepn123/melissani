@@ -263,12 +263,6 @@ function Header({logo, menu, sidebarMenu, metafields}) {
         openFilterClubSavingsRightModal={context.openFilterClubSavingsRightModal}
         closeFilterClubSavingsRightModal={context.closeFilterClubSavingsRightModal}
       />
-      <FilterClubBenifitsBottomModal
-        isOpen={context.isFilterClubBenifitsBottomModalOpen} 
-        open={context.openFilterClubBenifitsBottomModal}
-        onClose={context.closeFilterClubBenifitsModal}
-        isCartOpen={isCartOpen}
-      />
       <FilterClubSavingsBottomModal
         isOpen={context.isFilterClubSavingsBottomModalOpen} 
         open={context.openFilterClubSavingsBottomModal}
@@ -291,6 +285,7 @@ function Header({logo, menu, sidebarMenu, metafields}) {
     </>
   );
 }
+
 
 function FilterClubRightModal({isOpen, openFilterClubRightModal, closeFilterClubRightModal}) {
   const [root] = useMatches();
@@ -719,7 +714,7 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
     }
   }, [isAddingToCart == true && context.isAddingToCart])
 
-  return <DrawerFromBottom
+  return <><DrawerFromBottom
     open={isOpen}
     openMenu={open}
     onClose={onClose}
@@ -802,6 +797,12 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
       </div>
     </div>
   </DrawerFromBottom>
+  <FilterClubBenifitsBottomModal
+    isOpen={context.isFilterClubBenifitsBottomModalOpen} 
+    open={context.openFilterClubBenifitsBottomModal}
+    onClose={context.closeFilterClubBenifitsModal}
+  />
+  </>
 }
 
 const NoSubscriptionModal = ({isOpen, open, onClose, oneTimeProducts, setOneTimeProducts}) => {
