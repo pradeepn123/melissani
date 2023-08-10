@@ -179,7 +179,6 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
     height: 35px;
     padding: 8px;
   }
-
 }
 
 @media screen and (max-width: 767px) {
@@ -234,6 +233,11 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
   }
 }
 
+@media screen and (min-width: 1280px) {
+  .additional-information .filter_club_benefits {
+    margin-top: 6px;
+  }
+}
 @media screen and (min-width: 1440px) {
   .subscription-form .subscription-product-form-wrapper .product-form-wrapper-grid {
     width: 437px;
