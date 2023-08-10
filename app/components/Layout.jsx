@@ -525,7 +525,6 @@ function FilterClubSavingsRightModal({isOpen, openFilterClubSavingsRightModal, c
 }
 
 function FilterClubBenifitsBottomModal({isOpen, open, onClose, isFilterClubSubscriptionOpen}) {
-  debugger;
   return <DrawerFromBottom
     open={isOpen}
     onClose={onClose}
