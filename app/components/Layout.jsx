@@ -469,7 +469,7 @@ function FilterClubSavingsRightModal({isOpen, openFilterClubSavingsRightModal, c
                 </td>
               </tr>
               <tr>
-                <td>CF</td>
+                <td>CF x2</td>
                 <td>
                   <Await resolve={root.data?.products}>
                     {(products) => {
@@ -638,7 +638,7 @@ const FilterClubSavingsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
                 </td>
               </tr>
               <tr>
-                <td>CF</td>
+                <td>CF x2</td>
                 <td>
                   <Await resolve={root.data?.products}>
                     {(products) => {

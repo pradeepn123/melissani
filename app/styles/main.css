@@ -639,6 +639,7 @@ iframe {
   border-radius: 11.25px;
   box-shadow: 0 0 0 0.75px #D1D1D1;
   margin: 8px 0 5px;
+  overflow: hidden;
 }
 
 .filter-club-savings-small table.filterclub-savings-price-table tr {
@@ -1437,6 +1438,9 @@ form .field-input::placeholder {
 
   .menu-cart-icon {
     margin: 0;
+  }
+  .menu-cart-icon:focus, .menu-cart-icon:focus-visible {
+    outline: none;
   }
 }
 
