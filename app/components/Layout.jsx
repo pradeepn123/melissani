@@ -530,13 +530,13 @@ function FilterClubSavingsRightModal({isOpen, openFilterClubSavingsRightModal, c
   </Drawer>
 }
 
-function FilterClubBenifitsBottomModal({isOpen, open, onClose, isCartOpen}) {
+function FilterClubBenifitsBottomModal({isOpen, open, onClose, isFilterClubSubscriptionOpen}) {
   debugger;
   return <DrawerFromBottom
     open={isOpen}
     onClose={onClose}
     openMenu={open}
-    isCartOpen={isCartOpen}
+    isCartOpen={isFilterClubSubscriptionOpen}
     openFrom="right"
     heading="Filter Club"
     subHeading="Benefits"
@@ -688,7 +688,6 @@ const FilterClubSavingsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
 const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
   const context = useContext(RequestContext)
   const [isAddingToCart, setIsAddingToCart] = useState(false)
-
   let filterClubPrice = 0;
   let filterClubCompareAtPrice = 0;
   const bundleId = new Date().getTime().toString()
@@ -802,7 +801,7 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
     isOpen={context.isFilterClubBenifitsBottomModalOpen} 
     open={context.openFilterClubBenifitsBottomModal}
     onClose={context.closeFilterClubBenifitsModal}
-    isCartOpen={isOpen}
+    isFilterClubSubscriptionOpen={context.isSubscriptionModalOpen}
   />
   </>
 }
