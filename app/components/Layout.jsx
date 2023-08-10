@@ -801,6 +801,7 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
     isOpen={context.isFilterClubBenifitsBottomModalOpen} 
     open={context.openFilterClubBenifitsBottomModal}
     onClose={context.closeFilterClubBenifitsModal}
+    isCartOpen={isOpen}
   />
   </>
 }
