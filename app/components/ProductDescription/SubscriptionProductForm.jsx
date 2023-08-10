@@ -181,7 +181,7 @@ const SubscriptionProductForm = (props) => {
                     <Heading as="h5" className="whitespace-normal product-information">
                         Includes:
                     </Heading>
-                    <p className="font-tertiary include-benifits">PAC & CF Filter <span>/ Every 6 months</span></p>
+                    <p className="font-tertiary include-benifits mb-1">PAC & CF Filter <span>/ Every 6 months</span></p>
                     <p className="font-tertiary include-benifits">RO Filter <span>/ Every 12 months</span></p>
                     <div className='subscription-benefits'>
                         <p className="font-tertiary include-benifits filter_club_benefits">
