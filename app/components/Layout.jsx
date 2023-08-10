@@ -489,7 +489,7 @@ function FilterClubSavingsRightModal({isOpen, openFilterClubSavingsRightModal, c
                 </td>
               </tr>
               <tr>
-                <td>Total / per year</td>
+                <td className='br-none'>Total / per year</td>
                 <td>
                   {toggle && `$ ${parseFloat(pacDiscPrice) + parseFloat(roDiscPrice) + parseFloat(cfDiscPrice)}`} <span className={`${toggle && 'show_disc_price'}`}> $ {parseFloat(pacPrice) + parseFloat(roPrice) + parseFloat(cfPrice)} </span>
                 </td>
@@ -658,7 +658,7 @@ const FilterClubSavingsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
                 </td>
               </tr>
               <tr>
-                <td>Total / per year</td>
+                <td className='br-none'>Total / per year</td>
                 <td>
                   {toggle && `$ ${parseFloat(pacDiscPrice) + parseFloat(roDiscPrice) + parseFloat(cfDiscPrice)}`} <span className={`${toggle && 'show_disc_price'}`}> $ {parseFloat(pacPrice) + parseFloat(roPrice) + parseFloat(cfPrice)} </span>
                 </td>

@@ -637,7 +637,7 @@ iframe {
 
 .filter-club-savings-small table.filterclub-savings-price-table {
   border-radius: 11.25px;
-  box-shadow: 0 0 0 0.75px #D1D1D1;
+  box-shadow: 0 0 0 0.5px #D1D1D1;
   margin: 8px 0 5px;
   overflow: hidden;
 }
@@ -662,8 +662,15 @@ iframe {
   text-align: end;
 }
 
-.filter-club-savings-small table.filterclub-savings-price-table tr:not(:last-child) td {
+.br-none {
+  border-right: none !important;
+}
+
+.filter-club-savings-small table.filterclub-savings-price-table tr td:not(:last-child) {
   border-right: 0.75px solid #D1D1D1;
+}
+
+.filter-club-savings-small table.filterclub-savings-price-table tr:not(:last-child) td {
   padding: 10.5px 16px;
   color: #161616;
   font-family: 'Montserrat', sans-serif;
