@@ -263,12 +263,6 @@ function Header({logo, menu, sidebarMenu, metafields}) {
         openFilterClubSavingsRightModal={context.openFilterClubSavingsRightModal}
         closeFilterClubSavingsRightModal={context.closeFilterClubSavingsRightModal}
       />
-      <FilterClubSavingsBottomModal
-        isOpen={context.isFilterClubSavingsBottomModalOpen} 
-        open={context.openFilterClubSavingsBottomModal}
-        onClose={context.closeFilterClubSavingsBottomModal}
-        isCartOpen={isCartOpen}
-      />
       <NoSubscriptionModal
         isOpen={context.isNoSubscriptionModalOpen}
         open={context.openNoSubscriptionModalOpen}
@@ -797,11 +791,17 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
       </div>
     </div>
     <FilterClubBenifitsBottomModal
-    isOpen={context.isFilterClubBenifitsBottomModalOpen} 
-    open={context.openFilterClubBenifitsBottomModal}
-    onClose={context.closeFilterClubBenifitsModal}
-    isFilterClubSubscriptionOpen={context.isSubscriptionModalOpen}
-  />
+      isOpen={context.isFilterClubBenifitsBottomModalOpen} 
+      open={context.openFilterClubBenifitsBottomModal}
+      onClose={context.closeFilterClubBenifitsModal}
+      isFilterClubSubscriptionOpen={context.isSubscriptionModalOpen}
+    />
+    <FilterClubSavingsBottomModal
+      isOpen={context.isFilterClubSavingsBottomModalOpen} 
+      open={context.openFilterClubSavingsBottomModal}
+      onClose={context.closeFilterClubSavingsBottomModal}
+      isFilterClubSubscriptionOpen={context.isSubscriptionModalOpen}
+    />
   </DrawerFromBottom>
 }
 
