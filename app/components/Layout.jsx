@@ -374,7 +374,7 @@ function FilterClubSavingsRightModal({isOpen, openFilterClubSavingsRightModal, c
   const [cfPrice, setCFPrice] = useState(null);
   const [cfDiscPrice, setCFDiscPrice] = useState(null);
 
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
 
   useEffect(() => {
     if (addToCartFetchers.length == 0) {
@@ -567,7 +567,7 @@ const FilterClubSavingsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
   const [cfPrice, setCFPrice] = useState(null);
   const [cfDiscPrice, setCFDiscPrice] = useState(null);
 
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
 
   return <DrawerFromBottom
     open={isOpen}
