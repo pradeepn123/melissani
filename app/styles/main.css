@@ -1338,6 +1338,9 @@ form .field-input::placeholder {
   .include-benefits-point {
     margin-bottom: 6px;
   }
+  .subscription-benefits {
+    margin-top: 6px;
+  }
   .test {
       height: 90vh;
       display: flex;
