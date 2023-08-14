@@ -554,7 +554,7 @@ iframe {
 
 .filter-club-text {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 21px;
   color: #000;
 }
@@ -778,7 +778,7 @@ iframe {
   margin: 20px 0;
   display: flex;
   justify-content: flex-start;
-  column-gap: 4em;
+  column-gap: 3em;
 }
 
 .filter-club-modal-items ul li:first-child {
@@ -1175,6 +1175,9 @@ form .field-input::placeholder {
 @media screen and (max-width: 1024px) {
   .drawer-bottom-dialog-panel {
     min-height: 50vh;
+  }
+  .filter-club-modal-items ul {
+    column-gap: 0;
   }
   .footer-title {
     font-size: 18px;

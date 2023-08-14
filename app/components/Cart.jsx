@@ -103,7 +103,7 @@ const FilterClubItemsModal = ({isOpen, open, onClose, filterClubItems, isCartOpe
             .filter((line) => line.merchandise.product.handle != 'melissani-m1-filter-ro')
             .map((line) => (
             <li
-              className="flex gap-8 subscription_filter_club_member drawer"
+              className="flex gap-4 subscription_filter_club_member drawer"
               key={`filter-club-${line.id}`}
             >
               <div className="flex-shrink">
