@@ -1,5 +1,5 @@
 .article-carousel-wrapper{
-    background: #ECF6F9;
+    background: #fff;
     padding: 53px 98px 98px 98px;
     position: relative;
 }
@@ -35,10 +35,12 @@
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    margin: 0 8px;
-    max-width: calc(33.33% - 8px);
+    margin: 0 11px;
+    /* max-width: calc(33.33% - 8px); */
+    max-width: calc(33.33% - 13px);
     height: 15.313rem;
     position: relative;
+    border: 1px solid #E4EFF9;
 }
 .article-content-block p{
     font-family: 'Montserrat', sans-serif;

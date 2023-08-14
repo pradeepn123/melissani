@@ -15,7 +15,8 @@ import {
   VolumeControlProperty,
   FooterContact,
   KeyFeaturesCarousel,
-  ReviewCarousel
+  ReviewCarousel,
+  ImageWithFourBlocks
 }from '~/components';
 import { PRODUCT_CARD_FRAGMENT } from '~/data/fragments';
 import { getHeroPlaceholder } from '~/lib/placeholders';
@@ -33,6 +34,7 @@ import SecondaryHeroStyles from '~/components/SecondaryHero/SecondaryHero.css';
 import FooterContactStyles from '~/components/FooterContact/FooterContact.css';
 import KeyFeaturesCarouselStyles from '~/components/KeyFeaturesCarousel/KeyFeaturesCarousel.css';
 import ReviewCarouselStyles from '~/components/ReviewCarousel/ReviewCarousel.css';
+import ImageWithFourBlocksStyles from '~/components/ImageWithFourBlocks/ImageWithFourBlocks.css';
 
 export const links = () => {
   return [
@@ -48,7 +50,8 @@ export const links = () => {
     {rel: 'stylesheet', href: SecondaryHeroStyles},
     {rel: 'stylesheet', href: FooterContactStyles},
     {rel: 'stylesheet', href: KeyFeaturesCarouselStyles},
-    {rel: 'stylesheet', href: ReviewCarouselStyles}
+    {rel: 'stylesheet', href: ReviewCarouselStyles},
+    {rel: 'stylesheet', href: ImageWithFourBlocksStyles}
   ]
 }
 
@@ -124,11 +127,18 @@ export async function loader({ params, context }) {
     }
   })
 
+  // const advancedFiltration = page.metafields.find(item => {
+  //   if (item !== null) {
+  //     return item.key == "carousel"
+  //   }
+  // })
   const advancedFiltration = page.metafields.find(item => {
     if (item !== null) {
-      return item.key == "carousel"
+      return item.key == "advanced_filtration"
     }
   })
+
+  {console.log("page.metafields/////", page.metafields)}
 
   const filterClub = page.metafields.find(item => {
     if (item !== null) {
@@ -278,8 +288,16 @@ export default function Homepage() {
       {articles && (
         <ArticleCarousel articles={articles} />)}
 
-      {advancedFiltration && (
-        <Carousel data={advancedFiltration} className="home-carousel" />)}
+      {/* {advancedFiltration && (
+        <Carousel data={advancedFiltration} className="home-carousel" />)} */}
+
+      {advancedFiltration && <ImageWithFourBlocks 
+        advancedFiltration={advancedFiltration.advancedFiltration} 
+        className={"flex image-with-four-blocks-section"}
+        height="full" 
+        top 
+        loading="eager"
+      />}
 
       {featuredProducts && (
         <Suspense>
@@ -303,8 +321,6 @@ export default function Homepage() {
 
       {discover && (<ImageWithText discover={discover} className={"flex discover-main-section"} />)}
 
-      {installation && (<ImageCenterWithText installation={installation} installationHeadingClassName="installation-header" installationParaClassName="installation-para" />)}
-
       {volume && (<VolumeControlProperty volume={volume} />)}
 
       {/* {learnMore && ( <ImageWithText learnMore={learnMore} className="flex md:flex-row"/>)} */}
@@ -314,6 +330,10 @@ export default function Homepage() {
       {/* {footerContact && (<FooterContact data={footerContact} context={context}/>)} */}
       { m1Review &&
         <ReviewCarousel review={m1Review}/>
+      }
+
+      {installation &&
+        (<ImageCenterWithText installation={installation} installationHeadingClassName="installation-header" installationParaClassName="installation-para" />)
       }
     </>
   );
@@ -344,7 +364,8 @@ const PAGE_QUERY = `#graphql
           { namespace: "home", key: "footer_banner" }
           { namespace: "home", key: "features_carousel" }
           { namespace: "home", key: "featured_products_handle" },
-          { namespace: "global", key: "footer_contact" }
+          { namespace: "global", key: "footer_contact" },
+          { namespace: "global", key: "advanced_filtration" }
         ]
       ) {
         value

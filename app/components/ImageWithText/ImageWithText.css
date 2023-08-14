@@ -589,6 +589,7 @@ ul.filter-club-list {
     .discover-icons {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        /* grid-template-columns: 1fr 1fr; */
         grid-column-gap: 0;
         padding: 0;
         margin-left: -1em;
@@ -855,11 +856,26 @@ ul.filter-club-list {
     }
     .discover-icons {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+        grid-template-columns: 1fr 1fr;
         padding: 0;
         justify-content: center;
     }
-
+    .discover-icon {
+        flex-direction: row;
+    }
+    .discover-icon-text {
+        text-align: left;
+    }
+    /* .discover-icons .discover-icon:nth-child(n+3) {
+        margin-left: 20px;   
+    }
+    .discover-icons .discover-icon:first-child {
+        margin-left: -4px;
+    }
+    .discover-icons .discover-icon:last-child{
+        margin-left: 3px;
+    } */
     .discover-icons .discover-icon img {
         width: 94px;
         height: 94px;
@@ -898,7 +914,7 @@ ul.filter-club-list {
         display: flex;
         flex-direction: row-reverse;
         margin-top: 6rem;
-        background: #E1E9EB;
+        background: #E4EFF9;
     }
     .filter-club-description {
         width: 100%;

@@ -72,7 +72,7 @@ export function SingleProductCard({
             className="w-full overflow-hidden text-center"
             as="h3"
           >
-            {product.title}
+            {product.handle == 'melissani-m1-countertop-ro-system-water-purifier' ? 'The ' + product.title : product.title}
           </Text>
           <div className="card-image bg-primary/5">
             {image && (

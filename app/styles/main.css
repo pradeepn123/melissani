@@ -63,7 +63,7 @@ svg:focus {
   padding: 66px 104px 40px 104px;
   display: block;
   color: #1b2943;
-  background-color: #E2E9EB;
+  background-color: #E4EFF9;
 }
 
 .copy-wrapper {
@@ -737,7 +737,7 @@ form .field-input::placeholder {
   color: #1B2943;
 }
 .announcementbar_main{
-  background: #E1E9EB;
+  background: #E4EFF9;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
 }
