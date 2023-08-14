@@ -746,7 +746,7 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
             </div>
           </div>
           <hr />
-          <div className="grid gap-4 pt-3 pb-3">
+          <div className="grid gap-4 pt-4 pb-3">
             <div className="additional-information">
               <Heading as="h5" className="whitespace-normal product-information">
                 Includes:
