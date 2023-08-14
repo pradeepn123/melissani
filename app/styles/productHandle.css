@@ -29,12 +29,6 @@
   max-width: 100% !important;
 }
 
-.product-content-description {
-  width: 37%;
-  display: flex;
-  align-items: center;
-}
-
 .product-content-description > div {
   max-width: 445px;
 }
@@ -178,6 +172,12 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
     width: 35px;
     height: 35px;
     padding: 8px;
+  }
+  
+  .product-content-description {
+    width: 37%;
+    display: flex;
+    align-items: center;
   }
 }
 
