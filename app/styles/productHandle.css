@@ -30,7 +30,7 @@
 }
 
 .product-content-description > div {
-  max-width: 445px;
+  max-width: 436px;
 }
 
 .product-form-wrapper {
@@ -50,7 +50,7 @@
   font-weight: 400;
   letter-spacing: 0em;
   text-align: left;
-  color: #717070;
+  color: #727171;
 }
 
 .product-form-wrapper .product-price span.price-sub-text, .subscription-product-form-wrapper .product-price span.price-sub-text {
@@ -96,7 +96,7 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
 
 .product-information {
   font-family: 'Peachi-Medium';
-  font-size: 18px;
+  font-size: 16px;
   color: #000;
   margin-bottom: 0.75rem;
 }
@@ -122,6 +122,7 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
 
 .additional-information .filter_club_benefits span {
   cursor: pointer;
+  font-size: 14px;
 }
 
 .cart-btn {

@@ -374,13 +374,12 @@ iframe {
   font-weight: 700;
   font-size: 32px;
   line-height: 77px;
-  text-transform: uppercase;
   color: #000000;
 }
 
 .filter-club-membership .cart-heading {
   line-height: 1;
-  font-size: 26px;
+  font-size: 25px;
 }
 .filter-club-membership > p{
     font-family: 'Montserrat', sans-serif;
@@ -555,7 +554,7 @@ iframe {
 
 .filter-club-text {
   font-weight: 400;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 21px;
   color: #000;
 }
@@ -577,6 +576,10 @@ iframe {
 
 .filter-club-membership-benefits{
     overflow-y: auto;
+}
+
+.p-b-22 {
+  padding-bottom: 22px;
 }
 
 .filter-club-membership-benefits ul {
@@ -734,7 +737,8 @@ iframe {
   grid-template-columns: auto 1fr;
   column-gap: 13px;
   align-items: center;
-  padding: 1em .95em;
+  /* padding: 1em .95em; */
+  padding: 1.42em .95em;
 }
 
 .filter-club-savings-switcher span.filter-club-switcher-title-text {
@@ -973,9 +977,17 @@ form .field-input::placeholder {
   }
   .filter-club-modal-items ul {
     flex-direction: column;
+    row-gap: 1rem;
+    padding: 27px 0 30px;
+    margin: 0 20px;
   }
-  .filter-club-modal-items ul li {
-    padding: 10px 0;
+  .filter-club-modal-items ul li, .filter-club-modal-items ul li:first-child {
+    padding: 0;
+    margin: 0;
+  }
+  .filter-club-modal-items .cart-product-img-wrapper {
+    width: 71px;
+    height: 71px;
   }
   .filter-club-subscription-modal-content .additional-information .include-benifits {
     color: #000;
@@ -992,6 +1004,9 @@ form .field-input::placeholder {
     font-style: normal;
     font-weight: 300;
     line-height: 18px;
+  }
+  .include-benefits-point {
+    margin-bottom: 8px;
   }
 }
 /*End: Announcement Marquee*/
@@ -1091,7 +1106,18 @@ form .field-input::placeholder {
   }
   .stickybar_main_section{
       padding: 0.5em 0;
-  }    
+  }
+  .filter-club-savings-switcher span.filter-club-switcher-title-text {
+    font-size: 24px;
+    line-height: 24px;
+    padding: 17px 0;
+  }
+  .drawer-bottom-dialog-panel .filter-club-membership > p {
+    font-size: 13px;
+  }
+  .menuDrawer-nav .filter-club-membership > p{
+    font-size: 20px;
+  }
 }
 
 @media (min-width: 1025px) and (max-width: 2000px) {
@@ -1122,7 +1148,7 @@ form .field-input::placeholder {
     font-size: 20px;
     line-height: 30px;
   }
-  .filter-club-savings-switcher span.filter-club-switcher-title-text,
+
   .filter-club-savings-small table.filterclub-savings-price-table th,
   .filter-club-savings-small table.filterclub-savings-price-table tr:not(:last-child) td,
   .filter-club-savings-small table.filterclub-savings-price-table tr:last-child td {
@@ -1296,7 +1322,18 @@ form .field-input::placeholder {
       justify-content: space-between;
       position: relative;
   }
-
+  .filter-club-savings-switcher span.filter-club-switcher-title-text {
+    font-size: 20px;
+    line-height: 24px;
+    padding: 17px 0;
+  }
+  .filter-club-modal-items .cart-product-img-wrapper {
+    width: 86px;
+    height: 86px;
+  }
+  .include-benefits-point {
+    margin-bottom: 6px;
+  }
   .test {
       height: 90vh;
       display: flex;
@@ -1387,6 +1424,9 @@ form .field-input::placeholder {
   }
   .lab_pfas_report_section .pdf_modal {
     position: relative;
+  }
+  .drawer-bottom-dialog-panel .filter-club-membership > p {
+    font-size: 13px;
   }
 }
 
@@ -1557,10 +1597,6 @@ form .field-input::placeholder {
   color: #000;
 }
 
-.include-benifits:first {
-  margin-bottom: 6px;
-}
-
 .include-benifits span {
   font-weight: 100;
   margin-left: 5px;
@@ -1581,7 +1617,8 @@ form .field-input::placeholder {
 }
 
 .drawer-header.px-4 {
-  padding: 0 1.5rem .5rem 1.5rem;
+  /* padding: 0 1.5rem .5rem 1.5rem; */
+  padding: 0 1.5rem 1rem;
 }
 
 .one-time-products-wrapper {

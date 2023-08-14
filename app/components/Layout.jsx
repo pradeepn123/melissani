@@ -740,7 +740,7 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
             </span>
             <span className="price-sub-text"> / year</span>
           </div>
-          <div className="grid gap-4 pt-3 pb-4">
+          <div className="grid gap-4 pt-4 p-b-22">
             <div className="font-tertiary product-description">
               Fresh filters, Automatic delivery, 10% off!
             </div>
@@ -751,7 +751,7 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
               <Heading as="h5" className="whitespace-normal product-information">
                 Includes:
                 </Heading>
-                <p className="font-tertiary include-benifits mb-1">PAC & CF Filter <span>/ Every 6 months</span></p>
+                <p className="font-tertiary include-benifits include-benefits-point">PAC & CF Filter <span>/ Every 6 months</span></p>
                 <p className="font-tertiary include-benifits">RO Filter <span>/ Every 12 months</span></p>
                 <p
                   className="font-tertiary include-benifits filter_club_benefits mt-8 mb-3.5"

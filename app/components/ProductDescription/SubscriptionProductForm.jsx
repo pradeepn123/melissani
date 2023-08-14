@@ -170,7 +170,7 @@ const SubscriptionProductForm = (props) => {
                     />
                     <span className="price-sub-text">/ year</span>
                 </div>
-                <div className="grid gap-4 py-1 pb-2">
+                <div className="grid gap-4 pb-2">
                     {props.parsedProductDetails?.productDescription && <div
                         className="font-tertiary product-description"
                         dangerouslySetInnerHTML={{ __html: props.parsedProductDetails.productDescription}}
@@ -181,7 +181,7 @@ const SubscriptionProductForm = (props) => {
                     <Heading as="h5" className="whitespace-normal product-information">
                         Includes:
                     </Heading>
-                    <p className="font-tertiary include-benifits mb-1">PAC & CF Filter <span>/ Every 6 months</span></p>
+                    <p className="font-tertiary include-benifits include-benefits-point">PAC & CF Filter <span>/ Every 6 months</span></p>
                     <p className="font-tertiary include-benifits">RO Filter <span>/ Every 12 months</span></p>
                     <div className='subscription-benefits'>
                         <p className="font-tertiary include-benifits filter_club_benefits">
