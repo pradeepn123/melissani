@@ -108,7 +108,11 @@
 /* End: Featured Products Section */
 
 /* Begin: Media Query */
-
+@media screen and (min-width: 1600px) {
+    .featured-products-home .product-card-wrapper h3 {
+        width: 50%;
+    }
+}
 @media screen and (max-width: 1280px) {
     .featured-products-home .product-card-wrapper h3 {
         width: 85%;

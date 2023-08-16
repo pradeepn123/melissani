@@ -138,8 +138,6 @@ export async function loader({ params, context }) {
     }
   })
 
-  {console.log("page.metafields/////", page.metafields)}
-
   const filterClub = page.metafields.find(item => {
     if (item !== null) {
       return item.key == "filter_club"

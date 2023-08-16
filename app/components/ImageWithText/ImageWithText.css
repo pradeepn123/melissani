@@ -56,7 +56,8 @@
     letter-spacing: 0em;
     text-align: left;
     color: #000;
-    margin: 1em 0 1em 0;
+    /* margin: 1em 0; */
+    padding: 1.2em 0;
 }
 .discover-icons {
     display: grid;
@@ -584,6 +585,7 @@ ul.filter-club-list {
     .discover-description {
         font-size: 14px;
         line-height: 20px;
+        border-bottom: 1px solid #E4EBED;
     }
 
     .discover-icons {
@@ -853,6 +855,7 @@ ul.filter-club-list {
     .discover-icon-text {
         font-size: 16px;
         line-height: 20px;
+        width: 155px;
     }
     .discover-icons {
         display: grid;
