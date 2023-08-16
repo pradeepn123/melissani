@@ -1603,11 +1603,10 @@ form .field-input::placeholder {
 }
 
 .drawer-bottom-dialog-panel .drawer-header .filter-club-membership .cart-heading{
-    text-transform: capitalize;
-    font-size: 24px;
-    font-family: 'Peachi-Medium';
-    font-weight: 500;
-    color: #000;
+  font-size: 24px;
+  font-family: 'Peachi-Medium';
+  font-weight: 500;
+  color: #000;
 }
 
 .empty-cart {
