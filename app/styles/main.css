@@ -1187,6 +1187,15 @@ form .field-input::placeholder {
   }
 }
 
+@media screen and (max-width:820px) {
+  .include-benifits {
+    letter-spacing: 0.2px;
+  }
+  .subscription-form .subscription-product-form-wrapper .product-label-banner {
+    padding: 16px;
+  }
+}
+
 @media screen and (max-width: 375px) {
   .filter-club-savings-small table.filterclub-savings-price-table tr:not(:last-child) td,
   .filter-club-savings-small table.filterclub-savings-price-table tr:last-child td {
@@ -1339,10 +1348,10 @@ form .field-input::placeholder {
     height: 86px;
   }
   .include-benefits-point {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .subscription-benefits {
-    margin-top: 6px;
+    margin-top: 12px;
   }
   .test {
       height: 90vh;
@@ -1601,7 +1610,8 @@ form .field-input::placeholder {
 }
 
 .include-benifits {
-  font-size: 14px;
+  /* font-size: 14px; */
+  font-size: 16px;
   font-weight: 500;
   line-height: 24px;
   color: #000;

@@ -12,6 +12,7 @@
   row-gap: 2rem;
   padding-left: 1.5em;
   padding-right: 1.5em;
+  padding-top: 2rem;
 }
 
 .media-gallery {
@@ -46,11 +47,13 @@
 
 
 .product-form-wrapper .product-price span, .subscription-product-form-wrapper .product-price span {
-  font-size: 24px;
+  /* font-size: 24px; */
+  font-size: 20px;
   font-weight: 400;
   letter-spacing: 0em;
   text-align: left;
-  color: #727171;
+  /* color: #727171; */
+  color: #000;
 }
 
 .product-form-wrapper .product-price span.price-sub-text, .subscription-product-form-wrapper .product-price span.price-sub-text {
@@ -63,6 +66,10 @@
   color: #F62727 !important;
   text-decoration: line-through;
   font-size: 16px;
+}
+
+.m-r-4 {
+  margin-right: 4px;
 }
 
 .stike-out span {
@@ -89,16 +96,22 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
 }
 
 .product-description {
-  color: #4B4B4B;
+  /* color: #4B4B4B; */
+  color: #000;
   font-style: normal;
   font-weight: 400;
 }
 
 .product-information {
-  font-family: 'Peachi-Medium';
+  /* font-family: 'Peachi-Medium';
   font-size: 16px;
   color: #000;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.75rem; */
+  font-family: 'Peachi-Medium';
+  font-size: 16px;
+  color: #0b2340;
+  margin-bottom: .75rem;
+  font-weight: 500;
 }
 
 .additional-information .filter_club_benefits {
@@ -117,7 +130,7 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
 .additional-information .include-benifits span {
   margin-left: unset;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .additional-information .filter_club_benefits span {
@@ -145,7 +158,9 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .subscription-form .subscription-product-form-wrapper .product-form-wrapper-grid {
-    padding: 1rem 1rem 1.75rem;
+    /* padding: 1rem 1rem 1.75rem; */
+    /* padding: 1rem 1.5rem 1.75rem; */
+    padding: 1rem 1.5rem 1.5rem;
   }
   .product-form-wrapper .product-price span, .subscription-product-form-wrapper .product-price span {
     font-size: 20px;
@@ -154,7 +169,8 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
     flex-direction: column;
   }
   .additional-information .filter_club_benefits {
-    margin-top: 16px;
+    /* margin-top: 16px; */
+    margin-top: 8px;
   }
 }
 
@@ -239,6 +255,7 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
     margin-top: 6px;
   }
 }
+
 @media screen and (min-width: 1440px) {
   .subscription-form .subscription-product-form-wrapper .product-form-wrapper-grid {
     width: 437px;
@@ -247,8 +264,9 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
 
 /* Begin: Product Form Section */
   
-.product-form-wrapper .product-title, .subscription-product-form-wrapper .product-title {
-  color: #1B2943;
+.product-form-wrapper .product-title, .subscription-product-form-wrapper .product-title { 
+  /* color: #1B2943; */
+  color: #0b2340;
   font-family: 'Peachi-Medium';
   font-size: 32px;
   font-style: normal;
@@ -310,6 +328,34 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
   .product-form-wrapper {
     padding: 1rem 1.2rem;
   }
+  .subscription-form .subscription-product-form-wrapper .product-label-banner .icon-text {
+    font-size: 18px;
+  }
+  .product-form-wrapper .product-title, .subscription-product-form-wrapper .product-title {
+    font-size: 32px;
+  }
+  .subscription-form .product-form-wrapper {
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .one-time-product-row {
+    grid-template-columns: auto;
+    row-gap: 0.5rem;
+  }
+  .one-time-product-row .onetime-product-title, .one-time-product-row .product-price {
+    text-align: center;
+  }
+  .subscription-form .subscription-product-form-wrapper .product-label-banner .icon-text {
+    font-size: 18px;
+  }
+  .product-form-wrapper .product-title, .subscription-product-form-wrapper .product-title {
+    font-size: 24px;
+  }
+  .additional-information .include-benifits span {
+    font-size: 12px;
+  }
 }
 
 @media screen and (max-width: 540px) {
@@ -350,12 +396,14 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
 }
 
 .subscription-form .subscription-product-form-wrapper .product-form-wrapper-grid {
-  padding: 1rem 2rem 1.75rem;
+  /* padding: 1rem 2rem 1.75rem; */
+  padding: 1rem 2rem 1.5rem;
 }
 
 .subscription-form .subscription-product-form-wrapper .product-label-banner {
   background-color: #e1e9eb;
-  padding: 9px 22px;
+  /* padding: 9px 22px; */
+  padding: 12px 22px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -368,12 +416,16 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
 }
 
 .subscription-form .subscription-product-form-wrapper .product-label-banner .icon-text {
-  color: #1B2943;
-  font-family: 'Peachi-Bold';
-  font-size: 16px;
+  /* color: #1B2943; */
+  color: #0b2340;
+  /* font-family: 'Peachi-Bold'; */
+  font-family: 'Peachi-Medium';
+  /* font-size: 16px; */
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px;
+  /* line-height: 18px; */
+  line-height: 24px;
 }
 
 .subscription-form .subscription-product-form-wrapper .product-label-banner p {
@@ -381,16 +433,18 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 18px;
 }
 
 .subscription-form .subscription-product-form-wrapper .product-label-banner .product-label-banner-text {
   margin-left: 27px;
+  margin-top: 4px;
 }
 
 .subscription-form .subscription-title {
   margin: 0.5rem auto;
+  color: #0b2340;
 }
 
 .okeReviews[data-oke-container] .oke-state, div.okeReviews .oke-state {
@@ -411,7 +465,8 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
+  margin-top: 0.5rem;
 }
 
 .subscription-add-to-cart button[disabled]{
@@ -440,14 +495,16 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
 .one-time-product-row .product-price span{
   font-size: 14px;
   line-height: 1rem;
-  color: #717070;
+  /* color: #717070; */
+  color: #000;
 }
 
 .one-time-product-row .onetime-product-title {
   font-size: 1rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  color: #161616;
+  /* color: #161616; */
+  color: #000;
 }
 
 .one-time-product-row .quantity-field {
@@ -472,7 +529,8 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
   color:  #a1a4b3 !important;
 }
 .subscription-add-to-cart {
-  margin: 1.5rem auto;
+  /* margin: 1.5rem auto; */
+  margin: 2.5rem auto;
 }
 .subscription-add-to-cart .cart-btn span.text-copy{
   font-size: 16px;

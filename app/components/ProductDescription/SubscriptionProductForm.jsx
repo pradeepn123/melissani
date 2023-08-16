@@ -151,7 +151,7 @@ const SubscriptionProductForm = (props) => {
                     Filter Club
                 </Heading>
                 <div className="product-price font-tertiary">
-                    <span className="stike-out">
+                    <span className="stike-out m-r-4">
                         <Money
                             data={{
                                 amount: amount.compareAtPrice.toFixed(2),
@@ -211,7 +211,7 @@ const SubscriptionProductForm = (props) => {
             value="onetime"
             onChange={handleInputChange}
         />
-        <label className="product-form-wrapper mt-12" htmlFor="onetime-input">
+        <label className="product-form-wrapper mt-10" htmlFor="onetime-input">
             <div className="grid gap-2">
                 <Heading as="h1" className="whitespace-normal product-title">
                     No Subscription
@@ -225,9 +225,9 @@ const SubscriptionProductForm = (props) => {
                         as="span"
                     />
                 </div> : <></>}
-                <div className="grid gap-4 py-1">
+                <div className="grid gap-4">
                     <div className="font-tertiary product-description text-black">
-                        One - Time Purchase
+                        One-time purchase
                     </div>
                 </div>
             </div>

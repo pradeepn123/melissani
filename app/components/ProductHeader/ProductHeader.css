@@ -14,30 +14,45 @@
 }
 
 .product-name .product-title {
-    font-family: 'Peachi-Bold';
+    /* font-family: 'Peachi-Bold';
     font-size: 48px;
     font-weight: 700;
     line-height: 52px;
     text-align: left;
-    color: #1D1D1F;
+    color: #1D1D1F; */
+    font-family: 'Peachi-Medium';
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: left;
+    color: #0b2340;
+    margin-bottom: 8px;
 }
 
 .product-name .product-subtitle {
     display: flex;
     flex-direction: column;
     column-gap: 1em;
-    margin-top: 1em;
+    /* margin-top: 1em; */
+    margin-top: 0.5em;
     row-gap: 0.5em;
 }
 
 .product-subtitle .subtitle {
+    /* font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    margin: auto 0;
+    color: #1D1D1F; */
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     font-weight: 500;
     line-height: 20px;
     text-align: left;
     margin: auto 0;
-    color: #1D1D1F;
+    color: #0b2340;
 }
 
 .learn-more-btn {
@@ -71,11 +86,14 @@
     text-align: left;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
+    /* font-weight: 400; */
+    font-weight: 500;
+    /* line-height: 24px; */
+    line-height: 20.8px;
     letter-spacing: 0em;
     text-align: left;
     width: 60%;
+    color: #000;
 }
 
 @media screen and (min-width: 1536px) {
@@ -101,9 +119,9 @@
     .product-name {
         width: 40%;
     }
-    .product-name .product-title {
+    /* .product-name .product-title {
         font-size: 40px;
-    }
+    } */
     .product-name .product-subtitle {
         margin-top: 0;
         row-gap: 0.4rem;
@@ -140,7 +158,8 @@
         line-height: 1.2;
     }
     .product-subtitle .subtitle {
-        font-size: 10px;
+        /* font-size: 10px; */
+        font-size: 16px;
     }
     .learn-more-btn {
         font-size: 12px;
@@ -156,6 +175,7 @@
         border-right: 1px solid #DDDDDD;
         padding-right: 1em;
         flex: 1 0 40%;
+        justify-content: center;
     }
     .product-name .product-title {
         font-size: 30px;
@@ -165,7 +185,8 @@
         column-gap: 0;
     }
     .product-subtitle .subtitle {
-        font-size: 10px;
+        /* font-size: 10px; */
+        font-size: 16px;
         margin-right: 10px;
     }
     .learn-more-btn {
@@ -210,7 +231,8 @@
 }
 @media screen and (max-width: 768px) {
     .product-subtitle .subtitle {
-        font-size: 8px;
+        /* font-size: 8px; */
+        font-size: 16px;
         margin-right: 10px;
         margin: 5px 10px auto 0;
     }
@@ -314,7 +336,7 @@
     }
     .key-features-inner {
         display: grid !important;
-        grid-template-columns: repeat(3, 45%);
+        grid-template-columns: repeat(3, 46%);
         overflow-x: auto;
         height: 100%;
         padding: 1.5rem 0;
