@@ -858,12 +858,19 @@ ul.filter-club-list {
         width: 155px;
     }
     .discover-icons {
-        display: grid;
-        /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+        /* display: grid;
         grid-template-columns: 1fr 1fr;
         padding: 0;
+        justify-content: center; */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 12px 0;
         justify-content: center;
+        border-bottom: 1px solid #E4EBED;
+        border-top: 1px solid #E4EBED;
+        margin: 0;
     }
+    .discover-icons:first
     .discover-icon {
         flex-direction: row;
     }
