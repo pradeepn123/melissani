@@ -205,8 +205,8 @@ label.product-form-wrapper, label.subscription-product-form-wrapper {
 
 /* Begin: Product Form Section */
   
-.product-form-wrapper .product-title, .subscription-product-form-wrapper .product-title { 
-  /* color: #1B2943; */
+.product-form-wrapper .product-title,
+.subscription-product-form-wrapper .product-title { 
   color: #0b2340;
   font-family: 'Peachi-Medium';
   font-size: 32px;

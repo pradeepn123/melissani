@@ -71,7 +71,7 @@ export function Drawer({isHome, isCartDrawer, openCart, open, onClose, openFrom 
                         Filter Club
                       </div>
                       <p>
-                      { isFilterClubModal ? 'Benefits' : 'Savings Per Year' }
+                      { isFilterClubModal ? 'Benefits' : 'Savings per year' }
                       </p>
                     </div>}
                     <button
