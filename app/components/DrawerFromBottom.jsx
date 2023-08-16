@@ -19,7 +19,7 @@ export function DrawerFromBottom({open, onClose, openFrom = 'bottom', isFilterCl
     left: '-translate-y-full',
   };
 
-  const headerClass = `${props.subHeading && props.subHeading != 'Savings Per Year' ? 'border-bottom' : ''} px-4 gap-x-4 sm:px-8 md:px-8 drawer-header sticky top-0 flex h-nav items-center relative justify-between`;
+  const headerClass = `${props.subHeading && props.subHeading != 'Savings per year' ? 'border-bottom' : ''} px-4 gap-x-4 sm:px-8 md:px-8 drawer-header sticky top-0 flex h-nav items-center relative justify-between`;
 
   let panelClasses = [
     "drawer-dialog-panel",

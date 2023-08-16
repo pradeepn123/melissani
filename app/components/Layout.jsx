@@ -576,7 +576,7 @@ const FilterClubSavingsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
     isCartOpen={isCartOpen}
     openFrom="right"
     heading="Filter Club"
-    subHeading="Savings Per Year"
+    subHeading="Savings per year"
     isFilterClubModalOpen = {true} 
   >
     <div className="grid grid-cols-1 grid-rows-[1fr_auto] mx-5 justify-between">
