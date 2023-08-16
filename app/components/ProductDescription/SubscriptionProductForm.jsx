@@ -50,7 +50,7 @@ const SubscriptionProductForm = (props) => {
         var productAmountUnit = 0
         setOneTimeProducts(oneTimeProducts.map(oneTimeProduct => {
             const firstVariant = oneTimeProduct.variants.nodes[0];
-            oneTimeProduct.quantity = 1
+            oneTimeProduct.quantity = 0
 
             productAmountUnit += oneTimeProduct.quantity * firstVariant.price?.amount
             return oneTimeProduct
@@ -195,7 +195,7 @@ const SubscriptionProductForm = (props) => {
                 <Heading as="h1" className="whitespace-normal product-title">
                     No Subscription
                 </Heading>
-                <div className="product-price font-tertiary">
+                {productAmount && productAmount !== 0 ? <div className="product-price font-tertiary">
                     <Money
                         data={{
                             amount: productAmount.toFixed(2),
@@ -203,7 +203,7 @@ const SubscriptionProductForm = (props) => {
                         }}
                         as="span"
                     />
-                </div>
+                </div> : <></>}
                 <div className="grid gap-4 py-1">
                     <div className="font-tertiary product-description">
                         One time purchase buy filters separately
