@@ -53,7 +53,7 @@ export function Drawer({isHome, isCartDrawer, openCart, open, onClose, openFrom 
                 <Dialog.Panel className={`drawer-dialog-panel w-screen max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-xl text-left align-middle transition-all transform shadow-xl h-screen-dynamic bg-contrast ${isCartDrawer ? 'cart-drawer-dialog-panel' : ''}`}>
                   <header className={`menuDrawer-nav sticky top-0 flex px-4 h-nav gap-x-4 sm:px-8 md:px-8 items-center relative ${isCartDrawer || isFilterClubModal || isFilterClubSavingsModal ? 'justify-between' : 'justify-end'}`}>
                     {isCartDrawer && <div className="cart-heading-wrapper">
-                      <p className="font-primary cart-heading">CART</p>
+                      <p className="cart-heading">Cart</p>
                       <p className="font-tertiary cart-count"><CartCount isCartDrawer={isCartDrawer} /> Items</p>  
                     </div>}
                     {!isCartDrawer && !isFilterClubModal && !isFilterClubSavingsModal && <>

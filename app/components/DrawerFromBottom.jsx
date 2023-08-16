@@ -86,7 +86,7 @@ export function DrawerFromBottom({open, onClose, openFrom = 'bottom', isFilterCl
                     {props.heading == 'Filter Club' && props.subHeading != undefined ?
                     <button
                       type="button"
-                      className="filterClubCloseButton my-4"
+                      className="filterClubCloseButton mt-4"
                       onClick={onClose}
                       data-test="close-cart"
                       >

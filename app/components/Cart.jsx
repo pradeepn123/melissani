@@ -344,7 +344,7 @@ function CartSummary({cost, layout, children = null}) {
     <section aria-labelledby="summary-heading" className={summary[layout]}>
       <dl className="grid">
         <div className="flex items-center justify-between">
-          <Text as="dt" className="font-primary cart-footer-subtotal">Subtotal</Text>
+          <Text as="dt" className="cart-footer-subtotal">Subtotal</Text>
           <Text as="dd" data-test="subtotal" className="font-tertiary cart-footer-total">
             {cost?.subtotalAmount?.amount ? (
               <Money data={cost?.subtotalAmount} />

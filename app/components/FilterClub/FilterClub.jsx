@@ -51,8 +51,7 @@ export function FilterClub({hero, supportinfo, textwithbutton, stickybarbottom, 
                 <h2 className='filter_club_main_heading'>{item.text}</h2>
                 <FaqAccordion item={item} />
                 <div className="filterclub_extra_information">
-                    <p>{item.filterclub_extra_info}</p>
-                    <a href={item.filterclub_extra_link}>{item.filterclub_extra_label}</a>
+                    <p>{item.filterclub_extra_info} <a href={item.filterclub_extra_link}>FAQ's</a></p>
                 </div>
             </motion.div>))}
 

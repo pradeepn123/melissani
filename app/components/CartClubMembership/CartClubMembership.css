@@ -191,9 +191,9 @@ p.club-membership-bottom-text {
 }
 
 .shipment-label .shipment-label-text {
-    color: #1B2943;
+    color: #0C233F;
     font-family: 'Peachi-Medium';
-    font-size: 12px;
+    font-size: 13px;
     font-style: normal;
     font-weight: 500;
     line-height: 13.5px;
@@ -220,7 +220,7 @@ p.club-membership-bottom-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 21px;
     margin-bottom: 4px;
 }
@@ -235,7 +235,7 @@ p.club-membership-bottom-text {
 }
 
 .filterclub-included-shipment-label .shipment-label-text {
-    color: #0C233F;
+    color: #000;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-style: normal;

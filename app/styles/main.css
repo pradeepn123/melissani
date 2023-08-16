@@ -371,10 +371,11 @@ iframe {
 }
 
 .cart-heading {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 32px;
   line-height: 77px;
   color: #000000;
+  font-family: 'Peachi-Medium';
 }
 
 .filter-club-membership .cart-heading {
@@ -395,7 +396,7 @@ iframe {
 }
 
 .cart-lines-wrapper {
-  padding: 50px 1rem;
+  padding: 40px 1rem;
 }
 
 .cart-lines-wrapper .cart-product-img-wrapper {
@@ -407,10 +408,11 @@ iframe {
 }
 
 .cart-lines-wrapper .cart-product-title {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
   color: #000;
+  font-family: 'Peachi-Medium';
 }
 
 .cart-lines-wrapper .cart-product-price {
@@ -512,10 +514,11 @@ iframe {
 }
 
 .cart-footer-subtotal {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 24px;
   line-height: 24px;
   color: #000;
+  font-family: 'Peachi-Medium';
 }
 
 .cart-footer-total {
@@ -566,8 +569,8 @@ iframe {
 }
 
 .cart-shipment-info p {
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 13px;
   line-height: 24px;
   color: #737373;
 }
@@ -578,10 +581,6 @@ iframe {
     overflow-y: auto;
 }
 
-.p-b-22 {
-  padding-bottom: 22px;
-}
-
 .filter-club-membership-benefits ul {
   margin: 20px 0;
 }
@@ -589,8 +588,8 @@ iframe {
   padding: 10px 0;
   position: relative;
   padding-left: 28px;
-  color: #161616;
-  font-weight: 400;
+  color: #000;
+  font-weight: 500;
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
 }
@@ -611,14 +610,14 @@ iframe {
 }
 
 .filter-club-membership-benefits-small ul {
-  margin: 20px 0;
+  margin: 12px 0;
 }
 .filter-club-membership-benefits-small ul li {
   padding: 10px 0;
   position: relative;
   padding-left: 28px;
-  color: #161616;
-  font-weight: 400;
+  color: #000;
+  font-weight: 500;
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
 }
@@ -640,7 +639,7 @@ iframe {
 
 .filter-club-savings-small table.filterclub-savings-price-table {
   border-radius: 11.25px;
-  box-shadow: 0 0 0 0.5px #D1D1D1;
+  box-shadow: 0 0 0 0.85px #D1D1D1;
   margin: 8px 0 5px;
   overflow: hidden;
 }
@@ -650,7 +649,7 @@ iframe {
 }
 
 .filter-club-savings-small table.filterclub-savings-price-table th {
-  padding: 10.5px 16px;
+  padding: 14px 16px;
   border-bottom: 1px solid #D1D1D1;
   color: #161616;
   font-family: 'Peachi-Medium';
@@ -674,8 +673,8 @@ iframe {
 }
 
 .filter-club-savings-small table.filterclub-savings-price-table tr:not(:last-child) td {
-  padding: 10.5px 16px;
-  color: #161616;
+  padding: 14px 16px;
+  color: #000;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-style: normal;
@@ -685,8 +684,8 @@ iframe {
 }
 
 .filter-club-savings-small table.filterclub-savings-price-table tr:last-child td {
-  padding: 10.5px 16px;
-  color: #161616;
+  padding: 14px 16px;
+  color: #000;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-style: normal;
@@ -714,6 +713,7 @@ iframe {
   font-weight: 350;
   line-height: 24px;
   margin: 0;
+  padding: 0.5rem 0;
 }
 .show_disc_price {
   color: #7B7B7B;
@@ -737,12 +737,11 @@ iframe {
   grid-template-columns: auto 1fr;
   column-gap: 13px;
   align-items: center;
-  /* padding: 1em .95em; */
   padding: 1.42em .95em;
 }
 
 .filter-club-savings-switcher span.filter-club-switcher-title-text {
-  color: #161616;
+  color: #0b2340;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-style: normal;
@@ -992,7 +991,7 @@ form .field-input::placeholder {
   .filter-club-subscription-modal-content .additional-information .include-benifits {
     color: #000;
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 18px;
@@ -1000,9 +999,9 @@ form .field-input::placeholder {
   .filter-club-subscription-modal-content .additional-information .include-benifits span {
     color: #000;
     font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 18px;
   }
   .include-benefits-point {
@@ -1010,6 +1009,14 @@ form .field-input::placeholder {
   }
   .filter-club-text {
     font-size: 12px;
+    line-height: 18px;
+  }
+  .drawer-bottom-dialog-panel .product-label-banner .icon-text {
+    color: #0b2340;
+    font-family: 'Peachi-Medium';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
     line-height: 18px;
   }
 }
@@ -1060,6 +1067,8 @@ form .field-input::placeholder {
   .filter-club-membership .cart-heading {
       font-size: 32px;
       line-height: inherit;
+      font-family: 'Peachi-Medium';
+      font-weight: 500;
   }
   .cart-lines-wrapper .cart-product-img-wrapper {
       width: 145px;
@@ -1070,10 +1079,10 @@ form .field-input::placeholder {
       line-height: 36px;
   }
   .cart-lines-wrapper {
-      padding: 50px 30px;
+      padding: 40px 30px;
   }
   .filter-club-membership-benefits ul {
-      margin: 40px 0;
+      margin: 20px 0;
   }
   .filter-club-membership-benefits ul li {
       font-size: 20px;
@@ -1117,7 +1126,7 @@ form .field-input::placeholder {
     padding: 17px 0;
   }
   .drawer-bottom-dialog-panel .filter-club-membership > p {
-    font-size: 13px;
+    font-size: 16px;
   }
   .menuDrawer-nav .filter-club-membership > p{
     font-size: 20px;
@@ -1445,7 +1454,7 @@ form .field-input::placeholder {
     position: relative;
   }
   .drawer-bottom-dialog-panel .filter-club-membership > p {
-    font-size: 13px;
+    font-size: 16px;
   }
 }
 
@@ -1523,7 +1532,7 @@ form .field-input::placeholder {
     line-height: normal;
   }
   .filter-club-savings-small table.filterclub-savings-price-table tr:last-child td {
-    padding: 10.5px 16px;
+    padding: 14px 16px;
     font-size: 14px;
   }
   .filter-club-savings-small table.filterclub-savings-price-table tr td:last-child {
@@ -1547,7 +1556,7 @@ form .field-input::placeholder {
   border: 1px solid;
   border-radius: 50%;
   padding: 8px;
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .drawer-bottom-dialog-panel .menu-cart-icon svg {
@@ -1561,19 +1570,19 @@ form .field-input::placeholder {
 
 .drawer-bottom-dialog-panel .product-label-banner {
   background-color: #e1e9eb;
-  padding: 8px 10px;
+  padding: 14px 24px;
 }
 
 .drawer-bottom-dialog-panel .product-label-banner .icon-with-text {
   display: flex;
   flex-direction: row;
-  column-gap: 3px;
+  column-gap: 8px;
   align-items: center;
 }
 
 .drawer-bottom-dialog-panel .product-label-banner .icon-text {
-  color: #1B2943;
-  font-family: 'Peachi-Bold';
+  color: #0b2340;
+  font-family: 'Peachi-Medium';
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -1585,16 +1594,20 @@ form .field-input::placeholder {
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 18px;
 }
 
 .drawer-bottom-dialog-panel .product-label-banner .product-label-banner-text {
-  margin-left: 27px;
+  margin-left: 30px;
 }
 
 .drawer-bottom-dialog-panel .drawer-header .filter-club-membership .cart-heading{
     text-transform: capitalize;
+    font-size: 24px;
+    font-family: 'Peachi-Medium';
+    font-weight: 500;
+    color: #000;
 }
 
 .empty-cart {
@@ -1610,7 +1623,6 @@ form .field-input::placeholder {
 }
 
 .include-benifits {
-  /* font-size: 14px; */
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -1637,8 +1649,7 @@ form .field-input::placeholder {
 }
 
 .drawer-header.px-4 {
-  /* padding: 0 1.5rem .5rem 1.5rem; */
-  padding: 0 1.5rem 1rem;
+  padding: 0 1.5rem 0.75rem;
 }
 
 .one-time-products-wrapper {
@@ -1651,7 +1662,7 @@ form .field-input::placeholder {
 .filter-club-subscription-modal-content .product-price span.compare-at-price-amount {
   color: #E23F35;
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 30px;
@@ -1659,7 +1670,7 @@ form .field-input::placeholder {
 }
 
 .filter-club-subscription-modal-content .product-price span.price-amount {
-  color: #727171;
+  color: #000;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-style: normal;
@@ -1668,7 +1679,7 @@ form .field-input::placeholder {
 }
 
 .filter-club-subscription-modal-content .product-price span.price-sub-text {
-  color: #727171;
+  color: #000;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-style: normal;

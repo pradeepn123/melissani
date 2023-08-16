@@ -393,7 +393,7 @@ function FilterClubSavingsRightModal({isOpen, openFilterClubSavingsRightModal, c
   >
     <div className="grid grid-cols-1 h-screen-no-nav grid-rows-[1fr_auto]">
     <div className="filter-club-membership-savings">
-      <div className='filter-club-savings-switcher' style={{'margin': '15px 0 27px'}}>
+      <div className='filter-club-savings-switcher' style={{'margin': '27px 0'}}>
         <div className='filter-club-switcher-title'>
           <FilterClubIcon />
           <span className='filter-club-switcher-title-text'>Filter Club</span>
@@ -656,7 +656,7 @@ const FilterClubSavingsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
           </table>
       </div>
       {toggle && <p className='filter-club-savings-toggle-text'>You save $20 / per year on filters</p>}
-      <div className='filter-club-savings-switcher' style={{'margin': toggle ? '5px 0 22px' : '29px 0 22px'}}>
+      <div className='filter-club-savings-switcher' style={{'margin': toggle ? '5px 0 22px' : '45px 0 22px'}}>
         <div className='filter-club-switcher-title'>
           <FilterClubIcon />
           <span className='filter-club-switcher-title-text'>Filter Club</span>
@@ -740,7 +740,7 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
             </span>
             <span className="price-sub-text"> / year</span>
           </div>
-          <div className="grid gap-4 pt-4 p-b-22">
+          <div className="grid gap-4 pt-2 pb-4">
             <div className="font-tertiary product-description">
               Fresh filters, Automatic delivery, 10% off!
             </div>
