@@ -54,6 +54,10 @@ svg:focus {
   padding: .75rem 2.26rem;
 }
 
+.inline-btn {
+  color: #0b2340;
+}
+
 .inline-btn:hover {
   opacity: 0.7;
 }

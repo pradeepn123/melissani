@@ -66,18 +66,13 @@
     font-weight: 900;
     font-size: 16px;
     text-decoration: underline;
-    color: #1B2943;
+    color: #0b2340;
 }
 @media (max-width: 375px){
     .article-content-block p{
         font-size: 16px;
     }
 }
-/* @media (min-width: 1024px) and (max-width: 1280px){
-    .article-carousel-wrapper{
-        padding: 52px 60px 98px;
-    }
-} */
 @media (min-width: 1024px){
     .article-flickity-mobile{
         display: none;

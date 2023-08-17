@@ -12,9 +12,7 @@
 
 .gb_bg_color .right_text_block .right_text_heading {
     font-family: 'Peachi-Bold';
-    font-size: 52px;
     font-weight: 700;
-    line-height: 67px;
     letter-spacing: 0em;
     text-align: left;
     color: #0b2340;
@@ -540,6 +538,11 @@ ul.filter-club-list {
     .learn-more-btn {
         font-size: 20px;
     }
+    .gb_bg_color .right_text_block .right_text_heading {
+        font-size: 40px;
+        line-height: 42px;
+        font-weight: 300;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -760,7 +763,10 @@ ul.filter-club-list {
         margin: 0 6em 0em 6px;
         padding: 0;
     }
-
+    .gb_bg_color .right_text_block .right_text_heading {
+        font-size: 52px;
+        line-height: 67px;
+    }
     .discover-icon-text {
         font-size: 12px;
         line-height: 20px;
@@ -820,6 +826,7 @@ ul.filter-club-list {
 @media screen and (min-width: 1400px) {
     .gb_bg_color .right_text_block .right_text_heading {
         font-size: 52px;
+        line-height: normal;
     }
     .discover-icons {
         row-gap: 0.5em;
@@ -959,11 +966,12 @@ ul.filter-club-list {
         width: 107px;
         height: 107px;
     }
-    .gb_bg_color .right_text_block .right_text_heading {
+    /* .gb_bg_color .right_text_block .right_text_heading {
         font-size: 40px;
+        line-height: 42px;
         line-height: normal;
         font-weight: 300;
-    }
+    } */
     .discover-main-section{
         padding-top: 2em;
     }
