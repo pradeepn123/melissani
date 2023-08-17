@@ -3,7 +3,7 @@ import {Dialog, Transition} from '@headlessui/react';
 
 import { Money } from '@shopify/hydrogen';
 
-import { IconClose } from '~/components';
+import { IconClose, ClockIcon, IconLeftArrowClose } from '~/components';
 
 /**
  * Drawer component that opens on user click.
@@ -19,7 +19,7 @@ export function DrawerFromBottom({open, onClose, openFrom = 'bottom', isFilterCl
     left: '-translate-y-full',
   };
 
-  const headerClass = `${props.subHeading ? 'border-bottom' : ''} drawer-header sticky top-0 flex px-4 h-nav gap-x-4 sm:px-8 md:px-8 items-center relative justify-between`
+  const headerClass = `${props.subHeading && props.subHeading != 'Savings per year' ? 'border-bottom' : ''} px-4 gap-x-4 sm:px-8 md:px-8 drawer-header sticky top-0 flex h-nav items-center relative justify-between`;
 
   let panelClasses = [
     "drawer-dialog-panel",
@@ -67,6 +67,13 @@ export function DrawerFromBottom({open, onClose, openFrom = 'bottom', isFilterCl
                 leaveTo={offScreen[openFrom]}
               >
                 <Dialog.Panel className={panelClasses.join(" ")}>
+                  {props.heading == 'Filter Club' && props.subHeading == undefined && <div className="product-label-banner">
+                        <span className='icon-with-text'>
+                            <ClockIcon />
+                            <p className='icon-text'>Zero upfront charges!</p>
+                        </span>
+                        <p className='product-label-banner-text'>You will only be charged when filters ship.</p>
+                  </div>}
                   <header className={headerClass}>
                     {props.heading && <div className="filter-club-membership">
                       <div className="cart-heading">
@@ -76,14 +83,23 @@ export function DrawerFromBottom({open, onClose, openFrom = 'bottom', isFilterCl
                         {props.subHeading}
                       </p>}
                     </div>}
-                    {isFilterClubModalOpen && 
+                    {props.heading == 'Filter Club' && props.subHeading != undefined ?
+                    <button
+                      type="button"
+                      className="filterClubCloseButton mt-4"
+                      onClick={onClose}
+                      data-test="close-cart"
+                      >
+                      <IconLeftArrowClose aria-label="Close panel" />
+                    </button>
+                    :
                     <button
                       type="button"
                       className="menu-cart-icon filterClubCloseButton m-4"
                       onClick={onClose}
                       data-test="close-cart"
                     >
-                      <IconClose aria-label="Close panel" />
+                    <IconClose aria-label="Close panel" />
                     </button>
                     }
                   </header>

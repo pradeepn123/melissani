@@ -27,7 +27,8 @@ import {
   PlusIcon,
   MinusIcon,
   CheckIcon,
-  LabPFAsReport
+  LabPFAsReport,
+  FilterClubIcon
 } from '~/components';
 
 import { useCartFetchers } from '~/hooks/useCartFetchers';
@@ -50,9 +51,21 @@ export function Layout({children, layout}) {
   } = useDrawer();
 
   const {
+    isOpen: isFilterClubSavingsRightModal,
+    openDrawer: openFilterClubSavingsRightModal,
+    closeDrawer: closeFilterClubSavingsRightModal
+  } = useDrawer();
+
+  const {
     isOpen: isFilterClubBenifitsBottomModalOpen,
     openDrawer: openFilterClubBenifitsBottomModal,
     closeDrawer: closeFilterClubBenifitsModal
+  } = useDrawer();
+
+  const {
+    isOpen: isFilterClubSavingsBottomModalOpen,
+    openDrawer: openFilterClubSavingsBottomModal,
+    closeDrawer: closeFilterClubSavingsBottomModal
   } = useDrawer();
 
   const {
@@ -85,9 +98,10 @@ export function Layout({children, layout}) {
     if (isIdeal && addToCartFetchers.length == 0) {
       closeNoSubscriptionModalOpen()
       closeFilterClubRightModal()
+      closeFilterClubSavingsRightModal()
       closeSubscriptionModalOpen()
     }
-  }, [fetchers.length > 0 && addToCartFetchers.length == 0 && (isNoSubscriptionModalOpen || isFilterClubRightModalOpen || isSubscriptionModalOpen)])
+  }, [fetchers.length > 0 && addToCartFetchers.length == 0 && (isNoSubscriptionModalOpen || isFilterClubRightModalOpen || isFilterClubSavingsRightModal || isSubscriptionModalOpen)])
 
   const {pathname} = useLocation();
   return (
@@ -96,9 +110,15 @@ export function Layout({children, layout}) {
         isFilterClubRightModalOpen: isFilterClubRightModalOpen,
         openFilterClubRightModal: openFilterClubRightModal,
         closeFilterClubRightModal: closeFilterClubRightModal,
+        isFilterClubSavingsRightModal: isFilterClubSavingsRightModal,
+        openFilterClubSavingsRightModal: openFilterClubSavingsRightModal,
+        closeFilterClubSavingsRightModal: closeFilterClubSavingsRightModal,
         isFilterClubBenifitsBottomModalOpen: isFilterClubBenifitsBottomModalOpen,
         openFilterClubBenifitsBottomModal: openFilterClubBenifitsBottomModal,
         closeFilterClubBenifitsModal: closeFilterClubBenifitsModal,
+        isFilterClubSavingsBottomModalOpen: isFilterClubSavingsBottomModalOpen,
+        openFilterClubSavingsBottomModal: openFilterClubSavingsBottomModal,
+        closeFilterClubSavingsBottomModal: closeFilterClubSavingsBottomModal,
         isFilterClubItemsModalOpen: isFilterClubItemsModalOpen,
         openFilterClubItemsModal: openFilterClubItemsModal,
         closeFilterClubItemsModal: closeFilterClubItemsModal,
@@ -238,18 +258,10 @@ function Header({logo, menu, sidebarMenu, metafields}) {
         openFilterClubRightModal={context.openFilterClubRightModal}
         closeFilterClubRightModal={context.closeFilterClubRightModal}
       />
-      <FilterClubBenifitsBottomModal 
-        isOpen={context.isFilterClubBenifitsBottomModalOpen} 
-        open={context.openFilterClubBenifitsBottomModal}
-        onClose={context.closeFilterClubBenifitsModal}
-        isCartOpen={isCartOpen}
-      />
-      <FilterClubItemsModal 
-        isOpen={context.isFilterClubItemsModalOpen} 
-        open={context.openFilterClubItemsModal}
-        onClose={context.closeFilterClubItemsModal}
-        filterClubItems={context.filterClubItems}
-        isCartOpen={isCartOpen}
+      <FilterClubSavingsRightModal
+        isOpen={context.isFilterClubSavingsRightModal}
+        openFilterClubSavingsRightModal={context.openFilterClubSavingsRightModal}
+        closeFilterClubSavingsRightModal={context.closeFilterClubSavingsRightModal}
       />
       <NoSubscriptionModal
         isOpen={context.isNoSubscriptionModalOpen}
@@ -267,6 +279,7 @@ function Header({logo, menu, sidebarMenu, metafields}) {
     </>
   );
 }
+
 
 function FilterClubRightModal({isOpen, openFilterClubRightModal, closeFilterClubRightModal}) {
   const [root] = useMatches();
@@ -294,13 +307,13 @@ function FilterClubRightModal({isOpen, openFilterClubRightModal, closeFilterClub
     <div className="grid grid-cols-1 h-screen-no-nav grid-rows-[1fr_auto]">
       <div className="filter-club-membership-benefits">
           <ul className='px-4 sm:px-8 md:px-8'>
-            <li>10% Discount on filters</li>
-            <li>1 year extended warranty</li>
+            <li>10% Discount</li>
             <li>Free Shipping</li>
-            <li>Automated delivery</li>
-            <li>Contact us to customise</li>
-            <li>Lifetime phone support</li>
-            <li>Pay on shipment</li>
+            <li>Automated Delivery</li>
+            <li>Pay on Shipment</li>
+            <li>Lifetime Support</li>
+            <li>Email Us to Customise</li>
+            <li>1 Year Extended Warranty</li>
           </ul>
       </div>
       <section aria-labelledby="summary-heading" className="grid gap-4 cart-summary-footer">
@@ -339,82 +352,342 @@ function FilterClubRightModal({isOpen, openFilterClubRightModal, closeFilterClub
   </Drawer>
 }
 
-const FilterClubBenifitsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
+function FilterClubSavingsRightModal({isOpen, openFilterClubSavingsRightModal, closeFilterClubSavingsRightModal}) {
+  const [root] = useMatches();
+  const context = useContext(RequestContext)
+
+  const [isAddingToCart, setIsAddingToCart] = useState(false)
+
+  const addToCartFetchers = useCartFetchers('ADD_TO_CART');
+  const handleAddToCartClick = () => setIsAddingToCart(true)
+
+  let pac_price = 0.0;
+  let pac_disc_price = 0.0;
+  let cf_price = 0.0;
+  let ro_disc_price = 0.0;
+  let cf_disc_price = 0.0;
+
+  const [pacPrice, setPacPrice] = useState(null);
+  const [pacDiscPrice, setPacDiscPrice] = useState(null);
+  const [roPrice, setROPrice] = useState(null);
+  const [roDiscPrice, setRoDiscPrice] = useState(null);
+  const [cfPrice, setCFPrice] = useState(null);
+  const [cfDiscPrice, setCFDiscPrice] = useState(null);
+
+  const [toggle, setToggle] = useState(true);
+
+  useEffect(() => {
+    if (addToCartFetchers.length == 0) {
+      setIsAddingToCart(false)
+    }
+  }, [isAddingToCart == true && context.isAddingToCart])
+
+  return <Drawer
+    open={isOpen}
+    onClose={closeFilterClubSavingsRightModal}
+    isHome={false}
+    openMenu={openFilterClubSavingsRightModal}
+    openFrom="right"
+    heading="Filter Club Membership"
+    isFilterClubSavingsModal={true}
+  >
+    <div className="grid grid-cols-1 h-screen-no-nav grid-rows-[1fr_auto]">
+    <div className="filter-club-membership-savings">
+      <div className='filter-club-savings-switcher' style={{'margin': '27px 0'}}>
+        <div className='filter-club-switcher-title'>
+          <FilterClubIcon />
+          <span className='filter-club-switcher-title-text'>Filter Club</span>
+        </div>
+        <div className='filter-club-switch'>
+          <div
+          className={`${toggle ? 'active-toggle-bg' : 'inactive-toggle-bg'} md:w-14 md:h-7 w-12 h-6 flex items-center rounded-full p-1 cursor-pointer`}
+            onClick={() => {
+              setToggle(!toggle);
+            }}
+          >
+          <div
+            className={`${toggle ? 'bg-white translate-x-6' : 'bg-blue translate-x-0'} md:w-6 md:h-6 h-5 w-5 rounded-full shadow-md duration-300 ease-in-out`}
+          ></div>
+        </div>
+        </div>
+      </div>
+      <div className="filter-club-savings-small">
+          <table className='px-4 sm:px-8 md:px-8 w-full filterclub-savings-price-table'>
+            <thead>
+              <th>Filters</th>
+              <th>Price</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PAC x2</td>
+                <td>
+                  <Await resolve={root.data?.products}>
+                    {(products) => {
+                      products.nodes.filter((p) => {
+                        return p.handle == "melissani-m1-filter-pac-1"
+                      }).map((item) => {
+                        pac_price = parseFloat(item.variants.nodes[0].price.amount);
+                      })
+                      setPacPrice(parseFloat((pac_price) * 2).toFixed(2));
+                      pac_disc_price = pacPrice - (0.10 * pacPrice);
+                      setPacDiscPrice(parseFloat(pac_disc_price.toFixed(2)));
+                      return <span>
+                        {toggle && `$ ${pacDiscPrice}`} <span className={`${toggle && 'show_disc_price'}`}> $ {pacPrice} </span>
+                    </span>
+                    }}  
+                  </Await>
+                </td>
+              </tr>
+              <tr>
+                <td>RO</td>
+                <td>
+                  <Await resolve={root.data?.products}>
+                    {(products) => {
+                      products.nodes.filter((p) => {
+                        return p.handle == "melissani-m1-filter-ro-1"
+                      }).map((item) => {
+                        setROPrice(parseFloat(item.variants.nodes[0].price.amount).toFixed(2));
+                      })
+                      ro_disc_price = roPrice - (0.10 * roPrice);
+                      setRoDiscPrice(parseFloat(ro_disc_price.toFixed(2)))
+                      return <span>
+                          {toggle && `$ ${roDiscPrice}`} <span className={`${toggle && 'show_disc_price'}`}> $ {roPrice} </span>
+                    </span>
+                    }}  
+                  </Await>
+                </td>
+              </tr>
+              <tr>
+                <td>CF x2</td>
+                <td>
+                  <Await resolve={root.data?.products}>
+                    {(products) => {
+                      products.nodes.filter((p) => {
+                        return p.handle == "melissani-m1-filter-cf-1"
+                      }).map((item) => {
+                        cf_price = parseFloat(item.variants.nodes[0].price.amount).toFixed(2);
+                      })
+                      setCFPrice(parseFloat((cf_price) * 2).toFixed(2));
+                      cf_disc_price = cfPrice - (0.10 * cfPrice);
+                      setCFDiscPrice(parseFloat(cf_disc_price.toFixed(2)));
+                      return <span>
+                            {toggle && `$ ${cfDiscPrice}`} <span className={`${toggle && 'show_disc_price'}`}> $ {cfPrice} </span>
+                    </span>
+                    }}  
+                  </Await>
+                </td>
+              </tr>
+              <tr>
+                <td className='br-none'>Total / per year</td>
+                <td>
+                  {toggle && `$ ${parseFloat(pacDiscPrice) + parseFloat(roDiscPrice) + parseFloat(cfDiscPrice)}`} <span className={`${toggle && 'show_disc_price'}`}> $ {parseFloat(pacPrice) + parseFloat(roPrice) + parseFloat(cfPrice)} </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      {toggle && <p className='filter-club-savings-toggle-text'>You save $20 / per year on filters</p>}
+      </div>
+      <section aria-labelledby="summary-heading" className="grid gap-4 cart-summary-footer">
+        <dl className="grid">
+          <Await resolve={root.data?.products}>
+            {(products) => {
+              const subscriptionProduct = products.nodes.find((product) => product.handle == "melissani-m1-filter")
+              const parsesMetafield = JSON.parse(subscriptionProduct.metafields[0].value)
+              const bundleId = new Date().getTime().toString()
+              const subscriptionProducts = parsesMetafield.linkedProducts.subscription.map((productHandle) => {
+                const item = products.nodes.find((product) => product.handle == productHandle)
+                return {
+                  merchandiseId: item.variants.nodes[0].id,
+                  sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
+                  quantity: 1,
+                  attributes: [{
+                    key: 'Bundle',
+                    value: 'Filter Club'
+                  }]
+                }
+              })
+              return <AddToCartButton
+                variant='primary'
+                className="font-medium"
+                lines={subscriptionProducts}
+                onClick={handleAddToCartClick}
+                isAddingToCart={isAddingToCart}
+              >
+                Subscribe
+              </AddToCartButton>
+            }}
+          </Await>
+        </dl>
+      </section>
+    </div>
+  </Drawer>
+}
+
+function FilterClubBenifitsBottomModal({isOpen, open, onClose, isFilterClubSubscriptionOpen}) {
   return <DrawerFromBottom
     open={isOpen}
     onClose={onClose}
     openMenu={open}
-    isCartOpen={isCartOpen}
+    isCartOpen={isFilterClubSubscriptionOpen}
     openFrom="right"
     heading="Filter Club"
-    subHeading="Membership Benefits"
+    subHeading="Benefits"
     isFilterClubModalOpen = {true} 
   >
     <div className="grid grid-cols-1 grid-rows-[1fr_auto]">
       <div className="filter-club-membership-benefits-small">
           <ul className='px-4 sm:px-8 md:px-8'>
             <li>10% Discount</li>
-            <li>1 year extended warranty</li>
             <li>Free Shipping</li>
-            <li>Automated delivery</li>
-            <li>Contact us to customise</li>
-            <li>Lifetime phone support</li>
-            <li>Pay on shipment</li>
+            <li>Automated Delivery</li>
+            <li>Pay on Shipment</li>
+            <li>Lifetime Support</li>
+            <li>Email Us to Customise</li>
+            <li>1 Year Extended Warranty</li>
           </ul>
       </div>
     </div>
   </DrawerFromBottom>
 }
 
-const FilterClubItemsModal = ({isOpen, open, onClose, filterClubItems, isCartOpen}) => {
+const FilterClubSavingsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
+  const [root] = useMatches();
+
+  let pac_price = 0.0;
+  let pac_disc_price = 0.0;
+  let cf_price = 0.0;
+  let ro_disc_price = 0.0;
+  let cf_disc_price = 0.0;
+
+  const [pacPrice, setPacPrice] = useState(null);
+  const [pacDiscPrice, setPacDiscPrice] = useState(null);
+  const [roPrice, setROPrice] = useState(null);
+  const [roDiscPrice, setRoDiscPrice] = useState(null);
+  const [cfPrice, setCFPrice] = useState(null);
+  const [cfDiscPrice, setCFDiscPrice] = useState(null);
+
+  const [toggle, setToggle] = useState(true);
 
   return <DrawerFromBottom
     open={isOpen}
-    openMenu={open}
     onClose={onClose}
+    openMenu={open}
     isCartOpen={isCartOpen}
     openFrom="right"
     heading="Filter Club"
-    subHeading="What's included"
-    isFilterClubModalOpen = {true}
+    subHeading="Savings per year"
+    isFilterClubModalOpen = {true} 
   >
-    <div className="grid grid-cols-1 grid-rows-[1fr_auto]">
-      <div className="filter-club-modal-items">
-          <ul className='px-4 sm:px-8 md:px-8'>
-            {filterClubItems.map((line) => <li
-              className="flex gap-8 subscription_filter_club_member drawer"
-              key={`filter-club-${line.id}`}
-            >
-              <div className="flex-shrink">
-                <div className="cart-product-img-wrapper">
-                  <Image
-                    data={line.merchandise.image}
-                    className="cart-product-img"
-                    />
-                </div>
-              </div>
-              <div className="flex items-center flex-grow include-benifits">
-                {line.quantity} X {line.merchandise.product.productType} / <span>
-                  {` Every ${line.merchandise.product.productType.includes("RO") ? "12" : "6"} months`}
-                </span>
-              </div>
-            </li>)}
-          </ul>
+    <div className="grid grid-cols-1 grid-rows-[1fr_auto] mx-5 justify-between">
+      <div className="filter-club-savings-small">
+          <table className='px-4 sm:px-8 md:px-8 w-full filterclub-savings-price-table'>
+            <thead>
+              <th>Filters</th>
+              <th>Price</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PAC x2</td>
+                <td>
+                  <Await resolve={root.data?.products}>
+                    {(products) => {
+                      products.nodes.filter((p) => {
+                        return p.handle == "melissani-m1-filter-pac-1"
+                      }).map((item) => {
+                        pac_price = parseFloat(item.variants.nodes[0].price.amount);
+                      })
+                      setPacPrice(parseFloat((pac_price) * 2).toFixed(2));
+                      pac_disc_price = pacPrice - (0.10 * pacPrice);
+                      setPacDiscPrice(parseFloat(pac_disc_price.toFixed(2)));
+                      return <span>
+                        {toggle && `$ ${pacDiscPrice}`} <span className={`${toggle && 'show_disc_price'}`}> $ {pacPrice} </span>
+                    </span>
+                    }}  
+                  </Await>
+                </td>
+              </tr>
+              <tr>
+                <td>RO</td>
+                <td>
+                  <Await resolve={root.data?.products}>
+                    {(products) => {
+                      products.nodes.filter((p) => {
+                        return p.handle == "melissani-m1-filter-ro-1"
+                      }).map((item) => {
+                        setROPrice(parseFloat(item.variants.nodes[0].price.amount).toFixed(2));
+                      })
+                      ro_disc_price = roPrice - (0.10 * roPrice);
+                      setRoDiscPrice(parseFloat(ro_disc_price.toFixed(2)))
+                      return <span>
+                          {toggle && `$ ${roDiscPrice}`} <span className={`${toggle && 'show_disc_price'}`}> $ {roPrice} </span>
+                    </span>
+                    }}  
+                  </Await>
+                </td>
+              </tr>
+              <tr>
+                <td>CF x2</td>
+                <td>
+                  <Await resolve={root.data?.products}>
+                    {(products) => {
+                      products.nodes.filter((p) => {
+                        return p.handle == "melissani-m1-filter-cf-1"
+                      }).map((item) => {
+                        cf_price = parseFloat(item.variants.nodes[0].price.amount).toFixed(2);
+                      })
+                      setCFPrice(parseFloat((cf_price) * 2).toFixed(2));
+                      cf_disc_price = cfPrice - (0.10 * cfPrice);
+                      setCFDiscPrice(parseFloat(cf_disc_price.toFixed(2)));
+                      return <span>
+                            {toggle && `$ ${cfDiscPrice}`} <span className={`${toggle && 'show_disc_price'}`}> $ {cfPrice} </span>
+                    </span>
+                    }}  
+                  </Await>
+                </td>
+              </tr>
+              <tr>
+                <td className='br-none'>Total / per year</td>
+                <td>
+                  {toggle && `$ ${parseFloat(pacDiscPrice) + parseFloat(roDiscPrice) + parseFloat(cfDiscPrice)}`} <span className={`${toggle && 'show_disc_price'}`}> $ {parseFloat(pacPrice) + parseFloat(roPrice) + parseFloat(cfPrice)} </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      {toggle && <p className='filter-club-savings-toggle-text'>You save $20 / per year on filters</p>}
+      <div className='filter-club-savings-switcher' style={{'margin': toggle ? '5px 0 22px' : '45px 0 22px'}}>
+        <div className='filter-club-switcher-title'>
+          <FilterClubIcon />
+          <span className='filter-club-switcher-title-text'>Filter Club</span>
+        </div>
+        <div className='filter-club-switch'>
+          <div
+          className={`${toggle ? 'active-toggle-bg' : 'inactive-toggle-bg'} md:w-14 md:h-7 w-12 h-6 flex items-center rounded-full p-1 cursor-pointer`}
+            onClick={() => {
+              setToggle(!toggle);
+            }}
+          >
+          <div
+            className={`${toggle ? 'bg-white translate-x-5' : 'bg-blue translate-x-0'} md:w-6 md:h-6 h-5 w-5 rounded-full shadow-md duration-300 ease-in-out`}
+          ></div>
+        </div>
+        </div>
       </div>
     </div>
   </DrawerFromBottom>
 }
-
 
 const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
   const context = useContext(RequestContext)
   const [isAddingToCart, setIsAddingToCart] = useState(false)
-
-  var filterClubPrice = 0
+  let filterClubPrice = 0;
+  let filterClubCompareAtPrice = 0;
   const bundleId = new Date().getTime().toString()
   const lineItems = items.map((item) => {
     const itemMetafield = JSON.parse(item.metafields[0].value)
     filterClubPrice += itemMetafield.price
+    filterClubCompareAtPrice += itemMetafield.compareAtPrice
     return {
       merchandiseId: item.variants.nodes[0].id,
       sellingPlanId: item.sellingPlanGroups.edges[0].node.sellingPlans.edges[0].node.id,
@@ -446,30 +719,55 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
       <div className="grid grid-cols-1 grid-rows-[1fr_auto]">
         <div className="filter-club-subscription-modal-content">
           <div className="product-price font-tertiary">
-            <Money
-              withoutTrailingZeros
-              data={{amount: filterClubPrice.toFixed(2), currencyCode: 'USD'}}
-              as="span"
-            />
+            <span className="compare-at-price-amount">
+                <Money
+                    data={{
+                        amount: filterClubCompareAtPrice.toFixed(2),
+                        currencyCode: 'USD'
+                    }}
+                    as="span"
+                />
+            </span>
+            {" "}
+            <span className='price-amount'>
+              <Money
+                  data={{
+                      amount: filterClubPrice.toFixed(2),
+                      currencyCode: 'USD'
+                  }}
+                  as="span"
+              />
+            </span>
+            <span className="price-sub-text"> / year</span>
           </div>
-          <div className="grid gap-4 pt-3 pb-4">
+          <div className="grid gap-4 pt-2 pb-4">
             <div className="font-tertiary product-description">
-              Get fresh filters delivered to your door, when you need them. Save 10% on filters every-time time it ships!
+              Fresh filters, Automatic delivery, 10% off!
             </div>
           </div>
           <hr />
-          <div className="grid gap-4 pt-3 pb-4">
+          <div className="grid gap-4 pt-4 pb-3">
             <div className="additional-information">
               <Heading as="h5" className="whitespace-normal product-information">
                 Includes:
                 </Heading>
-                <p className="font-tertiary include-benifits">PAC & CF Filter <span>/ Every 6 months</span></p>
+                <p className="font-tertiary include-benifits include-benefits-point">PAC & CF Filter <span>/ Every 6 months</span></p>
                 <p className="font-tertiary include-benifits">RO Filter <span>/ Every 12 months</span></p>
                 <p
-                  className="font-tertiary include-benifits filter_club_benefits"
+                  className="font-tertiary include-benifits filter_club_benefits mt-8 mb-3.5"
                   onClick={context.openFilterClubBenifitsBottomModal}
                 >
                   Filter club benefits
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="9" cy="9" r="8.48283" stroke="#1B2943" strokeWidth="1.03433"/>
+                    <path d="M8.06951 10.4734L8.07071 10.5584H8.15569H9.14007H9.22626V10.4722V10.2261C9.22626 10.0929 9.24488 9.98097 9.27973 9.88844C9.3164 9.79845 9.37978 9.71008 9.47367 9.62391C9.57221 9.53611 9.7122 9.43919 9.8959 9.33342L9.89591 9.33343L9.8974 9.33254C10.0952 9.21329 10.264 9.08143 10.403 8.93652L10.4036 8.93589C10.5438 8.78678 10.6502 8.61915 10.7223 8.43331C10.7975 8.24653 10.8344 8.0404 10.8344 7.8161V7.80762C10.8344 7.48071 10.7494 7.18794 10.5779 6.93223C10.4071 6.67745 10.1681 6.47965 9.8643 6.338C9.56204 6.19289 9.21093 6.12181 8.81336 6.12181C8.38484 6.12181 8.01563 6.1985 7.70922 6.35609C7.4046 6.50994 7.16854 6.72441 7.00399 6.99965L7.00399 6.99965L7.00364 7.00025C6.84308 7.27379 6.75621 7.58336 6.74152 7.92698L6.74144 7.92698V7.93066V7.93915V8.02571L6.82801 8.02534L7.82087 8.0211L7.84102 8.02101L7.85905 8.012L7.86753 8.00776L7.9126 7.98522L7.91507 7.9349C7.92295 7.77474 7.96335 7.6395 8.0337 7.52644L8.0337 7.52645L8.03414 7.52572C8.10513 7.4091 8.2009 7.31959 8.3228 7.2561C8.44441 7.19276 8.58733 7.15977 8.75396 7.15977C8.92423 7.15977 9.06724 7.19167 9.18573 7.25218L9.18573 7.25218L9.18638 7.25251C9.30966 7.31415 9.40183 7.39599 9.46612 7.49737L9.46611 7.49737L9.46664 7.49818C9.53011 7.59582 9.56303 7.71064 9.56303 7.8458V7.85429C9.56303 7.9836 9.54192 8.09318 9.50223 8.18498L9.50221 8.18497L9.50146 8.1868C9.46504 8.27664 9.40047 8.36523 9.30333 8.45187L9.30333 8.45186L9.30246 8.45266C9.2062 8.5409 9.07269 8.63801 8.90009 8.74381C8.70288 8.86275 8.53817 8.99029 8.40739 9.12701L8.40736 9.12704C8.27706 9.2634 8.18379 9.41897 8.12873 9.59321C8.07407 9.76335 8.05375 9.95747 8.06529 10.1739L8.06951 10.4734ZM9.26677 12.3724L9.26677 12.3725L9.26751 12.3718C9.41452 12.2313 9.48509 12.0447 9.48509 11.8215C9.48509 11.5985 9.41463 11.413 9.26714 11.2751C9.12047 11.1352 8.92634 11.0691 8.69455 11.0691C8.46501 11.0691 8.27139 11.1355 8.12234 11.2748C7.97459 11.4127 7.90402 11.5984 7.90402 11.8215C7.90402 12.0447 7.97459 12.2313 8.1216 12.3718L8.12159 12.3718L8.12303 12.3731C8.27215 12.5092 8.46553 12.5738 8.69455 12.5738C8.92599 12.5738 9.11998 12.5095 9.26677 12.3724Z" fill="#1B2943" stroke="#1B2943" strokeWidth="0.172389"/>
+                  </svg>
+                </p>
+                <p
+                  className="font-tertiary include-benifits filter_club_benefits mb-6"
+                  onClick={context.openFilterClubSavingsBottomModal}
+                >
+                  How much you save?
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="9" cy="9" r="8.48283" stroke="#1B2943" strokeWidth="1.03433"/>
                     <path d="M8.06951 10.4734L8.07071 10.5584H8.15569H9.14007H9.22626V10.4722V10.2261C9.22626 10.0929 9.24488 9.98097 9.27973 9.88844C9.3164 9.79845 9.37978 9.71008 9.47367 9.62391C9.57221 9.53611 9.7122 9.43919 9.8959 9.33342L9.89591 9.33343L9.8974 9.33254C10.0952 9.21329 10.264 9.08143 10.403 8.93652L10.4036 8.93589C10.5438 8.78678 10.6502 8.61915 10.7223 8.43331C10.7975 8.24653 10.8344 8.0404 10.8344 7.8161V7.80762C10.8344 7.48071 10.7494 7.18794 10.5779 6.93223C10.4071 6.67745 10.1681 6.47965 9.8643 6.338C9.56204 6.19289 9.21093 6.12181 8.81336 6.12181C8.38484 6.12181 8.01563 6.1985 7.70922 6.35609C7.4046 6.50994 7.16854 6.72441 7.00399 6.99965L7.00399 6.99965L7.00364 7.00025C6.84308 7.27379 6.75621 7.58336 6.74152 7.92698L6.74144 7.92698V7.93066V7.93915V8.02571L6.82801 8.02534L7.82087 8.0211L7.84102 8.02101L7.85905 8.012L7.86753 8.00776L7.9126 7.98522L7.91507 7.9349C7.92295 7.77474 7.96335 7.6395 8.0337 7.52644L8.0337 7.52645L8.03414 7.52572C8.10513 7.4091 8.2009 7.31959 8.3228 7.2561C8.44441 7.19276 8.58733 7.15977 8.75396 7.15977C8.92423 7.15977 9.06724 7.19167 9.18573 7.25218L9.18573 7.25218L9.18638 7.25251C9.30966 7.31415 9.40183 7.39599 9.46612 7.49737L9.46611 7.49737L9.46664 7.49818C9.53011 7.59582 9.56303 7.71064 9.56303 7.8458V7.85429C9.56303 7.9836 9.54192 8.09318 9.50223 8.18498L9.50221 8.18497L9.50146 8.1868C9.46504 8.27664 9.40047 8.36523 9.30333 8.45187L9.30333 8.45186L9.30246 8.45266C9.2062 8.5409 9.07269 8.63801 8.90009 8.74381C8.70288 8.86275 8.53817 8.99029 8.40739 9.12701L8.40736 9.12704C8.27706 9.2634 8.18379 9.41897 8.12873 9.59321C8.07407 9.76335 8.05375 9.95747 8.06529 10.1739L8.06951 10.4734ZM9.26677 12.3724L9.26677 12.3725L9.26751 12.3718C9.41452 12.2313 9.48509 12.0447 9.48509 11.8215C9.48509 11.5985 9.41463 11.413 9.26714 11.2751C9.12047 11.1352 8.92634 11.0691 8.69455 11.0691C8.46501 11.0691 8.27139 11.1355 8.12234 11.2748C7.97459 11.4127 7.90402 11.5984 7.90402 11.8215C7.90402 12.0447 7.97459 12.2313 8.1216 12.3718L8.12159 12.3718L8.12303 12.3731C8.27215 12.5092 8.46553 12.5738 8.69455 12.5738C8.92599 12.5738 9.11998 12.5095 9.26677 12.3724Z" fill="#1B2943" stroke="#1B2943" strokeWidth="0.172389"/>
@@ -478,7 +776,7 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
             </div>
           </div>
         </div>
-        <div className="grid gap-4 p-4">
+        <div className="grid gap-4 py-4 px-6">
           <AddToCartButton
             variant='primary'
             className="font-medium"
@@ -486,16 +784,23 @@ const FilterClubSubscriptionModal = ({isOpen, open, onClose, items}) => {
             onClick={handleAddToCartClick}
             isAddingToCart={isAddingToCart}
           >
-            <Money
-              withoutTrailingZeros
-              data={{amount: filterClubPrice.toFixed(2), currencyCode: 'USD'}}
-              as="span"
-            />
-            {` - Add to cart`}
+            {`Add to cart`}
           </AddToCartButton>
         </div>
       </div>
     </div>
+    <FilterClubBenifitsBottomModal
+      isOpen={context.isFilterClubBenifitsBottomModalOpen} 
+      open={context.openFilterClubBenifitsBottomModal}
+      onClose={context.closeFilterClubBenifitsModal}
+      isFilterClubSubscriptionOpen={context.isSubscriptionModalOpen}
+    />
+    <FilterClubSavingsBottomModal
+      isOpen={context.isFilterClubSavingsBottomModalOpen} 
+      open={context.openFilterClubSavingsBottomModal}
+      onClose={context.closeFilterClubSavingsBottomModal}
+      isFilterClubSubscriptionOpen={context.isSubscriptionModalOpen}
+    />
   </DrawerFromBottom>
 }
 
@@ -567,7 +872,8 @@ const NoSubscriptionModal = ({isOpen, open, onClose, oneTimeProducts, setOneTime
       <div className="content one-time-products-wrapper">
         {oneTimeProducts.map((oneTimeProduct) => {
           let featuredImage = oneTimeProduct.media.nodes[0]?.image
-          let oneTimeProductQuantity = oneTimeProduct.quantity == undefined ? 1 : oneTimeProduct.quantity
+          // let oneTimeProductQuantity = oneTimeProduct.quantity == undefined ? 1 : oneTimeProduct.quantity
+          let oneTimeProductQuantity = oneTimeProduct.quantity == undefined ? 0 : oneTimeProduct.quantity;
           return <div
             key={`one-time-product-${oneTimeProduct.handle}`}
             className="grid gap-2 py-2"
@@ -618,14 +924,15 @@ const NoSubscriptionModal = ({isOpen, open, onClose, oneTimeProducts, setOneTime
           isAddingToCart={isAddingToCart}
           onClick={handleAddToCartClick}
         >
-          <Money
+          {/* <Money
             withoutTrailingZeros
             data={{
               amount: totalPrice.toFixed(2),
               currencyCode: 'USD'
             }}
             as="span"
-          /> - {` Add to Cart`}
+          /> -  */}
+          {`Add to Cart`}
         </AddToCartButton>
       </div>
     </div>
@@ -648,7 +955,7 @@ function CartDrawer({isOpen, isHome, onClose, openCart }) {
       <div className="grid cart-body-content">
         <Suspense fallback={<CartLoading />}>
           <Await resolve={root.data?.cart}>
-            {(cart) => <Cart layout="drawer" onClose={onClose} cart={cart} />}
+            {(cart) => <Cart layout="drawer" onClose={onClose} cart={cart} isCartOpen={isOpen} />}
           </Await>
         </Suspense>
       </div>

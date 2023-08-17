@@ -183,7 +183,7 @@ export function ProductStickyBar({title, data, price, isSubscriptionProduct, ...
                                 className="rounded-full w-full text-center py-3 px-9 border border-primary bg-contrast text-primary"
                                 onClick={() => context.openSubscriptionModalOpen(subscriptionItems)}
                             >
-                                Filter Club Membership
+                                Filter Club
                             </Button>                         
                         </div>
                         <div className="sticky_button">   

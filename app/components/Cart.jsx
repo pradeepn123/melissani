@@ -10,17 +10,18 @@ import {
   Link,
   RequestContext,
   CartClubMembership,
-  CartLoading
+  CartLoading,
+  ClockIcon,
+  DrawerFromBottom,
 } from '~/components';
 import { getInputStyleClasses } from '~/lib/utils';
 import { useFetcher, Await, useMatches } from '@remix-run/react';
 import { CartAction } from '~/lib/type';
 
 
-export function Cart({layout, onClose, cart}) {
+export function Cart({layout, onClose, cart, isCartOpen}) {
   const linesCount = Boolean(cart?.lines?.edges?.length || 0);
   const context = useContext(RequestContext)
-
   return (
     <>
       <CartEmpty hidden={linesCount} onClose={onClose} layout={layout} />
@@ -28,8 +29,158 @@ export function Cart({layout, onClose, cart}) {
       {context.isCartUpdating && <CartLoading
         classNames="cart-updating-loader"
       />}
+      <FilterClubItemsModal 
+        isOpen={context.isFilterClubItemsModalOpen} 
+        open={context.openFilterClubItemsModal}
+        onClose={context.closeFilterClubItemsModal}
+        filterClubItems={context.filterClubItems}
+        isCartOpen={isCartOpen}
+      />
+      <FilterClubBenifitsBottomModal 
+        isOpen={context.isFilterClubBenifitsBottomModalOpen} 
+        open={context.openFilterClubBenifitsBottomModal}
+        onClose={context.closeFilterClubBenifitsModal}
+        isCartOpen={isCartOpen}
+      />
     </>
   );
+}
+
+const FilterClubItemsModal = ({isOpen, open, onClose, filterClubItems, isCartOpen}) => {
+  const shipmentDate = new Date()
+  shipmentDate.setMonth(shipmentDate.getMonth() + 6)
+  const [root] = useMatches();
+
+  let pac_cf_total = 0.0;
+  let pac_cf_total_after_discount = 0.0;
+  let filters_total = 0.0;
+  let filters_total_after_discount = 0.0;
+
+  return <DrawerFromBottom
+    open={isOpen}
+    openMenu={open}
+    onClose={onClose}
+    isCartOpen={isCartOpen}
+    openFrom="right"
+    heading="Filter Club"
+    subHeading="What's included?"
+    isFilterClubModalOpen = {true}
+  >
+    <div className='filterclub-included-shipment'>
+      <div className='filterclub-included-shipment-label'>
+        <p className='shipment-label-title'>
+          Upcoming shipment
+        </p>
+        <p className='shipment-label-title'>
+          Amount Charged
+        </p>
+      </div>
+      <div className='filterclub-included-shipment-label'>
+        <p className='shipment-label-text'>
+          {shipmentDate.toDateString()}
+        </p>
+        <Await resolve={root.data?.products}>
+              {(products) => {
+                products.nodes.filter((p) => {
+                  return p.handle == "melissani-m1-filter-pac-1" || p.handle == "melissani-m1-filter-cf-1"
+                }).map((item) => {
+                  let price = parseFloat(item.variants.nodes[0].price.amount);
+                  pac_cf_total = parseFloat(pac_cf_total) + price;
+                  
+                })
+                pac_cf_total_after_discount = (pac_cf_total - (0.10 * pac_cf_total)).toFixed(2);
+                return <p className='shipment-label-text'>
+                      $ {pac_cf_total_after_discount}
+                </p>
+              }}
+        </Await>
+      </div>
+    </div>
+    <div className="grid grid-cols-1 grid-rows-[1fr_auto]">
+      <div className="filter-club-modal-items">
+          <ul className='px-6 sm:px-6 md:px-6'>
+            {filterClubItems
+            .filter((line) => line.merchandise.product.handle != 'melissani-m1-filter-ro')
+            .map((line) => (
+            <li
+              className="flex gap-4 subscription_filter_club_member drawer"
+              key={`filter-club-${line.id}`}
+            >
+              <div className="flex-shrink">
+                <div className="cart-product-img-wrapper">
+                  <Image
+                    data={line.merchandise.image}
+                    className="cart-product-img"
+                    />
+                </div>
+              </div>
+              <div className="flex items-center flex-grow include-benifits">
+                {line.quantity} X {line.merchandise.product.productType} <span>
+                </span>
+              </div>
+            </li>))}
+          </ul>
+      </div>
+    </div>
+    <div className='filterclub-next-shipment'>
+        <div className='filterclub-included-shipment-label'>
+          <p className='next-shipment-label-title'>
+            Next shipment
+          </p>
+          <p className='next-shipment-label-title'>
+            Amount Charged
+          </p>
+        </div>
+        <div className='filterclub-included-shipment-label'>
+          <p className='next-shipment-label-text'>
+            1 x RO Filter, 1 x PAC Filter, 1 x CF Filter 
+          </p>
+          <p className='next-shipment-label-title'>
+            <Await resolve={root.data?.products}>
+                {(products) => {
+                  products.nodes.filter((p) => {
+                    return p.handle == "melissani-m1-filter-pac-1" || p.handle == "melissani-m1-filter-cf-1" || p.handle == "melissani-m1-filter-ro-1"
+                  }).map((item) => {
+                    let price = parseFloat(item.variants.nodes[0].price.amount);
+                    filters_total = parseFloat(filters_total) + price;
+                  })
+                  filters_total_after_discount = (filters_total - (0.10 * filters_total)).toFixed(2);
+                  return <p className='next-shipment-label-text'>
+                        $ {filters_total_after_discount}
+                  </p>
+                }}
+          </Await>
+          </p>
+        </div>
+    </div>
+  </DrawerFromBottom>
+}
+
+const FilterClubBenifitsBottomModal = ({isOpen, open, onClose, isCartOpen}) => {
+  return <DrawerFromBottom
+    open={isOpen}
+    onClose={onClose}
+    openMenu={open}
+    isCartOpen={isCartOpen}
+    openFrom="right"
+    heading="Filter Club"
+    subHeading="Benefits"
+    isFilterClubModalOpen = {true} 
+  >
+    <div className="grid grid-cols-1 grid-rows-[1fr_auto]">
+      <div className="filter-club-membership-benefits-small">
+          <ul className='px-4 sm:px-8 md:px-8'>
+            <li>10% Discount</li>
+            <li>Free Shipping</li>
+            <li>Automated Delivery</li>
+            <li>Pay on Shipment</li>
+            <li>Lifetime Support</li>
+            <li>Email Us to Customise</li>
+            <li>1 Year Extended Warranty</li>
+          </ul>
+      </div>
+    </div>
+  </DrawerFromBottom>
 }
 
 export function CartDetails({layout, cart}) {
@@ -42,7 +193,7 @@ export function CartDetails({layout, cart}) {
   };
 
   return <div className={container[layout]}>
-      <CartLines lines={cart?.lines} layout={layout} />
+      <CartLines lines={cart?.lines} layout={layout}  />
   </div>
 }
 
@@ -154,12 +305,11 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
         {oneTimeLineItems.map((line) => (
           <CartLineItem key={line.id} line={line} />
         ))}
-
         {filterClubLineItems.length > 0 && <SubsctiptionLineItem lines={filterClubLineItems} />}
       </ul>
       {filterClubLineItems.length > 0 && <div className="cart-shipment-info">
         <p className="font-tertiary">
-          Want to customise your shipment cycle? Buy filter club and Contact us to get your shipment plan personalised .
+          Email <u><a href="mailto:team@melissaniwater.com">team@melissaniwater.com</a></u> to customize your subscription, or edit it in your account after subscription.
         </p>
       </div>}
     </section>
@@ -176,9 +326,7 @@ function CartCheckoutActions({cost, checkoutUrl}) {
     <div className="flex flex-col mt-2">
       <a href={checkoutUrl} target="_self">
         <Button variant="primary" as="span" width="full" className="flex items-center justify-center checkout-btn">
-          {"Checkout -  "} {cost?.subtotalAmount?.amount ? (
-            <Money data={cost?.subtotalAmount} as="span"/>
-          ) : (' ')}
+          {"Checkout"}
         </Button>
       </a>
       {/* @todo: <CartShopPayButton cart={cart} /> */}
@@ -196,7 +344,7 @@ function CartSummary({cost, layout, children = null}) {
     <section aria-labelledby="summary-heading" className={summary[layout]}>
       <dl className="grid">
         <div className="flex items-center justify-between">
-          <Text as="dt" className="font-primary cart-footer-subtotal">Subtotal</Text>
+          <Text as="dt" className="cart-footer-subtotal">Subtotal</Text>
           <Text as="dd" data-test="subtotal" className="font-tertiary cart-footer-total">
             {cost?.subtotalAmount?.amount ? (
               <Money data={cost?.subtotalAmount} />
@@ -210,7 +358,6 @@ function CartSummary({cost, layout, children = null}) {
     </section>
   );
 }
-
 
 function SubsctiptionLineItem({lines}) {
   const context = useContext(RequestContext)
@@ -231,21 +378,13 @@ function SubsctiptionLineItem({lines}) {
       </div>
       <div className="flex justify-between items-center flex-grow">
         <div className="grid gap-2">
+          {lines.length > 0 && <span className='shipment-label'>
+            <ClockIcon />
+            <p className='shipment-label-text'>Charged on shipment</p>
+          </span>}
           <Heading as="h3" size="copy" className="font-primary cart-product-title">
-            Filter Club Membership
+            Filter Club
           </Heading>
-
-          <div className="grid pb-2">
-            <Text className="font-tertiary cart-product-price club-membership-price">
-              <span className="price">
-                <SubscriptionLinesCompareAtPrice lines={lines} as="span" />
-              </span>
-              <span className="offer-price">
-                <SubscriptionLinesPrice lines={lines} as="span" />
-              </span>
-            </Text>
-          </div>
-
           <div className="grid gap-2 pb-2">
             <Text className="font-tertiary filter-club-text">
               Filters ship based on the <strong>Optimum service cycle</strong>
