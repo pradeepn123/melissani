@@ -578,20 +578,18 @@ ul.filter-club-list {
     }
 
     .discover-heading {
-        font-size: 42px;
+        font-size: 40px;
         line-height: 1.2;
     }
 
     .discover-description {
         font-size: 14px;
         line-height: 20px;
-        border-bottom: 1px solid #E4EBED;
     }
 
     .discover-icons {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        /* grid-template-columns: 1fr 1fr; */
         grid-column-gap: 0;
         padding: 0;
         margin-left: -1em;
@@ -661,6 +659,10 @@ ul.filter-club-list {
 }
 
 @media screen and (min-width: 820px) {
+    .discover-heading {
+        font-size: 42px;
+        line-height: 1.2;
+    }
     .discover-description {
         font-size: 12px;
         line-height: 22px;
@@ -710,11 +712,13 @@ ul.filter-club-list {
     }
 }
 
-@media screen and (max-width: 1024px) {
-    .discover-description {
-        font-size: 16px;
-        line-height: 32px;
+@media screen and (min-width: 1023px) {
+    .discover-horizontal-line {
+        display: none;
     }
+}
+
+@media screen and (max-width: 1024px) {
     .discover-icons {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
@@ -724,6 +728,9 @@ ul.filter-club-list {
     .discover-icons .discover-icon img {
         width: 82px;
         height: 82px;
+    }
+    .discover-horizontal-line {
+        display: none;
     }
     #volume-text-section-icon:first-child img {
         width: 104px;
@@ -764,6 +771,30 @@ ul.filter-club-list {
         line-height: 24px;
         max-width: 92%;
     }
+    .discover-icons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 12px 0;
+        justify-content: center;
+        border-bottom: 1px solid #E4EBED;
+        border-top: 1px solid #E4EBED;
+        margin: 0;
+        row-gap: 0.25em;
+    }
+    .discover-icon {
+        flex-direction: row;
+    }
+    .discover-icon-text {
+        text-align: left;
+    }
+    .discover-horizontal-line {
+        display: block;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        height: 2px;
+        border-bottom: 1px solid #E4EBED;
+        width: 100%;
+    }
     .text-section-icons {
         margin: 1em 0 0;
         column-gap: 0;
@@ -789,6 +820,9 @@ ul.filter-club-list {
 @media screen and (min-width: 1400px) {
     .gb_bg_color .right_text_block .right_text_heading {
         font-size: 52px;
+    }
+    .discover-icons {
+        row-gap: 0.5em;
     }
 }
 
@@ -856,36 +890,9 @@ ul.filter-club-list {
         font-size: 16px;
         line-height: 20px;
         width: 155px;
+        text-align: center;
     }
-    .discover-icons {
-        /* display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding: 0;
-        justify-content: center; */
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding: 12px 0;
-        justify-content: center;
-        border-bottom: 1px solid #E4EBED;
-        border-top: 1px solid #E4EBED;
-        margin: 0;
-    }
-    .discover-icons:first
-    .discover-icon {
-        flex-direction: row;
-    }
-    .discover-icon-text {
-        text-align: left;
-    }
-    /* .discover-icons .discover-icon:nth-child(n+3) {
-        margin-left: 20px;   
-    }
-    .discover-icons .discover-icon:first-child {
-        margin-left: -4px;
-    }
-    .discover-icons .discover-icon:last-child{
-        margin-left: 3px;
-    } */
+
     .discover-icons .discover-icon img {
         width: 94px;
         height: 94px;
@@ -1013,10 +1020,6 @@ ul.filter-club-list {
         max-width: 95px;
     }
 
-    .discover-icon:first-child .discover-icon-text{
-        width: 20%;
-    }
-
     .filter-club-section {
         width: 80%;
         padding: 3em 0 1em 1.5em;
@@ -1117,6 +1120,10 @@ ul.filter-club-list {
     }
     .text-section-description {
         padding: 0 8em 0 0;
+    }
+    .discover-icons {
+        padding: 1em 0;
+        row-gap: 1em;
     }
 }
 

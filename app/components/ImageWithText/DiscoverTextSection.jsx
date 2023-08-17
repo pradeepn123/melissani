@@ -22,12 +22,16 @@ export function DiscoverTextSection({discover}) {
             
             <div className="discover-icons">
             {discover.iconWithText.map((item, index) => (
-                <div className="discover-icon" key={index}>
-                    <img src={item.icon} />
-                    <div className="discover-icon-text">
-                        {item.text}
+                <>
+                    <div className="discover-icon" key={index}>
+                        <img src={item.icon} />
+                        <div className="discover-icon-text">
+                            {item.text}
+                        </div>
                     </div>
-                </div>))}
+                    {index == 1 && <div className='discover-horizontal-line'></div>}
+                </>
+                ))}
             </div>
         </motion.div>
     )

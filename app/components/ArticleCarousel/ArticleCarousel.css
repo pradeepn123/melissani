@@ -21,6 +21,7 @@
     right: 6.75rem;
     top: 45px;
 }
+
 .article-content-title{
     font-style: normal;
     font-weight: 500;
@@ -35,8 +36,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    margin: 0 11px;
-    /* max-width: calc(33.33% - 8px); */
+    margin: 0 8px;
     max-width: calc(33.33% - 13px);
     height: 15.313rem;
     position: relative;
