@@ -17,7 +17,7 @@
     line-height: 67px;
     letter-spacing: 0em;
     text-align: left;
-    
+    color: #0b2340;
 }
 
 .gb_bg_color .right_text_block .right_text_description {
@@ -26,7 +26,7 @@
     line-height: 30px;
     letter-spacing: -0.005em;
     text-align: left;
-    
+    color: #0b2340;
 }
 
 /* End: Contaminants Section */
@@ -45,7 +45,7 @@
     font-family: 'Peachi-Bold';
     font-weight: 700;
     text-align: left;
-    color: #000;
+    color: #0b2340;
 }
 
 .discover-description {
@@ -55,8 +55,7 @@
     line-height: 36px;
     letter-spacing: 0em;
     text-align: left;
-    color: #000;
-    /* margin: 1em 0; */
+    color: #0b2340;
     padding: 1.2em 0;
 }
 .discover-icons {
@@ -84,7 +83,7 @@
     font-weight: 500;
     line-height: 24px;
     letter-spacing: 0em;
-    color: #1B2943;
+    color: #0b2340;
 }
 /* End: Discover Section */
 
@@ -99,7 +98,7 @@
     line-height: 70px;
     letter-spacing: 0em;
     text-align: left;
-    color: #000;
+    color: #0b2340;
 }
 .filter-club-description {
     font-size: 20px;
@@ -107,7 +106,7 @@
     line-height: 30px;
     letter-spacing: 0em;
     text-align: left;
-    color: #000;
+    color: #0b2340;
     margin: 0.5em 0 1em 0;
     width: 70%;
 }
@@ -122,7 +121,7 @@ ul.filter-club-list {
     display: flex;
     flex-direction: row;
     column-gap: 1em;
-    color: #000;
+    color: #0b2340;
 }
 
 .filter-club-list-text {
@@ -416,17 +415,17 @@ ul.filter-club-list {
     }
     
     .gb_bg_color .right_text_block .right_text_description {
-        /* font-size: 20px; */
         line-height: 30px;
         letter-spacing: -0.005em;
     }
 
     .contaminants-list{
-        font-size: 12px;
+        font-size: 10px;
         font-weight: 500;
-        line-height: 21px;
+        line-height: normal;
         letter-spacing: 0em;
         text-align: left;
+        color: #0b2340;
     }
 
     .learn-more-btn {
@@ -571,6 +570,7 @@ ul.filter-club-list {
         line-height: 28px;
         letter-spacing: 0em;
         text-align: left;
+        color: #0b2340;
     }
 
     .discover-section {
@@ -891,7 +891,9 @@ ul.filter-club-list {
         line-height: 20px;
         width: 155px;
     }
-
+    .contaminants-list{
+        width: 50%;
+    }
     .discover-icons .discover-icon img {
         width: 94px;
         height: 94px;
@@ -958,7 +960,8 @@ ul.filter-club-list {
         height: 107px;
     }
     .gb_bg_color .right_text_block .right_text_heading {
-        font-size: 52px;
+        font-size: 40px;
+        line-height: normal;
         font-weight: 300;
     }
     .discover-main-section{
@@ -1041,8 +1044,9 @@ ul.filter-club-list {
         text-align: center;
     }
 
-    .filter-club-learn-more-btn {
+    .filter-club-learn-more-btn, .filter-club-learn-more-btn a {
         text-align: center;
+        color: #0b2340;
     }
 
     .filter-club-anouncement {

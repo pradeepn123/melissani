@@ -36,7 +36,7 @@
 }
 .review-content-heading{
     font-family: 'Peachi-Medium';
-    color: #000;
+    color: #0b2340;
     margin-bottom: 57px;
     font-size: 52px;
     font-weight: 700;
@@ -64,7 +64,7 @@
     line-height: 36px;
     letter-spacing: 0em;
     text-align: left;
-    color: #000;
+    color: #0b2340;
 }
 
 .review-content-block .Stars {
@@ -93,7 +93,7 @@
     line-height: 28px;
     letter-spacing: 0em;
     text-align: left;
-    color: #000;
+    color: #0b2340;
     margin-top: 23px;
     width: 100%;
 }
@@ -104,7 +104,7 @@
     line-height: 27px;
     letter-spacing: 0em;
     text-align: left;
-    color: #1B2943;
+    color: #0b2340;
     margin-top: 20px;
 }
 
@@ -160,6 +160,17 @@
     }
     .review-carousel-wrapper .flickity-prev-next-button{
         display: none !important;
+    }
+}
+
+@media (max-width: 768px) and (max-width: 912px){
+    .review-content-block h3 {
+        font-size: 28px;
+        line-height: normal;
+    }
+    .review-content-block p.review-text {
+        font-size: 18px;
+        line-height: normal;
     }
 }
 

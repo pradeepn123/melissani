@@ -41,6 +41,7 @@
     text-align: center;
     width: 65%;
     margin: auto;
+    color: #0b2340;
 }
 
 .featured-products-home .product-card-wrapper .card-image {
@@ -86,7 +87,6 @@
 }
 
 .featured-products-home .cta-wrapper {
-    /* background-color: #F9F9F9; */
     padding: 0 40px 30px;
 }
 
@@ -96,7 +96,7 @@
 
 .featured-products-home .cta-wrapper a {
     text-decoration: underline;
-    color: #1b2943;
+    color: #0b2340;
     margin-top: 25px;
     text-transform: none;
     font-weight: 500;
@@ -118,7 +118,11 @@
         width: 85%;
     }
 }
-
+@media screen and (max-width: 1200px) {
+    .featured-products-home .product-card-wrapper h3 {
+        width: 100%;
+    }
+}
 @media (max-width: 1024px) {
     .featured-products-home .product-card-wrapper {
         padding: 0 50px;

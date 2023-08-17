@@ -26,7 +26,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 36px;
-    color: #000000;
+    color: #0b2340;
     margin-bottom: 61px;
 }
 .article-content-block{
@@ -40,7 +40,7 @@
     max-width: calc(33.33% - 13px);
     height: 15.313rem;
     position: relative;
-    border: 1px solid #E4EFF9;
+    border: 1px solid #E6F1F9;
 }
 .article-content-block p{
     font-family: 'Montserrat', sans-serif;
@@ -124,7 +124,6 @@
         margin: 21px 0 8px 0;
     }
     .article-carousel-wrapper .flickity-page-dots .dot{
-        /* border: 1px solid red; */
         width: 11px;
         height: 11px;
         border-radius: 50%;

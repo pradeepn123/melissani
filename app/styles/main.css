@@ -80,6 +80,7 @@ svg:focus {
   font-size: 24px;
   line-height: 31.92px;
   font-weight: 900;
+  color: #0b2340;
 }
 
 .email-subscription-btn {
@@ -96,7 +97,7 @@ svg:focus {
   line-height: 23px;
   letter-spacing: 0em;
   text-align: left;
-  color: #1B2943;
+  color: #0b2340;
 }
 
 #email-success {
@@ -134,7 +135,7 @@ svg:focus {
   line-height: 23px;
   letter-spacing: 0em;
   text-align: center;
-  color: #1B2943;
+  color: #0b2340;
   margin-top: 47px;
 }
 
@@ -164,6 +165,7 @@ svg:focus {
   letter-spacing: 0em;
   text-align: center;
   display: inherit;
+  color: #0b2340;
 }
 
 .copyright-content p, .copyright-content span {
