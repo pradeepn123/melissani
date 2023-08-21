@@ -90,19 +90,6 @@ export function Layout({children, layout}) {
     items: subscriptionItems
   } = useDrawerFromBottom();
 
-  const fetchers = useFetchers();
-  const addToCartFetchers = useCartFetchers('ADD_TO_CART');
-
-  useEffect(() => {
-    const isIdeal = fetchers.find((fetcher) => fetcher.state == "idle")
-    if (isIdeal && addToCartFetchers.length == 0) {
-      closeNoSubscriptionModalOpen()
-      closeFilterClubRightModal()
-      closeFilterClubSavingsRightModal()
-      closeSubscriptionModalOpen()
-    }
-  }, [fetchers.length > 0 && addToCartFetchers.length == 0 && (isNoSubscriptionModalOpen || isFilterClubRightModalOpen || isFilterClubSavingsRightModal || isSubscriptionModalOpen)])
-
   const {pathname} = useLocation();
   return (
     <RequestContext.Provider
