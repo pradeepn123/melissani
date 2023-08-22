@@ -54,6 +54,10 @@ svg:focus {
   padding: .75rem 2.26rem;
 }
 
+.inline-btn {
+  color: #0b2340;
+}
+
 .inline-btn:hover {
   opacity: 0.7;
 }
@@ -67,7 +71,7 @@ button.needsclick.kl-teaser-RvDUif.undefined.kl-private-reset-css-Xuajs1 {
   padding: 66px 104px 40px 104px;
   display: block;
   color: #1b2943;
-  background-color: #E2E9EB;
+  background-color: #E4EFF9;
 }
 
 .copy-wrapper {
@@ -84,6 +88,7 @@ button.needsclick.kl-teaser-RvDUif.undefined.kl-private-reset-css-Xuajs1 {
   font-size: 24px;
   line-height: 31.92px;
   font-weight: 900;
+  color: #0b2340;
 }
 
 .email-subscription-btn {
@@ -100,7 +105,7 @@ button.needsclick.kl-teaser-RvDUif.undefined.kl-private-reset-css-Xuajs1 {
   line-height: 23px;
   letter-spacing: 0em;
   text-align: left;
-  color: #1B2943;
+  color: #0b2340;
 }
 
 #email-success {
@@ -138,7 +143,7 @@ button.needsclick.kl-teaser-RvDUif.undefined.kl-private-reset-css-Xuajs1 {
   line-height: 23px;
   letter-spacing: 0em;
   text-align: center;
-  color: #1B2943;
+  color: #0b2340;
   margin-top: 47px;
 }
 
@@ -168,6 +173,7 @@ button.needsclick.kl-teaser-RvDUif.undefined.kl-private-reset-css-Xuajs1 {
   letter-spacing: 0em;
   text-align: center;
   display: inherit;
+  color: #0b2340;
 }
 
 .copyright-content p, .copyright-content span {
@@ -893,7 +899,7 @@ form .field-input::placeholder {
   color: #1B2943;
 }
 .announcementbar_main{
-  background: #E1E9EB;
+  background: #E4EFF9;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
 }
