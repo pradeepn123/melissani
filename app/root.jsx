@@ -99,6 +99,14 @@ export default function App() {
         <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wp4Lww"></script>
         <script async type="text/javascript" src="https://cdn.shopify.com/s/files/1/0684/3023/3888/files/twitter.js?v=1681901569"></script>
         <script async src='//foursixty.com/media/scripts/fs.embed.v2.5.js' data-feed-id='melissani' data-theme='showcase_v2_5' data-open-links-in-same-page='true' data-show-okendo-stars='true' data-page-size='10'></script>
+      
+        {/* Meta Pixel Code  */}
+        <script async type="text/javascript" src="https://cdn.shopify.com/s/files/1/0684/3023/3888/files/meta-pixel.js?v=1693290474"></script>
+        <noscript><img height="1" width="1" style={{display: "none"}}
+          src="https://www.facebook.com/tr?id=761469935200629&ev=PageView&noscript=1"
+        /></noscript>
+        {/* End Meta Pixel Code */}
+
       </head>
       <body>
         <Layout
