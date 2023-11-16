@@ -118,7 +118,7 @@ export function ProductForm() {
                 </Text>
               )}
             </AddToCartButton>
-            {selectedVariant.quantityAvailable < 5 && <p style={{"gridColumn": "1 / span 2"}}>Sold Out, Order Now to ship July 12th</p>}
+            {selectedVariant.quantityAvailable < 5 && <p style={{"gridColumn": "1 / span 2"}}>Sold Out, Order Now to ship December 1st</p>}
           </div>
         </>}
       </div>
